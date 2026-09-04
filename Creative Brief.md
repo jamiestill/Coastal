@@ -160,6 +160,7 @@ Site needs to be beautiful, simple, and easy to read for older visitors. Brandin
 - Sustainability statement
 - T&C’s
 - LinkedIn and Facebook
+- Include GNA logo badge
 
 # 6. Design preferences
 
