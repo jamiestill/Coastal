@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Coastal Healthcare Advocates - "Pulse Beacon" mark
+     Colourway: One colour - Single navy ink - letterhead, stamps, engraving, single-colour print
+     Intended ground: #FBF6EA
+     Round 23 geometry: tower flush to collar, light/dark-aware stripe token resolved to #0F1E4A.
+     The lighthouse, beams and tower gaps are TRUE NEGATIVE SPACE (transparent) - the ground shows through.
+     Artboard 120 x 132 units. Minimum size 20px wide. Clear space: 12 units (10% of width) on all sides. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 132" width="120" height="132"
+     role="img" aria-label="Coastal Healthcare Advocates">
+  <title>Coastal Healthcare Advocates - Pulse Beacon (One colour)</title>
+  <defs>
+    <mask id="lighthouse-knockout">
+      <path d="M60 10 L100 24 Q106 26 106 34 L106 64 C106 100 86 118 60 130 C34 118 14 100 14 64 L14 34 Q14 26 20 24 Z" fill="#ffffff"/>
+      <g fill="#000000">
+        <circle cx="60" cy="19.5" r="2.6"/>
+        <path d="M49.0 29.0 Q45.0 32.0 50.0 32.0 L70.0 32.0 Q75.0 32.0 71.0 29.0 L64.0 24.0 Q60.0 21.0 56.0 24.0 Z"/>
+        <rect x="49" y="32" width="22" height="20" rx="3"/>
+        <rect x="45" y="52" width="30" height="6" rx="2"/>
+        <path d="M 47.0 58.0 L 73.0 58.0 Q 75.0 58.0 75.0 60.0 L 81.0 125.1 Q 82.0 131.0 76.0 131.0 L 44.0 131.0 Q 38.0 131.0 39.0 125.1 L 45.0 60.0 Q 45.0 58.0 47.0 58.0 Z"/>
+      </g>
+      <path d="M 50.67 35.74 L 2.22 38.36 L 7.78 59.64 L 51.33 38.26 Z M 68.67 38.26 L 112.22 59.64 L 117.78 38.36 L 69.33 35.74 Z" fill="#000000"/>
+    </mask>
+  </defs>
+  <g mask="url(#lighthouse-knockout)">
+    <path d="M60 10 L100 24 Q106 26 106 34 L106 64 C106 100 86 118 60 130 C34 118 14 100 14 64 L14 34 Q14 26 20 24 Z" fill="#0F1E4A"/>
+  </g>
+  <path d="M 63.26 58.00 L 55.07 58.00 L 43.62 74.97 L 42.32 89.05 Z M 39.65 118.06 L 40.44 118.66 L 75.60 66.54 L 74.95 59.44 L 74.68 58.72 L 74.16 58.24 L 73.16 58.00 L 40.76 106.04 Z M 47.24 123.25 L 53.17 126.62 L 77.78 90.13 L 76.79 79.44 Z M 61.14 129.46 L 69.44 125.20 L 74.11 122.40 L 79.95 113.73 L 78.97 103.04 Z" fill="#0F1E4A"/>
+  <path d="M60 49 C55.5 45 52 42.5 52 39.5 C52 36.5 54 35 56.5 35 C58.3 35 59.4 36 60 37 C60.6 36 61.7 35 63.5 35 C66 35 68 36.5 68 39.5 C68 42.5 64.5 45 60 49 Z" fill="#0F1E4A"/>
+</svg>
