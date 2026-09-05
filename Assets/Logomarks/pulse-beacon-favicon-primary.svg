@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Coastal Healthcare Advocates - FAVICON mark (primary), for light ground.
+     Deliberately NOT the full mark. Three differences, all for small sizes:
+       1. no tower stripes - they close up below ~28px;
+       2. the tower is FILLED SOLID (#0F1E4A). With the stripes gone it would otherwise be
+          pure negative space and read as a gap rather than a tower;
+       3. the lighthouse is scaled 1.625x inside the shield so the lantern and heart carry.
+     This is the only file in the set that breaks the negative-space rule. It is correct
+     for 16-48px use and wrong above that - use the full mark instead. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 132" width="120" height="132"
+     role="img" aria-label="Coastal Healthcare Advocates">
+  <title>Coastal Healthcare Advocates - favicon mark (primary)</title>
+  <defs>
+    <clipPath id="fav-primary-clip"><path d="M60 10 L100 24 Q106 26 106 34 L106 64 C106 100 86 118 60 130 C34 118 14 100 14 64 L14 34 Q14 26 20 24 Z"/></clipPath>
+    <mask id="fav-primary-knockout" maskUnits="userSpaceOnUse" x="0" y="0" width="120" height="132">
+      <path d="M60 10 L100 24 Q106 26 106 34 L106 64 C106 100 86 118 60 130 C34 118 14 100 14 64 L14 34 Q14 26 20 24 Z" fill="#ffffff"/>
+      <g transform="translate(60 30) scale(1.625) translate(-60 -30)">
+        <g fill="#000000">
+          <circle cx="60" cy="19.5" r="2.6"/>
+          <path d="M49.0 29.0 Q45.0 32.0 50.0 32.0 L70.0 32.0 Q75.0 32.0 71.0 29.0 L64.0 24.0 Q60.0 21.0 56.0 24.0 Z"/>
+          <rect x="49" y="31" width="22" height="22" rx="3"/>
+          <rect x="45" y="52" width="30" height="6" rx="2"/>
+          <rect x="47" y="55" width="26" height="4"/>
+          <path d="M 47 58 L 73 58 C 76.5 58 78.5 95 81 131 L 39 131 C 41.5 95 43.5 58 47 58 Z"/>
+        </g>
+        <path d="M 50.67 35.74 L 2.22 38.36 L 7.78 59.64 L 51.33 38.26 Z M 68.67 38.26 L 112.22 59.64 L 117.78 38.36 L 69.33 35.74 Z" fill="#000000"/>
+      </g>
+    </mask>
+  </defs>
+  <g transform="translate(0.000 0.000) scale(1.00000)">
+    <g mask="url(#fav-primary-knockout)"><path d="M60 10 L100 24 Q106 26 106 34 L106 64 C106 100 86 118 60 130 C34 118 14 100 14 64 L14 34 Q14 26 20 24 Z" fill="#4FACFE"/></g>
+    <g clip-path="url(#fav-primary-clip)"><g transform="translate(60 30) scale(1.625) translate(-60 -30)">
+      <path d="M 47 58 L 73 58 C 76.5 58 78.5 95 81 131 L 39 131 C 41.5 95 43.5 58 47 58 Z" fill="#0F1E4A"/><path d="M60 49 C55.5 45 52 42.5 52 39.5 C52 36.5 54 35 56.5 35 C58.3 35 59.4 36 60 37 C60.6 36 61.7 35 63.5 35 C66 35 68 36.5 68 39.5 C68 42.5 64.5 45 60 49 Z" fill="#FE1E1A"/>
+    </g></g>
+  </g>
+</svg>
