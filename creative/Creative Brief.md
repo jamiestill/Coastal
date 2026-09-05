@@ -187,8 +187,11 @@ Goof example of a bio to emulate for Lindsey; also like the simple footer and ic
 
 # 8. Content
 
+## Company Slogan
+- Understanding Benefits. Resolving Bills. Advocating for You.
+
 ## Hero
-- Headline: Don't navigste the maze alone.
+- Headline: Don't navigate the maze alone.
 - Subhead: A licensed advocate to navigate diagnoses, claims, and denials on your behalf.
 
 ## Value Cards
@@ -214,4 +217,71 @@ Before entering healthcare, Lindsey spent nearly five years as a Deputy Clerk of
 Lindsey is a Certified Professional Collection Specialist, certified under the Fair Debt Collection Practices Act (FDCPA), a Virginia Certified Mediator, and a Notary Public. She has also trained, coached, and quality-assured teams of collection specialists — experience that gives her a practiced eye for spotting exactly where a claim or a bill has gone wrong, and how to fix it.
 
 Based in Virginia Beach, Lindsey understands both sides of the insurance and billing process: how claims are supposed to work, and everywhere they tend to break down.
+
+## Pricing
+
+- Coastal Healthcare Advocates offers a range of services to help you understand your medical bills, resolve insurance issues, and get the most out of your benefits.
+- We're happy to discuss which option fits your situation during your initial consultation.
+
+---
+
+### 01. Getting Started
+
+#### Initial Consultation
+- **Price:** Free
+- 20–30 minute phone or video call to discuss your situation and how we can help.
+
+#### Standard Hourly Rate
+- **Price:** $85/hour
+- Ongoing advocacy work billed in 15‑minute increments.
+
+---
+
+### 02. Flat‑Fee Services
+
+#### Medical Bill Review / Audit
+Line‑by‑line review of an itemized bill and EOB to identify errors, duplicate charges, or overbilling.
+- **Price:** $125–$200
+
+#### Insurance Claim Appeal
+Research, drafting, and submission of a written appeal for a denied claim.
+- **Price:** $175–$300
+
+#### Benefits Explanation Session
+One‑on‑one session to explain your plan, coverage, and out‑of‑pocket costs.
+- **Price:** $75
+
+#### Provider Negotiation
+Direct negotiation with a provider or billing office to reduce a balance or set up a payment plan.
+- **Price:** $125–$250
+
+---
+
+### 03. Ongoing Support Packages
+
+#### Single‑Issue Package
+Up to 3 hours of advocacy on one specific bill, claim, or denial.
+- **Price:** $225
+
+#### Monthly Support Plan
+Up to 5 hours per month of ongoing advocacy for clients managing multiple bills or claims.
+- **Price:** $375/month
+
+---
+
+### 04. Notes
+- Rates listed are starting points and may be adjusted based on case complexity, the number of providers/insurers involved, and time required.
+- All clients receive a Service Agreement and Financial Responsibility Agreement outlining fees before work begins.
+- Most patient advocacy services are not covered by insurance and are paid directly by the client.
+- Payment plans may be available—ask us about options.
+
+---
+
+
+## Contact Info
+**Coastal Healthcare Advocates**  
+coastalhealthcareadvocates@gmail.com  
+757‑574‑0771  
+Virginia Beach & Hampton Roads, VA
+
 
