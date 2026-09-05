@@ -1,8 +1,8 @@
 COASTAL HEALTHCARE ADVOCATES — LOGO PACKAGE
-Round 29. Supersedes every earlier set. Delete anything older; nothing here is
+Supersedes every earlier set. Delete anything older; nothing here is
 compatible with the pre-round-24 geometry.
 
-  marks/     the Pulse Beacon mark on its own, 5 colourways + 2 favicon variants
+  marks/     the Advocate Beacon mark on its own, 5 colourways + 2 favicon variants
   lockups/   mark + wordmark, 4 forms x 4 colourways, all type outlined
 
 --------------------------------------------------------------------------------
@@ -14,7 +14,7 @@ COLOUR — the brand's own values. These are what everything is built from.
       Deep-tone alt shield    #2E3F72
 
   There is NO stripe colour. The stripes are negative space — the shield shows
-  through them. Any spec naming a stripe ink predates round 24 and is wrong.
+  through them. Any spec naming a stripe ink is wrong.
 
 NEAREST PANTONE — reference only, do NOT substitute into these files
   For quoting a job in Solid Coated. Matched by CIEDE2000; dE is how far off the
@@ -39,7 +39,7 @@ NEAREST PANTONE — reference only, do NOT substitute into these files
   collapse into one colour. 5395 C is further off alone but holds the two apart.
 
 --------------------------------------------------------------------------------
-GEOMETRY (round 29)
+GEOMETRY
 
   POSITION  The whole lighthouse sits 3 units below the shield centre, so the
             finial clears the shield's peak with a tip of space.
@@ -69,13 +69,13 @@ GEOMETRY (round 29)
 --------------------------------------------------------------------------------
 MARKS  (SVG is the master; PNG 16/32/48/64/128/256/512/1024px, transparent)
 
-  pulse-beacon-primary          Sky shield, coral heart        on Paper
-  pulse-beacon-dark             Lightened sky, near-white      on Midnight
-  pulse-beacon-one-colour       Single Navy ink                letterhead, stamps
-  pulse-beacon-reversed         Paper shield, cyan heart       on deep ink
-  pulse-beacon-deep-tone-alt    Muted navy shield, coral       on Paper
-  pulse-beacon-favicon-primary  } simplified small-size mark, see below
-  pulse-beacon-favicon-dark     }
+  advocate-beacon-primary          Sky shield, coral heart        on Paper
+  advocate-beacon-dark             Lightened sky, near-white      on Midnight
+  advocate-beacon-one-colour       Single Navy ink                letterhead, stamps
+  advocate-beacon-reversed         Paper shield, cyan heart       on deep ink
+  advocate-beacon-deep-tone-alt    Muted navy shield, coral       on Paper
+  advocate-beacon-favicon-primary  } simplified small-size mark, see below
+  advocate-beacon-favicon-dark     }
   favicon-primary.ico           } multi-resolution 16-256, padded square.
   favicon-dark.ico              } drop favicon-primary.ico at your web root
 
@@ -100,5 +100,5 @@ RASTERISING THESE YOURSELF
 
   Use a real browser engine (Chromium, resvg, Inkscape). cairosvg SILENTLY DROPS
   the <mask> element and hands back a solid shield with no lighthouse in it, with
-  no warning. The masks are gone from the marks themselves as of round 27, but
+  no warning. The masks are gone from the marks themselves, but
   this still applies to anything else in the identity that uses one.
