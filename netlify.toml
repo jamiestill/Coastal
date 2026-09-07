@@ -1,0 +1,50 @@
+# Coastal Healthcare Advocates — Netlify config.
+# The site is plain static files at the repo root. assets/css/site.css is committed,
+# so no build is strictly required. The command below is a safety net: Netlify has
+# Node, so it re-builds the stylesheet from source on every deploy.
+
+[build]
+  publish = "."
+  command = "npx --yes tailwindcss@3.4.17 -i src/input.css -o assets/css/site.css --minify"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Security + caching headers. Mirrors the CSP <meta> in the HTML; the header wins where both apply.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "geolocation=(), camera=(), microphone=(), payment=()"
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# --- Plausible analytics proxy (keeps CSP 'self'-only; loaded only after consent) ---
+[[redirects]]
+  from = "/js/script.js"
+  to = "https://plausible.io/js/script.js"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/event"
+  to = "https://plausible.io/api/event"
+  status = 200
+  force = true
+
+# Netlify Forms: the form also exists in index.html inside <noscript> for no-JS submits.
+[[redirects]]
+  from = "/thanks"
+  to = "/index.html"
+  status = 200
