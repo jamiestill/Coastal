@@ -3,7 +3,7 @@ Supersedes every earlier set. Delete anything older; nothing here is
 compatible with the pre-round-24 geometry.
 
   marks/     the Advocate Beacon mark on its own, 5 colourways + 2 favicon variants
-  lockups/   mark + wordmark, 4 forms x 4 colourways, all type outlined
+  logos/     mark + wordmark, 4 forms x 4 colourways, all type outlined
 
 --------------------------------------------------------------------------------
 COLOUR — the brand's own values. These are what everything is built from.
@@ -85,10 +85,10 @@ MARKS  (SVG is the master; PNG 16/32/48/64/128/256/512/1024px, transparent)
 
   Full mark 20px minimum (28px+ recommended). Clear space 12 units (10% of width).
 
-LOCKUPS  (PNG 2048/1024/512px, transparent; clear space baked into each artboard)
+LOGOS  (PNG 2048/1024/512px, transparent; clear space baked into each artboard)
 
-  lockup-horizontal-*   mark + rule + stacked wordmark. Default. Min width 180px.
-  lockup-stacked-*      mark above centred wordmark. Square. Min width 120px.
+  logo-horizontal-*   mark + rule + stacked wordmark. Default. Min width 180px.
+  logo-stacked-*      mark above centred wordmark. Square. Min width 120px.
   wordmark-*            "COASTAL / HEALTHCARE ADVOCATES", no mark. Min 140px.
   logotype-*            "COASTAL" alone. App headers, tight spaces. Min 90px.
 
