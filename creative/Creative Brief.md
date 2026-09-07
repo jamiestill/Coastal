@@ -167,7 +167,7 @@ Footer links
 
 **_Icons_**
 
-Use Google Icons, then make look hand-drawn
+Use Google Icons, but make look hand-drawn like these: https://www.svgrepo.com/collection/doodle-library-hand-drawn-vectors/?search=health
 
 **_Sites we like and why_**
 
