@@ -185,7 +185,7 @@ Good example of a bio to emulate for Lindsey; also like the simple footer and ic
 
 - Site needs tracking and a cookie challenge
 
-- Need a privacy policy and terms and conditions.
+- Need a privacy policy and terms and conditions, HIPAA aware.
 
 - Site needs WCAG 2.1 Level AA
 
