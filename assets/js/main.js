@@ -144,3 +144,69 @@ if (howFlow && 'IntersectionObserver' in window && !prefersReducedMotion.matches
   );
   howObserver.observe(howFlow);
 }
+
+/* -------------------------------------------------------------------------
+   Scrollspy — mark the nav link whose section sits under the middle of the
+   viewport with aria-current="true" (styled as a held underline). Applies
+   to both the desktop and mobile nav. No-JS: nothing is marked, which is
+   the correct resting state.
+   ---------------------------------------------------------------------- */
+const navLinks = Array.from(document.querySelectorAll('.nav-link[href^="#"]'));
+
+if (navLinks.length && 'IntersectionObserver' in window) {
+  // href -> [links], and the sections those links point at.
+  const linksById = new Map();
+  const sections = [];
+  navLinks.forEach((link) => {
+    const id = link.getAttribute('href').slice(1);
+    if (!id) return;
+    if (!linksById.has(id)) {
+      const section = document.getElementById(id);
+      if (!section) return;
+      linksById.set(id, []);
+      sections.push(section);
+    }
+    linksById.get(id).push(link);
+  });
+
+  const visible = new Set();
+  let currentId = null;
+
+  const setCurrent = (id) => {
+    if (id === currentId) return;
+    currentId = id;
+    linksById.forEach((links, sectionId) => {
+      const on = sectionId === id;
+      links.forEach((link) => {
+        if (on) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    });
+  };
+
+  const spy = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) visible.add(entry.target);
+        else visible.delete(entry.target);
+      });
+      if (!visible.size) {
+        setCurrent(null);
+        return;
+      }
+      // Topmost section in document order that's currently crossing the midline.
+      let top = null;
+      visible.forEach((section) => {
+        if (!top || section.getBoundingClientRect().top < top.getBoundingClientRect().top) {
+          top = section;
+        }
+      });
+      setCurrent(top.id);
+    },
+    // A 1px band across the vertical centre of the viewport: a section is
+    // "current" while that line is inside it.
+    { rootMargin: '-50% 0px -50% 0px' }
+  );
+
+  sections.forEach((section) => spy.observe(section));
+}

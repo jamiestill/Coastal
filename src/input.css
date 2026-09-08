@@ -342,6 +342,14 @@
     transition: border-color 0.2s ease;
   }
   .tile:hover { border-color: var(--sky); }
+  /* Headings inside a card/tile switch to Questrial (sans) for readability at
+     small sizes — matches the h1 treatment. Questrial ships a single weight. */
+  :is(.card, .tile) :is(h2, h3, h4) {
+    font-family: theme('fontFamily.label');
+    font-weight: 400;
+    letter-spacing: 0;
+    padding-bottom: 0;
+  }
   .callout {
     background: var(--tag-bg);
     border: 1px solid var(--line);
@@ -364,6 +372,13 @@
      solid brand glyphs (LinkedIn, Facebook) stay filled. */
   .icon { width: 1.5rem; height: 1.5rem; flex: none; }
   .icon-lg { width: 2rem; height: 2rem; flex: none; }
+
+  /* Card lead icons — the standalone glyph at the top of a card — run 2x.
+     Inline icons (inside text, list rows, buttons, links) keep their size. */
+  .icon-badge { width: 6rem; height: 6rem; }
+  .icon-badge .icon-lg { width: 4rem; height: 4rem; }
+  #who .card > .icon-lg { width: 4rem; height: 4rem; }
+  [aria-labelledby="value-h"] li > .icon { width: 3rem; height: 3rem; }
 
   /* --- Wide content scrolls inside its own bordered container --- */
   .table-wrap {
@@ -396,6 +411,7 @@
     border-bottom: 1px solid var(--line);
     white-space: nowrap;
   }
+  .price-table thead th:last-child { text-align: right; }
   .price-col-name { width: 24%; }
   .price-col-fee { width: 8.5rem; }
 
@@ -564,6 +580,15 @@
   .nav-link:hover::after,
   .nav-link:focus-visible::after { transform: scaleX(1); }
 
+  /* Scrollspy — the link for the section currently under the viewport
+     holds its underline and takes the accent colour. */
+  .nav-link[aria-current="true"] { color: var(--navy); }
+  :root[data-theme="dark"] .nav-link[aria-current="true"] { color: var(--sky); }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .nav-link[aria-current="true"] { color: var(--sky); }
+  }
+  .nav-link[aria-current="true"]::after { transform: scaleX(1); }
+
   /* --- Skip link --- */
   .skip-link {
     position: absolute;
@@ -705,7 +730,7 @@
   /* --- How it works: staggered step cards joined by a hand-drawn dashed spine --- */
   .step-num {
     font-family: theme('fontFamily.mono');
-    font-size: 1.5rem;
+    font-size: 3rem;
     font-weight: 500;
     color: var(--sky);
     letter-spacing: 0.02em;
@@ -735,6 +760,8 @@
     justify-content: space-between;
     margin-bottom: 0.35rem;
   }
+  /* Oversized doodle icon per step — 2x the standard .icon-lg. */
+  .how-card-head .icon-lg { width: 4rem; height: 4rem; }
 
   /* Hand-drawn dotted connector. Inline SVG stretched over the flow
      (preserveAspectRatio="none"); non-scaling-stroke keeps the dot rhythm
@@ -786,24 +813,26 @@
     .how-step:nth-child(3) { grid-area: 3 / 1; }
     .how-step:nth-child(4) { grid-area: 4 / 2; }
 
-    /* Cards pushed to the outer edges so the connector has a clear centre
-       channel to weave down. */
-    .how-card { max-width: 20rem; }
-    .how-step:nth-child(odd) .how-card { margin-right: auto; }
-    .how-step:nth-child(even) .how-card { margin-left: auto; }
+    /* Cards fill their column, leaving only a narrow centre gutter for the
+       connector to weave down — keeps large screens from going white. */
+    .how-card { max-width: none; }
+    .how-step:nth-child(odd) .how-card { margin-right: 2rem; }
+    .how-step:nth-child(even) .how-card { margin-left: 2rem; }
 
     .how-spine { left: 0; width: 100%; }
     .how-rail-line { display: none; }
     .how-weave-line { display: inline; }
 
+    /* Node pinned to the card's inner edge, level with the card's midline,
+       where the weave line's endpoints land. */
     .how-node { top: 50%; }
     .how-step:nth-child(odd) .how-node {
       left: auto;
-      right: 0;
+      right: 2rem;
       transform: translate(50%, -50%);
     }
     .how-step:nth-child(even) .how-node {
-      left: 0;
+      left: 2rem;
       right: auto;
       transform: translate(-50%, -50%);
     }
@@ -1208,6 +1237,20 @@
   @media (max-width: 1023px) {
     .grid-9 { grid-template-columns: 1fr; }
     .grid-9 > * { grid-column: auto !important; }
+  }
+  /* About: at lg the left column (heading + portrait) is one sticky rail beside the
+     scrolling bio. The rail only needs room for the ~200px portrait, so it gets a
+     fixed track rather than a 4/9 share that would strand a gap before the bio.
+     Between 640 and 1023 the rail goes full-width and the portrait floats out of
+     it so the bio wraps around it. Below 640 everything stacks. */
+  @media (min-width: 1024px) {
+    #about .grid-9 { grid-template-columns: 15rem minmax(0, 1fr); }
+  }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    #about .grid-9 { display: block; }
+    #about .grid-9::after { content: ""; display: block; clear: both; }
+    #about .about-rail > .meta { margin-bottom: 1.5rem; }
+    #about .about-rail > figure { float: left; margin: 0 1.75rem 1rem 0; }
   }
   .sr-only-focusable:not(:focus):not(:focus-within) {
     position: absolute !important;

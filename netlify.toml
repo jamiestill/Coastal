@@ -70,7 +70,7 @@
     Cache-Control = "public, max-age=31536000, stale-while-revalidate=86400"
 
 [[headers]]
-  for = "/apple-touch-icon.png"
+  for = "/apple-touch-icon*.png"
   [headers.values]
     Cache-Control = "public, max-age=31536000, stale-while-revalidate=86400"
 
@@ -78,6 +78,12 @@
   for = "/site.webmanifest"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+# Social share card — not fingerprinted, so keep the window modest.
+[[headers]]
+  for = "/og-image.png"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
 
 # --- Plausible analytics proxy (keeps CSP 'self'-only; loaded only after consent) ---
 [[redirects]]
