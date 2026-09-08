@@ -1,11 +1,11 @@
 # Coastal Healthcare Advocates — Netlify config.
-# The site is plain static files at the repo root. assets/css/site.css is committed,
-# so no build is strictly required. The command below is a safety net: Netlify has
-# Node, so it re-builds the stylesheet from source on every deploy.
+# Static files at the repo root. `npm run build` compiles src/input.css into
+# assets/css/site.css (git-ignored); Netlify installs from package-lock.json and
+# caches node_modules between deploys.
 
 [build]
   publish = "."
-  command = "npx --yes tailwindcss@3.4.17 -i src/input.css -o assets/css/site.css --minify"
+  command = "npm run build"
 
 [build.environment]
   NODE_VERSION = "20"
@@ -20,13 +20,62 @@
     Permissions-Policy = "geolocation=(), camera=(), microphone=(), payment=()"
     Content-Security-Policy = "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
 
+# Cache rules are merged in file order; for a repeated header the last match wins,
+# so the broad /assets/* baseline comes first and the specific rules refine it.
+
+# HTML: always revalidate, so a deploy is visible on the next visit.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Baseline for every static asset (covers the root-level PDFs, SVGs, etc.).
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+# Fingerprint-free but rarely touched — a year, with a background refresh.
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/assets/logomarks/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, stale-while-revalidate=86400"
+
 [[headers]]
   for = "/assets/fonts/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# CSS + JS aren't content-hashed and CSS is rebuilt on every deploy, so keep the
+# window short and lean on stale-while-revalidate for the repeat-visit speed-up.
 [[headers]]
   for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
+# Root-level icons and manifest.
+[[headers]]
+  for = "/favicon.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/apple-touch-icon.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/site.webmanifest"
   [headers.values]
     Cache-Control = "public, max-age=604800"
 

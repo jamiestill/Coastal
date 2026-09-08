@@ -1,0 +1,17 @@
+{
+  "name": "coastal-healthcare-advocates",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Marketing website for Coastal Healthcare Advocates — Virginia Beach / Hampton Roads, VA.",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "tailwindcss -i src/input.css -o assets/css/site.css --watch",
+    "build": "tailwindcss -i src/input.css -o assets/css/site.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

@@ -4,13 +4,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repository is
 
-Pre-build creative and brand workspace for the **Coastal Healthcare Advocates** marketing
-website — a solo patient-advocacy practice (Lindsey Hewitt; Virginia Beach / Hampton Roads, VA).
-**The website itself has not been built yet.** What exists now is the brief, audience research,
-brand identity assets, reference imagery, and legal-page drafts.
+Marketing website for **Coastal Healthcare Advocates** — a solo patient-advocacy practice
+(Lindsey Hewitt; Virginia Beach / Hampton Roads, VA). The static site lives at the repo root
+(`index.html` plus the legal / 404 pages); the brief, audience research, brand assets, and
+reference imagery remain alongside it. `creative/Creative Brief.md` is the original spec.
 
-There is no build system, package manager, or test suite — no build, lint, or test command
-exists to run. `creative/Creative Brief.md` is the spec for the site that is to be built.
+## Build & local dev
+
+- **Stack:** hand-authored static HTML + TailwindCSS, deployed on **Netlify** — Netlify Forms
+  backs the intake form, `netlify.toml` redirects proxy Plausible analytics, and `netlify.toml`
+  carries the security + cache headers. Netlify is the only host (no GitHub Pages).
+- Run `npm install` once (Node ≥ 20). Then `npm run dev` for Tailwind `--watch` while editing
+  `src/input.css`, or `npm run build` for the minified one-shot. Netlify runs `npm run build`.
+- `assets/css/site.css` is **generated** — git-ignored, never hand-edit it. Change
+  `src/input.css` / `tailwind.config.js` and rebuild.
+- No test suite or linter.
 
 ## Working in the shell
 
@@ -23,7 +31,8 @@ exists to run. `creative/Creative Brief.md` is the spec for the site that is to 
 - The impeccable design hook (`.claude/settings.local.json`) runs
   `.claude/skills/impeccable/scripts/impeccable hook` after every Edit/Write and again on Stop.
   It is a design-QA pass over UI files; expect it to fire whenever you edit HTML/CSS.
-- There is no `.gitignore`, and six `.DS_Store` files are already tracked. Don't add more.
+- `.gitignore` covers `node_modules/` and the generated `assets/css/site.css`. Six `.DS_Store`
+  files were tracked before it existed and still are — don't add more.
 
 ## Brand identity — source of truth: `assets/logomarks/README.txt`
 

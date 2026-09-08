@@ -30,9 +30,13 @@
 
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'none'">
 
+  <!-- Above-the-fold faces. Without a preload these are only discovered after
+       site.css downloads and parses (critical-path depth 2): Cormorant Garamond
+       sets the H2s, Ysabeau the body/lede, Questrial the H1 + nav + eyebrows + buttons. -->
   <link rel="preload" href="assets/fonts/cormorant-garamond-500.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/ysabeau-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/img/hero-1024.jpg" as="image" media="(min-width: 1024px)">
+  <link rel="preload" href="assets/fonts/questrial-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/hero-1024.avif" as="image" type="image/avif" media="(min-width: 1024px)">
   <link rel="stylesheet" href="assets/css/site.css">
 
   <script type="application/ld+json">
@@ -418,11 +422,19 @@
 
           <div class="mt-8 lg:col-span-4 lg:mt-0">
             <figure class="framed" data-rise style="--i:1">
-              <img src="assets/img/hero-1024.jpg"
-                   srcset="assets/img/hero-640.jpg 640w, assets/img/hero-1024.jpg 1024w"
-                   sizes="(min-width: 1024px) 40vw, 100vw"
-                   width="1024" height="768" alt="" fetchpriority="high" decoding="async"
-                   class="block h-auto w-full">
+              <picture>
+                <source type="image/avif"
+                        srcset="assets/img/hero-640.avif 640w, assets/img/hero-1024.avif 1024w"
+                        sizes="(min-width: 1024px) 40vw, 100vw">
+                <source type="image/webp"
+                        srcset="assets/img/hero-640.webp 640w, assets/img/hero-1024.webp 1024w"
+                        sizes="(min-width: 1024px) 40vw, 100vw">
+                <img src="assets/img/hero-1024.jpg"
+                     srcset="assets/img/hero-640.jpg 640w, assets/img/hero-1024.jpg 1024w"
+                     sizes="(min-width: 1024px) 40vw, 100vw"
+                     width="1024" height="768" alt="" fetchpriority="high" decoding="async"
+                     class="block h-auto w-full">
+              </picture>
             </figure>
           </div>
 
@@ -501,7 +513,7 @@
     <section id="what" class="section" aria-labelledby="what-h">
       <div class="canvas">
         <span class="eyebrow">Start here</span>
-        <h2 id="what-h" class="mt-3 max-w-[18ch]">First — what is a patient advocate?</h2>
+        <h2 id="what-h" class="mt-3">First — what is a patient advocate?</h2>
         <div class="mt-6 grid gap-x-gutter gap-y-4 md:grid-cols-2">
           <p>A patient advocate is an independent professional who works only for you. Not the
             hospital, not the insurance company — you. It is a real and growing field, but most
@@ -633,12 +645,20 @@
       <div class="canvas grid-9">
         <div class="lg:col-span-2">
           <figure class="framed w-fit max-w-full lg:sticky lg:top-24">
-            <img src="assets/img/lindsey-512.jpg"
-                 srcset="assets/img/lindsey-512.jpg 512w, assets/img/lindsey-768.jpg 768w"
-                 sizes="200px"
-                 width="768" height="960" alt="Lindsey Hewitt, patient advocate"
-                 loading="lazy" decoding="async"
-                 class="block h-auto w-auto max-h-[200px] max-w-[200px]">
+            <picture>
+              <source type="image/avif"
+                      srcset="assets/img/lindsey-512.avif 512w, assets/img/lindsey-768.avif 768w"
+                      sizes="200px">
+              <source type="image/webp"
+                      srcset="assets/img/lindsey-512.webp 512w, assets/img/lindsey-768.webp 768w"
+                      sizes="200px">
+              <img src="assets/img/lindsey-512.jpg"
+                   srcset="assets/img/lindsey-512.jpg 512w, assets/img/lindsey-768.jpg 768w"
+                   sizes="200px"
+                   width="768" height="960" alt="Lindsey Hewitt, patient advocate"
+                   loading="lazy" decoding="async"
+                   class="block h-auto w-auto max-h-[200px] max-w-[200px]">
+            </picture>
           </figure>
         </div>
 

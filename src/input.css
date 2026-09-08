@@ -1,7 +1,7 @@
 /* ============================================================================
    Coastal Healthcare Advocates — source stylesheet
-   Build:  ./tools/tailwindcss -i src/input.css -o assets/css/site.css --minify
-   The built assets/css/site.css is committed and is the only stylesheet loaded.
+   Build:  npm run build      (watch while developing: npm run dev)
+   Output: assets/css/site.css — git-ignored, generated, the only stylesheet loaded.
    ========================================================================== */
 
 /* --- Self-hosted fonts (latin subset). Kept outside @layer so they pass through as-is. --- */
@@ -127,6 +127,12 @@
     font-family: theme('fontFamily.head');
     font-weight: 500;
     letter-spacing: 0.005em;
+    /* Cormorant Garamond's descenders (p, g, y, "?") extend past the font's
+       reported descent, so a last line flush with the box gets its tails clipped
+       in Safari. A hair of bottom padding keeps the ink inside the paint box;
+       headings use margin:0 and lean on the next element's mt-* for spacing, so
+       this doesn't disturb vertical rhythm. */
+    padding-bottom: 0.12em;
   }
   h2 { font-size: theme('fontSize.h2'); line-height: 1.25; }
   h3 { font-size: theme('fontSize.h3'); line-height: 1.3; }
@@ -656,8 +662,36 @@
 
   .path-card > * { position: relative; z-index: 1; }
 
-  .path-card--crisis   { --path-card-bg: url('../img/path-crisis-1280.jpg'); }
-  .path-card--referrer { --path-card-bg: url('../img/path-referrer-1280.jpg'); }
+  /* The CTA is `w-full sm:w-auto`; on `sm`+ it shrinks to fit its label, but
+     `.btn`'s `white-space: nowrap` makes a long uppercase label ("Book a free
+     consultation") wider than a half-width card, so it overflowed the card and
+     the page. Let these two wrap instead — `width:auto` then clamps to the card. */
+  .path-card .btn {
+    white-space: normal;
+    text-align: center;
+  }
+
+  /* JPEG is the safe fallback; @supports upgrades to AVIF/WebP where the
+     image-set() type() syntax is understood (Chrome 113+, Safari 17+, FF 89+). */
+  .path-card--crisis   { --path-card-bg: url('../img/path-crisis-960.jpg'); }
+  .path-card--referrer { --path-card-bg: url('../img/path-referrer-960.jpg'); }
+
+  @supports (background-image: image-set(url('x.webp') type('image/webp'))) {
+    .path-card--crisis {
+      --path-card-bg: image-set(
+        url('../img/path-crisis-960.avif') type('image/avif'),
+        url('../img/path-crisis-960.webp') type('image/webp'),
+        url('../img/path-crisis-960.jpg') type('image/jpeg')
+      );
+    }
+    .path-card--referrer {
+      --path-card-bg: image-set(
+        url('../img/path-referrer-960.avif') type('image/avif'),
+        url('../img/path-referrer-960.webp') type('image/webp'),
+        url('../img/path-referrer-960.jpg') type('image/jpeg')
+      );
+    }
+  }
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) .path-card::before { opacity: 0.5; }
