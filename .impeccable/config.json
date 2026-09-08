@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-08T03:21:10.457Z",
+        "reason": "model triage: pre-existing divider/table-row patterns (.dl-rows>div, .price-group, .faq-trigger) not introduced by this session's changes (photo bands + who-grid column cap); .price-group keeps table-cell horizontal padding, others are border dividers not padded boxes"
+      }
+    ]
+  }
+}

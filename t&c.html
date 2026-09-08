@@ -19,16 +19,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="canvas flex items-center gap-4 py-3">
-      <a href="index.html" class="flex items-center" aria-label="Coastal Healthcare Advocates — home">
-        <span class="brand-logo" role="img" aria-label="Coastal Healthcare Advocates"></span>
-      </a>
-      <nav aria-label="Primary" class="ml-auto flex items-center gap-3">
-        <a class="nav-link" href="index.html">Home</a>
-      </nav>
-    </div>
-  </header>
+  <div data-partial="header"></div>
 
   <main id="main">
     <div class="canvas section">
@@ -190,35 +181,8 @@
     </div>
   </main>
 
-  <footer class="site-footer on-dark">
-    <div class="canvas flex flex-col gap-5 py-10 sm:flex-row sm:items-center sm:justify-between">
-      <div>
-        <p class="meta" style="color:rgba(245,251,255,.7)">Coastal Healthcare Advocates ·
-          <a href="tel:+17575740771" class="num">757-574-0771</a> ·
-          <a href="mailto:coastalhealthcareadvocates@gmail.com">coastalhealthcareadvocates@gmail.com</a></p>
-        <p class="meta mt-2" style="color:rgba(245,251,255,.5)">© 2026 Coastal Healthcare Advocates.
-          <a href="accessibility.html">Accessibility</a> ·
-          <a href="privacy.html">Privacy</a> ·
-          <a href="t&amp;c.html">Terms &amp; Conditions</a></p>
-      </div>
-      <button type="button" id="theme-toggle" class="theme-switch shrink-0" aria-label="Switch to dark theme">
-        <span class="theme-switch-track">
-          <span class="theme-switch-knob">
-            <svg class="theme-switch-ico theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
-              <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 7.6c2.5 0 4.5 2 4.4 4.5 0 2.4-2 4.4-4.5 4.3-2.4 0-4.4-2-4.3-4.5 0-2.4 2-4.3 4.4-4.3Z"/>
-                <path d="M12 2.6v2.4M12 19v2.4M4.6 4.7l1.7 1.7M17.7 17.7l1.7 1.7M2.6 12H5M19 12h2.4M4.6 19.4l1.7-1.7M17.7 6.4l1.7-1.7"/>
-              </g>
-            </svg>
-            <svg class="theme-switch-ico theme-icon-dark" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
-                    d="M20 14.2A8.3 8.3 0 0 1 9.7 4a8.4 8.4 0 1 0 10.3 10.2Z"/>
-            </svg>
-          </span>
-        </span>
-        <span class="sr-only theme-toggle-label">Dark theme</span>
-      </button>
-    </div>
-  </footer>
+  <div data-partial="footer"></div>
+  <script src="assets/js/partials.js"></script>
+  <script type="module" src="assets/js/consent.js"></script>
 </body>
 </html>

@@ -633,15 +633,165 @@
   }
 
   /* --- Path cards (the two entry paths) --- */
-  .path-card { display: flex; flex-direction: column; gap: 1rem; padding: 1.75rem; height: 100%; }
+  .path-card { display: flex; flex-direction: column; gap: 1rem; padding: 1.75rem; height: 100%; position: relative; }
 
-  /* --- How-it-works connector --- */
+  /* Calm full-bleed photo behind the whole card under a heavy surface wash,
+     so navy body copy keeps its contrast. Decorative; images are same-origin. */
+  .path-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: theme('borderRadius.card');
+    background:
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--surface) 68%, transparent) 0%,
+        color-mix(in srgb, var(--surface) 80%, transparent) 42%,
+        color-mix(in srgb, var(--surface) 90%, transparent) 100%
+      ),
+      var(--path-card-bg, none) center / cover no-repeat;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .path-card > * { position: relative; z-index: 1; }
+
+  .path-card--crisis   { --path-card-bg: url('../img/path-crisis-1280.jpg'); }
+  .path-card--referrer { --path-card-bg: url('../img/path-referrer-1280.jpg'); }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .path-card::before { opacity: 0.5; }
+  }
+  :root[data-theme="dark"] .path-card::before { opacity: 0.5; }
+
+  @media (prefers-contrast: more) {
+    .path-card::before { display: none; }
+  }
+
+  /* --- How it works: staggered step cards joined by a hand-drawn dashed spine --- */
   .step-num {
     font-family: theme('fontFamily.mono');
     font-size: 1.5rem;
     font-weight: 500;
     color: var(--sky);
     letter-spacing: 0.02em;
+  }
+
+  .how-flow { --rail: 2.75rem; position: relative; margin-top: 2.5rem; }
+
+  .how-steps {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-left: var(--rail);
+  }
+
+  .how-step { position: relative; }
+
+  .how-card {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .how-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.35rem;
+  }
+
+  /* Hand-drawn dotted connector. Inline SVG stretched over the flow
+     (preserveAspectRatio="none"); non-scaling-stroke keeps the dot rhythm
+     even under the non-uniform stretch. Two paths: a near-straight rail for
+     the single mobile column, an S-weave between the staggered desktop cards. */
+  .how-spine {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 0.25rem;
+    width: calc(var(--rail) - 0.75rem);
+    color: var(--sky);
+    overflow: visible;
+  }
+  .how-spine path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 0.5 11;
+    vector-effect: non-scaling-stroke;
+    opacity: 0.55;
+  }
+  .how-weave-line { display: none; }
+
+  .how-node {
+    position: absolute;
+    top: 1.75rem;
+    left: calc(0.25rem + (var(--rail) - 0.75rem) / 2 - var(--rail));
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 999px;
+    background: var(--bg);
+    border: 2px solid var(--sky);
+    transform: translate(-50%, -50%);
+  }
+
+  @media (min-width: 768px) {
+    .how-steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 2rem;
+      row-gap: 2rem;
+      grid-auto-rows: minmax(10rem, auto);
+      padding-left: 0;
+    }
+    .how-step:nth-child(1) { grid-area: 1 / 1; }
+    .how-step:nth-child(2) { grid-area: 2 / 2; }
+    .how-step:nth-child(3) { grid-area: 3 / 1; }
+    .how-step:nth-child(4) { grid-area: 4 / 2; }
+
+    /* Cards pushed to the outer edges so the connector has a clear centre
+       channel to weave down. */
+    .how-card { max-width: 20rem; }
+    .how-step:nth-child(odd) .how-card { margin-right: auto; }
+    .how-step:nth-child(even) .how-card { margin-left: auto; }
+
+    .how-spine { left: 0; width: 100%; }
+    .how-rail-line { display: none; }
+    .how-weave-line { display: inline; }
+
+    .how-node { top: 50%; }
+    .how-step:nth-child(odd) .how-node {
+      left: auto;
+      right: 0;
+      transform: translate(50%, -50%);
+    }
+    .how-step:nth-child(even) .how-node {
+      left: 0;
+      right: auto;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  /* One-shot draw-in when the section scrolls into view. .js-draw is added by
+     JS only, so with no JS (or reduced motion) everything shows fully drawn. */
+  @media (prefers-reduced-motion: no-preference) {
+    .how-flow.js-draw .how-spine { clip-path: inset(0 0 100% 0); }
+    .how-flow.js-draw.is-drawn .how-spine {
+      clip-path: inset(0 0 0 0);
+      transition: clip-path 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .how-flow.js-draw .how-card { opacity: 0; transform: translateY(12px); }
+    .how-flow.js-draw.is-drawn .how-card {
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .how-flow.js-draw.is-drawn .how-step:nth-child(2) .how-card { transition-delay: 0.12s; }
+    .how-flow.js-draw.is-drawn .how-step:nth-child(3) .how-card { transition-delay: 0.24s; }
+    .how-flow.js-draw.is-drawn .how-step:nth-child(4) .how-card { transition-delay: 0.36s; }
   }
 
   /* --- FAQ accordion --- */

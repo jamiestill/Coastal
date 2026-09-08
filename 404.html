@@ -16,15 +16,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="canvas flex items-center justify-between gap-4 py-3">
-      <a href="index.html" class="flex items-center" aria-label="Coastal Healthcare Advocates — home">
-        <img src="assets/logomarks/logos/logo-horizontal-primary.svg" alt="Coastal Healthcare Advocates"
-             width="220" height="48" class="h-11 w-auto">
-      </a>
-      <a class="btn btn-primary" href="index.html#intake">Free consultation</a>
-    </div>
-  </header>
+  <div data-partial="header"></div>
 
   <main id="main">
     <section class="section">
@@ -47,16 +39,8 @@
     </section>
   </main>
 
-  <footer class="site-footer on-dark">
-    <div class="canvas py-10">
-      <p class="meta" style="color:rgba(245,251,255,.7)">Coastal Healthcare Advocates ·
-        <a href="tel:+17575740771">757-574-0771</a> ·
-        <a href="mailto:coastalhealthcareadvocates@gmail.com">coastalhealthcareadvocates@gmail.com</a></p>
-      <p class="meta mt-2" style="color:rgba(245,251,255,.5)">© 2026 Coastal Healthcare Advocates.
-        <a href="accessibility.html">Accessibility</a> ·
-        <a href="privacy.html">Privacy</a> ·
-        <a href="t&amp;c.html">Terms</a></p>
-    </div>
-  </footer>
+  <div data-partial="footer"></div>
+  <script src="assets/js/partials.js"></script>
+  <script type="module" src="assets/js/consent.js"></script>
 </body>
 </html>

@@ -122,3 +122,25 @@ if (header && tail) {
     { passive: true }
   );
 }
+
+/* -------------------------------------------------------------------------
+   "How it works" — draw the connector and lift the step cards in once the
+   section scrolls into view. Progressive enhancement: with no JS, or with
+   reduced motion, every element is already shown in its finished state.
+   ---------------------------------------------------------------------- */
+const howFlow = document.querySelector('.how-flow');
+
+if (howFlow && 'IntersectionObserver' in window && !prefersReducedMotion.matches) {
+  howFlow.classList.add('js-draw');
+  const howObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        howFlow.classList.add('is-drawn');
+        obs.disconnect();
+      });
+    },
+    { threshold: 0.2 }
+  );
+  howObserver.observe(howFlow);
+}

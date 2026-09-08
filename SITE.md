@@ -90,7 +90,14 @@ re-builds the CSS and applies the security headers + Plausible proxy).
    lives in `t&c.html` where it's contractually needed. Confirm that's acceptable.
 7. **OG image** — `og-image.png` (1200×630) referenced in `<head>` is **not yet generated**.
    Create one (logo + slogan on Paper) with a real browser/resvg/Inkscape and drop it at the root.
-8. **Photography** — only the provided hero illustration and headshot are used. Add more if wanted.
+8. **Photography** — the provided hero illustration and headshot, plus two full-bleed photos
+   behind the hero entry-path cards, both by Age Cymru (unsplash.com/@agecymru):
+   `assets/img/path-crisis-1280.jpg` (conversation over coffee) and
+   `assets/img/path-referrer-1280.jpg` (carer guiding seniors through paperwork). Unsplash License, no
+   attribution required; credited in an `index.html` comment as courtesy. `sips`-cropped to
+   1280×520, EXIF stripped. Applied as a decorative full-bleed CSS `::before` on `.path-card`
+   under a heavy `--surface` wash (68→90%) so navy body copy keeps ~8–10:1 contrast (see
+   `src/input.css`); dimmed in dark mode, hidden under `prefers-contrast: more`.
 9. **Bio wording** — hero subhead + value card 3 now say **"a certified advocate"** (was
    "licensed") per your call; the bio itself is unchanged §8 verbatim.
 10. Consider a `git mv "t&c.html" terms.html` later — the `&` needs URL-encoding everywhere
