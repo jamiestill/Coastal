@@ -884,6 +884,17 @@
     from { opacity: 0; transform: translateY(-4px); }
     to   { opacity: 1; transform: none; }
   }
+  /* one reading column on small screens; two once there's room for both to stay legible */
+  .faq-grid { max-width: theme('maxWidth.measure'); }
+  @media (min-width: 900px) {
+    .faq-grid {
+      max-width: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 3.5rem;
+      align-items: start;
+    }
+  }
 
   /* --- Sticky bottom CTA --- */
   .sticky-cta {
