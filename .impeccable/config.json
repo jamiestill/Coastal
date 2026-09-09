@@ -11,6 +11,15 @@
         ],
         "createdAt": "2026-09-08T03:21:10.457Z",
         "reason": "model triage: pre-existing divider/table-row patterns (.dl-rows>div, .price-group, .faq-trigger) not introduced by this session's changes (photo bands + who-grid column cap); .price-group keeps table-cell horizontal padding, others are border dividers not padded boxes"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-09T16:09:12.499Z",
+        "reason": "model triaged: every text-transform:uppercase rule in src/input.css (.eyebrow, .btn, .price-table th, .dl-rows dt, .footer-col-title, legal table th) targets a short label/heading/button — no running body copy is uppercased; recurring false positive"
       }
     ]
   }

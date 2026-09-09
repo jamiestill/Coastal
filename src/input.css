@@ -31,6 +31,8 @@
     --cyan: #00F2FE;
     --seagrass: #0BA678;
     --coral: #FE1E1A;
+    --lantern: #E07A00;
+    --sand: #FFC93C;
     --midnight: #0A0F24;
     --paper: #F5FBFF;
 
@@ -330,21 +332,33 @@
 
   /* --- Surfaces --- */
   .card {
-    background: var(--surface);
+    background: var(--card-wash, var(--surface));
     border: 1px solid var(--line);
     border-radius: theme('borderRadius.card');
     box-shadow: theme('boxShadow.card');
   }
+  /* Brand-wash card cycle: pale palette tints mixed over the live surface, so they
+     hold up in light and dark. Five steps so adjacent cards never share a hue.
+     Put `wash-cycle` on a card container (see #who and the FAQ grid). */
+  .wash-cycle > :nth-child(5n + 1) { --card-wash: color-mix(in srgb, var(--sky)      12%, var(--surface)); }
+  .wash-cycle > :nth-child(5n + 2) { --card-wash: color-mix(in srgb, var(--seagrass) 12%, var(--surface)); }
+  .wash-cycle > :nth-child(5n + 3) { --card-wash: color-mix(in srgb, var(--sand)     18%, var(--surface)); }
+  .wash-cycle > :nth-child(5n + 4) { --card-wash: color-mix(in srgb, var(--lantern)  12%, var(--surface)); }
+  .wash-cycle > :nth-child(5n + 5) { --card-wash: color-mix(in srgb, var(--coral)     9%, var(--surface)); }
+  .wash-cycle > .card,
+  .wash-cycle > .faq-item { border-color: color-mix(in srgb, var(--card-wash) 84%, var(--ink)); }
   .tile {
-    background: var(--surface);
+    background: var(--tag-bg);
     border: 1px solid var(--line);
     border-radius: theme('borderRadius.tile');
     transition: border-color 0.2s ease;
   }
   .tile:hover { border-color: var(--sky); }
+  /* badge sits on the surface colour so it still reads against the tinted tile */
+  .tile .icon-badge { background: var(--surface); border: 1px solid var(--line); }
   /* Headings inside a card/tile switch to Questrial (sans) for readability at
      small sizes — matches the h1 treatment. Questrial ships a single weight. */
-  :is(.card, .tile) :is(h2, h3, h4) {
+  :is(.card, .tile, .how-card-inner) :is(h2, h3, h4) {
     font-family: theme('fontFamily.label');
     font-weight: 400;
     letter-spacing: 0;
@@ -727,138 +741,156 @@
     .path-card::before { display: none; }
   }
 
-  /* --- How it works: staggered step cards joined by a hand-drawn dashed spine --- */
+  /* --- How it works: pinned note-cards on ruled paper, joined by a
+     marching-ants dashed thread (adapted from a 21st.dev "how-it-works") --- */
   .step-num {
-    font-family: theme('fontFamily.mono');
-    font-size: 3rem;
+    font-family: theme('fontFamily.head');
+    font-style: italic;
+    font-size: 2.75rem;
+    line-height: 1;
     font-weight: 500;
-    color: var(--sky);
-    letter-spacing: 0.02em;
+    color: var(--how-accent, var(--sky));
   }
 
-  .how-flow { --rail: 2.75rem; position: relative; margin-top: 2.5rem; }
+  .how-flow { position: relative; margin-top: 2.5rem; }
+
+  /* faint notebook rule behind the cards, faded out at both edges */
+  .how-flow::before {
+    content: "";
+    position: absolute;
+    inset: -1.5rem 0;
+    background-image: linear-gradient(var(--ink) 1px, transparent 1px);
+    background-size: 100% 2rem;
+    opacity: 0.05;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+  }
 
   .how-steps {
     position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    padding-left: var(--rail);
-  }
-
-  .how-step { position: relative; }
-
-  .how-card {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-  .how-card-head {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.35rem;
+    gap: 1.75rem;
   }
-  /* Oversized doodle icon per step — 2x the standard .icon-lg. */
-  .how-card-head .icon-lg { width: 4rem; height: 4rem; }
+  /* per-step accent + inner-panel wash, same palette recipe as .wash-cycle */
+  .how-steps > :nth-child(1) { --how-accent: var(--sky);      --how-wash: color-mix(in srgb, var(--sky)      12%, var(--surface)); }
+  .how-steps > :nth-child(2) { --how-accent: var(--seagrass); --how-wash: color-mix(in srgb, var(--seagrass) 12%, var(--surface)); }
+  .how-steps > :nth-child(3) { --how-accent: var(--lantern);  --how-wash: color-mix(in srgb, var(--lantern)  12%, var(--surface)); }
+  .how-steps > :nth-child(4) { --how-accent: var(--coral);    --how-wash: color-mix(in srgb, var(--coral)     9%, var(--surface)); }
 
-  /* Hand-drawn dotted connector. Inline SVG stretched over the flow
-     (preserveAspectRatio="none"); non-scaling-stroke keeps the dot rhythm
-     even under the non-uniform stretch. Two paths: a near-straight rail for
-     the single mobile column, an S-weave between the staggered desktop cards. */
-  .how-spine {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    left: 0.25rem;
-    width: calc(var(--rail) - 0.75rem);
-    color: var(--sky);
-    overflow: visible;
+  .how-step { position: relative; width: 100%; max-width: 22rem; }
+
+  /* white "photo" frame around a tinted inner panel */
+  .how-card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 0.5rem;
+    box-shadow: theme('boxShadow.lift');
+    transition: rotate 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                scale 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
+  .how-card-inner {
+    background: var(--how-wash, var(--tag-bg));
+    border: 1px solid color-mix(in srgb, var(--how-accent, var(--sky)) 30%, var(--line));
+    border-radius: 15px;
+    padding: 1.15rem 1.25rem 1.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .how-card-inner h3 { margin-top: 0.15rem; }
+
+  /* pushpin straddling the top edge of the frame */
+  .how-pin {
+    position: absolute;
+    top: -0.85rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    color: var(--how-accent, var(--sky));
+    filter: drop-shadow(0 2px 3px color-mix(in srgb, var(--ink) 22%, transparent));
+  }
+  .how-pin svg { width: 100%; height: 100%; }
+
+  /* connector: dashed path stretched over the flow (preserveAspectRatio="none",
+     non-scaling-stroke keeps the dash rhythm even under the non-uniform stretch) */
+  .how-spine { display: none; }
   .how-spine path {
     fill: none;
-    stroke: currentColor;
-    stroke-width: 3;
+    stroke: var(--sky);
+    stroke-width: 2.5;
     stroke-linecap: round;
-    stroke-dasharray: 0.5 11;
+    stroke-dasharray: 7 7;
     vector-effect: non-scaling-stroke;
-    opacity: 0.55;
-  }
-  .how-weave-line { display: none; }
-
-  .how-node {
-    position: absolute;
-    top: 1.75rem;
-    left: calc(0.25rem + (var(--rail) - 0.75rem) / 2 - var(--rail));
-    width: 0.9rem;
-    height: 0.9rem;
-    border-radius: 999px;
-    background: var(--bg);
-    border: 2px solid var(--sky);
-    transform: translate(-50%, -50%);
+    opacity: 0.45;
   }
 
   @media (min-width: 768px) {
     .how-steps {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      column-gap: 2rem;
+      column-gap: 2.5rem;
       row-gap: 2rem;
-      grid-auto-rows: minmax(10rem, auto);
-      padding-left: 0;
+      align-items: start;
     }
-    .how-step:nth-child(1) { grid-area: 1 / 1; }
-    .how-step:nth-child(2) { grid-area: 2 / 2; }
-    .how-step:nth-child(3) { grid-area: 3 / 1; }
-    .how-step:nth-child(4) { grid-area: 4 / 2; }
+    .how-step { max-width: 21rem; }
+    /* cards pushed to the outer edges; the thread weaves the gap between them */
+    .how-step:nth-child(1) { grid-area: 1 / 1; justify-self: start; }
+    .how-step:nth-child(2) { grid-area: 2 / 2; justify-self: end; }
+    .how-step:nth-child(3) { grid-area: 3 / 1; justify-self: start; }
+    .how-step:nth-child(4) { grid-area: 4 / 2; justify-self: end; }
 
-    /* Cards fill their column, leaving only a narrow centre gutter for the
-       connector to weave down — keeps large screens from going white. */
-    .how-card { max-width: none; }
-    .how-step:nth-child(odd) .how-card { margin-right: 2rem; }
-    .how-step:nth-child(even) .how-card { margin-left: 2rem; }
+    /* a loose, hand-pinned tilt that straightens on hover */
+    .how-step:nth-child(odd)  .how-card { rotate: -2.5deg; }
+    .how-step:nth-child(even) .how-card { rotate: 2.5deg; }
+    .how-card:hover { rotate: 0deg; scale: 1.03; z-index: 3; }
 
-    .how-spine { left: 0; width: 100%; }
-    .how-rail-line { display: none; }
-    .how-weave-line { display: inline; }
-
-    /* Node pinned to the card's inner edge, level with the card's midline,
-       where the weave line's endpoints land. */
-    .how-node { top: 50%; }
-    .how-step:nth-child(odd) .how-node {
-      left: auto;
-      right: 2rem;
-      transform: translate(50%, -50%);
-    }
-    .how-step:nth-child(even) .how-node {
-      left: 2rem;
-      right: auto;
-      transform: translate(-50%, -50%);
+    .how-spine {
+      display: block;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      z-index: 0;
+      pointer-events: none;
     }
   }
 
-  /* One-shot draw-in when the section scrolls into view. .js-draw is added by
-     JS only, so with no JS (or reduced motion) everything shows fully drawn. */
+  /* Marching-ants thread + a one-shot lift-in when the section scrolls into
+     view. .js-draw is added by JS only (and never under reduced motion), so
+     with no JS everything shows in its finished state. */
   @media (prefers-reduced-motion: no-preference) {
-    .how-flow.js-draw .how-spine { clip-path: inset(0 0 100% 0); }
-    .how-flow.js-draw.is-drawn .how-spine {
-      clip-path: inset(0 0 0 0);
-      transition: clip-path 1.15s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .how-flow.js-draw .how-card { opacity: 0; transform: translateY(12px); }
-    .how-flow.js-draw.is-drawn .how-card {
+    .how-spine path { animation: how-march 2.6s linear infinite; }
+    @keyframes how-march { to { stroke-dashoffset: -56; } }
+
+    .how-flow.js-draw .how-step { opacity: 0; transform: translateY(14px); }
+    .how-flow.js-draw.is-drawn .how-step {
       opacity: 1;
       transform: none;
       transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .how-flow.js-draw.is-drawn .how-step:nth-child(2) .how-card { transition-delay: 0.12s; }
-    .how-flow.js-draw.is-drawn .how-step:nth-child(3) .how-card { transition-delay: 0.24s; }
-    .how-flow.js-draw.is-drawn .how-step:nth-child(4) .how-card { transition-delay: 0.36s; }
+    .how-flow.js-draw.is-drawn .how-step:nth-child(2) { transition-delay: 0.1s; }
+    .how-flow.js-draw.is-drawn .how-step:nth-child(3) { transition-delay: 0.2s; }
+    .how-flow.js-draw.is-drawn .how-step:nth-child(4) { transition-delay: 0.3s; }
   }
 
   /* --- FAQ accordion --- */
-  .faq-item { border-bottom: 1px solid var(--line); }
+  /* pale brand washes come from `.wash-cycle` on .faq-grid (see --- Surfaces ---) */
+  .faq-item {
+    padding: 0.25rem 1.5rem 0.5rem;
+    border: 1px solid var(--line);
+    border-radius: theme('borderRadius.card');
+    background: var(--card-wash, var(--surface));
+  }
   .faq-trigger {
     width: 100%;
     display: flex;
@@ -885,13 +917,16 @@
     to   { opacity: 1; transform: none; }
   }
   /* one reading column on small screens; two once there's room for both to stay legible */
-  .faq-grid { max-width: theme('maxWidth.measure'); }
+  .faq-grid {
+    max-width: theme('maxWidth.measure');
+    display: grid;
+    gap: 1rem;
+  }
   @media (min-width: 900px) {
     .faq-grid {
       max-width: none;
-      display: grid;
       grid-template-columns: 1fr 1fr;
-      column-gap: 3.5rem;
+      gap: 1.25rem;
       align-items: start;
     }
   }
