@@ -27,11 +27,11 @@
 
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/svg+xml" href="assets/logomarks/marks/advocate-beacon-favicon-primary.svg">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="apple-touch-icon-167x167.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon-180x180.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="assets/img/apple-touch-icon-167x167.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/img/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/img/apple-touch-icon-120x120.png">
   <link rel="manifest" href="site.webmanifest">
 
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'none'">
@@ -445,12 +445,14 @@
           </div>
 
           <div class="mt-10 lg:col-span-9">
-            <!-- Path-card photos: Unsplash License, both by Age Cymru (unsplash.com/@agecymru).
-                 "I need help right now." — conversation over coffee.
-                 "I'm helping someone else." — carer guiding seniors through paperwork. -->
+            <!-- Path-card photos: Unsplash License.
+                 "I need help right now." — clinician and patient reviewing paperwork,
+                 by Vitaly Gariev (unsplash.com/@vitgar, photo 8WYkI3cEZm8).
+                 "I'm helping someone else." — carer guiding seniors through paperwork,
+                 by Age Cymru (unsplash.com/@agecymru). -->
             <div class="grid gap-gutter sm:grid-cols-2" data-rise style="--i:3">
               <article class="card path-card path-card--crisis">
-                <span class="icon-badge"><svg class="icon-lg" aria-hidden="true"><use href="#i-lifering"/></svg></span>
+            
                 <h2 class="text-h3">I need help right now.</h2>
                 <p>A denied claim, a bill that makes no sense, or a diagnosis you're facing alone — start here.</p>
                 <ul class="flex flex-wrap gap-x-5 gap-y-2">
@@ -459,14 +461,13 @@
                   <li><a class="link-quiet" href="#pricing">What it costs</a></li>
                 </ul>
                 <p class="mt-auto pt-2">
-                  <button type="button" class="btn btn-primary w-full sm:w-auto" data-open-contact data-context="crisis">
+                  <button type="button" class="btn btn-ghost w-full sm:w-auto" data-open-contact data-context="crisis">
                     Book a free consultation
                   </button>
                 </p>
               </article>
 
               <article class="card path-card path-card--referrer">
-                <span class="icon-badge"><svg class="icon-lg" aria-hidden="true"><use href="#i-hands-heart"/></svg></span>
                 <h2 class="text-h3">I'm helping someone else.</h2>
                 <p>Researching for a parent or partner, or referring a client as part of your own practice.</p>
                 <ul class="flex flex-wrap gap-x-5 gap-y-2">
@@ -708,7 +709,7 @@
           </dl>
 
           <p class="mt-7">
-            <a class="link-quiet" href="assets/Lindsey%20Profile.pdf" target="_blank" rel="noopener">
+            <a class="link-quiet" href="assets/docs/Lindsey%20Profile.pdf" target="_blank" rel="noopener">
               <svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg>
               Lindsey's full professional profile (PDF)
             </a>
@@ -780,11 +781,6 @@
             </li>
           </ol>
         </div>
-
-        <p class="mt-8 flex flex-wrap items-center gap-4">
-          <span class="text-ink-soft">Step one is free.</span>
-          <button type="button" class="btn btn-primary" data-open-contact>Book the free consultation</button>
-        </p>
       </div>
     </section>
 
@@ -871,7 +867,7 @@
         </div>
 
         <p class="mt-6">
-          <a class="link-quiet" href="assets/CHA_Pricing_Sheet.pdf" target="_blank" rel="noopener">
+          <a class="link-quiet" href="assets/docs/CHA_Pricing_Sheet.pdf" target="_blank" rel="noopener">
             <svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg>
             Download the full pricing sheet (PDF)
           </a>
@@ -881,15 +877,11 @@
           <p class="eyebrow">Notes</p>
           <ul class="mt-4 flex flex-col gap-2">
             <li class="flex gap-2.5"><svg class="icon shrink-0 text-sky" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>Rates listed are starting points and may be adjusted based on case complexity, the number of providers/insurers involved, and time required.</span></li>
-            <li class="flex gap-2.5"><svg class="icon shrink-0 text-sky" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>All clients receive a Service Agreement and <a href="assets/Coastal-Financial-Responsibility-Agreement-DRAFT.pdf" target="_blank" rel="noopener">Financial Responsibility Agreement</a> outlining fees before work begins.</span></li>
+            <li class="flex gap-2.5"><svg class="icon shrink-0 text-sky" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>All clients receive a Service Agreement and <a href="assets/docs/Coastal-Financial-Responsibility-Agreement-DRAFT.pdf" target="_blank" rel="noopener">Financial Responsibility Agreement</a> outlining fees before work begins.</span></li>
             <li class="flex gap-2.5"><svg class="icon shrink-0 text-sky" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>Most patient advocacy services are not covered by insurance and are paid directly by the client.</span></li>
             <li class="flex gap-2.5"><svg class="icon shrink-0 text-sky" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>Payment plans may be available — ask us about options.</span></li>
           </ul>
         </div>
-
-        <p class="mt-8">
-          <button type="button" class="btn btn-primary" data-open-contact>Book the free consultation</button>
-        </p>
       </div>
     </section>
 
@@ -1087,11 +1079,9 @@
               </a>
               <span class="flex items-center gap-2.5">
                 <svg class="icon shrink-0 text-sky" style="width:1.2rem" aria-hidden="true"><use href="#i-pin"/></svg>
-                <span>Virginia Beach &amp; Hampton Roads, VA</span>
+                <span>Virginia Beach &amp; Hampton Roads area</span>
               </span>
             </address>
-            <p class="form-note mt-4">This form and inbox are not for medical emergencies. If this
-              is an emergency, call 911.</p>
           </div>
         </div>
       </div>
@@ -1172,7 +1162,7 @@
         <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
           <a href="https://www.gnanow.org/" rel="noopener" class="gna-badge shrink-0"
              aria-label="Greater National Advocates — verified member">
-            <img src="assets/gna-logo-white.svg" alt="Greater National Advocates — verified member"
+            <img src="assets/img/gna-logo-white.svg" alt="Greater National Advocates — verified member"
                  width="361" height="49" class="block h-9 w-auto">
           </a>
           <button type="button" id="theme-toggle" class="theme-switch" aria-label="Switch to dark theme">

@@ -105,7 +105,7 @@
         '<div class="mt-12 flex flex-col gap-x-10 gap-y-6 border-t border-white/15 pt-8 md:flex-row md:flex-wrap md:items-center md:justify-between">' +
           '<div class="flex flex-wrap items-center gap-x-8 gap-y-4">' +
             '<a href="https://www.gnanow.org/" rel="noopener" class="gna-badge shrink-0" aria-label="Greater National Advocates — verified member">' +
-              '<img src="assets/gna-logo-white.svg" alt="Greater National Advocates — verified member" width="361" height="49" class="block h-9 w-auto">' +
+              '<img src="assets/img/gna-logo-white.svg" alt="Greater National Advocates — verified member" width="361" height="49" class="block h-9 w-auto">' +
             '</a>' +
             '<button type="button" id="theme-toggle" class="theme-switch" aria-label="Switch to dark theme">' +
               '<span class="theme-switch-track">' +
