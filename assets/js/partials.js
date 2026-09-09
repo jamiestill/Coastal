@@ -73,6 +73,7 @@
               '<li><a href="index.html#how">How it works</a></li>' +
               '<li><a href="index.html#pricing">Pricing</a></li>' +
               '<li><a href="index.html#faqs">FAQs</a></li>' +
+              '<li><a href="style-guide.html">Style guide</a></li>' +
             '</ul>' +
           '</nav>' +
           '<nav aria-label="Legal">' +

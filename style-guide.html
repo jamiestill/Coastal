@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="assets/js/theme.js"></script>
+  <title>Style Guide | Coastal Healthcare Advocates</title>
+  <meta name="description" content="Internal reference for Coastal Healthcare Advocates' brand system — palette, type, the Advocate Beacon mark, logo lockups, and CSS design tokens, as implemented on this site.">
+  <link rel="canonical" href="https://coastalhealthcareadvocates.org/style-guide.html">
+  <meta name="robots" content="noindex,follow">
+  <meta name="theme-color" content="#0F1E4A">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="assets/logomarks/marks/advocate-beacon-favicon-primary.svg">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'none'">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div data-partial="header"></div>
+
+  <main id="main">
+    <div class="canvas section--tight">
+      <span class="eyebrow">Internal reference — not a site section</span>
+      <h1 class="mt-3">Style Guide</h1>
+      <p class="lede mt-4">The brand system behind this site, as it's actually built: palette,
+        type, the Advocate Beacon mark, logo lockups, and the CSS tokens that drive light and
+        dark mode. For whoever touches this repo next — a printer, an embroiderer, a designer, a
+        future Claude session — or Lindsey and Jamie checking a colour or a rule.</p>
+      <p class="meta mt-3">This page documents what <code class="num">tailwind.config.js</code>,
+        <code class="num">src/input.css</code>, and <code class="num">assets/logomarks/</code>
+        actually ship. If anything here ever disagrees with
+        <code class="num">assets/logomarks/README.txt</code>, the README wins — it's the source
+        these tokens are built from.</p>
+
+      <nav aria-label="Sections of this guide" class="legal-toc mt-6">
+        <p class="footer-col-title" style="color:var(--ink-soft)">Contents</p>
+        <ol>
+          <li><a href="#palette">Palette</a></li>
+          <li><a href="#type">Type system</a></li>
+          <li><a href="#scale">Type scale</a></li>
+          <li><a href="#mark">The mark</a></li>
+          <li><a href="#lockups">Logo lockups</a></li>
+          <li><a href="#tokens">CSS tokens</a></li>
+          <li><a href="#production">Production notes</a></li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- ================= PALETTE ================================== -->
+    <section id="palette" class="section bg-surface border-y border-line-soft" aria-labelledby="palette-h">
+      <div class="canvas">
+        <span class="eyebrow">01</span>
+        <h2 id="palette-h" class="mt-3">Palette</h2>
+        <p class="lede mt-4">Six colours run the site. Everything else — light/dark surfaces,
+          text, borders — is a semantic token built from these (see <a href="#tokens">Tokens</a>).</p>
+
+        <ul class="mt-8 grid gap-gutter grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+          <li class="sg-swatch">
+            <div class="sg-swatch-chip" style="background:#0F1E4A"></div>
+            <div class="sg-swatch-body">
+              <p class="sg-swatch-name">Navy</p>
+              <p class="sg-swatch-hex">#0F1E4A</p>
+            </div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch-chip" style="background:#4FACFE"></div>
+            <div class="sg-swatch-body">
+              <p class="sg-swatch-name">Sky</p>
+              <p class="sg-swatch-hex">#4FACFE</p>
+            </div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch-chip" style="background:#00F2FE"></div>
+            <div class="sg-swatch-body">
+              <p class="sg-swatch-name">Cyan</p>
+              <p class="sg-swatch-hex">#00F2FE</p>
+            </div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch-chip" style="background:#FE1E1A"></div>
+            <div class="sg-swatch-body">
+              <p class="sg-swatch-name">Coral</p>
+              <p class="sg-swatch-hex">#FE1E1A</p>
+            </div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch-chip" style="background:#0A0F24"></div>
+            <div class="sg-swatch-body">
+              <p class="sg-swatch-name">Midnight</p>
+              <p class="sg-swatch-hex">#0A0F24</p>
+            </div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch-chip" style="background:#F5FBFF;border-bottom:1px solid var(--line)"></div>
+            <div class="sg-swatch-body">
+              <p class="sg-swatch-name">Paper</p>
+              <p class="sg-swatch-hex">#F5FBFF</p>
+            </div>
+          </li>
+        </ul>
+
+        <p class="mt-10 font-label text-h4" style="font-family:Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif">Where each one is used</p>
+        <div class="mt-4 table-wrap">
+          <table class="w-full" style="min-width:32rem;border-collapse:collapse;font-size:0.9375rem">
+            <thead>
+              <tr>
+                <th scope="col" class="text-left" style="padding:.7rem .95rem;border-bottom:1px solid var(--line);font-family:Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif;font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)">Colour</th>
+                <th scope="col" class="text-left" style="padding:.7rem .95rem;border-bottom:1px solid var(--line);font-family:Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif;font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)">Role on this site</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif;font-weight:500">Navy</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Body ink, headings, primary CTA fill in light mode, footer ground</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif;font-weight:500">Sky</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Links, focus ring on dark grounds, primary CTA fill in dark mode</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif;font-weight:500">Cyan</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Accent only — icons/fills, and the mark's heart in the Reversed colourway</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif;font-weight:500">Coral</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Cyan's counterpart — alerts/urgent states, the mark's heart in Primary and Deep-tone·alt</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif;font-weight:500">Midnight</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Deepest ground — dark-mode page background, the Dark mark colourway's ground</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif;font-weight:500">Paper</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Light-mode ground and the shield colour in the Reversed and One-colour marks</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout mt-8 p-5">
+          <p><strong>Contrast, as verified on the live pages:</strong> body/headings run ~16:1,
+            secondary text 7–9:1, the navy-on-sand CTA 10.5:1, and light-on-navy footer/CTA/sticky
+            text ≥9:1 — all clear of WCAG AA. Sky, Cyan, Seagrass, and Coral are used for icons and
+            fills only, never as text-on-light — none of them clear AA at body-text size on Paper.</p>
+        </div>
+
+        <p class="mt-8 font-label text-h4" style="font-family:Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif">Additional identity inks</p>
+        <p class="mt-2 lede" style="max-width:70ch">From <code class="num">assets/logomarks/README.txt</code> —
+          part of the brand's colour set for mark colourways and branded goods, not currently wired
+          into site UI.</p>
+        <ul class="mt-4 grid gap-gutter grid-cols-2 md:grid-cols-4">
+          <li class="sg-swatch">
+            <div class="sg-swatch-chip" style="background:#0BA678"></div>
+            <div class="sg-swatch-body"><p class="sg-swatch-name">Seagrass</p><p class="sg-swatch-hex">#0BA678</p></div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch-chip" style="background:#E07A00"></div>
+            <div class="sg-swatch-body"><p class="sg-swatch-name">Lantern</p><p class="sg-swatch-hex">#E07A00</p></div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch-chip" style="background:#FFC93C"></div>
+            <div class="sg-swatch-body"><p class="sg-swatch-name">Sand</p><p class="sg-swatch-hex">#FFC93C</p></div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch-chip" style="background:#2E3F72"></div>
+            <div class="sg-swatch-body"><p class="sg-swatch-name">Deep-tone·alt shield</p><p class="sg-swatch-hex">#2E3F72</p></div>
+          </li>
+        </ul>
+
+        <div class="mt-6" style="border:1px dashed var(--warn-line);background:var(--warn-bg);color:var(--warn-ink);border-radius:.5rem;padding:.9rem 1rem;font-size:.9375rem">
+          <strong style="color:var(--ink)">Nearest Pantone (Solid Coated), reference only —</strong>
+          don't substitute these into production files; check a physical fan deck before a print
+          run. Navy 2767&nbsp;C (dE 1.2) · Sky 284&nbsp;C (dE 3.3) · Cyan 3105&nbsp;C (dE 6.3,
+          weakest match) · Coral Bright&nbsp;Red&nbsp;C (dE 2.0) · Midnight 5395&nbsp;C (dE 7.1) ·
+          Deep-tone·alt 534&nbsp;C (dE 2.1) · Seagrass 3278&nbsp;C (dE 3.8) · Lantern 152&nbsp;C
+          (dE 1.6) · Sand 123&nbsp;C (dE 1.1). Paper is a substrate, not an ink — no match.
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TYPE SYSTEM ================================== -->
+    <section id="type" class="section" aria-labelledby="type-h">
+      <div class="canvas">
+        <span class="eyebrow">02</span>
+        <h2 id="type-h" class="mt-3">Type system</h2>
+        <p class="lede mt-4">Five typefaces, each with one job. Headlines are Cormorant Garamond
+          <strong>roman</strong>, not italic — earlier concept rounds explored an italic
+          treatment, but only the roman 500/600 weights are what's built and self-hosted here.</p>
+
+        <div class="mt-8 card p-6 md:p-8">
+          <div class="sg-specimen">
+            <p class="sg-specimen-label">Tenor&nbsp;Sans<br>400</p>
+            <p style="font-family:'Tenor Sans', ui-sans-serif, 'Gill Sans', 'Trebuchet MS', system-ui, sans-serif;font-size:1.75rem;letter-spacing:.04em;text-transform:uppercase">Coastal</p>
+          </div>
+          <div class="sg-specimen">
+            <p class="sg-specimen-label">Questrial<br>400 — H1</p>
+            <p style="font-family:Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif;font-size:clamp(1.75rem, 1.15rem + 2.7vw, 3rem);line-height:1.12;color:var(--ink)">Understanding benefits.</p>
+          </div>
+          <div class="sg-specimen">
+            <p class="sg-specimen-label">Cormorant Garamond<br>500 — H2</p>
+            <h2 style="font-size:clamp(1.5rem, 1.3rem + 0.9vw, 1.75rem);line-height:1.25;margin:0;padding-bottom:.12em">Resolving bills.</h2>
+          </div>
+          <div class="sg-specimen">
+            <p class="sg-specimen-label">Cormorant Garamond<br>500 — H3 / H4</p>
+            <p><span style="font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif;font-weight:500;font-size:clamp(1.25rem, 1.05rem + 0.9vw, 1.5rem)">Advocating for you.</span></p>
+          </div>
+          <div class="sg-specimen">
+            <p class="sg-specimen-label">Questrial<br>Eyebrow / labels</p>
+            <p class="eyebrow" style="display:inline">What we do</p>
+          </div>
+          <div class="sg-specimen">
+            <p class="sg-specimen-label">Ysabeau<br>400 — body / lede</p>
+            <p class="lede">A calm, plain-spoken read at 21px for intros — the size that carries a
+              section's opening sentence.</p>
+          </div>
+          <div class="sg-specimen">
+            <p class="sg-specimen-label">Ysabeau<br>400 — body copy</p>
+            <p>Running text sits at 18px/1.6 — a size chosen for older readers, per the brief's
+              accessibility requirement — and stops at a 65-character measure.</p>
+          </div>
+          <div class="sg-specimen">
+            <p class="sg-specimen-label">IBM&nbsp;Plex&nbsp;Mono<br>400/500 — figures only</p>
+            <p class="num">757-574-0771 &middot; $175–$300 &middot; #0F1E4A</p>
+          </div>
+        </div>
+
+        <div class="mt-6 table-wrap">
+          <table class="w-full" style="min-width:34rem;border-collapse:collapse;font-size:.9375rem">
+            <thead>
+              <tr>
+                <th scope="col" style="padding:.7rem .95rem;text-align:left;border-bottom:1px solid var(--line);font-family:Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif;font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)">Role</th>
+                <th scope="col" style="padding:.7rem .95rem;text-align:left;border-bottom:1px solid var(--line);font-family:Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif;font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)">Typeface</th>
+                <th scope="col" style="padding:.7rem .95rem;text-align:left;border-bottom:1px solid var(--line);font-family:Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif;font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)">Where it's used</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-weight:600">Logo</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Tenor Sans 400</td><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">The wordmark only — never running text</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-weight:600">H1</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Questrial 400</td><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Page/hero heading — one per page</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-weight:600">H2–H4</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Cormorant Garamond 500</td><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Section and card headings</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-weight:600">Eyebrow / labels</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Questrial 400</td><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Eyebrows, buttons, table headers, tracked uppercase labels</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-weight:600">Body</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Ysabeau 400/500/600</td><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Reading copy, ledes, meta text — the site's default font</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-weight:600">Figures</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">IBM Plex Mono 400/500</td><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Phone numbers, prices, counts — via the <code class="num">.num</code> class only</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TYPE SCALE ================================== -->
+    <section id="scale" class="section bg-surface border-y border-line-soft" aria-labelledby="scale-h">
+      <div class="canvas">
+        <span class="eyebrow">03</span>
+        <h2 id="scale-h" class="mt-3">Type scale</h2>
+        <p class="lede mt-4">Fluid sizes (<code class="num">clamp()</code>) between a mobile and
+          desktop value, from <code class="num">tailwind.config.js</code>.</p>
+
+        <div class="mt-6 table-wrap">
+          <table class="w-full" style="min-width:34rem;border-collapse:collapse;font-size:.9375rem">
+            <thead>
+              <tr>
+                <th scope="col" style="padding:.7rem .95rem;text-align:left;border-bottom:1px solid var(--line);font-family:Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif;font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)">Token</th>
+                <th scope="col" style="padding:.7rem .95rem;text-align:left;border-bottom:1px solid var(--line);font-family:Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif;font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)">Mobile → desktop</th>
+                <th scope="col" style="padding:.7rem .95rem;text-align:left;border-bottom:1px solid var(--line);font-family:Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif;font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)">Line-height</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">h1</th><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">28px → 48px</td><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">1.12</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">h2</th><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">24px → 28px</td><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">1.25</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">h3</th><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">20px → 24px</td><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">1.3</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">h4</th><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">20px (fixed)</td><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">1.35</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">lede</th><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">21px (fixed)</td><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">1.45</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">body</th><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">18px (fixed)</td><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">1.6</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">meta</th><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">15px (fixed)</td><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">1.5</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">eyebrow</th><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">12px (fixed)</td><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">1.3</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout mt-6 p-5">
+          <p><strong>Two rules that sit alongside the scale.</strong> Measure governs width —
+            running text stops at 65 characters — the scale only governs height. The golden ratio
+            (1.618) is for layout, not type: use it where the page splits into a main column and a
+            sidebar, not in the type scale, where 1.25 is already doing that work.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MARK ================================== -->
+    <section id="mark" class="section" aria-labelledby="mark-h">
+      <div class="canvas">
+        <span class="eyebrow">04</span>
+        <h2 id="mark-h" class="mt-3">The mark — "Advocate Beacon"</h2>
+        <p class="lede mt-4">A lighthouse inside a shield, negative-space stripes winding up the
+          tower so the shield colour shows through them — there is no separate stripe ink. Five
+          colourways, each tied to a specific ground.</p>
+
+        <ul class="mt-8 grid gap-gutter grid-cols-2 lg:grid-cols-5">
+          <li class="sg-tile" style="background:#F5FBFF">
+            <img src="assets/logomarks/marks/advocate-beacon-primary.svg" alt="Advocate Beacon mark, Primary colourway" width="120" height="132" style="height:84px">
+            <p style="color:#0F1E4A">Primary<br><span class="sg-tile-hex">Sky shield · Coral heart</span></p>
+          </li>
+          <li class="sg-tile" style="background:#0A0F24">
+            <img src="assets/logomarks/marks/advocate-beacon-dark.svg" alt="Advocate Beacon mark, Dark colourway" width="120" height="132" style="height:84px">
+            <p style="color:#F5FBFF">Dark<br><span class="sg-tile-hex">Sky-lt shield · near-white heart</span></p>
+          </li>
+          <li class="sg-tile" style="background:#F5FBFF">
+            <img src="assets/logomarks/marks/advocate-beacon-one-colour.svg" alt="Advocate Beacon mark, One-colour" width="120" height="132" style="height:84px">
+            <p style="color:#0F1E4A">One-colour<br><span class="sg-tile-hex">Navy only — letterhead, stamps</span></p>
+          </li>
+          <li class="sg-tile" style="background:#0F1E4A">
+            <img src="assets/logomarks/marks/advocate-beacon-reversed.svg" alt="Advocate Beacon mark, Reversed colourway" width="120" height="132" style="height:84px">
+            <p style="color:#F5FBFF">Reversed<br><span class="sg-tile-hex">Paper shield · Cyan heart</span></p>
+          </li>
+          <li class="sg-tile" style="background:#F5FBFF">
+            <img src="assets/logomarks/marks/advocate-beacon-deep-tone-alt.svg" alt="Advocate Beacon mark, Deep-tone·alt colourway" width="120" height="132" style="height:84px">
+            <p style="color:#0F1E4A">Deep-tone·alt<br><span class="sg-tile-hex">Muted-navy shield · Coral heart</span></p>
+          </li>
+        </ul>
+
+        <div class="mt-8 grid gap-gutter md:grid-cols-2">
+          <div class="tile p-6">
+            <h3 class="text-h4">Size &amp; spacing</h3>
+            <ul class="mt-3" style="padding-left:1.2rem;color:var(--ink-soft)">
+              <li>Full mark: 20px minimum, 28px+ recommended</li>
+              <li>Clear space: 12 units — 10% of the mark's width — on all sides</li>
+              <li>Below ~28px the stripes close up — use a favicon variant instead, never the full mark</li>
+            </ul>
+          </div>
+          <div class="tile p-6">
+            <h3 class="text-h4">Favicons are a different drawing</h3>
+            <p class="mt-3" style="color:var(--ink-soft)">Not a scaled-down full mark. The tower
+              fills solid Navy with no stripes, and the lighthouse is scaled 1.625×. Correct for
+              16–48px only; use the full mark above that.</p>
+            <div class="mt-4 flex items-center gap-4">
+              <img src="assets/logomarks/marks/advocate-beacon-favicon-primary.svg" alt="Favicon mark, primary" width="48" height="48" style="height:32px">
+              <img src="assets/logomarks/marks/advocate-beacon-favicon-dark.svg" alt="Favicon mark, dark ground" width="48" height="48" style="height:32px;background:#0A0F24;border-radius:4px;padding:2px">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LOGO LOCKUPS ================================== -->
+    <section id="lockups" class="section bg-surface border-y border-line-soft" aria-labelledby="lockups-h">
+      <div class="canvas">
+        <span class="eyebrow">05</span>
+        <h2 id="lockups-h" class="mt-3">Logo lockups</h2>
+        <p class="lede mt-4">Mark + wordmark, in four forms — shown here in Primary. Each form
+          also ships in Dark, One-colour, Reversed, and Deep-tone·alt (20 files total, in
+          <code class="num">assets/logomarks/logos/</code>). All type is outlined — no font
+          dependency at a printer.</p>
+
+        <div class="mt-8 grid gap-gutter md:grid-cols-2">
+          <div class="sg-tile" style="background:#F5FBFF">
+            <img src="assets/logomarks/logos/logo-horizontal-primary.svg" alt="Coastal Healthcare Advocates, horizontal lockup" width="271" height="82" style="height:64px">
+            <p style="color:#0F1E4A">Horizontal — default<br><span class="sg-tile-hex">min width 180px</span></p>
+          </div>
+          <div class="sg-tile" style="background:#F5FBFF">
+            <img src="assets/logomarks/logos/logo-stacked-primary.svg" alt="Coastal Healthcare Advocates, stacked lockup" width="175" height="145" style="height:104px">
+            <p style="color:#0F1E4A">Stacked — square<br><span class="sg-tile-hex">min width 120px</span></p>
+          </div>
+          <div class="sg-tile" style="background:#F5FBFF">
+            <img src="assets/logomarks/logos/wordmark-primary.svg" alt="Coastal Healthcare Advocates wordmark, no mark" width="207" height="57" style="height:48px">
+            <p style="color:#0F1E4A">Wordmark — no mark<br><span class="sg-tile-hex">min width 140px</span></p>
+          </div>
+          <div class="sg-tile" style="background:#F5FBFF">
+            <img src="assets/logomarks/logos/logotype-primary.svg" alt="Coastal logotype, wordmark alone" width="200" height="37" style="height:32px">
+            <p style="color:#0F1E4A">Logotype — "Coastal" alone<br><span class="sg-tile-hex">min width 90px, app headers / tight spaces</span></p>
+          </div>
+        </div>
+
+        <p class="mt-6"><a class="link-quiet" href="assets/logomarks/README.txt" target="_blank" rel="noopener">
+          Read the full asset README <svg class="icon" style="width:1rem" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a></p>
+      </div>
+    </section>
+
+    <!-- ================= TOKENS ================================== -->
+    <section id="tokens" class="section" aria-labelledby="tokens-h">
+      <div class="canvas">
+        <span class="eyebrow">06</span>
+        <h2 id="tokens-h" class="mt-3">CSS tokens</h2>
+        <p class="lede mt-4">Semantic custom properties in <code class="num">src/input.css</code>,
+          swapped by <code class="num">:root[data-theme]</code> or the visitor's OS preference —
+          this is what actually drives the light/dark toggle in the footer.</p>
+
+        <div class="mt-6 table-wrap">
+          <table class="w-full" style="min-width:36rem;border-collapse:collapse;font-size:.9375rem">
+            <thead>
+              <tr>
+                <th scope="col" style="padding:.7rem .95rem;text-align:left;border-bottom:1px solid var(--line);font-family:Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif;font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)">Token</th>
+                <th scope="col" style="padding:.7rem .95rem;text-align:left;border-bottom:1px solid var(--line);font-family:Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif;font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)">Light</th>
+                <th scope="col" style="padding:.7rem .95rem;text-align:left;border-bottom:1px solid var(--line);font-family:Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif;font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)">Dark</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">--bg</th><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">#FEFEFE</td><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">#0A0F24</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">--surface</th><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">#FDFEFF</td><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">#101A3A</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">--ink</th><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">#0F1E4A</td><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">#EAF0FF</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">--ink-soft</th><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">#3C4A73</td><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">#AEC0EA</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">--line</th><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">#DDE4F2</td><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">#25315C</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">--line-soft</th><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">#EAEFF9</td><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">#1B274A</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">--tag-bg</th><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">#EAF3FF</td><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">#16234A</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">--warn-bg / --warn-line / --warn-ink</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)" class="num">#EDF4FE / #C3D8F2 / #2F4468</td><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)" class="num">#241C0C / #4A3A14 / #E8C878</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">--ring / --focus-on-dark</th><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Navy</td><td class="num" style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Sky</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="mt-8 font-label text-h4" style="font-family:Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif">Layout tokens</p>
+        <div class="mt-4 table-wrap">
+          <table class="w-full" style="min-width:30rem;border-collapse:collapse;font-size:.9375rem">
+            <tbody>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">canvas / canvas-wide</th><td style="padding:.7rem .95rem;color:var(--ink-soft)">1000px reading column / 1180px header-footer width</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">gutter</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">24px grid gap</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">radius — card / tile</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">12px / 10px</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">grid</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">9-column, used by the About section's sticky rail</td></tr>
+              <tr><th scope="row" style="padding:.7rem .95rem;text-align:left;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace">shadow</th><td style="padding:.7rem .95rem;border-top:1px solid var(--line-soft);color:var(--ink-soft)">Neutral near-black elevation only — no chromatic or navy glow</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PRODUCTION NOTES ================================== -->
+    <section id="production" class="section--tight bg-surface border-t border-line-soft" aria-labelledby="production-h">
+      <div class="canvas">
+        <span class="eyebrow">07</span>
+        <h2 id="production-h" class="mt-3">Production notes</h2>
+        <div class="mt-6 grid gap-gutter md:grid-cols-2">
+          <div class="tile p-6">
+            <h3 class="text-h4">Rasterising the mark yourself</h3>
+            <p class="mt-3" style="color:var(--ink-soft)">Use a real browser engine — Chromium,
+              resvg, or Inkscape. <strong style="color:var(--ink)">cairosvg silently drops
+              <code class="num">&lt;mask&gt;</code> elements</strong> and returns a blank shield
+              with no warning. The marks themselves are now flat filled paths rather than masks,
+              but anything else in the identity that still uses one is at risk.</p>
+          </div>
+          <div class="tile p-6">
+            <h3 class="text-h4">There is no stripe colour</h3>
+            <p class="mt-3" style="color:var(--ink-soft)">The tower's helical bands are negative
+              space — the shield fill shows through them. Any spec that names a separate "stripe
+              ink" is wrong and out of date.</p>
+          </div>
+        </div>
+        <p class="mt-6"><a class="link-quiet" href="index.html">Return to the homepage</a></p>
+      </div>
+    </section>
+  </main>
+
+  <div data-partial="footer"></div>
+  <script src="assets/js/partials.js"></script>
+  <script type="module" src="assets/js/consent.js"></script>
+</body>
+</html>
