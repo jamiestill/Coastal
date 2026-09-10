@@ -105,6 +105,8 @@ if (header && tail) {
     const y = window.scrollY;
     const goingUp = y < lastY - 2;
     lastY = y;
+    // Soft elevation once the page has left the very top.
+    header.classList.toggle('scrolled', y > 8);
     // Distance from the viewport bottom to the top of the closing region.
     const gap = tail.getBoundingClientRect().top - window.innerHeight;
     const nearTail = gap < window.innerHeight * 0.45;
@@ -132,17 +134,66 @@ const howFlow = document.querySelector('.how-flow');
 
 if (howFlow && 'IntersectionObserver' in window && !prefersReducedMotion.matches) {
   howFlow.classList.add('js-draw');
+  // is-drawn is a one-shot (the thread draws itself in once); is-onscreen tracks
+  // visibility so the marching-ants loop can pause whenever the flow scrolls away.
   const howObserver = new IntersectionObserver(
-    (entries, obs) => {
+    (entries) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        howFlow.classList.add('is-drawn');
-        obs.disconnect();
+        howFlow.classList.toggle('is-onscreen', entry.isIntersecting);
+        if (entry.isIntersecting) howFlow.classList.add('is-drawn');
       });
     },
     { threshold: 0.2 }
   );
   howObserver.observe(howFlow);
+}
+
+/* -------------------------------------------------------------------------
+   Scroll-reveal — a restrained echo of the hero entrance across the page. Each
+   [data-reveal] container plays the rise-in keyframe on its direct children
+   (short stagger) the first time it reaches the fold. `.reveal-pending` arms
+   the hidden start state; it is swapped for `.reveal-in` to play, then both
+   are cleared so the children return to normal styles. A container flung past
+   before it could play (fast fling, anchor jump) is simply shown. A position
+   sweep on a throttled scroll listener is used rather than IntersectionObserver
+   so a section can never be skipped and left hidden. Nothing is armed under
+   reduced motion or without JS, so nothing is ever hidden.
+   ---------------------------------------------------------------------- */
+if (!prefersReducedMotion.matches) {
+  const revealEls = Array.from(document.querySelectorAll('[data-reveal]'));
+  if (revealEls.length) {
+    const REVEAL_MS = 600 + 4 * 80 + 60; // slowest child: duration + capped stagger + slack
+    let pending = revealEls;
+    pending.forEach((el) => el.classList.add('reveal-pending'));
+
+    const sweep = () => {
+      if (!pending.length) return;
+      const vh = window.innerHeight;
+      pending = pending.filter((el) => {
+        const top = el.getBoundingClientRect().top;
+        if (top > vh * 1.1) return true; // still well below the fold — keep waiting
+        el.classList.remove('reveal-pending');
+        if (top > 0) {
+          el.classList.add('reveal-in'); // entering from below — play the entrance
+          setTimeout(() => el.classList.remove('reveal-in'), REVEAL_MS);
+        }
+        return false; // already scrolled past — just shown, no entrance
+      });
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        sweep();
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    sweep(); // whatever is already at or above the fold on load
+  }
 }
 
 /* -------------------------------------------------------------------------

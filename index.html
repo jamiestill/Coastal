@@ -498,7 +498,7 @@
     <section class="section--tight border-t border-line-soft" aria-labelledby="value-h">
       <div class="canvas">
         <h2 id="value-h" class="eyebrow">What an advocate changes</h2>
-        <ul class="mt-6 grid gap-x-gutter gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+        <ul class="mt-6 grid gap-x-gutter gap-y-8 sm:grid-cols-2 lg:grid-cols-4" data-reveal>
           <li class="flex flex-col gap-2 border-t border-line pt-4">
             <svg class="icon text-sky" aria-hidden="true"><use href="#i-compass"/></svg>
             <h3 class="text-h4">Your guide through the healthcare system</h3>
@@ -525,14 +525,31 @@
 
     <!-- ================= WHAT IS AN ADVOCATE / WHY A HUMAN ============= -->
     <section id="what" class="section" aria-labelledby="what-h">
-      <div class="canvas">
+      <div class="canvas" data-reveal>
         <span class="eyebrow">Start here</span>
-        <h2 id="what-h" class="mt-3">First — what is a patient advocate?</h2>
-        <div class="mt-6 grid gap-x-gutter gap-y-4 md:grid-cols-2">
+        <h2 id="what-h" class="mt-3">What is a patient advocate?</h2>
+        <div class="what-intro mt-6">
+          <figure class="vignette-figure">
+            <picture>
+              <source type="image/avif"
+                      srcset="assets/img/advocate-hand-640.avif 640w, assets/img/advocate-hand-1024.avif 1024w"
+                      sizes="(min-width: 1024px) 40vw, 100vw">
+              <source type="image/webp"
+                      srcset="assets/img/advocate-hand-640.webp 640w, assets/img/advocate-hand-1024.webp 1024w"
+                      sizes="(min-width: 1024px) 40vw, 100vw">
+              <img src="assets/img/advocate-hand-1024.jpg"
+                   srcset="assets/img/advocate-hand-640.jpg 640w, assets/img/advocate-hand-1024.jpg 1024w"
+                   sizes="(min-width: 1024px) 40vw, 100vw"
+                   width="1024" height="1280"
+                   alt="An advocate holds the hand of a patient resting in a hospital bed"
+                   loading="lazy" decoding="async"
+                   class="block h-auto w-full">
+            </picture>
+          </figure>
           <p>A patient advocate is an independent professional who works only for you. Not the
             hospital, not the insurance company — you. It is a real and growing field, but most
             people never hear about it until they are already in the middle of something hard.</p>
-          <p>The work is practical. We read the fine print in your plan, challenge denied claims
+          <p class="mt-4">The work is practical. We read the fine print in your plan, challenge denied claims
             with written appeals, find and correct billing errors, negotiate balances with
             providers, help with Medicare and Medicaid paperwork, and translate what the system
             is telling you into plain language. You keep every decision. We carry the paperwork,
@@ -560,7 +577,7 @@
           understand your medical bills, resolve insurance issues, and get the most out of your
           benefits.</p>
 
-        <ul class="mt-10 grid gap-gutter md:grid-cols-2 lg:grid-cols-3">
+        <ul class="mt-10 grid gap-gutter md:grid-cols-2 lg:grid-cols-3" data-reveal>
           <li class="tile p-6">
             <span class="icon-badge"><svg class="icon-lg" aria-hidden="true"><use href="#i-shield-check"/></svg></span>
             <h3 class="mt-4 text-h4">Insurance Claim Denial Appeals</h3>
@@ -625,7 +642,7 @@
         <p class="lede mt-4">Whether the file is yours or someone else's, the questions are the
           same: what is really owed, what is covered, and what happens next.</p>
 
-        <ul class="mt-10 grid gap-gutter sm:grid-cols-2 wash-cycle">
+        <ul class="mt-10 grid gap-gutter sm:grid-cols-2 wash-cycle" data-reveal>
           <li class="card p-6">
             <svg class="icon-lg text-sky" aria-hidden="true"><use href="#i-hands-heart"/></svg>
             <h3 class="mt-3 text-h4">Individuals &amp; families</h3>
@@ -680,7 +697,7 @@
           </figure>
         </div>
 
-        <div class="about-bio">
+        <div class="about-bio" data-reveal>
           <div class="prose-measure">
             <p>Lindsey Hewitt brings 27 years of experience in medical billing, insurance claims,
               and accounts receivable to her work as a patient advocate — expertise built from
@@ -733,6 +750,7 @@
 
         <div class="how-flow">
           <svg class="how-spine" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="how-weave-trace" pathLength="100" d="M28 15 C 44 22 60 30 72 38 C 60 46 40 54 28 62 C 42 70 58 78 72 85" />
             <path class="how-weave-line" d="M28 15 C 44 22 60 30 72 38 C 60 46 40 54 28 62 C 42 70 58 78 72 85" />
           </svg>
 
@@ -788,7 +806,7 @@
 
     <!-- ================= PRICING (verbatim §8) ===================== -->
     <section id="pricing" class="section bg-surface border-y border-line-soft" aria-labelledby="pricing-h">
-      <div class="canvas">
+      <div class="canvas" data-reveal>
         <span class="eyebrow">Pricing</span>
         <h2 id="pricing-h" class="mt-3">Straightforward pricing</h2>
         <div class="prose-measure mt-4">
@@ -890,15 +908,21 @@
     <!-- ================= FAQs ====================================== -->
     <section id="faqs" class="section" aria-labelledby="faqs-h">
       <div class="canvas">
-        <span class="eyebrow">Common questions</span>
-        <h2 id="faqs-h" class="mt-3">Answers before you call</h2>
+        <div class="faq-layout">
+          <div class="faq-aside">
+            <span class="eyebrow">Common questions</span>
+            <h2 id="faqs-h" class="mt-3">FAQ</h2>
+            <p class="faq-more">Have more questions? Email
+              <a href="mailto:coastalhealthcareadvocates@gmail.com">coastalhealthcareadvocates<wbr>@gmail.com</a>
+              or call <a href="tel:+17575740771">757-574-0771</a>.</p>
+          </div>
 
-        <div class="mt-8 faq-grid wash-cycle">
+          <div class="faq-list" data-reveal>
           <div class="faq-item">
             <h3 class="m-0">
               <button type="button" class="faq-trigger" id="faq-1-b" aria-expanded="true" aria-controls="faq-1">
                 What does a patient advocate do?
-                <svg class="icon faq-sign shrink-0 text-sky" aria-hidden="true"><use href="#i-plus"/></svg>
+                <svg class="icon faq-sign shrink-0" aria-hidden="true"><use href="#i-plus"/></svg>
               </button>
             </h3>
             <div id="faq-1" class="faq-panel" role="region" aria-labelledby="faq-1-b">
@@ -915,7 +939,7 @@
             <h3 class="m-0">
               <button type="button" class="faq-trigger" id="faq-2-b" aria-expanded="false" aria-controls="faq-2">
                 How much does it cost?
-                <svg class="icon faq-sign shrink-0 text-sky" aria-hidden="true"><use href="#i-plus"/></svg>
+                <svg class="icon faq-sign shrink-0" aria-hidden="true"><use href="#i-plus"/></svg>
               </button>
             </h3>
             <div id="faq-2" class="faq-panel" role="region" aria-labelledby="faq-2-b" hidden>
@@ -932,7 +956,7 @@
             <h3 class="m-0">
               <button type="button" class="faq-trigger" id="faq-3-b" aria-expanded="false" aria-controls="faq-3">
                 My claim was denied. Can you still help?
-                <svg class="icon faq-sign shrink-0 text-sky" aria-hidden="true"><use href="#i-plus"/></svg>
+                <svg class="icon faq-sign shrink-0" aria-hidden="true"><use href="#i-plus"/></svg>
               </button>
             </h3>
             <div id="faq-3" class="faq-panel" role="region" aria-labelledby="faq-3-b" hidden>
@@ -949,7 +973,7 @@
             <h3 class="m-0">
               <button type="button" class="faq-trigger" id="faq-4-b" aria-expanded="false" aria-controls="faq-4">
                 Is my information confidential?
-                <svg class="icon faq-sign shrink-0 text-sky" aria-hidden="true"><use href="#i-plus"/></svg>
+                <svg class="icon faq-sign shrink-0" aria-hidden="true"><use href="#i-plus"/></svg>
               </button>
             </h3>
             <div id="faq-4" class="faq-panel" role="region" aria-labelledby="faq-4-b" hidden>
@@ -962,6 +986,7 @@
                 throughout.</p>
             </div>
           </div>
+          </div>
         </div>
       </div>
     </section>
@@ -969,7 +994,7 @@
     <!-- ================= INTAKE ==================================== -->
     <section id="intake" class="section bg-surface border-t border-line-soft" aria-labelledby="intake-h">
       <div class="canvas">
-        <div class="mx-auto max-w-measure text-center">
+        <div class="mx-auto max-w-measure text-center" data-reveal>
           <span class="eyebrow">Get started</span>
           <h2 id="intake-h" class="mt-3">Start with a free consultation</h2>
           <p class="lede mx-auto mt-4">Send a short message and Lindsey will get back to you within one
@@ -1092,7 +1117,7 @@
 
     <!-- ================= SCHEDULE ================================= -->
     <section id="schedule" class="section bg-navy text-paper on-dark border-y border-line" aria-labelledby="schedule-h">
-      <div class="canvas text-center">
+      <div class="canvas text-center" data-reveal>
         <span class="eyebrow" style="color:rgba(245,251,255,.82)">Schedule a consultation</span>
         <h2 id="schedule-h" class="mt-3 text-paper">Book a free 20–30 minute call</h2>
         <p class="mx-auto mt-4 max-w-measure" style="color:rgba(245,251,255,.82)">Talk through your

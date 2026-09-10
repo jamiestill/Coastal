@@ -50,6 +50,10 @@
     --code-bg: #0F1E4A;
     --code-ink: #DCE8FF;
 
+    /* Inline link colour — a darkened Sky that clears WCAG AA (6.5:1) on the
+       light ground; nav / buttons / footer set their own colour and are unaffected. */
+    --link: #0B5FA5;
+
     --ring: var(--navy);
     --focus-on-dark: var(--sky);
     color-scheme: light;
@@ -70,6 +74,7 @@
       --warn-ink: #E8C878;
       --code-bg: #050A18;
       --code-ink: #BFD4FF;
+      --link: var(--sky);
       --ring: var(--sky);
       color-scheme: dark;
     }
@@ -87,6 +92,7 @@
     --warn-ink: #E8C878;
     --code-bg: #050A18;
     --code-ink: #BFD4FF;
+    --link: var(--sky);
     --ring: var(--sky);
     color-scheme: dark;
   }
@@ -112,29 +118,18 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* §04 Heading Sizes. H1 = Questrial 400; H2–H4 = Cormorant Garamond 500. */
+  /* §04 Heading Sizes. All headings = Questrial 400 (matches H1). */
   h1, h2, h3, h4 {
     color: var(--ink);
+    font-family: theme('fontFamily.label');
+    font-weight: 400;
+    letter-spacing: 0.005em;
     text-wrap: balance;
     margin: 0;
   }
   h1 {
-    font-family: theme('fontFamily.label');
-    font-weight: 400;
     font-size: theme('fontSize.h1');
     line-height: 1.12;
-    letter-spacing: 0.005em;
-  }
-  h2, h3, h4 {
-    font-family: theme('fontFamily.head');
-    font-weight: 500;
-    letter-spacing: 0.005em;
-    /* Cormorant Garamond's descenders (p, g, y, "?") extend past the font's
-       reported descent, so a last line flush with the box gets its tails clipped
-       in Safari. A hair of bottom padding keeps the ink inside the paint box;
-       headings use margin:0 and lean on the next element's mt-* for spacing, so
-       this doesn't disturb vertical rhythm. */
-    padding-bottom: 0.12em;
   }
   h2 { font-size: theme('fontSize.h2'); line-height: 1.25; }
   h3 { font-size: theme('fontSize.h3'); line-height: 1.3; }
@@ -142,11 +137,20 @@
 
   p { text-wrap: pretty; }
 
+  /* Inline / prose links read as links: distinct colour + underline. Components
+     that are links but shouldn't look like body links (.nav-link, .btn, .link-quiet,
+     .site-footer a, .sticky-cta a) all set their own colour + text-decoration. */
   a {
-    color: var(--ink);
+    color: var(--link);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
     text-underline-offset: 0.18em;
     text-decoration-thickness: from-font;
   }
+  a:hover { text-decoration-color: currentColor; }
+  /* Classless links on a dark ground (e.g. the navy Schedule section) need the
+     light-on-dark link colour instead of the darkened Sky. */
+  .on-dark a:not([class]) { color: var(--sky); }
 
   ::selection { background: rgba(79, 172, 254, 0.28); }
 
@@ -207,8 +211,8 @@
 
   /* padding-block only — the hero puts .section and .canvas on one element, and a
      `padding: X 0` shorthand there would wipe .canvas's padding-inline. */
-  .section { padding-block: clamp(3rem, 2rem + 5vw, 5.5rem); }
-  .section--tight { padding-block: clamp(2.5rem, 1.75rem + 3vw, 3.75rem); }
+  .section { padding-block: clamp(2.25rem, 1.5rem + 3.25vw, 4rem); }
+  .section--tight { padding-block: clamp(2rem, 1.4rem + 2vw, 3rem); }
 
   /* §03 Subheadings: Questrial, 11–17px. Style-guide .eyebrow is --sky; we use
      --ink-soft so it clears WCAG AA at this size (the brief's hard requirement). */
@@ -268,6 +272,9 @@
     transition: transform 0.18s theme('transitionTimingFunction.calm'),
                 background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
   }
+  /* A hair of lift on hover; the press (:active, below in source so it wins) dips
+     back down. Reduced motion drops the transform via the global rule. */
+  .btn:hover { transform: translateY(-1px); }
   .btn:active { transform: translateY(1px); }
 
   /* Primary CTA — Navy fill, Paper text on light. On dark the page ground is
@@ -329,6 +336,11 @@
     text-decoration-color: var(--ink-soft);
   }
   .link-quiet:hover { text-decoration-color: currentColor; }
+  /* A trailing icon (the "→" on "Talk about referrals", "See credentials")
+     nudges in its direction of travel on hover. Leading icons — the PDF marks —
+     are :first-child, so :last-child leaves them alone. */
+  .link-quiet svg { transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1); }
+  .link-quiet:hover svg:last-child { transform: translateX(2px); }
 
   /* --- Surfaces --- */
   .card {
@@ -339,30 +351,34 @@
   }
   /* Brand-wash card cycle: pale palette tints mixed over the live surface, so they
      hold up in light and dark. Five steps so adjacent cards never share a hue.
-     Put `wash-cycle` on a card container (see #who and the FAQ grid). */
+     Put `wash-cycle` on a card container (see #who). */
   .wash-cycle > :nth-child(5n + 1) { --card-wash: color-mix(in srgb, var(--sky)      12%, var(--surface)); }
   .wash-cycle > :nth-child(5n + 2) { --card-wash: color-mix(in srgb, var(--seagrass) 12%, var(--surface)); }
   .wash-cycle > :nth-child(5n + 3) { --card-wash: color-mix(in srgb, var(--sand)     18%, var(--surface)); }
   .wash-cycle > :nth-child(5n + 4) { --card-wash: color-mix(in srgb, var(--lantern)  12%, var(--surface)); }
   .wash-cycle > :nth-child(5n + 5) { --card-wash: color-mix(in srgb, var(--coral)     9%, var(--surface)); }
-  .wash-cycle > .card,
-  .wash-cycle > .faq-item { border-color: color-mix(in srgb, var(--card-wash) 84%, var(--ink)); }
+  .wash-cycle > .card { border-color: color-mix(in srgb, var(--card-wash) 84%, var(--ink)); }
   .tile {
     background: var(--tag-bg);
     border: 1px solid var(--line);
     border-radius: theme('borderRadius.tile');
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease,
+                transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.2s ease;
   }
-  .tile:hover { border-color: var(--sky); }
+  /* Hover acknowledges the pointer with the same small lift the how-cards use;
+     under reduced motion the global rule drops the transform and keeps the
+     border + elevation, so the feedback still reads. */
+  .tile:hover {
+    border-color: var(--sky);
+    transform: translateY(-3px);
+    box-shadow: theme('boxShadow.lift');
+  }
   /* badge sits on the surface colour so it still reads against the tinted tile */
   .tile .icon-badge { background: var(--surface); border: 1px solid var(--line); }
-  /* Headings inside a card/tile switch to Questrial (sans) for readability at
-     small sizes — matches the h1 treatment. Questrial ships a single weight. */
+  /* Headings inside a card/tile drop the tracking for readability at small sizes. */
   :is(.card, .tile, .how-card-inner) :is(h2, h3, h4) {
-    font-family: theme('fontFamily.label');
-    font-weight: 400;
     letter-spacing: 0;
-    padding-bottom: 0;
   }
   .callout {
     background: var(--tag-bg);
@@ -502,11 +518,16 @@
     border-bottom: 1px solid var(--line);
     backdrop-filter: saturate(1.4) blur(8px);
     transition: transform 0.32s theme('transitionTimingFunction.calm'),
-                opacity 0.28s ease;
+                opacity 0.28s ease, box-shadow 0.28s ease;
   }
   @supports not (backdrop-filter: blur(1px)) {
     .site-header { background: var(--bg); }
   }
+  /* Picks up a soft elevation once the page has scrolled off the top, so the
+     bar separates from the content passing under it (main.js toggles .scrolled).
+     On the near-black dark ground this shadow is invisible — the border carries
+     it there — which is fine. */
+  .site-header.scrolled { box-shadow: 0 4px 16px rgba(10, 15, 36, 0.07); }
   /* Retreats as the visitor nears the closing CTA / footer (main.js). */
   .site-header.header-hidden {
     transform: translateY(-100%);
@@ -657,6 +678,28 @@
     to   { opacity: 1; transform: none; }
   }
 
+  /* Scroll-in: each [data-reveal] container runs the hero's own rise-in
+     keyframe on its direct children (staggered) the first time it enters view,
+     so the whole page speaks one motion language. main.js adds .reveal-pending
+     to arm the hidden start state, swaps in .reveal-in to play, then clears
+     both — so once revealed the children carry no leftover animation and their
+     hover / focus behave normally. A keyframe (not a transition) is used
+     deliberately: it starts reliably regardless of the child's own transition
+     properties. No JS, a failed script, or reduced motion: no class is added,
+     nothing is hidden. Stagger is capped at the 5th child so long grids do not
+     trail. */
+  @media (prefers-reduced-motion: no-preference) {
+    .js [data-reveal].reveal-pending > * { opacity: 0; }
+    .js [data-reveal].reveal-in > * {
+      animation: rise-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-delay: calc(var(--reveal-i, 0) * 80ms);
+    }
+    .js [data-reveal].reveal-in > :nth-child(2) { --reveal-i: 1; }
+    .js [data-reveal].reveal-in > :nth-child(3) { --reveal-i: 2; }
+    .js [data-reveal].reveal-in > :nth-child(4) { --reveal-i: 3; }
+    .js [data-reveal].reveal-in > :nth-child(n + 5) { --reveal-i: 4; }
+  }
+
   /* Continuity: light↔dark blends like dusk, but only during an explicit
      toggle (the .theme-transition class is added for ~320ms by theme.js).
      Reduced-motion visitors get the instant swap they had before. */
@@ -675,6 +718,31 @@
     box-shadow: theme('boxShadow.lift');
     overflow: hidden;
     background: var(--surface);
+  }
+
+  /* Soft-edged photo that sits beside the "what is an advocate" intro copy.
+     The radial mask feathers every edge so it reads as atmosphere behind the
+     text rather than a placed, framed asset. It only floats once the column is
+     wide enough for copy to wrap cleanly around it; below that it centres as
+     its own block. .what-intro carries the clearfix. */
+  .what-intro::after { content: ""; display: block; clear: both; }
+  .vignette-figure {
+    margin: 0.5rem auto 1.5rem;
+    width: min(100%, 320px);
+  }
+  /* Sizing/loading is handled the hero way — a <picture> with 640w/1024w
+     sources and sizes="(min-width:1024px) 40vw, 100vw", plus .block/.h-auto/
+     .w-full utilities on the <img>. This rule only adds the vignette skin. */
+  .vignette-figure img {
+    border-radius: theme('borderRadius.card');
+    -webkit-mask-image: radial-gradient(82% 96% at 52% 44%, #000 38%, transparent 100%);
+            mask-image: radial-gradient(82% 96% at 52% 44%, #000 38%, transparent 100%);
+  }
+  @media (min-width: 768px) {
+    .vignette-figure { float: right; width: 288px; margin: 0.25rem 0 1rem 2rem; }
+  }
+  @media (min-width: 1024px) {
+    .vignette-figure { width: 340px; margin-left: 2.5rem; }
   }
 
   /* --- Path cards (the two entry paths) --- */
@@ -828,10 +896,12 @@
     stroke: var(--sky);
     stroke-width: 2.5;
     stroke-linecap: round;
-    stroke-dasharray: 7 7;
     vector-effect: non-scaling-stroke;
-    opacity: 0.45;
   }
+  /* Resting / no-JS state: the marching dashes, exactly as before. */
+  .how-weave-line { stroke-dasharray: 7 7; opacity: 0.45; }
+  /* The continuous trace is only used for the JS-driven draw-on (below). */
+  .how-weave-trace { display: none; }
 
   @media (min-width: 768px) {
     .how-steps {
@@ -869,8 +939,30 @@
      view. .js-draw is added by JS only (and never under reduced motion), so
      with no JS everything shows in its finished state. */
   @media (prefers-reduced-motion: no-preference) {
-    .how-spine path { animation: how-march 2.6s linear infinite; }
+    .how-weave-line { animation: how-march 2.6s linear infinite; }
     @keyframes how-march { to { stroke-dashoffset: -56; } }
+
+    /* With JS driving the section, the thread is drawn between the pinned cards
+       as they lift in, then hands over to the marching rhythm. The loop only
+       runs while the flow is on screen — nothing marches out of view. */
+    .how-flow.js-draw .how-weave-line { opacity: 0; animation-play-state: paused; }
+    .how-flow.js-draw .how-weave-trace {
+      display: block;
+      opacity: 0.5;
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+    }
+    .how-flow.js-draw.is-drawn .how-weave-trace {
+      stroke-dashoffset: 0;
+      opacity: 0;
+      transition: stroke-dashoffset 1100ms cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 450ms ease 1050ms;
+    }
+    .how-flow.js-draw.is-drawn .how-weave-line {
+      opacity: 0.45;
+      transition: opacity 500ms ease 900ms;
+    }
+    .how-flow.js-draw.is-drawn.is-onscreen .how-weave-line { animation-play-state: running; }
 
     .how-flow.js-draw .how-step { opacity: 0; transform: translateY(14px); }
     .how-flow.js-draw.is-drawn .how-step {
@@ -884,51 +976,54 @@
   }
 
   /* --- FAQ accordion --- */
-  /* pale brand washes come from `.wash-cycle` on .faq-grid (see --- Surfaces ---) */
-  .faq-item {
-    padding: 0.25rem 1.5rem 0.5rem;
-    border: 1px solid var(--line);
-    border-radius: theme('borderRadius.card');
-    background: var(--card-wash, var(--surface));
+  /* Two-column split: the heading + a "more questions" note held on the left,
+     a single stacked accordion of hairline-divided rows on the right. Heading
+     and question type stay on the standard scale (H2 / H3). */
+  .faq-layout { display: grid; gap: 2rem; }
+  @media (min-width: 900px) {
+    .faq-layout {
+      grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
+      gap: clamp(2.5rem, 1rem + 8vw, 7rem);
+      align-items: start;
+    }
+    .faq-aside { position: sticky; top: 7rem; }
   }
+  .faq-more { margin-top: 1rem; max-width: 32ch; color: var(--ink-soft); }
+
+  .faq-list { display: flex; flex-direction: column; }
+  .faq-item { border-top: 1px solid var(--line); }
+  .faq-item:last-child { border-bottom: 1px solid var(--line); }
   .faq-trigger {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 1.25rem;
     padding: 1.25rem 0;
-    font-family: theme('fontFamily.head');
-    font-size: theme('fontSize.h4');
+    font-family: theme('fontFamily.label');
+    font-size: theme('fontSize.h3');
+    letter-spacing: 0.005em;
+    line-height: 1.3;
     color: var(--ink);
     text-align: left;
     background: none;
     border: 0;
     cursor: pointer;
   }
-  .faq-trigger .faq-sign { flex: none; transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1); }
+  .faq-trigger:hover { color: var(--sky); }
+  .faq-trigger .faq-sign {
+    flex: none;
+    margin-top: 0.15rem;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
   .faq-trigger[aria-expanded="true"] .faq-sign { transform: rotate(45deg); }
-  .faq-panel { padding-bottom: 1.5rem; max-width: theme('maxWidth.measure'); color: var(--ink-soft); }
+  .faq-panel { padding-bottom: 1.5rem; max-width: theme('maxWidth.prose'); color: var(--ink-soft); }
   .faq-panel[hidden] { display: none; }
   /* the answer eases open when its [hidden] is removed */
   .faq-panel:not([hidden]) { animation: faq-open 240ms cubic-bezier(0.16, 1, 0.3, 1) both; }
   @keyframes faq-open {
     from { opacity: 0; transform: translateY(-4px); }
     to   { opacity: 1; transform: none; }
-  }
-  /* one reading column on small screens; two once there's room for both to stay legible */
-  .faq-grid {
-    max-width: theme('maxWidth.measure');
-    display: grid;
-    gap: 1rem;
-  }
-  @media (min-width: 900px) {
-    .faq-grid {
-      max-width: none;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-      align-items: start;
-    }
   }
 
   /* --- Sticky bottom CTA --- */
@@ -1344,6 +1439,29 @@
   @media (max-width: 1023px) {
     .grid-9 { grid-template-columns: 1fr; }
     .grid-9 > * { grid-column: auto !important; }
+  }
+  /* Hero: keep the framed photo beside the heading below the lg breakpoint too,
+     mirroring the desktop split, instead of dropping it full-width under the
+     copy. Tablet range keeps the whole illustration at its natural ratio; the
+     path cards take the full width below. */
+  @media (max-width: 1023px) {
+    #top .grid-9 { grid-template-columns: minmax(0, 1fr) 38%; }
+    #top .grid-9 > div:nth-of-type(2) { margin-top: 0; }
+    #top .grid-9 > div:last-child { grid-column: 1 / -1 !important; }
+  }
+  /* Below the md breakpoint the column is too narrow for the full 4:3
+     illustration, so the figure stretches to the copy's height and the photo
+     covers it. The focus sits just left of the figures (~78%): they stay in
+     frame at every width, and the maze on their left fills more of the strip
+     as the screen widens, less as it narrows. */
+  @media (max-width: 767px) {
+    #top .grid-9 > div:nth-of-type(2) { align-self: stretch; }
+    #top .grid-9 > div:nth-of-type(2) .framed { height: 100%; min-height: 12rem; }
+    #top .grid-9 > div:nth-of-type(2) .framed img {
+      height: 100%;
+      object-fit: cover;
+      object-position: 78% center;
+    }
   }
   /* About: at lg the left column (heading + portrait) is one sticky rail beside the
      scrolling bio. The rail only needs room for the ~200px portrait, so it gets a

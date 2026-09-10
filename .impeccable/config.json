@@ -20,6 +20,15 @@
         ],
         "createdAt": "2026-09-09T16:09:12.499Z",
         "reason": "model triaged: every text-transform:uppercase rule in src/input.css (.eyebrow, .btn, .price-table th, .dl-rows dt, .footer-col-title, legal table th) targets a short label/heading/button — no running body copy is uppercased; recurring false positive"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-09T23:59:18.472Z",
+        "reason": "model decided: .hero-figure is a decorative alt='' pointer-events:none bleed backdrop that must be clipped to the hero by .hero-atmos{overflow:clip} to avoid horizontal page scroll; no tooltip/menu/popover needs to escape"
       }
     ]
   }
