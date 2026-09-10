@@ -611,13 +611,53 @@
   .header-icon-btn svg { transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1); }
   #nav-toggle[aria-expanded="true"] svg { transform: rotate(90deg); }
 
-  /* Mobile menu eases down when it opens (JS adds .is-open a frame later). */
-  #mobile-nav > ul {
+  /* Mobile menu — a compact panel hung off the toggle button, not a full-width
+     sheet. Its containing block is the .relative wrapper around the button, so
+     it sits right under the hamburger. JS unhides it, then adds .is-open a
+     frame later to run the entrance. */
+  #mobile-nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 50;
+    width: max-content;
+    min-width: 11rem;
+    max-width: calc(100vw - 3rem);
+    margin-top: 0.4rem;
+    padding: 0.4rem;
+    max-height: calc(100dvh - 6rem);
+    overflow-y: auto;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 0.9rem;
+    box-shadow: 0 18px 44px -14px rgba(10, 15, 36, 0.32);
+    transform-origin: top right;
     opacity: 0;
-    transform: translateY(-6px);
-    transition: opacity 200ms ease, transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(-8px) scale(0.94);
+    transition: opacity 160ms ease, transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
   }
-  #mobile-nav.is-open > ul { opacity: 1; transform: none; }
+  #mobile-nav.is-open { opacity: 1; transform: translateY(0) scale(1); }
+  #mobile-nav .nav-link {
+    display: block;
+    padding: 0.6rem 0.85rem;
+    border-radius: 0.55rem;
+    white-space: nowrap;
+  }
+  #mobile-nav .nav-link::after { content: none; } /* no underline-wipe inside the panel */
+  #mobile-nav .nav-link:hover,
+  #mobile-nav .nav-link:focus-visible { background: var(--tag-bg); }
+  @media (prefers-reduced-motion: reduce) {
+    #mobile-nav { transition: opacity 120ms ease; transform: none; }
+    #mobile-nav.is-open { transform: none; }
+  }
+
+  /* Primary desktop nav — tighter type and gaps so the six links clear the logo
+     down at the md (768px) breakpoint, where the hamburger now takes over. */
+  nav[aria-label="Primary"] .nav-link {
+    font-size: 0.875rem;
+    letter-spacing: 0;
+    padding-inline: 0;
+  }
 
   .theme-icon-dark { display: none; }
   :root[data-theme="dark"] .theme-icon-light { display: none; }

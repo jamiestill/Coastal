@@ -30,30 +30,30 @@
         '<a href="index.html#top" class="flex items-center" aria-label="Coastal Healthcare Advocates — home">' +
           '<span class="brand-logo" role="img" aria-label="Coastal Healthcare Advocates"></span>' +
         '</a>' +
-        '<div class="ml-auto flex items-center gap-4">' +
-          '<nav class="hidden items-center gap-6 lg:flex" aria-label="Primary">' +
+        '<div class="ml-auto flex items-center gap-4 relative">' +
+          '<nav class="hidden items-center gap-4 md:flex" aria-label="Primary">' +
             '<a class="nav-link" href="index.html#services">Services</a>' +
             '<a class="nav-link" href="index.html#who">Who we help</a>' +
             '<a class="nav-link" href="index.html#about">About</a>' +
-            '<a class="nav-link" href="index.html#how">How it works</a>' +
+            '<a class="nav-link" href="index.html#how">Process</a>' +
             '<a class="nav-link" href="index.html#pricing">Pricing</a>' +
             '<a class="nav-link" href="index.html#faqs">FAQs</a>' +
           '</nav>' +
-          '<button type="button" class="header-icon-btn lg:hidden" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">' +
+          '<button type="button" class="header-icon-btn md:hidden" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">' +
             '<svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>' +
           '</button>' +
+          '<nav id="mobile-nav" class="hidden md:hidden" aria-label="Primary (mobile)" hidden>' +
+            '<ul class="flex flex-col gap-1">' +
+              '<li><a class="nav-link" href="index.html#services">Services</a></li>' +
+              '<li><a class="nav-link" href="index.html#who">Who we help</a></li>' +
+              '<li><a class="nav-link" href="index.html#about">About Lindsey</a></li>' +
+              '<li><a class="nav-link" href="index.html#how">How it works</a></li>' +
+              '<li><a class="nav-link" href="index.html#pricing">Pricing</a></li>' +
+              '<li><a class="nav-link" href="index.html#faqs">FAQs</a></li>' +
+            '</ul>' +
+          '</nav>' +
         '</div>' +
       '</div>' +
-      '<nav id="mobile-nav" class="canvas-wide hidden pb-4 lg:hidden" aria-label="Primary (mobile)" hidden>' +
-        '<ul class="flex flex-col gap-1 border-t border-line pt-3">' +
-          '<li><a class="nav-link block py-2" href="index.html#services">Services</a></li>' +
-          '<li><a class="nav-link block py-2" href="index.html#who">Who we help</a></li>' +
-          '<li><a class="nav-link block py-2" href="index.html#about">About Lindsey</a></li>' +
-          '<li><a class="nav-link block py-2" href="index.html#how">How it works</a></li>' +
-          '<li><a class="nav-link block py-2" href="index.html#pricing">Pricing</a></li>' +
-          '<li><a class="nav-link block py-2" href="index.html#faqs">FAQs</a></li>' +
-        '</ul>' +
-      '</nav>' +
     '</header>';
 
   var FOOTER_HTML =
@@ -184,7 +184,7 @@
         navToggle.focus();
       }
     });
-    window.matchMedia('(min-width: 1024px)').addEventListener('change', function (e) {
+    window.matchMedia('(min-width: 768px)').addEventListener('change', function (e) {
       if (e.matches) setNav(false);
     });
   }

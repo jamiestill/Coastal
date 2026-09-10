@@ -40,7 +40,7 @@ if (navToggle && mobileNav) {
     }
   });
   // Reset when leaving the mobile breakpoint.
-  window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
+  window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => {
     if (e.matches) setNav(false);
   });
 }
