@@ -2,16 +2,42 @@
 // Native <dialog> for ESC / backdrop / top-layer; adds focus trap, scroll-lock,
 // and return-focus. Form validation + Netlify submit come from contact-form.js,
 // shared with the inline intake form.
+//
+// The modal has no form markup of its own: it clones #intake-form (the one
+// authored copy, which also serves as the no-JS fallback and the form Netlify
+// detects at build time) and re-keys its id prefix from "in-" to "cf-" so the
+// two instances coexist in one document.
 
 import { initContactForm } from './contact-form.js';
 
 const dialog = document.getElementById('contact-modal');
-if (dialog) {
-  const form = document.getElementById('contact-form');
+const source = document.getElementById('intake-form');
+if (dialog && source) {
+  const rekey = (v) => (v ? v.replace(/\bin-/g, 'cf-') : v);
+
+  const form = source.cloneNode(true);
+  form.id = 'contact-form';
+  // The modal supplies its own padding/scroll chrome; drop the inline card layout.
+  form.classList.remove('card', 'mx-auto', 'mt-8', 'max-w-measure', 'p-6', 'sm:p-8');
+  form.querySelectorAll('[id]').forEach((el) => { el.id = rekey(el.id); });
+  form.querySelectorAll('[for]').forEach((el) => { el.htmlFor = rekey(el.htmlFor); });
+  form.querySelectorAll('[aria-describedby]').forEach((el) => {
+    el.setAttribute('aria-describedby', rekey(el.getAttribute('aria-describedby')));
+  });
+  // The modal prints its own PHI note (#cm-phi) above the form.
+  form.querySelector('[data-phi-note]')?.remove();
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  submitBtn.id = 'cf-submit';
+  submitBtn.classList.remove('sm:w-auto'); // full-width in the modal
+  submitBtn.textContent = 'Connect and start the conversation';
+
+  dialog.querySelector('[data-contact-form-mount]').replaceWith(form);
+
   const contact = initContactForm(form, {
-    errorSummary: document.getElementById('form-errors'),
-    successPanel: document.getElementById('form-success'),
-    submitBtn: document.getElementById('cf-submit'),
+    errorSummary: form.querySelector('[data-contact-errors]'),
+    successPanel: dialog.querySelector('[data-contact-success]'),
+    submitBtn,
   });
 
   const FOCUSABLE =
