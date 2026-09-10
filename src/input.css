@@ -800,13 +800,16 @@
 
   /* Soft-edged photo that sits beside the "what is an advocate" intro copy.
      The radial mask feathers every edge so it reads as atmosphere behind the
-     text rather than a placed, framed asset. It only floats once the column is
-     wide enough for copy to wrap cleanly around it; below that it centres as
-     its own block. .what-intro carries the clearfix. */
+     text rather than a placed, framed asset. It floats right at every width so
+     the copy wraps around it; on extremely narrow screens there is no room for
+     a readable text column beside it, so it is hidden. .what-intro carries the
+     clearfix. */
   .what-intro::after { content: ""; display: block; clear: both; }
   .vignette-figure {
-    margin: 0.5rem auto 1.5rem;
-    width: min(100%, 320px);
+    float: right;
+    width: 44%;
+    max-width: 288px;
+    margin: 0.25rem 0 1rem 1.25rem;
   }
   /* Sizing/loading is handled the hero way — a <picture> with 640w/1024w
      sources and sizes="(min-width:1024px) 40vw, 100vw", plus .block/.h-auto/
@@ -816,11 +819,16 @@
     -webkit-mask-image: radial-gradient(82% 96% at 52% 44%, #000 38%, transparent 100%);
             mask-image: radial-gradient(82% 96% at 52% 44%, #000 38%, transparent 100%);
   }
+  /* Extremely narrow: drop it — a floated image would leave the copy in a
+     column too thin to read. */
+  @media (max-width: 400px) {
+    .vignette-figure { display: none; }
+  }
   @media (min-width: 768px) {
-    .vignette-figure { float: right; width: 288px; margin: 0.25rem 0 1rem 2rem; }
+    .vignette-figure { width: 288px; margin: 0.25rem 0 1rem 2rem; }
   }
   @media (min-width: 1024px) {
-    .vignette-figure { width: 340px; margin-left: 2.5rem; }
+    .vignette-figure { width: 340px; max-width: none; margin-left: 2.5rem; }
   }
 
   /* --- Path cards (the two entry paths) --- */
@@ -1284,10 +1292,11 @@
   }
   .error-summary {
     border: 2px solid var(--coral);
-    background: var(--tag-bg);
+    background: color-mix(in srgb, var(--coral) 10%, var(--surface));
     color: var(--ink);
     border-radius: 0.5rem;
     padding: 0.9rem 1rem;
+    margin-top: 1.25rem;
     margin-bottom: 1rem;
   }
   .error-summary a { color: var(--ink); }
