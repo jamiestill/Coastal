@@ -413,7 +413,10 @@
   .icon-badge { width: 6rem; height: 6rem; }
   .icon-badge .icon-lg { width: 4rem; height: 4rem; }
   #who .card > .icon-lg { width: 4rem; height: 4rem; }
-  [aria-labelledby="value-h"] li > .icon { width: 3rem; height: 3rem; }
+  [aria-labelledby="value-h"] li > .icon { width: 2.28rem; height: 2.28rem; }
+  @media (min-width: 480px) {
+    [aria-labelledby="value-h"] li > .icon { width: 2.6rem; height: 2.6rem; }
+  }
 
   /* --- Wide content scrolls inside its own bordered container --- */
   .table-wrap {
@@ -1585,19 +1588,20 @@
       object-position: 78% center;
     }
   }
-  /* About: at lg the left column (heading + portrait) is one sticky rail beside the
-     scrolling bio. The rail only needs room for the ~200px portrait, so it gets a
+  /* About: at >=700px the left column (heading + portrait) is one sticky rail beside
+     the scrolling bio. The rail only needs room for the ~200px portrait, so it gets a
      fixed track rather than a 4/9 share that would strand a gap before the bio.
-     Between 640 and 1023 the rail goes full-width and the portrait floats out of
-     it so the bio wraps around it. Below 640 everything stacks. */
-  @media (min-width: 1024px) {
+     Between 450 and 699 the rail goes full-width and the portrait floats right so the
+     bio wraps around it. Below 450 everything stacks. */
+  @media (min-width: 700px) {
     #about .grid-9 { grid-template-columns: 15rem minmax(0, 1fr); }
+    #about .about-rail { position: sticky; top: 10rem; align-self: start; }
   }
-  @media (min-width: 640px) and (max-width: 1023px) {
+  @media (min-width: 450px) and (max-width: 699px) {
     #about .grid-9 { display: block; }
     #about .grid-9::after { content: ""; display: block; clear: both; }
     #about .about-rail > .meta { margin-bottom: 1.5rem; }
-    #about .about-rail > figure { float: left; margin: 0 1.75rem 1rem 0; }
+    #about .about-rail > figure { float: right; margin: 0 0 1rem 1.75rem; }
   }
   .sr-only-focusable:not(:focus):not(:focus-within) {
     position: absolute !important;
