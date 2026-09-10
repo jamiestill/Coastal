@@ -93,7 +93,10 @@
   status = 200
   force = true
 
-# Netlify Forms: the form also exists in index.html inside <noscript> for no-JS submits.
+# Netlify Forms fallback: with JS off, #intake-form (the only form on the site;
+# see index.html) POSTs natively to action="/thanks". Netlify records the
+# submission, then this rewrite serves index.html for /thanks (200, not a
+# redirect). With JS on, contact-form.js submits via fetch to "/".
 [[redirects]]
   from = "/thanks"
   to = "/index.html"

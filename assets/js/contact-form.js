@@ -1,8 +1,8 @@
 // Coastal Healthcare Advocates — shared contact-form behaviour.
 // Inline validation, honeypot + time-trap, Netlify Forms submit, and
-// success / error states. Used by both the lightbox modal (modal.js) and
-// the inline intake form (intake-form.js). The form still submits natively
-// to /thanks when JavaScript is unavailable.
+// success / error states. This module self-initialises the inline #intake-form
+// on import, and modal.js imports it to wire the lightbox's cloned copy. The
+// form still submits natively to /thanks when JavaScript is unavailable.
 
 export function initContactForm(form, opts = {}) {
   if (!form) return null;
@@ -161,3 +161,7 @@ export function initContactForm(form, opts = {}) {
     },
   };
 }
+
+// Inline intake form: self-initialise on import when it's present on the page.
+const inlineForm = document.getElementById('intake-form');
+if (inlineForm) initContactForm(inlineForm);

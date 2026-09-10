@@ -3,10 +3,11 @@
 // and return-focus. Form validation + Netlify submit come from contact-form.js,
 // shared with the inline intake form.
 //
-// The modal has no form markup of its own: it clones #intake-form (the one
+// The modal has almost no markup of its own: it clones #intake-form (the one
 // authored copy, which also serves as the no-JS fallback and the form Netlify
-// detects at build time) and re-keys its id prefix from "in-" to "cf-" so the
-// two instances coexist in one document.
+// detects at build time) plus the inline success panel, and re-keys the form's
+// id prefix from "in-" to "cf-" so the two instances coexist in one document.
+// The PHI note rides along inside the form clone.
 
 import { initContactForm } from './contact-form.js';
 
@@ -24,19 +25,32 @@ if (dialog && source) {
   form.querySelectorAll('[aria-describedby]').forEach((el) => {
     el.setAttribute('aria-describedby', rekey(el.getAttribute('aria-describedby')));
   });
-  // The modal prints its own PHI note (#cm-phi) above the form.
-  form.querySelector('[data-phi-note]')?.remove();
+  // The PHI note rides along in the clone (id in- → cf-); give it the modal's top gap.
+  form.querySelector('[data-phi-note]')?.classList.add('mt-3');
 
   const submitBtn = form.querySelector('button[type="submit"]');
-  submitBtn.id = 'cf-submit';
   submitBtn.classList.remove('sm:w-auto'); // full-width in the modal
   submitBtn.textContent = 'Connect and start the conversation';
 
   dialog.querySelector('[data-contact-form-mount]').replaceWith(form);
 
+  // Point the dialog's description at the cloned PHI note (id exists only post-clone).
+  dialog.setAttribute('aria-describedby', 'cf-phi');
+
+  // Success panel: clone the inline one so the headline / copy live in one place.
+  const successSrc = document.querySelector('[data-contact-success]');
+  const success = successSrc.cloneNode(true);
+  success.classList.remove('card', 'mx-auto', 'mt-8', 'max-w-measure', 'p-6');
+  success.classList.add('mt-3'); // clear the modal title, which stays visible
+  success.insertAdjacentHTML(
+    'beforeend',
+    '<p class="mt-5"><button type="button" class="btn btn-ghost" data-close-contact>Close</button></p>'
+  );
+  dialog.querySelector('[data-contact-success-mount]').replaceWith(success);
+
   const contact = initContactForm(form, {
     errorSummary: form.querySelector('[data-contact-errors]'),
-    successPanel: dialog.querySelector('[data-contact-success]'),
+    successPanel: success,
     submitBtn,
   });
 
@@ -66,20 +80,23 @@ if (dialog && source) {
     document.dispatchEvent(new CustomEvent('contact:open'));
 
     const first = dialog.querySelector('#cf-name') || dialog.querySelector(FOCUSABLE);
-    first?.focus();
+    first?.focus({ preventScroll: true });
   }
 
   function closeContact() {
     if (typeof dialog.close === 'function' && dialog.open) dialog.close();
     else dialog.removeAttribute('open');
 
+    // Release the scroll lock and jump straight back to where the visitor was.
+    // 'instant' overrides the page's global `scroll-behavior: smooth`, which
+    // would otherwise animate the page up from the parked top position.
     document.body.style.position = '';
     document.body.style.top = '';
     document.body.style.width = '';
-    window.scrollTo(0, scrollY);
+    window.scrollTo({ top: scrollY, left: 0, behavior: 'instant' });
 
     document.dispatchEvent(new CustomEvent('contact:close'));
-    lastFocused?.focus?.();
+    lastFocused?.focus?.({ preventScroll: true });
   }
 
   /* ---- wiring ----------------------------------------------------- */

@@ -63,9 +63,10 @@ window.chaTrack = window.chaTrack || (() => {});
 const existing = readConsent();
 if (existing) {
   if (existing.analytics) loadAnalytics();
-} else {
-  showBanner();
 }
+// TEMPORARILY DISABLED: the banner no longer auto-appears on first visit.
+// It only opens when the footer "Site preferences" button is clicked (below).
+// To restore the auto-prompt, re-add: else { showBanner(); }
 
 // Banner buttons
 banner?.querySelectorAll('[data-consent]').forEach((btn) => {

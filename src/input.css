@@ -1121,7 +1121,6 @@
                 background-color 0.18s ease, color 0.18s ease;
   }
   .drawer-tab:hover {
-    transform: translateY(-50%) translateX(-0.4rem);
     background: var(--sky);
     color: var(--navy);
   }
