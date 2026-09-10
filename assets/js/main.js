@@ -294,3 +294,36 @@ if (navLinks.length && 'IntersectionObserver' in window) {
 
   sections.forEach((section) => spy.observe(section));
 }
+
+/* -------------------------------------------------------------------------
+   "Get Started" drawer tab — tuck it off-screen once the in-page intake form
+   (or the closing schedule / footer region) is visible, where a second
+   consultation CTA only repeats what's already on screen. It slides back in
+   on any upward scroll that leaves that region. No JS: the tab just stays,
+   which is harmless.
+   ---------------------------------------------------------------------- */
+const drawerTab = document.querySelector('.drawer-tab');
+const tabTuckAt = document.getElementById('intake');
+
+if (drawerTab && tabTuckAt) {
+  let tabTicking = false;
+  const syncDrawerTab = () => {
+    tabTicking = false;
+    // Tuck the tab away once the top of the intake section has scrolled up
+    // into the lower part of the viewport — from here down (form, schedule,
+    // footer) the page carries its own consultation CTAs.
+    const tuck = tabTuckAt.getBoundingClientRect().top < window.innerHeight * 0.75;
+    drawerTab.classList.toggle('is-tucked', tuck);
+  };
+  syncDrawerTab();
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (tabTicking) return;
+      tabTicking = true;
+      requestAnimationFrame(syncDrawerTab);
+    },
+    { passive: true }
+  );
+  window.addEventListener('resize', syncDrawerTab, { passive: true });
+}

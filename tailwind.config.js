@@ -46,7 +46,6 @@ module.exports = {
       //   H3 Cormorant 500   24/32 · 20/28
       //   H4 Cormorant 500   20/28 · 20/28
       fontSize: {
-        eyebrow: ['0.75rem', { lineHeight: '1.3', letterSpacing: '0.14em' }],
         lede: ['1.3125rem', { lineHeight: '1.45' }],
         h4: ['1.25rem', { lineHeight: '1.35' }],
         h3: ['clamp(1.25rem, 1.05rem + 0.9vw, 1.5rem)', { lineHeight: '1.3' }],

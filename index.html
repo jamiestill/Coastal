@@ -38,7 +38,7 @@
 
   <!-- Above-the-fold faces. Without a preload these are only discovered after
        site.css downloads and parses (critical-path depth 2): Cormorant Garamond
-       sets the H2s, Ysabeau the body/lede, Questrial the H1 + nav + eyebrows + buttons. -->
+       sets the H2s, Ysabeau the body/lede, Questrial the H1 + nav + buttons. -->
   <link rel="preload" href="assets/fonts/cormorant-garamond-500.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/ysabeau-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/questrial-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -422,7 +422,7 @@
   </header>
 
   <main id="main">
-    <!-- ================= HERO — two entry paths ========================= -->
+    <!-- ================= HERO ========================================= -->
     <section id="top" class="hero-atmos">
       <div class="canvas section">
         <div class="grid-9 items-start">
@@ -449,55 +449,15 @@
               </picture>
             </figure>
           </div>
-
-          <div class="mt-10 lg:col-span-9">
-            <!-- Path-card photos: Unsplash License.
-                 "I need help right now." — clinician and patient reviewing paperwork,
-                 by Vitaly Gariev (unsplash.com/@vitgar, photo 8WYkI3cEZm8).
-                 "I'm helping someone else." — carer guiding seniors through paperwork,
-                 by Age Cymru (unsplash.com/@agecymru). -->
-            <div class="grid gap-gutter sm:grid-cols-2" data-rise style="--i:3">
-              <article class="card path-card path-card--crisis">
-            
-                <h2 class="text-h3">I need help right now.</h2>
-                <p>A denied claim, a bill that makes no sense, or a diagnosis you're facing alone — start here.</p>
-                <ul class="flex flex-wrap gap-x-5 gap-y-2">
-                  <li><a class="link-quiet" href="#services">What we do</a></li>
-                  <li><a class="link-quiet" href="#how">How it works</a></li>
-                  <li><a class="link-quiet" href="#pricing">What it costs</a></li>
-                </ul>
-                <p class="mt-auto pt-2">
-                  <button type="button" class="btn btn-ghost w-full sm:w-auto" data-open-contact data-context="crisis">
-                    Book a free consultation
-                  </button>
-                </p>
-              </article>
-
-              <article class="card path-card path-card--referrer">
-                <h2 class="text-h3">I'm helping someone else.</h2>
-                <p>Researching for a parent or partner, or referring a client as part of your own practice.</p>
-                <ul class="flex flex-wrap gap-x-5 gap-y-2">
-                  <li><a class="link-quiet" href="#about">About Lindsey &amp; credentials</a></li>
-                  <li><a class="link-quiet" href="#who">Who we help</a></li>
-                </ul>
-                <p class="mt-auto pt-2">
-                  <button type="button" class="btn btn-ghost w-full sm:w-auto" data-open-contact data-context="referrer">
-                    Contact about a referral
-                  </button>
-                </p>
-              </article>
-            </div>
-          </div>
         </div>
       </div>
-      <div id="hero-sentinel" aria-hidden="true"></div>
     </section>
 
     <!-- ================= VALUE CARDS (verbatim §8) ===================== -->
     <section class="section--tight border-t border-line-soft" aria-labelledby="value-h">
       <div class="canvas">
         <div data-reveal>
-          <h2 id="value-h" class="eyebrow">What an advocate changes</h2>
+          <h2 id="value-h">How advocates help</h2>
         </div>
         <ul class="mt-6 grid gap-x-gutter gap-y-8 sm:grid-cols-2 lg:grid-cols-4" data-reveal>
           <li class="flex flex-col gap-2 border-t border-line pt-4">
@@ -518,17 +478,57 @@
           <li class="flex flex-col gap-2 border-t border-line pt-4">
             <svg class="icon text-sky" aria-hidden="true"><use href="#i-glasses"/></svg>
             <h3 class="text-h4">Healthcare has a lot of fine print. We read it</h3>
-            <p>Insurance appeals, billing disputes, and care coordination — handled.</p>
+            <p>Insurance appeals, billing disputes, and care coordination, all handled.</p>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <!-- ================= TWO ENTRY PATHS ============================= -->
+    <section class="section" aria-label="Where to start">
+      <div class="canvas">
+        <!-- Path-card photos: Unsplash License.
+             "I need help right now." — clinician and patient reviewing paperwork,
+             by Vitaly Gariev (unsplash.com/@vitgar, photo 8WYkI3cEZm8).
+             "I'm helping someone else." — carer guiding seniors through paperwork,
+             by Age Cymru (unsplash.com/@agecymru). -->
+        <div class="grid gap-gutter sm:grid-cols-2" data-reveal>
+          <article class="card path-card path-card--crisis">
+            <h2 class="text-h3">I need help right now.</h2>
+            <p>A denied claim, a bill that makes no sense, or a diagnosis you're facing alone: start here.</p>
+            <ul class="flex flex-wrap gap-x-5 gap-y-2">
+              <li><a class="link-quiet" href="#services">What we do</a></li>
+              <li><a class="link-quiet" href="#how">How it works</a></li>
+              <li><a class="link-quiet" href="#pricing">What it costs</a></li>
+            </ul>
+            <p class="mt-auto pt-2">
+              <button type="button" class="btn btn-ghost w-full sm:w-auto" data-open-contact data-context="crisis">
+                Schedule a Free Consultation
+              </button>
+            </p>
+          </article>
+
+          <article class="card path-card path-card--referrer">
+            <h2 class="text-h3">I'm helping someone else.</h2>
+            <p>Researching for a parent or partner, or referring a client as part of your own practice.</p>
+            <ul class="flex flex-wrap gap-x-5 gap-y-2">
+              <li><a class="link-quiet" href="#about">About Lindsey &amp; credentials</a></li>
+              <li><a class="link-quiet" href="#who">Who we help</a></li>
+            </ul>
+            <p class="mt-auto pt-2">
+              <button type="button" class="btn btn-ghost w-full sm:w-auto" data-open-contact data-context="referrer">
+                Contact about a referral
+              </button>
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- ================= WHAT IS AN ADVOCATE / WHY A HUMAN ============= -->
     <section id="what" class="section" aria-labelledby="what-h">
       <div class="canvas" data-reveal>
-        <span class="eyebrow">Start here</span>
-        <h2 id="what-h" class="mt-3">What is a patient advocate?</h2>
+        <h2 id="what-h">What is a patient advocate?</h2>
         <div class="what-intro mt-6">
           <figure class="vignette-figure">
             <picture>
@@ -548,22 +548,28 @@
             </picture>
           </figure>
           <p>A patient advocate is an independent professional who works only for you. Not the
-            hospital, not the insurance company — you. It is a real and growing field, but most
-            people never hear about it until they are already in the middle of something hard.</p>
-          <p class="mt-4">The work is practical. We read the fine print in your plan, challenge denied claims
-            with written appeals, find and correct billing errors, negotiate balances with
-            providers, help with Medicare and Medicaid paperwork, and translate what the system
-            is telling you into plain language. You keep every decision. We carry the paperwork,
+            hospital, not the insurance company. You. </p>
+          <p class="mt-4">Your advocate will:</p>
+          <ul class="mt-3 flex flex-col gap-2">
+            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>read the fine print in your plan</span></li>
+            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>challenge denied claims with written appeals</span></li>
+            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>find and correct billing errors</span></li>
+            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>negotiate balances with providers</span></li>
+            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>help with Medicare and Medicaid paperwork</span></li>
+            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>translate what the system is telling you into plain language</span></li>
+          </ul>
+          <p class="mt-4">You keep every decision. We carry the paperwork,
             the phone calls, and the follow-up.</p>
         </div>
 
         <div class="callout mt-10 p-7 lg:p-8">
           <h3 class="text-h4">Why a person, not a free AI appeal tool?</h3>
           <ul class="mt-5 grid gap-x-gutter gap-y-4 sm:grid-cols-2">
-            <li class="flex gap-3"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>A human can call your insurer and negotiate on your behalf — not just draft a letter.</span></li>
+            <li class="flex gap-3"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>A human can call your insurer and negotiate on your behalf and not just draft a letter.</span></li>
             <li class="flex gap-3"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>Complex, high-stakes, or multi-provider cases need judgment a template can't give.</span></li>
             <li class="flex gap-3"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>We manage the case over weeks, through every reply and appeal level.</span></li>
             <li class="flex gap-3"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>Someone local and accountable, who has done this work from inside the system.</span></li>
+            <li class="flex gap-3"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>AI appeals are frequently rejected by AI software employed by major insurers.</span></li>
           </ul>
         </div>
       </div>
@@ -573,8 +579,7 @@
     <section id="services" class="section bg-surface border-y border-line-soft" aria-labelledby="services-h">
       <div class="canvas">
         <div data-reveal>
-          <span class="eyebrow">What we do</span>
-          <h2 id="services-h" class="mt-3">Services</h2>
+          <h2 id="services-h">Services</h2>
           <p class="lede mt-4">Coastal Healthcare Advocates offers a range of services to help you
             understand your medical bills, resolve insurance issues, and get the most out of your
             benefits.</p>
@@ -584,7 +589,7 @@
           <li class="tile p-6">
             <span class="icon-badge"><svg class="icon-lg" aria-hidden="true"><use href="#i-shield-check"/></svg></span>
             <h3 class="mt-4 text-h4">Insurance Claim Denial Appeals</h3>
-            <p class="mt-2">When a claim is denied, we build the written, evidence-backed appeal —
+            <p class="mt-2">When a claim is denied, we build the written, evidence-backed appeal,
               gathering records, citing your plan's own rules, and pushing it through every level
               of review.</p>
             <p class="meta mt-3">Typically $175–$300</p>
@@ -629,11 +634,6 @@
             <p class="mt-3"><button type="button" class="link-quiet" data-open-contact data-context="referrer">Talk about referrals <svg class="icon" style="width:1rem" aria-hidden="true"><use href="#i-arrow"/></svg></button></p>
           </li>
         </ul>
-
-        <p class="mt-8 flex flex-wrap items-center gap-4">
-          <span class="text-ink-soft">Not sure which fits? The first call is free.</span>
-          <button type="button" class="btn btn-primary" data-open-contact>Book a free consultation</button>
-        </p>
       </div>
     </section>
 
@@ -641,8 +641,7 @@
     <section id="who" class="section" aria-labelledby="who-h">
       <div class="canvas">
         <div data-reveal>
-          <span class="eyebrow">Who we help</span>
-          <h2 id="who-h" class="mt-3">Built for the person holding the paperwork</h2>
+          <h2 id="who-h">Who we help</h2>
           <p class="lede mt-4">Whether the file is yours or someone else's, the questions are the
             same: what is really owed, what is covered, and what happens next.</p>
         </div>
@@ -658,13 +657,13 @@
             <svg class="icon-lg text-sky" aria-hidden="true"><use href="#i-id-card"/></svg>
             <h3 class="mt-3 text-h4">Seniors &amp; Medicare</h3>
             <p class="mt-2">Sorting out coverage, supplemental plans, and Medicare or Medicaid
-              denials — at a pace that isn't rushed.</p>
+              denials at a pace that isn't rushed.</p>
           </li>
           <li class="card p-6">
             <svg class="icon-lg text-sky" aria-hidden="true"><use href="#i-shield-heart"/></svg>
             <h3 class="mt-3 text-h4">Caregivers &amp; relatives</h3>
             <p class="mt-2">Managing this for your parent or your loved one. We keep the whole
-              family in the loop — not only the person receiving care.</p>
+              family in the loop, not only the person receiving care.</p>
           </li>
           <li class="card p-6">
             <svg class="icon-lg text-sky" aria-hidden="true"><use href="#i-briefcase"/></svg>
@@ -679,9 +678,8 @@
     <!-- ================= ABOUT LINDSEY =============================== -->
     <section id="about" class="section bg-surface border-y border-line-soft" aria-labelledby="about-h">
       <div class="canvas grid-9">
-        <div class="about-rail lg:sticky lg:top-32 lg:self-start" data-reveal>
-          <span class="eyebrow">Your advocate</span>
-          <h2 id="about-h" class="mt-3">Lindsey Hewitt</h2>
+        <div class="about-rail lg:sticky lg:top-40 lg:self-start" data-reveal>
+          <h2 id="about-h">Lindsey Hewitt</h2>
           <p class="meta mt-1">Insurance &amp; Billing Advocate</p>
 
           <figure class="framed w-fit max-w-full mt-6 lg:mt-8">
@@ -705,7 +703,7 @@
         <div class="about-bio" data-reveal>
           <div class="prose-measure">
             <p>Lindsey Hewitt brings 27 years of experience in medical billing, insurance claims,
-              and accounts receivable to her work as a patient advocate — expertise built from
+              and accounts receivable to her work as a patient advocate with expertise built from
               inside the very system her clients are trying to navigate.</p>
             <p>For more than 18 years, Lindsey worked directly with insurance claims and medical
               collections for major healthcare systems, including Sentara Health Systems, the
@@ -713,7 +711,7 @@
               Regional Medical Center, and Bon Secours Maryview Medical Center. Her day-to-day work
               has included verifying patient eligibility, tracking down denials and payment delays,
               correcting billing and coding errors, and writing the detailed, evidence-backed
-              appeals that get rejected claims paid — the exact work most patients find themselves
+              appeals that get rejected claims paid. The exact work most patients find themselves
               facing for the first time, alone, after a diagnosis or a denial letter.</p>
             <p>Before entering healthcare, Lindsey spent nearly five years as a Deputy Clerk of
               Court, filing and managing civil, criminal, and family court cases. That background
@@ -750,8 +748,7 @@
     <!-- ================= HOW IT WORKS =============================== -->
     <section id="how" class="section" aria-labelledby="how-h">
       <div class="canvas">
-        <span class="eyebrow">How it works</span>
-        <h2 id="how-h" class="mt-3">Four steps, at your pace</h2>
+        <h2 id="how-h">Four steps, at your pace</h2>
 
         <div class="how-flow">
           <svg class="how-spine" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -812,8 +809,7 @@
     <!-- ================= PRICING (verbatim §8) ===================== -->
     <section id="pricing" class="section bg-surface border-y border-line-soft" aria-labelledby="pricing-h">
       <div class="canvas" data-reveal>
-        <span class="eyebrow">Pricing</span>
-        <h2 id="pricing-h" class="mt-3">Straightforward pricing</h2>
+        <h2 id="pricing-h">Straightforward pricing</h2>
         <div class="prose-measure mt-4">
           <p>Coastal Healthcare Advocates offers a range of services to help you understand your
             medical bills, resolve insurance issues, and get the most out of your benefits.</p>
@@ -897,16 +893,6 @@
             Download the full pricing sheet (PDF)
           </a>
         </p>
-
-        <div class="callout mt-8 p-6">
-          <p class="eyebrow">Notes</p>
-          <ul class="mt-4 flex flex-col gap-2">
-            <li class="flex gap-2.5"><svg class="icon shrink-0 text-sky" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>Rates listed are starting points and may be adjusted based on case complexity, the number of providers/insurers involved, and time required.</span></li>
-            <li class="flex gap-2.5"><svg class="icon shrink-0 text-sky" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>All clients receive a Service Agreement and <a href="assets/docs/Coastal-Financial-Responsibility-Agreement-DRAFT.pdf" target="_blank" rel="noopener">Financial Responsibility Agreement</a> outlining fees before work begins.</span></li>
-            <li class="flex gap-2.5"><svg class="icon shrink-0 text-sky" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>Most patient advocacy services are not covered by insurance and are paid directly by the client.</span></li>
-            <li class="flex gap-2.5"><svg class="icon shrink-0 text-sky" style="width:1.2rem" aria-hidden="true"><use href="#i-check"/></svg><span>Payment plans may be available — ask us about options.</span></li>
-          </ul>
-        </div>
       </div>
     </section>
 
@@ -915,8 +901,7 @@
       <div class="canvas">
         <div class="faq-layout">
           <div class="faq-aside" data-reveal>
-            <span class="eyebrow">Common questions</span>
-            <h2 id="faqs-h" class="mt-3">FAQ</h2>
+            <h2 id="faqs-h">FAQ</h2>
             <p class="faq-more">Have more questions? Email
               <a href="mailto:coastalhealthcareadvocates@gmail.com">coastalhealthcareadvocates<wbr>@gmail.com</a>
               or call <a href="tel:+17575740771">757-574-0771</a>.</p>
@@ -1008,8 +993,7 @@
     <section id="intake" class="section bg-surface border-t border-line-soft" aria-labelledby="intake-h">
       <div class="canvas">
         <div class="mx-auto max-w-measure text-center" data-reveal>
-          <span class="eyebrow">Get started</span>
-          <h2 id="intake-h" class="mt-3">Start with a free consultation</h2>
+          <h2 id="intake-h">Start with a free consultation</h2>
           <p class="lede mx-auto mt-4">Send a short message and Lindsey will get back to you within one
             business day. No health details needed yet — just enough to point you the right way.</p>
         </div>
@@ -1144,13 +1128,12 @@
     <!-- ================= SCHEDULE ================================= -->
     <section id="schedule" class="section bg-navy text-paper on-dark border-y border-line" aria-labelledby="schedule-h">
       <div class="canvas text-center" data-reveal>
-        <span class="eyebrow" style="color:rgba(245,251,255,.82)">Schedule a consultation</span>
-        <h2 id="schedule-h" class="mt-3 text-paper">Book a free 20–30 minute call</h2>
+        <h2 id="schedule-h" class="text-paper">Book a free 20–30 minute call</h2>
         <p class="mx-auto mt-4 max-w-measure" style="color:rgba(245,251,255,.82)">Talk through your
           situation with someone who has worked claims and billing from the inside for 27 years.
           There's no charge and no obligation.</p>
         <p class="mt-7 flex flex-wrap justify-center gap-4">
-          <button type="button" class="btn btn-on-dark" data-open-contact>Book the free consultation</button>
+          <button type="button" class="btn btn-on-dark" data-open-contact>Schedule a Free Consultation</button>
           <a class="btn btn-ghost-on-dark" href="tel:+17575740771">Call 757-574-0771</a>
         </p>
       </div>
@@ -1237,15 +1220,12 @@
     </div>
   </footer>
 
-  <!-- ================= STICKY CTA ============================== -->
-  <div id="sticky-cta" class="sticky-cta on-dark" role="region" aria-label="Quick contact" hidden>
-    <span class="meta hidden sm:inline" style="color:rgba(245,251,255,.82)">The first consultation is free.</span>
-    <button type="button" class="btn btn-on-dark" data-open-contact>Free consultation</button>
-    <a href="tel:+17575740771">757-574-0771</a>
-    <button type="button" class="sticky-dismiss" aria-label="Dismiss quick contact bar">
-      <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#i-close"/></svg>
-    </button>
-  </div>
+  <!-- ================= GET STARTED DRAWER TAB ================= -->
+  <button type="button" class="drawer-tab" data-open-contact data-context="crisis"
+          aria-label="Get started — open the consultation form">
+    <span aria-hidden="true">Get Started</span>
+  </button>
+
 
   <!-- ================= CONSENT BANNER ========================= -->
   <div id="consent" class="consent" role="region" aria-label="Cookie choices" hidden>
@@ -1267,7 +1247,7 @@
         <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#i-close"/></svg>
       </button>
 
-      <h2 id="cm-title" class="text-h3">Book a free consultation</h2>
+      <h2 id="cm-title" class="text-h3">Schedule a Free Consultation</h2>
       <p id="cm-phi" class="form-note mt-3">Please do not enter Social Security numbers, diagnoses,
         or other sensitive health details here. We'll collect what we need through a secure channel
         after we connect. Not for emergencies — call 911.</p>
@@ -1289,7 +1269,6 @@
   <script type="module" src="assets/js/main.js"></script>
   <script type="module" src="assets/js/modal.js"></script>
   <script type="module" src="assets/js/intake-form.js"></script>
-  <script type="module" src="assets/js/sticky-cta.js"></script>
   <script type="module" src="assets/js/consent.js"></script>
 </body>
 </html>
