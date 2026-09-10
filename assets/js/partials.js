@@ -91,7 +91,7 @@
             '<address class="not-italic flex flex-col gap-2">' +
               '<a href="tel:+17575740771" class="num">757-574-0771</a>' +
               '<a href="mailto:coastalhealthcareadvocates@gmail.com" class="break-words">coastalhealthcareadvocates@gmail.com</a>' +
-              '<span style="color:rgba(245,251,255,.72)">Virginia Beach &amp; Hampton Roads, VA</span>' +
+              '<span style="color:rgba(245,251,255,.72)">Serving Hampton Roads and Southern Virginia</span>' +
             '</address>' +
             '<div class="mt-4 flex items-center gap-3">' +
               '<a href="https://www.linkedin.com/in/lindsey-hewitt-1856b5136/" rel="noopener" aria-label="Lindsey Hewitt on LinkedIn" class="grid h-11 w-11 place-items-center rounded-full border border-white/20 hover:border-white/60">' +
