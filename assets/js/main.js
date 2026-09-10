@@ -47,14 +47,47 @@ if (navToggle && mobileNav) {
 
 /* -------------------------------------------------------------------------
    FAQ accordion  (<button aria-expanded aria-controls> + panel[hidden])
+
+   Each row toggles independently (several can be open at once). The panel's
+   height is animated: on open it goes 0 -> measured height then back to auto;
+   on close it goes current height -> 0, and [hidden] is set once the collapse
+   finishes. Reduced motion / a failed script: a plain [hidden] toggle. The
+   +/- sign is swapped between two sprite symbols.
    ---------------------------------------------------------------------- */
+const FAQ_MS = 300; // keep in step with the .faq-panel grid-template-rows transition in the CSS
+
 document.querySelectorAll('.faq-trigger').forEach((trigger) => {
   const panel = document.getElementById(trigger.getAttribute('aria-controls'));
   if (!panel) return;
+  const sign = trigger.querySelector('.faq-sign use');
+
+  const apply = (open) => {
+    clearTimeout(panel._faqTimer); // cancel a settle from a fast re-toggle
+    panel._faqOpen = open;         // latest intent, read by the deferred steps below
+    trigger.setAttribute('aria-expanded', String(open));
+    if (sign) sign.setAttribute('href', open ? '#i-minus' : '#i-plus');
+
+    if (prefersReducedMotion.matches) {
+      panel.hidden = !open;
+      panel.classList.remove('is-collapsed');
+      return;
+    }
+
+    if (open) {
+      panel.hidden = false;
+      panel.classList.add('is-collapsed'); // start the row at 0fr...
+      void panel.offsetHeight;             // ...flush that as the transition's start...
+      panel.classList.remove('is-collapsed'); // ...then grow to 1fr
+    } else {
+      panel.classList.add('is-collapsed');
+      panel._faqTimer = setTimeout(() => {
+        if (!panel._faqOpen) panel.hidden = true; // out of the a11y tree once collapsed
+      }, FAQ_MS + 40);
+    }
+  };
+
   trigger.addEventListener('click', () => {
-    const open = trigger.getAttribute('aria-expanded') === 'true';
-    trigger.setAttribute('aria-expanded', String(!open));
-    panel.hidden = open;
+    apply(trigger.getAttribute('aria-expanded') !== 'true');
   });
 });
 
@@ -162,7 +195,7 @@ if (howFlow && 'IntersectionObserver' in window && !prefersReducedMotion.matches
 if (!prefersReducedMotion.matches) {
   const revealEls = Array.from(document.querySelectorAll('[data-reveal]'));
   if (revealEls.length) {
-    const REVEAL_MS = 600 + 4 * 80 + 60; // slowest child: duration + capped stagger + slack
+    const REVEAL_MS = 640 + 4 * 90 + 60; // slowest child: duration + capped stagger + slack
     let pending = revealEls;
     pending.forEach((el) => el.classList.add('reveal-pending'));
 
