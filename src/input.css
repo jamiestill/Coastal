@@ -1300,6 +1300,67 @@
   }
   .modal-close:hover { background: var(--line-soft); }
 
+  /* Dark mode: the contact drawer (not the centered lightbox) and the mobile
+     nav panel invert to a Sky ground. Re-point the semantic tokens inside each
+     scope so every descendant — headings, labels, hints, inputs, close button,
+     nav links — recomputes against the light surface and stays AA-legible
+     (Navy on Sky ≈ 7:1). */
+  :root[data-theme="dark"] #contact-modal:not(.is-lightbox),
+  :root[data-theme="dark"] #mobile-nav {
+    --bg: var(--sky);
+    --surface: #EAF3FF;
+    --ink: var(--navy);
+    --ink-soft: #20305C;
+    --line: #2E3F72;
+    --line-soft: #A9D6FF;
+    --tag-bg: #CFE6FF;
+    --link: var(--navy);
+    --ring: var(--navy);
+    background: var(--sky);
+    color: var(--navy);
+    border-color: #2E3F72;
+  }
+  :root[data-theme="dark"] #contact-modal:not(.is-lightbox) .choice input { accent-color: var(--navy); }
+  /* The primary CTA is Sky in dark mode; on the Sky ground it flips to Navy. */
+  :root[data-theme="dark"] #contact-modal:not(.is-lightbox) .btn-primary {
+    background: var(--navy);
+    color: var(--paper);
+    border-color: var(--navy);
+  }
+  :root[data-theme="dark"] #contact-modal:not(.is-lightbox) .btn-primary:hover {
+    background: var(--midnight);
+    border-color: var(--midnight);
+    filter: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) #contact-modal:not(.is-lightbox),
+    :root:not([data-theme="light"]) #mobile-nav {
+      --bg: var(--sky);
+      --surface: #EAF3FF;
+      --ink: var(--navy);
+      --ink-soft: #20305C;
+      --line: #2E3F72;
+      --line-soft: #A9D6FF;
+      --tag-bg: #CFE6FF;
+      --link: var(--navy);
+      --ring: var(--navy);
+      background: var(--sky);
+      color: var(--navy);
+      border-color: #2E3F72;
+    }
+    :root:not([data-theme="light"]) #contact-modal:not(.is-lightbox) .choice input { accent-color: var(--navy); }
+    :root:not([data-theme="light"]) #contact-modal:not(.is-lightbox) .btn-primary {
+      background: var(--navy);
+      color: var(--paper);
+      border-color: var(--navy);
+    }
+    :root:not([data-theme="light"]) #contact-modal:not(.is-lightbox) .btn-primary:hover {
+      background: var(--midnight);
+      border-color: var(--midnight);
+      filter: none;
+    }
+  }
+
   /* --- Forms --- */
   .field { display: block; margin-top: 1rem; }
   .field-label {
