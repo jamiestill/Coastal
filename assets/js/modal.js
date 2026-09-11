@@ -86,6 +86,9 @@ if (dialog && source) {
   /* ---- open / close ------------------------------------------------- */
   function openContact(trigger) {
     lastFocused = trigger || document.activeElement;
+    // Most triggers open the right-anchored drawer; a `data-variant="lightbox"`
+    // trigger presents the same dialog as a centered lightbox instead.
+    dialog.classList.toggle('is-lightbox', trigger?.dataset.variant === 'lightbox');
     contact?.setContext(trigger?.dataset.context);
     contact?.stampOpened();
 
@@ -125,6 +128,7 @@ if (dialog && source) {
     document.body.style.width = '';
     window.scrollTo({ top: scrollY, left: 0, behavior: 'instant' });
 
+    dialog.classList.remove('is-lightbox');
     document.dispatchEvent(new CustomEvent('contact:close'));
     lastFocused?.focus?.({ preventScroll: true });
   }

@@ -867,6 +867,32 @@
     text-align: center;
   }
 
+  /* Path CTAs read as light blue at rest in both themes, matching the
+     "Get Started" tab; hover deepens to navy in light mode and lifts to
+     white in dark mode. */
+  .path-card .btn-ghost {
+    background: var(--sky);
+    color: var(--navy);
+    border-color: var(--sky);
+  }
+  .path-card .btn-ghost:hover {
+    background: var(--navy);
+    color: var(--paper);
+    border-color: var(--navy);
+  }
+  :root[data-theme="dark"] .path-card .btn-ghost:hover {
+    background: var(--paper);
+    color: var(--navy);
+    border-color: var(--paper);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .path-card .btn-ghost:hover {
+      background: var(--paper);
+      color: var(--navy);
+      border-color: var(--paper);
+    }
+  }
+
   /* JPEG is the safe fallback; @supports upgrades to AVIF/WebP where the
      image-set() type() syntax is understood (Chrome 113+, Safari 17+, FF 89+). */
   .path-card--crisis   { --path-card-bg: url('../img/path-crisis-960.jpg'); }
@@ -1155,11 +1181,11 @@
     align-items: center;
     justify-content: center;
     padding: 1.1rem 0.55rem;
-    border: 1px solid var(--navy);
+    border: 1px solid var(--sky);
     border-right: 0;
     border-radius: theme('borderRadius.card') 0 0 theme('borderRadius.card');
-    background: var(--navy);
-    color: var(--paper);
+    background: var(--sky);
+    color: var(--navy);
     font-family: theme('fontFamily.label');
     font-size: 0.9375rem;
     letter-spacing: 0.1em;
@@ -1171,11 +1197,26 @@
                 opacity 0.22s ease, visibility 0.22s,
                 background-color 0.18s ease, color 0.18s ease;
   }
+  /* Light blue at rest in both themes; hover deepens to navy in light mode
+     and lifts to white in dark mode. */
   .drawer-tab:hover {
-    background: var(--sky);
-    color: var(--navy);
+    background: var(--navy);
+    color: var(--paper);
+    border-color: var(--navy);
   }
   .drawer-tab:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; }
+  :root[data-theme="dark"] .drawer-tab:hover {
+    background: var(--paper);
+    color: var(--navy);
+    border-color: var(--paper);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .drawer-tab:hover {
+      background: var(--paper);
+      color: var(--navy);
+      border-color: var(--paper);
+    }
+  }
   /* Tucked away once the in-page intake form (or the closing region) is on
      screen — a second CTA there just repeats what the visitor can already see. */
   .drawer-tab.is-tucked {
@@ -1216,6 +1257,32 @@
     #contact-modal[open] { animation: backdrop-in 180ms ease both; }
     #contact-modal[open]::backdrop { animation-name: backdrop-in; }
   }
+  /* --- Lightbox variant: the same dialog, centered instead of edge-anchored.
+     A `data-variant="lightbox"` open button adds `.is-lightbox` (see modal.js). --- */
+  #contact-modal.is-lightbox {
+    inset: 0;
+    margin: auto;
+    width: min(34rem, 100vw - 2rem);
+    height: max-content;
+    max-height: calc(100dvh - 2rem);
+    border: 1px solid var(--line);
+    border-radius: theme('borderRadius.card');
+  }
+  #contact-modal.is-lightbox .modal-scroll {
+    height: auto;
+    max-height: calc(100dvh - 2rem);
+  }
+  #contact-modal.is-lightbox[open] {
+    animation: lightbox-in 240ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes lightbox-in {
+    from { opacity: 0; transform: translateY(8px) scale(0.98); }
+    to   { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #contact-modal.is-lightbox[open] { animation: backdrop-in 180ms ease both; }
+  }
+
   .modal-scroll { overflow-y: auto; height: 100dvh; max-height: 100dvh; padding: 1.75rem; }
   .modal-close {
     position: absolute;
