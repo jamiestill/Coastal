@@ -28,7 +28,46 @@ export function initContactForm(form, opts = {}) {
 
   // Field-id prefix, e.g. "cf" (modal) or "in" (inline).
   const prefix = (form.elements.name?.id || 'cf-name').replace(/-name$/, '');
-  const errIds = ['name', 'email', 'phone', 'consent'].map((k) => `${prefix}-${k}`);
+  const errIds = ['name', 'email', 'phone', 'consent', 'recaptcha'].map((k) => `${prefix}-${k}`);
+
+  /* ---- reCAPTCHA v2 (Netlify) ----------------------------------- */
+  // Netlify's post-processing swaps <div data-netlify-recaptcha> for a real
+  // .g-recaptcha widget and injects Google's api.js at deploy time. None of that
+  // happens on `npm run dev`, so every helper below degrades to a no-op when the
+  // widget or the grecaptcha global is absent, and validation simply skips it.
+  function captchaWidget() {
+    return form.querySelector('.g-recaptcha');
+  }
+  function captchaActive() {
+    return !!captchaWidget() && !!window.grecaptcha;
+  }
+  function captchaId() {
+    const raw = captchaWidget()?.dataset.widgetId;
+    return raw === undefined || raw === '' ? undefined : Number(raw);
+  }
+  // The modal clone carries data-pending-sitekey until modal.js renders it and
+  // stamps data-widget-id. Until then it has no token of its own — don't let
+  // getResponse() fall through to the inline widget's id.
+  function captchaPending() {
+    const el = captchaWidget();
+    return !!el && el.hasAttribute('data-pending-sitekey') && !el.dataset.widgetId;
+  }
+  function captchaResponse() {
+    if (!captchaActive() || captchaPending()) return '';
+    try {
+      return window.grecaptcha.getResponse(captchaId()) || '';
+    } catch {
+      return '';
+    }
+  }
+  function resetCaptcha() {
+    if (!captchaActive()) return;
+    try {
+      window.grecaptcha.reset(captchaId());
+    } catch {
+      /* not rendered yet — nothing to reset */
+    }
+  }
 
   /* ---- validation ------------------------------------------------- */
   function setError(id, message) {
@@ -67,6 +106,8 @@ export function initContactForm(form, opts = {}) {
       errors.push(setError(`${prefix}-phone`, 'Please give us an email or a phone number.'));
     if (!consent)
       errors.push(setError(`${prefix}-consent`, 'Please confirm you’ve read the Privacy Notice.'));
+    if (captchaActive() && !captchaResponse())
+      errors.push(setError(`${prefix}-recaptcha`, 'Please tick the “I’m not a robot” box.'));
 
     if (errors.length && errorSummary) {
       errorSummary.innerHTML =
@@ -130,6 +171,7 @@ export function initContactForm(form, opts = {}) {
       }
       window.chaTrack?.('contact_submitted'); // no field data
     } catch (err) {
+      resetCaptcha(); // the token is single-use — hand the visitor a fresh challenge
       if (errorSummary) {
         errorSummary.innerHTML =
           'Something went wrong sending your message. Please call ' +

@@ -34,7 +34,7 @@
   <link rel="apple-touch-icon" sizes="120x120" href="assets/img/apple-touch-icon-120x120.png">
   <link rel="manifest" href="site.webmanifest">
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-src https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/; frame-ancestors 'none'">
 
   <!-- Above-the-fold faces. Without a preload these are only discovered after
        site.css downloads and parses (critical-path depth 2): Cormorant Garamond
@@ -1095,6 +1095,11 @@
             <p class="hp-field" aria-hidden="true">
               <label>Company <input name="company" tabindex="-1" autocomplete="off"></label>
             </p>
+
+            <div class="field" id="in-recaptcha" data-recaptcha-field tabindex="-1">
+              <div data-netlify-recaptcha="true"></div>
+              <span class="field-error" id="in-recaptcha-err" hidden></span>
+            </div>
 
             <p class="mt-5">
               <button type="submit" class="btn btn-primary w-full sm:w-auto" id="in-submit">Send message</button>

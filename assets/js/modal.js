@@ -28,6 +28,29 @@ if (dialog && source) {
   // The PHI note rides along in the clone (id in- → cf-); give it the modal's top gap.
   form.querySelector('[data-phi-note]')?.classList.add('mt-3');
 
+  // reCAPTCHA: a cloned widget iframe is dead and the cloned api.js <script>
+  // won't re-run. Strip both, park the site key, and render this second widget
+  // explicitly the first time the modal opens — so only the inline form's widget
+  // is picked up by api.js's auto-render.
+  form.querySelectorAll('script').forEach((s) => s.remove());
+  const modalCaptcha = form.querySelector('.g-recaptcha');
+  if (modalCaptcha) {
+    modalCaptcha.dataset.pendingSitekey = modalCaptcha.getAttribute('data-sitekey') || '';
+    modalCaptcha.removeAttribute('data-sitekey'); // keep api.js auto-render off the clone
+    modalCaptcha.innerHTML = '';
+  }
+  function ensureModalCaptcha() {
+    const el = form.querySelector('.g-recaptcha');
+    if (!el || el.dataset.widgetId || !window.grecaptcha || !window.grecaptcha.render) return;
+    try {
+      el.dataset.widgetId = String(
+        window.grecaptcha.render(el, { sitekey: el.dataset.pendingSitekey })
+      );
+    } catch {
+      /* api.js not settled yet — the next open retries */
+    }
+  }
+
   const submitBtn = form.querySelector('button[type="submit"]');
   submitBtn.classList.remove('sm:w-auto'); // full-width in the modal
   submitBtn.textContent = 'Connect and start the conversation';
@@ -65,6 +88,13 @@ if (dialog && source) {
     lastFocused = trigger || document.activeElement;
     contact?.setContext(trigger?.dataset.context);
     contact?.stampOpened();
+
+    // Render (or retry rendering) the modal's reCAPTCHA once api.js is available.
+    let capTries = 0;
+    (function renderWhenReady() {
+      if (window.grecaptcha && window.grecaptcha.render) return ensureModalCaptcha();
+      if (capTries++ < 20) setTimeout(renderWhenReady, 200);
+    })();
 
     // scroll lock
     scrollY = window.scrollY;
