@@ -1,7 +1,13 @@
 // Coastal Healthcare Advocates — accessible contact lightbox.
-// Native <dialog> for ESC / backdrop / top-layer; adds focus trap, scroll-lock,
-// and return-focus. Form validation + Netlify submit come from contact-form.js,
-// shared with the inline intake form.
+// Opened with dialog.show(), not showModal(): showModal()'s top-layer
+// ::backdrop paints above reCAPTCHA's own high-z-index challenge overlay and
+// obscures it (see the comment on #contact-modal in src/input.css). So this
+// hand-rolls what showModal() would otherwise give for free: a real backdrop
+// element (#contact-backdrop) for the dimmed background + outside-click-to-
+// close, `inert` on the rest of <body> while open, and manual Escape handling
+// -- plus the focus trap, scroll-lock, and return-focus every dialog needs.
+// Form validation + Netlify submit come from contact-form.js, shared with the
+// inline intake form.
 //
 // The modal has almost no markup of its own: it clones #intake-form (the one
 // authored copy, which also serves as the no-JS fallback and the form Netlify
@@ -9,9 +15,10 @@
 // id prefix from "in-" to "cf-" so the two instances coexist in one document.
 // The PHI note rides along inside the form clone.
 
-import { initContactForm } from './contact-form.js';
+import { initContactForm } from './contact-form.js?v=1e88cc4ec9';
 
 const dialog = document.getElementById('contact-modal');
+const backdrop = document.getElementById('contact-backdrop');
 const source = document.getElementById('intake-form');
 if (dialog && source) {
   const rekey = (v) => (v ? v.replace(/\bin-/g, 'cf-') : v);
@@ -80,6 +87,16 @@ if (dialog && source) {
   const FOCUSABLE =
     'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
+  // showModal() makes everything outside the dialog `inert` (unfocusable,
+  // hidden from assistive tech) automatically; show() doesn't, so do it here.
+  function setBackgroundInert(on) {
+    for (const el of document.body.children) {
+      if (el === dialog || el === backdrop) continue;
+      if (on) el.setAttribute('inert', '');
+      else el.removeAttribute('inert');
+    }
+  }
+
   let lastFocused = null;
   let scrollY = 0;
 
@@ -105,8 +122,11 @@ if (dialog && source) {
     document.body.style.top = `-${scrollY}px`;
     document.body.style.width = '100%';
 
-    if (typeof dialog.showModal === 'function') {
-      dialog.showModal();
+    backdrop?.removeAttribute('hidden');
+    setBackgroundInert(true);
+
+    if (typeof dialog.show === 'function') {
+      dialog.show();
     } else {
       dialog.setAttribute('open', ''); // very old browsers: degrade to inline
     }
@@ -119,6 +139,9 @@ if (dialog && source) {
   function closeContact() {
     if (typeof dialog.close === 'function' && dialog.open) dialog.close();
     else dialog.removeAttribute('open');
+
+    backdrop?.setAttribute('hidden', '');
+    setBackgroundInert(false);
 
     // Release the scroll lock and jump straight back to where the visitor was.
     // 'instant' overrides the page's global `scroll-behavior: smooth`, which
@@ -141,16 +164,18 @@ if (dialog && source) {
     btn.addEventListener('click', closeContact);
   });
 
-  // ESC (native 'cancel') → run our cleanup
-  dialog.addEventListener('cancel', (e) => {
-    e.preventDefault();
-    closeContact();
+  // ESC: showModal() fired a native 'cancel' event for this; show() doesn't,
+  // so listen for the key directly.
+  dialog.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && dialog.open) {
+      e.preventDefault();
+      closeContact();
+    }
   });
 
-  // Backdrop click (event target is the dialog element itself)
-  dialog.addEventListener('click', (e) => {
-    if (e.target === dialog) closeContact();
-  });
+  // Outside click: with showModal() this was e.target === dialog (the
+  // ::backdrop click target); with a real backdrop element, just listen on it.
+  backdrop?.addEventListener('click', closeContact);
 
   // Focus trap
   dialog.addEventListener('keydown', (e) => {
