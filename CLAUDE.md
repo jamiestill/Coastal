@@ -25,19 +25,23 @@ reference imagery remain alongside it. `creative/Creative Brief.md` is the origi
 `#intake-form` in `index.html` is the one authored form (Netlify detects it at build
 time); `modal.js` clones it into the lightbox and re-keys ids `in-` → `cf-`. Shared
 behaviour — inline validation, submit, success/error states — lives in
-`contact-form.js`. Three spam layers:
+`contact-form.js`. Three spam layers, though only the first two are currently live:
 
 - **Honeypot** — hidden `company` field (`data-netlify-honeypot="company"`, hidden by
   `.hp-field` in `src/input.css`); `contact-form.js` also drops any submit that fills it.
 - **Time-trap** — `contact-form.js` rejects submits faster than 2 s after the form (or
   modal) opened.
-- **reCAPTCHA v2** ("I'm not a robot") — `<div data-netlify-recaptcha="true">` inside the
-  form. Netlify injects Google's `api.js` + widget **at deploy time only**, so the widget
+- **reCAPTCHA v2** ("I'm not a robot") — **currently disabled**: the `<div
+  data-netlify-recaptcha="true">` field in `#intake-form` (`index.html`, inside
+  `#in-recaptcha`) is commented out, so Netlify never injects the widget and
+  `contact-form.js`'s `captchaActive()` check is always false, same as it degrades under
+  `npm run dev`. To re-enable, just uncomment that block — no JS changes needed. When
+  live: Netlify injects Google's `api.js` + widget **at deploy time only**, so the widget
   is absent under `npm run dev` and on any non-Netlify preview; `contact-form.js` /
   `modal.js` no-op cleanly when it's missing. The modal's cloned widget is stripped and
   re-rendered with `grecaptcha.render()` on first open. CSP (`<meta>` in `index.html` **and**
-  the `/*` header in `netlify.toml`) is opened for `google.com/recaptcha` +
-  `gstatic.com/recaptcha` on `script-src` / `frame-src`.
+  the `/*` header in `netlify.toml`) stays opened for `google.com/recaptcha` +
+  `gstatic.com/recaptcha` on `script-src` / `frame-src` regardless, ready for re-enabling.
 
 The reCAPTCHA **secret** key is not in the repo — it's private and lives only in Netlify.
 The **site** key is public (it ships client-side in the rendered widget regardless), so it's

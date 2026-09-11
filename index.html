@@ -1096,10 +1096,16 @@
               <label>Company <input name="company" tabindex="-1" autocomplete="off"></label>
             </p>
 
+            <!-- reCAPTCHA temporarily disabled -- honeypot + time-trap (contact-form.js)
+                 are carrying spam protection alone for now. contact-form.js / modal.js
+                 already treat the widget as optional (captchaActive() just checks
+                 whether .g-recaptcha exists), so re-enabling is just uncommenting this
+                 block -- no JS changes needed. See CLAUDE.md "Forms & spam protection".
             <div class="field" id="in-recaptcha" data-recaptcha-field tabindex="-1">
               <div data-netlify-recaptcha="true"></div>
               <span class="field-error" id="in-recaptcha-err" hidden></span>
             </div>
+            -->
 
             <p class="mt-5">
               <button type="submit" class="btn btn-primary w-full sm:w-auto" id="in-submit">Start Your Consultation</button>
