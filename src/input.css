@@ -1485,11 +1485,13 @@
     max-width: 100%;
   }
 
-  /* "Cookie preferences" is a <button>; make it read exactly like the sibling
-     legal links (no permanent underline, underline on hover). */
+  /* "Site preferences" is a <button>; make it read exactly like the sibling
+     legal links. Those are classless <a>s on the Midnight footer, so they
+     pick up `.on-dark a:not([class]) { color: var(--sky) }` instead of the
+     footer's default `var(--paper)` — match that here. */
   .footer-linkish {
     font: inherit;
-    color: var(--paper);
+    color: var(--sky);
     background: none;
     border: 0;
     padding: 0;
