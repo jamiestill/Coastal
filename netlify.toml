@@ -97,6 +97,16 @@
 # see index.html) POSTs natively to action="/thanks". Netlify records the
 # submission, then this rewrite serves index.html for /thanks (200, not a
 # redirect). With JS on, contact-form.js submits via fetch to "/".
+#
+# Spam: honeypot (`company`) + a 2s time-trap in contact-form.js, plus a
+# reCAPTCHA v2 widget (<div data-netlify-recaptcha> in the form). Netlify injects
+# the widget + Google api.js at deploy time using the env vars SITE_RECAPTCHA_KEY
+# (site key; scopes Builds+Runtime) and SITE_RECAPTCHA_SECRET (secret; Runtime),
+# set in Site configuration -> Environment variables -- NOT committed here. Keys
+# from google.com/recaptcha/admin (v2 checkbox). The script-src/frame-src grants
+# for google.com/recaptcha + gstatic.com/recaptcha in the CSP above exist for it;
+# keep them in sync with the <meta> CSP in index.html. Docs:
+# docs.netlify.com/manage/forms/spam-filters/
 [[redirects]]
   from = "/thanks"
   to = "/index.html"

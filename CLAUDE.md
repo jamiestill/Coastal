@@ -20,6 +20,34 @@ reference imagery remain alongside it. `creative/Creative Brief.md` is the origi
   `src/input.css` / `tailwind.config.js` and rebuild.
 - No test suite or linter.
 
+## Forms & spam protection
+
+`#intake-form` in `index.html` is the one authored form (Netlify detects it at build
+time); `modal.js` clones it into the lightbox and re-keys ids `in-` → `cf-`. Shared
+behaviour — inline validation, submit, success/error states — lives in
+`contact-form.js`. Three spam layers:
+
+- **Honeypot** — hidden `company` field (`data-netlify-honeypot="company"`, hidden by
+  `.hp-field` in `src/input.css`); `contact-form.js` also drops any submit that fills it.
+- **Time-trap** — `contact-form.js` rejects submits faster than 2 s after the form (or
+  modal) opened.
+- **reCAPTCHA v2** ("I'm not a robot") — `<div data-netlify-recaptcha="true">` inside the
+  form. Netlify injects Google's `api.js` + widget **at deploy time only**, so the widget
+  is absent under `npm run dev` and on any non-Netlify preview; `contact-form.js` /
+  `modal.js` no-op cleanly when it's missing. The modal's cloned widget is stripped and
+  re-rendered with `grecaptcha.render()` on first open. CSP (`<meta>` in `index.html` **and**
+  the `/*` header in `netlify.toml`) is opened for `google.com/recaptcha` +
+  `gstatic.com/recaptcha` on `script-src` / `frame-src`.
+
+reCAPTCHA keys are **not in the repo**. In Netlify → Site configuration → Environment
+variables, set `SITE_RECAPTCHA_KEY` (site key, public; scopes: Builds + Runtime) and
+`SITE_RECAPTCHA_SECRET` (secret key, private; scope: Runtime). Generate the pair at
+`google.com/recaptcha/admin` as **reCAPTCHA v2 → checkbox**, listing the production domain
+and the `*.netlify.app` deploy domain. Without both vars Netlify skips widget injection and
+form POSTs 400. Netlify verifies `g-recaptcha-response` server-side; the AJAX submit sends
+the whole `FormData`, so the token rides along. Docs:
+`docs.netlify.com/manage/forms/spam-filters/`.
+
 ## Working in the shell
 
 - `t&c.html` contains an ampersand — always quote the path: `"t&c.html"`.
