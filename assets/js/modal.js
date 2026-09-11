@@ -53,7 +53,7 @@ if (dialog && source) {
 
   const submitBtn = form.querySelector('button[type="submit"]');
   submitBtn.classList.remove('sm:w-auto'); // full-width in the modal
-  submitBtn.textContent = 'Connect and start the conversation';
+  // Label ("Send message") rides along in the clone — authored once on #intake-form.
 
   dialog.querySelector('[data-contact-form-mount]').replaceWith(form);
 
