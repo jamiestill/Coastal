@@ -1725,6 +1725,11 @@
     #top .grid-9 { grid-template-columns: minmax(0, 1fr) 38%; }
     #top .grid-9 > div:nth-of-type(2) { margin-top: 0; }
   }
+  /* Below 500px the hero image itself is hidden (index.html), so collapse
+     back to a single column instead of reserving the 38% track for nothing. */
+  @media (max-width: 499px) {
+    #top .grid-9 { grid-template-columns: 1fr; }
+  }
   /* Below the md breakpoint the column is too narrow for the full 4:3
      illustration, so the figure stretches to the copy's height and the photo
      covers it. The focus sits just left of the figures (~78%): they stay in
