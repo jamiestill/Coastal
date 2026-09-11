@@ -39,14 +39,22 @@ behaviour — inline validation, submit, success/error states — lives in
   the `/*` header in `netlify.toml`) is opened for `google.com/recaptcha` +
   `gstatic.com/recaptcha` on `script-src` / `frame-src`.
 
-reCAPTCHA keys are **not in the repo**. In Netlify → Site configuration → Environment
-variables, set `SITE_RECAPTCHA_KEY` (site key, public; scopes: Builds + Runtime) and
-`SITE_RECAPTCHA_SECRET` (secret key, private; scope: Runtime). Generate the pair at
-`google.com/recaptcha/admin` as **reCAPTCHA v2 → checkbox**, listing the production domain
-and the `*.netlify.app` deploy domain. Without both vars Netlify skips widget injection and
-form POSTs 400. Netlify verifies `g-recaptcha-response` server-side; the AJAX submit sends
-the whole `FormData`, so the token rides along. Docs:
-`docs.netlify.com/manage/forms/spam-filters/`.
+The reCAPTCHA **secret** key is not in the repo — it's private and lives only in Netlify.
+The **site** key is public (it ships client-side in the rendered widget regardless), so it's
+recorded here for reference:
+
+```
+SITE_RECAPTCHA_KEY=6LcAJLUtAAAAAPsKWFDO_zI4YHpDEPeh6CEUxJZB
+```
+
+In Netlify → Site configuration → Environment variables, set `SITE_RECAPTCHA_KEY` (the value
+above; scopes: Builds + Runtime) and `SITE_RECAPTCHA_SECRET` (secret key, private; scope:
+Runtime — not recorded here). Generate the pair at `google.com/recaptcha/admin` as
+**reCAPTCHA v2 → checkbox**, listing the production domain and the `*.netlify.app` deploy
+domain. Without both vars Netlify skips widget injection and form POSTs 400. Netlify verifies
+`g-recaptcha-response` server-side; the AJAX submit sends the whole `FormData`, so the token
+rides along. Docs: `docs.netlify.com/manage/forms/spam-filters/`. If the key pair is ever
+rotated, update both this value and the Netlify env var together.
 
 ## Working in the shell
 
