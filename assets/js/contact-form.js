@@ -80,6 +80,9 @@ export function initContactForm(form, opts = {}) {
     }
     return { id, message };
   }
+  function markInvalid(id) {
+    document.getElementById(id)?.setAttribute('aria-invalid', 'true');
+  }
   function clearError(id) {
     const input = document.getElementById(id);
     const err = document.getElementById(`${id}-err`);
@@ -102,8 +105,10 @@ export function initContactForm(form, opts = {}) {
     if (!name) errors.push(setError(`${prefix}-name`, 'Please enter your name.'));
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
       errors.push(setError(`${prefix}-email`, 'That email address doesn’t look right.'));
-    if (!email && !phone)
+    if (!email && !phone) {
       errors.push(setError(`${prefix}-phone`, 'Please give us an email or a phone number.'));
+      markInvalid(`${prefix}-email`);
+    }
     if (!consent)
       errors.push(setError(`${prefix}-consent`, 'Please confirm you’ve read the Privacy Notice.'));
     if (captchaActive() && !captchaResponse())
