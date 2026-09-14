@@ -1160,9 +1160,8 @@
 
           <fieldset class="field">
             <legend class="field-label">Preferred contact method</legend>
-            <label class="choice"><input type="radio" name="preferred" value="Phone" checked> Phone</label>
-            <label class="choice"><input type="radio" name="preferred" value="Email"> Email</label>
-            <label class="choice"><input type="radio" name="preferred" value="Text"> Text message</label>
+            <label class="choice"><input type="checkbox" name="preferred" value="Phone" checked> Phone</label>
+            <label class="choice"><input type="checkbox" name="preferred" value="Email"> Email</label>
           </fieldset>
 
           <p class="field">
@@ -1186,6 +1185,14 @@
               <option value="This month">This month</option>
               <option value="Just researching">Just researching for now</option>
             </select>
+          </p>
+
+          <p class="field">
+            <label class="field-label" for="in-message">Briefly, what's going on? (optional)</label>
+            <textarea class="textarea" id="in-message" name="message" maxlength="600"
+                      aria-describedby="in-message-hint"></textarea>
+            <span class="field-hint" id="in-message-hint">Please don't include diagnoses or
+              treatment details. We'll gather those securely once we talk.</span>
           </p>
 
           <p class="field">
