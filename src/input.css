@@ -5,15 +5,15 @@
    ========================================================================== */
 
 /* --- Self-hosted fonts (latin subset). Kept outside @layer so they pass through as-is. --- */
-@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/cormorant-garamond-500.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 600; font-display: swap; src: url('../fonts/cormorant-garamond-600.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+/* Cormorant Garamond and Ysabeau are variable fonts: the per-weight files in
+   assets/fonts are byte-identical copies, so each family is declared once with a
+   weight range and downloads a single file however many weights are used. */
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 500 600; font-display: swap; src: url('../fonts/cormorant-garamond-500.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/ibm-plex-mono-400.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/ibm-plex-mono-500.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: 'Questrial'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/questrial-400.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: 'Tenor Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/tenor-sans-400.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: 'Ysabeau'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/ysabeau-400.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: 'Ysabeau'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/ysabeau-500.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: 'Ysabeau'; font-style: normal; font-weight: 600; font-display: swap; src: url('../fonts/ysabeau-600.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Ysabeau'; font-style: normal; font-weight: 400 600; font-display: swap; src: url('../fonts/ysabeau-400.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 
 @tailwind base;
 @tailwind components;
@@ -23,7 +23,7 @@
    BASE
    ========================================================================== */
 @layer base {
-  /* ---- Tokens: verbatim from creative/Coastal Style Guide.html (§01, §07) ---- */
+  /* ---- Tokens: verbatim from creative/Coastal Brand Guidelines.html (§01, §07) ---- */
   :root {
     /* Palette — identity, never changes */
     --navy: #0F1E4A;
@@ -54,8 +54,56 @@
        light ground; nav / buttons / footer set their own colour and are unaffected. */
     --link: #0B5FA5;
 
+    /* Accent-as-ink: darker palette steps for when an accent carries text or a
+       focus ring on the light ground (raw Sky is 2.4:1, Lantern 3.0:1). Each
+       clears 4.3:1 on its own 12% wash. Dark theme points them back at the palette. */
+    --sky-ink: #1F74C4;
+    --seagrass-ink: #087A58;
+    --lantern-ink: #A85A00;
+    --coral-ink: #C4140F;
+
+    /* Sticky header height: logo + py-4 (2rem) + 1px border. One source for
+       scroll-padding and every sticky offset; logo height is set from it below. */
+    --logo-h: 3.25rem;
+    --header-h: calc(var(--logo-h) + 2rem + 1px);
+
     --ring: var(--navy);
     --focus-on-dark: var(--sky);
+
+    /* Component roles. Every light/dark difference a component has is a token
+       here, so the two dark blocks below are the only place dark is defined. */
+    --brand-logo: url('../logomarks/logos/logo-horizontal-primary.svg');
+    --cta-bg: var(--navy);            /* .btn-primary */
+    --cta-ink: var(--paper);
+    --cta-hover-bg: var(--midnight);
+    --cta-hover-filter: none;
+    --accent-hover-bg: var(--navy);   /* Sky-at-rest controls: path CTAs, drawer tab */
+    --accent-hover-ink: var(--paper);
+    --nav-current: var(--navy);
+    --path-photo-opacity: 1;
+    --choice-accent: var(--sky);
+    --switch-knob-left: 0.22rem;
+    --switch-track-bg: color-mix(in srgb, var(--paper) 14%, transparent);
+    --theme-icon-light: block;
+    --theme-icon-dark: none;
+
+    /* Contact drawer + mobile nav ground. In light these resolve to the page's own
+       tokens (computed here at :root, so re-pointing them in scope is not circular);
+       dark inverts both panels to a Sky ground (Navy on Sky ≈ 6.6:1). */
+    --panel-bg: var(--bg);
+    --panel-surface: var(--surface);
+    --panel-ink: var(--ink);
+    --panel-ink-soft: var(--ink-soft);
+    --panel-line: var(--line);
+    --panel-line-soft: var(--line-soft);
+    --panel-tag-bg: var(--tag-bg);
+    --panel-link: var(--link);
+    --panel-ring: var(--ring);
+    --panel-accent: var(--choice-accent);
+    --panel-cta-bg: var(--cta-bg);
+    --panel-cta-ink: var(--cta-ink);
+    --panel-cta-hover-bg: var(--cta-hover-bg);
+    --panel-cta-hover-filter: var(--cta-hover-filter);
     color-scheme: light;
   }
 
@@ -76,9 +124,41 @@
       --code-ink: #BFD4FF;
       --link: var(--sky);
       --ring: var(--sky);
+      --sky-ink: var(--sky);
+      --seagrass-ink: var(--seagrass);
+      --lantern-ink: var(--lantern);
+      --coral-ink: #FF6A66;
+      --brand-logo: url('../logomarks/logos/logo-horizontal-dark.svg');
+      --cta-bg: var(--sky);
+      --cta-ink: var(--navy);
+      --cta-hover-bg: var(--sky);
+      --cta-hover-filter: brightness(1.08);
+      --accent-hover-bg: var(--paper);
+      --accent-hover-ink: var(--navy);
+      --nav-current: var(--sky);
+      --path-photo-opacity: 0.5;
+      --switch-knob-left: calc(100% - 1.5rem - 0.22rem);
+      --switch-track-bg: color-mix(in srgb, var(--sky) 26%, transparent);
+      --theme-icon-light: none;
+      --theme-icon-dark: block;
+      --panel-bg: var(--sky);
+      --panel-surface: #EAF3FF;
+      --panel-ink: var(--navy);
+      --panel-ink-soft: #20305C;
+      --panel-line: #2E3F72;
+      --panel-line-soft: #A9D6FF;
+      --panel-tag-bg: #CFE6FF;
+      --panel-link: var(--navy);
+      --panel-ring: var(--navy);
+      --panel-accent: var(--navy);
+      --panel-cta-bg: var(--navy);
+      --panel-cta-ink: var(--paper);
+      --panel-cta-hover-bg: var(--midnight);
+      --panel-cta-hover-filter: none;
       color-scheme: dark;
     }
   }
+  /* Same values as the media block above — keep the two in lockstep. */
   :root[data-theme="dark"] {
     --bg: #0A0F24;
     --surface: #101A3A;
@@ -94,8 +174,42 @@
     --code-ink: #BFD4FF;
     --link: var(--sky);
     --ring: var(--sky);
+    --sky-ink: var(--sky);
+    --seagrass-ink: var(--seagrass);
+    --lantern-ink: var(--lantern);
+    --coral-ink: #FF6A66;
+    --brand-logo: url('../logomarks/logos/logo-horizontal-dark.svg');
+    --cta-bg: var(--sky);
+    --cta-ink: var(--navy);
+    --cta-hover-bg: var(--sky);
+    --cta-hover-filter: brightness(1.08);
+    --accent-hover-bg: var(--paper);
+    --accent-hover-ink: var(--navy);
+    --nav-current: var(--sky);
+    --path-photo-opacity: 0.5;
+    --switch-knob-left: calc(100% - 1.5rem - 0.22rem);
+    --switch-track-bg: color-mix(in srgb, var(--sky) 26%, transparent);
+    --theme-icon-light: none;
+    --theme-icon-dark: block;
+    --panel-bg: var(--sky);
+    --panel-surface: #EAF3FF;
+    --panel-ink: var(--navy);
+    --panel-ink-soft: #20305C;
+    --panel-line: #2E3F72;
+    --panel-line-soft: #A9D6FF;
+    --panel-tag-bg: #CFE6FF;
+    --panel-link: var(--navy);
+    --panel-ring: var(--navy);
+    --panel-accent: var(--navy);
+    --panel-cta-bg: var(--navy);
+    --panel-cta-ink: var(--paper);
+    --panel-cta-hover-bg: var(--midnight);
+    --panel-cta-hover-filter: none;
     color-scheme: dark;
   }
+
+  @media (min-width: 480px) { :root { --logo-h: 5.46875rem; } }
+  @media (min-width: 1024px) { :root { --logo-h: 6.25rem; } }
 
   * { min-width: 0; }
   /* Keep even Tailwind's Preflight defaults on the style-guide palette. */
@@ -103,7 +217,7 @@
   ::placeholder { color: var(--ink-soft); opacity: 1; }
 
   html {
-    scroll-padding-top: 7rem; /* taller sticky header */
+    scroll-padding-top: calc(var(--header-h) + 1rem);
     -webkit-text-size-adjust: 100%;
   }
 
@@ -285,24 +399,14 @@
   /* Primary CTA — Navy fill, Paper text on light. On dark the page ground is
      near-navy, so the CTA flips to Sky fill / Navy text to stay legible. */
   .btn-primary {
-    background: var(--navy);
-    color: var(--paper);
-    border-color: var(--navy);
+    background: var(--cta-bg);
+    color: var(--cta-ink);
+    border-color: var(--cta-bg);
   }
-  .btn-primary:hover { background: var(--midnight); border-color: var(--midnight); }
-  :root[data-theme="dark"] .btn-primary {
-    background: var(--sky);
-    color: var(--navy);
-    border-color: var(--sky);
-  }
-  :root[data-theme="dark"] .btn-primary:hover { filter: brightness(1.08); }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .btn-primary {
-      background: var(--sky);
-      color: var(--navy);
-      border-color: var(--sky);
-    }
-    :root:not([data-theme="light"]) .btn-primary:hover { filter: brightness(1.08); background: var(--sky); }
+  .btn-primary:hover {
+    background: var(--cta-hover-bg);
+    border-color: var(--cta-hover-bg);
+    filter: var(--cta-hover-filter);
   }
 
   .btn-ghost {
@@ -349,20 +453,11 @@
 
   /* --- Surfaces --- */
   .card {
-    background: var(--card-wash, var(--surface));
+    background: var(--surface);
     border: 1px solid var(--line);
     border-radius: theme('borderRadius.card');
     box-shadow: theme('boxShadow.card');
   }
-  /* Brand-wash card cycle: pale palette tints mixed over the live surface, so they
-     hold up in light and dark. Five steps so adjacent cards never share a hue.
-     Put `wash-cycle` on a card container (see #who). */
-  .wash-cycle > :nth-child(5n + 1) { --card-wash: color-mix(in srgb, var(--sky)      12%, var(--surface)); }
-  .wash-cycle > :nth-child(5n + 2) { --card-wash: color-mix(in srgb, var(--seagrass) 12%, var(--surface)); }
-  .wash-cycle > :nth-child(5n + 3) { --card-wash: color-mix(in srgb, var(--sand)     18%, var(--surface)); }
-  .wash-cycle > :nth-child(5n + 4) { --card-wash: color-mix(in srgb, var(--lantern)  12%, var(--surface)); }
-  .wash-cycle > :nth-child(5n + 5) { --card-wash: color-mix(in srgb, var(--coral)     9%, var(--surface)); }
-  .wash-cycle > .card { border-color: color-mix(in srgb, var(--card-wash) 84%, var(--ink)); }
   .tile {
     background: var(--tag-bg);
     border: 1px solid var(--line);
@@ -379,8 +474,6 @@
     transform: translateY(-3px);
     box-shadow: theme('boxShadow.lift');
   }
-  /* badge sits on the surface colour so it still reads against the tinted tile */
-  .tile .icon-badge { background: var(--surface); border: 1px solid var(--line); }
   /* Headings inside a card/tile drop the tracking for readability at small sizes. */
   :is(.card, .tile, .how-card-inner) :is(h2, h3, h4) {
     letter-spacing: 0;
@@ -391,32 +484,11 @@
     border-radius: theme('borderRadius.card');
   }
 
-  .icon-badge {
-    display: grid;
-    place-items: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 999px;
-    background: var(--tag-bg);
-    color: var(--ink);
-    flex: none;
-  }
-  .on-dark .icon-badge { background: rgba(245, 251, 255, 0.12); color: var(--paper); }
-
   /* Sizing only. Stroke vs. fill is set per-symbol in the sprite so the two
      solid brand glyphs (LinkedIn, Facebook) stay filled. */
   .icon { width: 1.5rem; height: 1.5rem; flex: none; }
   .icon-lg { width: 2rem; height: 2rem; flex: none; }
 
-  /* Card lead icons — the standalone glyph at the top of a card — run 2x.
-     Inline icons (inside text, list rows, buttons, links) keep their size. */
-  .icon-badge { width: 6rem; height: 6rem; }
-  .icon-badge .icon-lg { width: 4rem; height: 4rem; }
-  #who .card > .icon-lg { width: 4rem; height: 4rem; }
-  [aria-labelledby="value-h"] li > .icon { width: 2.28rem; height: 2.28rem; }
-  @media (min-width: 480px) {
-    [aria-labelledby="value-h"] li > .icon { width: 2.6rem; height: 2.6rem; }
-  }
 
   /* --- Wide content scrolls inside its own bordered container --- */
   .table-wrap {
@@ -475,7 +547,7 @@
     font-size: 1.0625rem;
     color: var(--ink);
   }
-  .price-table td { color: var(--ink-soft); font-size: 0.95rem; }
+  .price-table td { color: var(--ink); font-size: 1rem; } /* full-strength ink for older readers */
 
   .price-table .price-fee {
     font-family: theme('fontFamily.mono');
@@ -486,7 +558,7 @@
   }
   .price-table td.price-fee--free {
     font-family: theme('fontFamily.label');
-    font-weight: 700;
+    font-weight: 400; /* Questrial ships 400 only — no faux bold */
     letter-spacing: 0.06em;
     text-transform: uppercase;
   }
@@ -496,8 +568,14 @@
     color: var(--ink-soft);
   }
 
+  /* "Fee:" label for the stacked layout — a real, visually-shown span (not CSS
+     content), hidden while the Fee column header is present. */
+  .price-fee-label { display: none; }
+
   /* Below 40rem three columns can't fit, so each service stacks into its own
-     block instead of forcing a horizontal scroll that hides the fee. */
+     block instead of forcing a horizontal scroll that hides the fee. The table
+     elements carry explicit ARIA table roles in index.html, so display:block
+     here doesn't strip the row/header relationships from assistive tech. */
   @media (max-width: 40rem) {
     #pricing .table-wrap { overflow-x: visible; }
     .price-table { min-width: 0; }
@@ -508,7 +586,7 @@
     .price-table th,
     .price-table td { display: block; }
 
-    .price-table tr:has(th[scope="row"]) { padding: 1rem 1.15rem; }
+    .price-table tr:has(th[scope="row"]) { padding: 0.85rem 1.15rem; }
     .price-table tr:has(th[scope="row"]) + tr:has(th[scope="row"]) {
       border-top: 1px solid var(--line-soft);
     }
@@ -520,11 +598,12 @@
       text-align: left;
       margin-top: 0.6rem;
     }
-    .price-table td.price-fee::before {
-      content: "Fee — ";
+    .price-fee-label {
+      display: inline;
       font-family: theme('fontFamily.label');
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: var(--ink-soft);
     }
   }
@@ -570,33 +649,25 @@
      it there — which is fine. */
   .site-header.scrolled { box-shadow: 0 4px 16px rgba(10, 15, 36, 0.07); }
   /* Retreats as the visitor nears the closing CTA / footer (main.js). */
+  /* visibility (delayed to the end of the slide) takes the links out of the tab
+     order, so keyboard focus can never land on an off-screen nav. */
   .site-header.header-hidden {
     transform: translateY(-100%);
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
+    transition: transform 0.32s theme('transitionTimingFunction.calm'),
+                opacity 0.28s ease, box-shadow 0.28s ease, visibility 0s linear 0.32s;
   }
 
   /* Logo — CSS-swapped by theme so there's no flash and no JS dependency.
      Sized by height; width follows the horizontal lockup's 271:82 ratio. */
-  :root {
-    --brand-logo: url('../logomarks/logos/logo-horizontal-primary.svg');
-  }
-  :root[data-theme="dark"] {
-    --brand-logo: url('../logomarks/logos/logo-horizontal-dark.svg');
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --brand-logo: url('../logomarks/logos/logo-horizontal-dark.svg');
-    }
-  }
   .brand-logo {
     display: block;
-    height: 4.6875rem;
+    height: var(--logo-h); /* 4rem on phones, stepped up at 480 / 1024 (:root) */
     aspect-ratio: 271 / 82;
     background: var(--brand-logo) left center / contain no-repeat;
   }
-  @media (min-width: 480px) { .brand-logo { height: 5.46875rem; } }
-  @media (min-width: 1024px) { .brand-logo { height: 6.25rem; } }
 
   .header-icon-btn {
     display: inline-flex;
@@ -618,6 +689,23 @@
      sheet. Its containing block is the .relative wrapper around the button, so
      it sits right under the hamburger. JS unhides it, then adds .is-open a
      frame later to run the entrance. */
+  #mobile-nav,
+  #contact-modal:not(.is-lightbox) {
+    --bg: var(--panel-bg);
+    --surface: var(--panel-surface);
+    --ink: var(--panel-ink);
+    --ink-soft: var(--panel-ink-soft);
+    --line: var(--panel-line);
+    --line-soft: var(--panel-line-soft);
+    --tag-bg: var(--panel-tag-bg);
+    --link: var(--panel-link);
+    --ring: var(--panel-ring);
+    --choice-accent: var(--panel-accent);
+    --cta-bg: var(--panel-cta-bg);
+    --cta-ink: var(--panel-cta-ink);
+    --cta-hover-bg: var(--panel-cta-hover-bg);
+    --cta-hover-filter: var(--panel-cta-hover-filter);
+  }
   #mobile-nav {
     position: absolute;
     top: 100%;
@@ -632,7 +720,7 @@
     overflow-y: auto;
     background: var(--bg);
     border: 1px solid var(--line);
-    border-radius: 0.9rem;
+    border-radius: 15px; /* rounded.panel-inner */
     box-shadow: 0 18px 44px -14px rgba(10, 15, 36, 0.32);
     transform-origin: top right;
     opacity: 0;
@@ -643,7 +731,7 @@
   #mobile-nav .nav-link {
     display: block;
     padding: 0.6rem 0.85rem;
-    border-radius: 0.55rem;
+    border-radius: 8px; /* rounded.field */
     white-space: nowrap;
   }
   #mobile-nav .nav-link::after { content: none; } /* no underline-wipe inside the panel */
@@ -657,18 +745,13 @@
   /* Primary desktop nav — tighter type and gaps so the six links clear the logo
      down at the md (768px) breakpoint, where the hamburger now takes over. */
   nav[aria-label="Primary"] .nav-link {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     letter-spacing: 0;
     padding-inline: 0;
   }
 
-  .theme-icon-dark { display: none; }
-  :root[data-theme="dark"] .theme-icon-light { display: none; }
-  :root[data-theme="dark"] .theme-icon-dark { display: block; }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .theme-icon-light { display: none; }
-    :root:not([data-theme="light"]) .theme-icon-dark { display: block; }
-  }
+  .theme-icon-light { display: var(--theme-icon-light); }
+  .theme-icon-dark { display: var(--theme-icon-dark); }
 
   .nav-link {
     position: relative;
@@ -698,11 +781,7 @@
 
   /* Scrollspy — the link for the section currently under the viewport
      holds its underline and takes the accent colour. */
-  .nav-link[aria-current="true"] { color: var(--navy); }
-  :root[data-theme="dark"] .nav-link[aria-current="true"] { color: var(--sky); }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .nav-link[aria-current="true"] { color: var(--sky); }
-  }
+  .nav-link[aria-current="true"] { color: var(--nav-current); }
   .nav-link[aria-current="true"]::after { transform: scaleX(1); }
 
   /* --- Skip link --- */
@@ -876,21 +955,9 @@
     border-color: var(--sky);
   }
   .path-card .btn-ghost:hover {
-    background: var(--navy);
-    color: var(--paper);
-    border-color: var(--navy);
-  }
-  :root[data-theme="dark"] .path-card .btn-ghost:hover {
-    background: var(--paper);
-    color: var(--navy);
-    border-color: var(--paper);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .path-card .btn-ghost:hover {
-      background: var(--paper);
-      color: var(--navy);
-      border-color: var(--paper);
-    }
+    background: var(--accent-hover-bg);
+    color: var(--accent-hover-ink);
+    border-color: var(--accent-hover-bg);
   }
 
   /* JPEG is the safe fallback; @supports upgrades to AVIF/WebP where the
@@ -915,10 +982,7 @@
     }
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .path-card::before { opacity: 0.5; }
-  }
-  :root[data-theme="dark"] .path-card::before { opacity: 0.5; }
+  .path-card::before { opacity: var(--path-photo-opacity); }
 
   @media (prefers-contrast: more) {
     .path-card::before { display: none; }
@@ -932,7 +996,7 @@
     font-size: 2.75rem;
     line-height: 1;
     font-weight: 500;
-    color: var(--how-accent, var(--sky));
+    color: var(--how-ink, var(--sky-ink));
   }
 
   .how-flow { position: relative; margin-top: 2.5rem; }
@@ -958,11 +1022,12 @@
     align-items: center;
     gap: 1.75rem;
   }
-  /* per-step accent + inner-panel wash, same palette recipe as .wash-cycle */
-  .how-steps > :nth-child(1) { --how-accent: var(--sky);      --how-wash: color-mix(in srgb, var(--sky)      12%, var(--surface)); }
-  .how-steps > :nth-child(2) { --how-accent: var(--seagrass); --how-wash: color-mix(in srgb, var(--seagrass) 12%, var(--surface)); }
-  .how-steps > :nth-child(3) { --how-accent: var(--lantern);  --how-wash: color-mix(in srgb, var(--lantern)  12%, var(--surface)); }
-  .how-steps > :nth-child(4) { --how-accent: var(--coral);    --how-wash: color-mix(in srgb, var(--coral)     9%, var(--surface)); }
+  /* per-step accent + inner-panel wash: palette tints mixed 9–12% into the surface */
+  /* --how-accent tints pins + borders; --how-ink is the contrast-safe step for the numerals. */
+  .how-steps > :nth-child(1) { --how-accent: var(--sky);      --how-ink: var(--sky-ink);      --how-wash: color-mix(in srgb, var(--sky)      12%, var(--surface)); }
+  .how-steps > :nth-child(2) { --how-accent: var(--seagrass); --how-ink: var(--seagrass-ink); --how-wash: color-mix(in srgb, var(--seagrass) 12%, var(--surface)); }
+  .how-steps > :nth-child(3) { --how-accent: var(--lantern);  --how-ink: var(--lantern-ink);  --how-wash: color-mix(in srgb, var(--lantern)  12%, var(--surface)); }
+  .how-steps > :nth-child(4) { --how-accent: var(--coral);    --how-ink: var(--coral-ink);    --how-wash: color-mix(in srgb, var(--coral)     9%, var(--surface)); }
 
   .how-step { position: relative; width: 100%; max-width: 22rem; }
 
@@ -1101,7 +1166,7 @@
       gap: clamp(2.5rem, 1rem + 8vw, 7rem);
       align-items: start;
     }
-    .faq-aside { position: sticky; top: 7rem; }
+    .faq-aside { position: sticky; top: calc(var(--header-h) + 1.5rem); }
   }
   .faq-more { margin-top: 1rem; max-width: 32ch; color: var(--ink-soft); }
 
@@ -1125,7 +1190,8 @@
     border: 0;
     cursor: pointer;
   }
-  .faq-trigger:hover { color: var(--sky); }
+  /* --link, not Sky: Sky text on the light ground is only 2.4:1. */
+  .faq-trigger:hover { color: var(--link); }
   .faq-trigger .faq-sign {
     flex: none;
     margin-top: 0.15rem;
@@ -1200,23 +1266,12 @@
   /* Light blue at rest in both themes; hover deepens to navy in light mode
      and lifts to white in dark mode. */
   .drawer-tab:hover {
-    background: var(--navy);
-    color: var(--paper);
-    border-color: var(--navy);
+    background: var(--accent-hover-bg);
+    color: var(--accent-hover-ink);
+    border-color: var(--accent-hover-bg);
   }
-  .drawer-tab:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; }
-  :root[data-theme="dark"] .drawer-tab:hover {
-    background: var(--paper);
-    color: var(--navy);
-    border-color: var(--paper);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .drawer-tab:hover {
-      background: var(--paper);
-      color: var(--navy);
-      border-color: var(--paper);
-    }
-  }
+  /* --ring is Navy on light / Sky on dark: ≥3:1 against the page either way. */
+  .drawer-tab:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; }
   /* Tucked away once the in-page intake form (or the closing region) is on
      screen — a second CTA there just repeats what the visitor can already see. */
   .drawer-tab.is-tucked {
@@ -1224,6 +1279,29 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+  }
+  /* Phones: a right-edge tab would sit over body copy inside the 1.5rem gutter,
+     so the CTA becomes a full-width bar pinned to the bottom of the viewport
+     (the brief's "CTA pinned to the bottom on scroll"). */
+  @media (max-width: 479px) {
+    .drawer-tab {
+      top: auto;
+      bottom: 0;
+      left: 0;
+      transform: none;
+      writing-mode: horizontal-tb;
+      min-height: 3.25rem;
+      padding: 0.85rem 1rem calc(0.85rem + env(safe-area-inset-bottom));
+      border: 0;
+      border-top: 1px solid color-mix(in srgb, var(--navy) 25%, var(--sky));
+      border-radius: 0;
+      font-size: 0.9375rem;
+      box-shadow: 0 -4px 16px rgba(10, 15, 36, 0.14);
+    }
+    .drawer-tab.is-tucked { transform: translateY(110%); }
+    .drawer-tab:focus-visible { outline-offset: -5px; }
+    /* keep the footer's last lines clear of the bar when it is showing */
+    .site-footer { padding-bottom: 3.25rem; }
   }
 
   /* --- Contact drawer (right-anchored slide-out) ---
@@ -1307,8 +1385,8 @@
     background: var(--tag-bg);
     border: 1px solid var(--line);
     border-radius: 999px;
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 2.75rem;
+    height: 2.75rem;
     display: grid;
     place-items: center;
     cursor: pointer;
@@ -1316,66 +1394,9 @@
   }
   .modal-close:hover { background: var(--line-soft); }
 
-  /* Dark mode: the contact drawer (not the centered lightbox) and the mobile
-     nav panel invert to a Sky ground. Re-point the semantic tokens inside each
-     scope so every descendant — headings, labels, hints, inputs, close button,
-     nav links — recomputes against the light surface and stays AA-legible
-     (Navy on Sky ≈ 7:1). */
-  :root[data-theme="dark"] #contact-modal:not(.is-lightbox),
-  :root[data-theme="dark"] #mobile-nav {
-    --bg: var(--sky);
-    --surface: #EAF3FF;
-    --ink: var(--navy);
-    --ink-soft: #20305C;
-    --line: #2E3F72;
-    --line-soft: #A9D6FF;
-    --tag-bg: #CFE6FF;
-    --link: var(--navy);
-    --ring: var(--navy);
-    background: var(--sky);
-    color: var(--navy);
-    border-color: #2E3F72;
-  }
-  :root[data-theme="dark"] #contact-modal:not(.is-lightbox) .choice input { accent-color: var(--navy); }
-  /* The primary CTA is Sky in dark mode; on the Sky ground it flips to Navy. */
-  :root[data-theme="dark"] #contact-modal:not(.is-lightbox) .btn-primary {
-    background: var(--navy);
-    color: var(--paper);
-    border-color: var(--navy);
-  }
-  :root[data-theme="dark"] #contact-modal:not(.is-lightbox) .btn-primary:hover {
-    background: var(--midnight);
-    border-color: var(--midnight);
-    filter: none;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) #contact-modal:not(.is-lightbox),
-    :root:not([data-theme="light"]) #mobile-nav {
-      --bg: var(--sky);
-      --surface: #EAF3FF;
-      --ink: var(--navy);
-      --ink-soft: #20305C;
-      --line: #2E3F72;
-      --line-soft: #A9D6FF;
-      --tag-bg: #CFE6FF;
-      --link: var(--navy);
-      --ring: var(--navy);
-      background: var(--sky);
-      color: var(--navy);
-      border-color: #2E3F72;
-    }
-    :root:not([data-theme="light"]) #contact-modal:not(.is-lightbox) .choice input { accent-color: var(--navy); }
-    :root:not([data-theme="light"]) #contact-modal:not(.is-lightbox) .btn-primary {
-      background: var(--navy);
-      color: var(--paper);
-      border-color: var(--navy);
-    }
-    :root:not([data-theme="light"]) #contact-modal:not(.is-lightbox) .btn-primary:hover {
-      background: var(--midnight);
-      border-color: var(--midnight);
-      filter: none;
-    }
-  }
+  /* The contact drawer (not the centered lightbox) and the mobile nav re-point
+     the semantic tokens to the --panel-* set (see the #mobile-nav rule); in dark
+     that inverts both to a Sky ground with a Navy CTA. */
 
   /* --- Forms --- */
   .field { display: block; margin-top: 1rem; }
@@ -1388,7 +1409,7 @@
     margin-bottom: 0.35rem;
   }
   .field-hint { display: block; font-size: 0.875rem; color: var(--ink-soft); margin-top: 0.3rem; }
-  .req { color: var(--coral); font-weight: 700; }
+  .req { color: var(--ink); font-weight: 600; } /* Ink, so Coral keeps one meaning (errors) */
   .input,
   .textarea,
   .select {
@@ -1418,7 +1439,7 @@
     padding: 0.5rem 0;
     font-size: 1rem;
   }
-  .choice input { margin-top: 0.2rem; width: 1.15rem; height: 1.15rem; flex: none; accent-color: var(--sky); }
+  .choice input { margin-top: 0.2rem; width: 1.15rem; height: 1.15rem; flex: none; accent-color: var(--choice-accent); }
   fieldset { border: 0; padding: 0; margin: 0; }
 
   /* Netlify swaps [data-netlify-recaptcha] for a fixed 304px-wide widget;
@@ -1478,7 +1499,6 @@
   /* --- Footer — always dark (Midnight ground). In dark theme add a divider so
      it separates from the near-identical page background. --- */
   .site-footer { background: var(--midnight); color: var(--paper); }
-  :root[data-theme="dark"] .site-footer,
   .site-footer { border-top: 1px solid var(--line); }
   .site-footer a { color: var(--paper); text-decoration: none; }
   .site-footer a:hover { text-decoration: underline; }
@@ -1533,7 +1553,7 @@
     width: 3.5rem;
     height: 1.95rem;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--paper) 14%, transparent);
+    background: var(--switch-track-bg);
     border: 1px solid color-mix(in srgb, var(--paper) 22%, transparent);
     transition: background-color 0.2s ease, border-color 0.2s ease;
   }
@@ -1543,28 +1563,300 @@
   .theme-switch-knob {
     position: absolute;
     top: 50%;
-    left: 0.22rem;
+    left: var(--switch-knob-left);
     transform: translateY(-50%);
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 999px;
     display: grid;
     place-items: center;
-    color: #fff;
-    background: linear-gradient(140deg, var(--seagrass), var(--sky));
+    color: var(--navy);
+    background: var(--sky);
     box-shadow: 0 1px 4px rgba(10, 15, 36, 0.45);
     transition: left 0.24s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
   }
   .theme-switch-ico { width: 0.95rem; height: 0.95rem; }
-  /* Dark active → knob slides right, track picks up a sky tint. */
-  :root[data-theme="dark"] .theme-switch-knob { left: calc(100% - 1.5rem - 0.22rem); }
-  :root[data-theme="dark"] .theme-switch-track { background: color-mix(in srgb, var(--sky) 26%, transparent); }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .theme-switch-knob { left: calc(100% - 1.5rem - 0.22rem); }
-    :root:not([data-theme="light"]) .theme-switch-track { background: color-mix(in srgb, var(--sky) 26%, transparent); }
-  }
   @media (prefers-reduced-motion: reduce) {
     .theme-switch-knob { transition-duration: 120ms; }
+  }
+
+  /* --- Hero actions: one primary button + the phone number, on the first screen --- */
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem 1.5rem;
+  }
+  .hero-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    font-family: theme('fontFamily.label');
+    font-size: 1.0625rem;
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+    text-underline-offset: 0.25em;
+  }
+  .hero-phone:hover { text-decoration-color: currentColor; }
+  .hero-phone .icon { width: 1.25rem; height: 1.25rem; color: var(--sky-ink); }
+  .hero-phone .num { color: var(--ink); }
+
+  /* Byline: Lindsey's face on the first screen, linking to her full bio. At
+     every width, so the text-only phone hero still has a person in it. */
+  .hero-byline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    color: var(--ink);
+    text-decoration: none;
+    max-width: 30rem;
+  }
+  .hero-byline-photo {
+    width: 3.75rem;
+    height: 3.75rem;
+    flex: none;
+    border-radius: 999px;
+    object-fit: cover;
+    object-position: 50% 18%;
+    border: 2px solid var(--surface);
+    box-shadow: 0 0 0 1px var(--line), 0 4px 12px rgba(10, 15, 36, 0.10);
+  }
+  .hero-byline-text { display: flex; flex-direction: column; gap: 0.1rem; }
+  .hero-byline-name {
+    font-family: theme('fontFamily.label');
+    font-size: 1rem;
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+    text-underline-offset: 0.22em;
+  }
+  .hero-byline:hover .hero-byline-name { text-decoration-color: currentColor; }
+  .hero-byline-meta { font-size: 0.9375rem; line-height: 1.4; color: var(--ink-soft); }
+
+  /* Plain-sentence reassurance inside the crisis path card. */
+  .path-note {
+    font-family: theme('fontFamily.label');
+    font-size: 1.0625rem;
+    color: var(--ink);
+  }
+
+  /* --- Services as rows, not a tile grid: icon in its own column, hairline
+     dividers, two columns of rows from md up. --- */
+  .service-rows { display: grid; column-gap: 3rem; }
+  @media (min-width: 768px) { .service-rows { grid-template-columns: 1fr 1fr; } }
+  .service-row {
+    display: grid;
+    grid-template-columns: 3.25rem minmax(0, 1fr);
+    column-gap: 1.1rem;
+    align-content: start;
+    padding-block: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .service-row > .service-icon {
+    grid-row: 1 / span 3;
+    color: var(--ink);
+  }
+  .service-row > .service-icon .icon-lg { width: 3.25rem; height: 3.25rem; }
+  .service-row > :not(.service-icon) { grid-column: 2; }
+  .service-row p { margin-top: 0.4rem; }
+  .h-gloss {
+    display: block;
+    margin-top: 0.1rem;
+    font-family: theme('fontFamily.body');
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+    color: var(--ink-soft);
+  }
+
+  /* --- Who we help: a light two-column list --- */
+  .who-list { display: grid; gap: 2rem 3rem; }
+  @media (min-width: 640px) { .who-list { grid-template-columns: 1fr 1fr; } }
+  .who-item {
+    display: grid;
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+    column-gap: 1rem;
+    align-content: start;
+  }
+  .who-item > .icon-lg { grid-row: 1 / span 2; width: 2.75rem; height: 2.75rem; color: var(--sky-ink); }
+  .who-item > :not(svg) { grid-column: 2; }
+  .who-item p { margin-top: 0.35rem; }
+
+  /* --- About: the page's showcase. Large portrait, editorial rail. --- */
+  .about-portrait { width: 100%; max-width: 22rem; }
+  .about-portrait img { aspect-ratio: 4 / 5; object-fit: cover; }
+
+  /* Fee agreement promise, placed beside the numbers it reassures. */
+  .fee-promise {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+    color: var(--ink);
+  }
+  .fee-promise .icon { color: var(--seagrass-ink); margin-top: 0.1rem; }
+
+  /* The consent banner and the phone CTA bar both live at the bottom edge;
+     while the banner is up, the bar waits below the fold. */
+  @media (max-width: 479px) {
+    body:has(#consent:not([hidden])) .drawer-tab {
+      transform: translateY(110%);
+      visibility: hidden;
+    }
+  }
+
+  /* --- Header call button: a person one tap away. Icon-only 44px circle up to
+     1024px, the number as text from there. --- */
+  .header-call {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-width: 44px;
+    height: 44px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.9375rem;
+  }
+  .header-call .icon { width: 1.25rem; height: 1.25rem; color: var(--sky-ink); }
+  .header-call:hover { background: var(--tag-bg); }
+  .header-call-num { display: none; }
+  @media (min-width: 1024px) {
+    .header-call { border-color: transparent; padding-inline: 0.5rem; }
+    .header-call-num { display: inline; }
+    .header-call:hover { background: none; text-decoration: underline; text-underline-offset: 0.2em; }
+  }
+
+  /* --- What is a patient advocate: the four value items as a quiet list --- */
+  .value-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .value-list > li { display: flex; align-items: flex-start; gap: 1rem; }
+  .value-list > li > .icon { width: 2.28rem; height: 2.28rem; margin-top: 0.1rem; color: var(--sky); }
+  .value-list p { margin-top: 0.35rem; }
+  @media (min-width: 480px) {
+    .value-list > li > .icon { width: 2.6rem; height: 2.6rem; }
+  }
+
+  /* Service row: the matching pricing-table entry, linked */
+  .service-price { margin-top: 0.6rem; font-size: 0.9375rem; color: var(--ink-soft); }
+  .service-price .num { color: var(--ink); }
+
+  /* Pricing: the brief's coverage + payment-plan note, aligned under the promise text */
+  .fee-note { margin-top: 0.5rem; padding-left: 2.1rem; max-width: 62ch; color: var(--ink-soft); }
+
+  /* About / How it works: an action where the reading ends */
+  .about-referral { margin-top: 1rem; color: var(--ink-soft); }
+  .how-cta { position: relative; z-index: 1; margin-top: 2.5rem; text-align: center; }
+
+  /* Message field character count */
+  .field-count { display: block; margin-top: 0.3rem; font-size: 0.875rem; color: var(--ink-soft); text-align: right; }
+  .field-count.is-near { color: var(--ink); font-weight: 600; }
+
+  /* Contact dialog: book or call first, message form as the alternative */
+  .modal-quickbook { margin-top: 1rem; }
+  .modal-quickbook[hidden] { display: none; }
+  .modal-quickbook-lede { color: var(--ink-soft); }
+  .modal-quickbook-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+  .modal-quickbook-actions .btn { flex: 1 1 12rem; white-space: normal; text-align: center; }
+  .modal-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--ink-soft);
+  }
+  .modal-divider::before,
+  .modal-divider::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  /* --- "The light comes on": the one delight moment ---
+     When a message reaches Lindsey, the Advocate Beacon mark appears in the
+     success panel and its light comes up behind it: a soft Beacon Sky glow
+     blooms, one slow beam sweeps round, and it settles to a steady glow. The
+     mark itself is never altered (brand geometry); the light is drawn behind it.
+     Runs when the panel is unhidden (display:none -> shown restarts the
+     keyframes), once per send, never loops. Reduced motion: the glow fades in,
+     no sweep, no scale. */
+  .beacon-lit {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+    width: 5.5rem;
+    height: 5.5rem;
+    margin-bottom: 1rem;
+  }
+  .beacon-lit-mark {
+    position: relative;
+    z-index: 2;
+    width: 3.5rem;
+    height: auto;
+  }
+  /* steady glow */
+  .beacon-lit::before {
+    content: "";
+    position: absolute;
+    inset: -0.75rem;
+    z-index: 0;
+    border-radius: 999px;
+    background: radial-gradient(closest-side,
+      color-mix(in srgb, var(--sky) 42%, transparent),
+      color-mix(in srgb, var(--sky) 14%, transparent) 60%,
+      transparent);
+    opacity: 0.7;
+  }
+  /* the sweeping beam: a soft wedge of light, feathered by a radial mask */
+  .beacon-lit::after {
+    content: "";
+    position: absolute;
+    inset: -1.75rem;
+    z-index: 1;
+    border-radius: 999px;
+    background: conic-gradient(from 0deg,
+      transparent 0deg,
+      color-mix(in srgb, var(--sky) 55%, transparent) 18deg,
+      transparent 42deg,
+      transparent 360deg);
+    -webkit-mask-image: radial-gradient(closest-side, #000 35%, transparent 100%);
+            mask-image: radial-gradient(closest-side, #000 35%, transparent 100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    [data-contact-success]:not([hidden]) .beacon-lit::before {
+      animation: beacon-bloom 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    [data-contact-success]:not([hidden]) .beacon-lit::after {
+      animation: beacon-sweep 1600ms cubic-bezier(0.45, 0, 0.25, 1) 240ms both;
+    }
+    [data-contact-success]:not([hidden]) .beacon-lit-mark {
+      animation: beacon-arrive 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-contact-success]:not([hidden]) .beacon-lit::before {
+      animation: beacon-glow-fade 400ms ease both;
+    }
+  }
+  @keyframes beacon-bloom {
+    0%   { opacity: 0; transform: scale(0.55); }
+    55%  { opacity: 1; transform: scale(1.08); }
+    100% { opacity: 0.7; transform: scale(1); }
+  }
+  @keyframes beacon-sweep {
+    0%   { opacity: 0; transform: rotate(-40deg); }
+    15%  { opacity: 1; }
+    80%  { opacity: 0.85; }
+    100% { opacity: 0; transform: rotate(320deg); }
+  }
+  @keyframes beacon-arrive {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes beacon-glow-fade {
+    from { opacity: 0; }
+    to   { opacity: 0.7; }
   }
 
   /* --- Legal pages --- */
@@ -1672,7 +1964,7 @@
   .sg-spec-logo { font-family: theme('fontFamily.logo'); font-size: 1.75rem; letter-spacing: 0.04em; text-transform: uppercase; }
   .sg-spec-h1 { font-family: theme('fontFamily.label'); font-size: clamp(1.75rem, 1.15rem + 2.7vw, 3rem); line-height: 1.12; color: var(--ink); }
   .sg-spec-h2 { font-size: clamp(1.5rem, 1.3rem + 0.9vw, 1.75rem); line-height: 1.25; margin: 0; padding-bottom: 0.12em; }
-  .sg-spec-h3 { font-family: theme('fontFamily.head'); font-weight: 500; font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.5rem); }
+  .sg-spec-h3 { font-family: theme('fontFamily.label'); font-weight: 400; font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.5rem); }
 
   /* Fixed brand grounds for swatch chips and mark/lockup tiles (theme-independent). */
   .sg-chip-navy { background: #0F1E4A; }
@@ -1795,14 +2087,17 @@
      Between 450 and 699 the rail goes full-width and the portrait floats right so the
      bio wraps around it. Below 450 everything stacks. */
   @media (min-width: 700px) {
-    #about .grid-9 { grid-template-columns: 15rem minmax(0, 1fr); }
-    #about .about-rail { position: sticky; top: 10rem; align-self: start; }
+    #about .grid-9 { grid-template-columns: 18rem minmax(0, 1fr); column-gap: 3rem; }
+    #about .about-rail { position: sticky; top: calc(var(--header-h) + 1.5rem); align-self: start; }
   }
   @media (min-width: 450px) and (max-width: 699px) {
     #about .grid-9 { display: block; }
     #about .grid-9::after { content: ""; display: block; clear: both; }
     #about .about-rail > .meta { margin-bottom: 1.5rem; }
-    #about .about-rail > figure { float: right; margin: 0 0 1rem 1.75rem; }
+    #about .about-rail > figure { float: right; width: 45%; margin: 0 0 1rem 1.75rem; }
+  }
+  @media (min-width: 1024px) {
+    #about .grid-9 { grid-template-columns: 22rem minmax(0, 1fr); column-gap: 4rem; }
   }
   .sr-only-focusable:not(:focus):not(:focus-within) {
     position: absolute !important;

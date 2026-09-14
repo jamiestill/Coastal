@@ -15,7 +15,7 @@
 // id prefix from "in-" to "cf-" so the two instances coexist in one document.
 // The PHI note rides along inside the form clone.
 
-import { initContactForm } from './contact-form.js?v=b747ff65a4';
+import { initContactForm } from './contact-form.js?v=41fe4e7082';
 
 const dialog = document.getElementById('contact-modal');
 const backdrop = document.getElementById('contact-backdrop');
@@ -60,7 +60,7 @@ if (dialog && source) {
 
   const submitBtn = form.querySelector('button[type="submit"]');
   submitBtn.classList.remove('sm:w-auto'); // full-width in the modal
-  // Label ("Send message") rides along in the clone — authored once on #intake-form.
+  // Label ("Start Your Consultation") rides along in the clone — authored once on #intake-form.
 
   dialog.querySelector('[data-contact-form-mount]').replaceWith(form);
 
@@ -78,10 +78,24 @@ if (dialog && source) {
   );
   dialog.querySelector('[data-contact-success-mount]').replaceWith(success);
 
+  // Booking-first block + title: after a send, hide the booking prompt and say so
+  // in the title; a fresh open (contact.reset) restores both.
+  const quickbook = dialog.querySelector('[data-quickbook]');
+  const titleEl = dialog.querySelector('#cm-title');
+  const titleText = titleEl?.textContent;
+
   const contact = initContactForm(form, {
     errorSummary: form.querySelector('[data-contact-errors]'),
     successPanel: success,
     submitBtn,
+    onSuccess() {
+      if (quickbook) quickbook.hidden = true;
+      if (titleEl) titleEl.textContent = 'Message sent';
+    },
+    onReset() {
+      if (quickbook) quickbook.hidden = false;
+      if (titleEl) titleEl.textContent = titleText;
+    },
   });
 
   const FOCUSABLE =
@@ -103,6 +117,8 @@ if (dialog && source) {
   /* ---- open / close ------------------------------------------------- */
   function openContact(trigger) {
     lastFocused = trigger || document.activeElement;
+    // A previous send left the success panel up — start fresh.
+    if (contact?.submitted) contact.reset();
     // Most triggers open the right-anchored drawer; a `data-variant="lightbox"`
     // trigger presents the same dialog as a centered lightbox instead.
     dialog.classList.toggle('is-lightbox', trigger?.dataset.variant === 'lightbox');
@@ -132,7 +148,7 @@ if (dialog && source) {
     }
     document.dispatchEvent(new CustomEvent('contact:open'));
 
-    const first = dialog.querySelector('#cf-name') || dialog.querySelector(FOCUSABLE);
+    const first = dialog.querySelector('[data-quickbook]:not([hidden]) a') || dialog.querySelector('#cf-name') || dialog.querySelector(FOCUSABLE);
     first?.focus({ preventScroll: true });
   }
 

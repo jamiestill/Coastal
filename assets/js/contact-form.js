@@ -30,6 +30,38 @@ export function initContactForm(form, opts = {}) {
   const prefix = (form.elements.name?.id || 'cf-name').replace(/-name$/, '');
   const errIds = ['name', 'email', 'phone', 'consent', 'recaptcha'].map((k) => `${prefix}-${k}`);
 
+  // Tie each field to its error span, so a screen reader announces the message
+  // whenever focus lands on an invalid field (not only via the error summary).
+  errIds.forEach((id) => {
+    const input = document.getElementById(id);
+    if (!input || !document.getElementById(`${id}-err`)) return;
+    const ids = (input.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean);
+    if (!ids.includes(`${id}-err`)) ids.push(`${id}-err`);
+    input.setAttribute('aria-describedby', ids.join(' '));
+  });
+
+  // Message length: a visible "n / 600" count, plus a polite screen-reader note
+  // only at 50, 20 and 0 characters left (not on every keystroke).
+  const messageField = form.elements.message;
+  const countEl = document.getElementById(`${prefix}-message-count`);
+  const countLive = document.getElementById(`${prefix}-message-count-live`);
+  function updateCount() {
+    if (!messageField || !countEl) return;
+    const max = Number(messageField.getAttribute('maxlength')) || 600;
+    const used = messageField.value.length;
+    const left = max - used;
+    countEl.textContent = `${used} / ${max}`;
+    countEl.classList.toggle('is-near', left <= 50);
+    if (countLive && [50, 20, 0].includes(left)) {
+      countLive.textContent = left === 0 ? 'Character limit reached.' : `${left} characters left.`;
+    }
+  }
+  messageField?.addEventListener('input', updateCount);
+  updateCount();
+
+  // Preferred contact method: a ticked method needs its matching detail.
+  const prefers = (method) => !!form.querySelector(`input[name="preferred"][value="${method}"]:checked`);
+
   /* ---- reCAPTCHA v2 (Netlify) ----------------------------------- */
   // Netlify's post-processing swaps <div data-netlify-recaptcha> for a real
   // .g-recaptcha widget and injects Google's api.js at deploy time. None of that
@@ -103,12 +135,16 @@ export function initContactForm(form, opts = {}) {
     const consent = form.elements.consent.checked;
 
     if (!name) errors.push(setError(`${prefix}-name`, 'Please enter your name.'));
-    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+    if (email && !EMAIL_RE.test(email))
       errors.push(setError(`${prefix}-email`, 'That email address doesn’t look right.'));
     if (!email && !phone) {
       errors.push(setError(`${prefix}-phone`, 'Please give us an email or a phone number.'));
       markInvalid(`${prefix}-email`);
     }
+    if (prefers('Phone') && !phone && !errors.some((er) => er.id === `${prefix}-phone`))
+      errors.push(setError(`${prefix}-phone`, 'You chose phone as your contact method. Please add a phone number, or untick Phone.'));
+    if (prefers('Email') && !email && !errors.some((er) => er.id === `${prefix}-email`))
+      errors.push(setError(`${prefix}-email`, 'You chose email as your contact method. Please add an email address, or untick Email.'));
     if (!consent)
       errors.push(setError(`${prefix}-consent`, 'Please confirm you’ve read the Privacy Notice.'));
     if (captchaActive() && !captchaResponse())
@@ -134,19 +170,63 @@ export function initContactForm(form, opts = {}) {
     return errors.length === 0;
   }
 
+  // Re-check a flagged field when the visitor leaves it: clear the error only once
+  // the value is actually fixed, so tabbing through never wipes a live error.
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function recheck(el) {
+    const email = form.elements.email.value.trim();
+    const phone = form.elements.phone.value.trim();
+    const hasContact = !!(email || phone);
+    const emailOk = !email || EMAIL_RE.test(email);
+    switch (el.name) {
+      case 'name':
+        if (el.value.trim()) clearError(el.id);
+        break;
+      case 'email':
+      case 'phone':
+      case 'preferred':
+        if (hasContact && (!prefers('Phone') || phone)) clearError(`${prefix}-phone`);
+        if (hasContact && emailOk && (!prefers('Email') || email)) clearError(`${prefix}-email`);
+        break;
+      case 'consent':
+        if (el.checked) clearError(el.id);
+        break;
+    }
+  }
   form.querySelectorAll('input, textarea').forEach((el) => {
-    el.addEventListener('blur', () => {
-      if (el.id) clearError(el.id);
+    const evt = el.type === 'checkbox' ? 'change' : 'blur';
+    el.addEventListener(evt, () => {
+      if (el.getAttribute('aria-invalid') === 'true' || ['email', 'phone', 'preferred'].includes(el.name)) recheck(el);
     });
   });
 
   /* ---- submit → Netlify Forms ----------------------------------- */
+  const MIN_FILL_MS = 2000;
+  let deferredSubmit = null;
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Honeypot + time trap (bots fill hidden fields / submit instantly).
+    // Honeypot: bots fill the hidden field — drop silently.
     if (form.elements.company && form.elements.company.value !== '') return;
-    if (Date.now() - Number(openedAtField.value || 0) < 2000) return;
+
+    // Time trap: a person using autofill can beat 2 s too, so instead of
+    // silently discarding, validate now and hold the send until the window has
+    // passed (bots rarely wait; people see "Sending…" for a moment).
+    const elapsed = Date.now() - Number(openedAtField.value || 0);
+    if (elapsed < MIN_FILL_MS) {
+      if (!validate() || deferredSubmit) return;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+      }
+      deferredSubmit = setTimeout(() => {
+        deferredSubmit = null;
+        if (submitBtn) submitBtn.disabled = false;
+        form.requestSubmit ? form.requestSubmit() : form.dispatchEvent(new Event('submit', { cancelable: true }));
+      }, MIN_FILL_MS - elapsed + 50);
+      return;
+    }
 
     if (!validate()) return;
 
@@ -174,6 +254,7 @@ export function initContactForm(form, opts = {}) {
         successPanel.setAttribute('tabindex', '-1');
         successPanel.focus();
       }
+      opts.onSuccess?.();
       window.chaTrack?.('contact_submitted'); // no field data
     } catch (err) {
       resetCaptcha(); // the token is single-use — hand the visitor a fresh challenge
@@ -206,9 +287,39 @@ export function initContactForm(form, opts = {}) {
     setContext(ctx) {
       if (contextField) contextField.value = ctx || 'crisis';
     },
+    /** Whether the success panel is currently showing. */
+    get submitted() {
+      return form.hidden && !!successPanel && !successPanel.hidden;
+    },
+    /** Return to a blank, visible form (e.g. reopening the modal after a send). */
+    reset() {
+      clearTimeout(deferredSubmit);
+      deferredSubmit = null;
+      form.reset();
+      updateCount();
+      errIds.forEach(clearError);
+      if (errorSummary) errorSummary.hidden = true;
+      if (successPanel) successPanel.hidden = true;
+      form.hidden = false;
+      opts.onReset?.();
+    },
+    /** Show the success state without a submit (the no-JS /thanks landing). */
+    showSuccess() {
+      form.hidden = true;
+      if (successPanel) successPanel.hidden = false;
+    },
   };
 }
 
 // Inline intake form: self-initialise on import when it's present on the page.
 const inlineForm = document.getElementById('intake-form');
-if (inlineForm) initContactForm(inlineForm);
+if (inlineForm) {
+  const inline = initContactForm(inlineForm);
+  // A native (no-JS) POST lands on /thanks, which Netlify serves as index.html.
+  // If scripts are running on that URL, confirm the send instead of showing a
+  // blank form that invites a duplicate submission.
+  if (inline && location.pathname.replace(/\/$/, '') === '/thanks') {
+    inline.showSuccess();
+    document.getElementById('intake')?.scrollIntoView({ block: 'start' });
+  }
+}

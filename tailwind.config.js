@@ -1,10 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 // Coastal Healthcare Advocates — brand-locked config.
-// Palette + type system: assets/logomarks/README.txt and creative/Coastal Style Guide.html.
+// Palette + type system: assets/logomarks/README.txt and creative/Coastal Brand Guidelines.html.
 module.exports = {
   content: ['./*.html', './assets/js/**/*.js'],
-  // Dark mode is a deliberate toggle: :root[data-theme="dark"] (style guide §07).
-  darkMode: ['selector', ':root[data-theme="dark"]'],
+  // `dark:` matches the same two states the CSS tokens do: an explicit
+  // :root[data-theme="dark"] toggle, or the OS preference when no choice is stored.
+  darkMode: ['variant', [
+    '&:is(:root[data-theme="dark"] *)',
+    '@media (prefers-color-scheme: dark) { &:not(:root[data-theme="light"] *) }',
+  ]],
   theme: {
     container: {
       center: true,
@@ -40,11 +44,10 @@ module.exports = {
         body: ['Ysabeau', 'ui-sans-serif', 'system-ui', '-apple-system', '"Segoe UI"', 'Roboto', 'sans-serif'],
         mono: ['"IBM Plex Mono"', 'ui-monospace', '"SF Mono"', 'Menlo', 'Consolas', 'monospace'],
       },
-      // Style guide §04 Heading Sizes (desktop / mobile, size · line-height):
-      //   H1 Questrial 400   48/56 · 28/36
-      //   H2 Cormorant 500   28/36 · 24/32
-      //   H3 Cormorant 500   24/32 · 20/28
-      //   H4 Cormorant 500   20/28 · 20/28
+      // Heading sizes (desktop / mobile, size · line-height). Every heading is
+      // Questrial 400 (src/input.css); Cormorant (`head`) is reserved for pricing
+      // row headers and the How-it-works numerals.
+      //   H1 48/56 · 28/36   H2 28/36 · 24/32   H3 24/32 · 20/28   H4 20/28
       fontSize: {
         lede: ['1.3125rem', { lineHeight: '1.45' }],
         h4: ['1.25rem', { lineHeight: '1.35' }],

@@ -167,7 +167,9 @@ Footer links
 
 **_Icons_**
 
-Use Google Icons, but make look hand-drawn like these: https://www.svgrepo.com/collection/doodle-library-hand-drawn-vectors/?search=health
+~~Use Google Icons, but make look hand-drawn like these: https://www.svgrepo.com/collection/doodle-library-hand-drawn-vectors/?search=health~~
+
+**Updated 2026-09-14:** The hand-drawn / doodle icon style is dropped. The site uses its own clean line-icon set: a single inline SVG sprite in `index.html`, 24px grid, even 1.75px strokes with round caps and joins, drawn in the brand palette. A doodle treatment was tried and reverted; keep icons crisp and consistent.
 
 **_Sites we like and why_**
 
@@ -230,7 +232,7 @@ Good example of a bio to emulate for Lindsey; also like the simple footer and ic
 
 ### Lindsey Hewitt, Insurance & Billing Advocate
 
-Lindsey Hewitt brings 27 years of experience in medical billing, insurance claims, and accounts receivable to her work as a patient advocate — expertise built from inside the very system her clients are trying to navigate.
+Lindsey Hewitt brings 18 years of experience in medical billing, insurance claims, and accounts receivable to her work as a patient advocate — expertise built from inside the very system her clients are trying to navigate.
 
 For more than 18 years, Lindsey worked directly with insurance claims and medical collections for major healthcare systems, including Sentara Health Systems, the Medical College of Virginia, the University of Virginia and affiliates, Chesapeake Regional Medical Center, and Bon Secours Maryview Medical Center. Her day-to-day work has included verifying patient eligibility, tracking down denials and payment delays, correcting billing and coding errors, and writing the detailed, evidence-backed appeals that get rejected claims paid — the exact work most patients find themselves facing for the first time, alone, after a diagnosis or a denial letter.
 
@@ -328,4 +330,4 @@ coastalhealthcareadvocates@gmail.com
 
 757‑574‑0771
 
-Virginia Beach & Hampton Roads, VA
+Virginia Beach, VA · Serving Hampton Roads and Southern Virginia

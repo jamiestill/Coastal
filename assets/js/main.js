@@ -29,9 +29,21 @@ if (navToggle && mobileNav) {
     setNav(navToggle.getAttribute('aria-expanded') !== 'true');
   });
 
-  // Close after choosing a destination, or on Escape.
+  // Opening by keyboard moves focus to the first link.
+  navToggle.addEventListener('keydown', (e) => {
+    if ((e.key === 'Enter' || e.key === ' ') && navToggle.getAttribute('aria-expanded') !== 'true') {
+      requestAnimationFrame(() => mobileNav.querySelector('a')?.focus());
+    }
+  });
+
+  // Close after choosing a destination, on Escape, or on a click outside.
   mobileNav.addEventListener('click', (e) => {
     if (e.target.closest('a')) setNav(false);
+  });
+  document.addEventListener('click', (e) => {
+    if (navToggle.getAttribute('aria-expanded') !== 'true') return;
+    if (mobileNav.contains(e.target) || navToggle.contains(e.target)) return;
+    setNav(false);
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
@@ -49,9 +61,8 @@ if (navToggle && mobileNav) {
    FAQ accordion  (<button aria-expanded aria-controls> + panel[hidden])
 
    Each row toggles independently (several can be open at once). The panel's
-   height is animated: on open it goes 0 -> measured height then back to auto;
-   on close it goes current height -> 0, and [hidden] is set once the collapse
-   finishes. Reduced motion / a failed script: a plain [hidden] toggle. The
+   grid row animates between 0fr and 1fr (.is-collapsed); on close, [hidden]
+   is set once the collapse finishes. Reduced motion / a failed script: a plain [hidden] toggle. The
    +/- sign is swapped between two sprite symbols.
    ---------------------------------------------------------------------- */
 const FAQ_MS = 300; // keep in step with the .faq-panel grid-template-rows transition in the CSS
@@ -145,6 +156,14 @@ if (header && tail) {
     const nearTail = gap < window.innerHeight * 0.45;
     header.classList.toggle('header-hidden', nearTail && !goingUp);
   };
+
+  // Keyboard focus moving into the header always brings it back into view.
+  header.addEventListener('focusin', () => header.classList.remove('header-hidden'));
+  // While hidden it is also `visibility: hidden` (not focusable), so Shift-Tab from
+  // below would skip it; reveal it when focus heads above the fold of the page.
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' && e.shiftKey) header.classList.remove('header-hidden');
+  });
 
   update();
   window.addEventListener(

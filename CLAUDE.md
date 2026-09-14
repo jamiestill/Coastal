@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this repository is
 
 Marketing website for **Coastal Healthcare Advocates** — a solo patient-advocacy practice
-(Lindsey Hewitt; Virginia Beach / Hampton Roads, VA). The static site lives at the repo root
+(Lindsey Hewitt; based in Virginia Beach, VA, serving Hampton Roads and Southern Virginia). The static site lives at the repo root
 (`index.html` plus the legal / 404 pages); the brief, audience research, brand assets, and
 reference imagery remain alongside it. `creative/Creative Brief.md` is the original spec.
 
@@ -85,8 +85,7 @@ Ysabeau 500, outlined. Palette (the brand's own hex values — everything is bui
 
 - `assets/logomarks/logos/` — mark + wordmark in 4 forms (horizontal / stacked / wordmark /
   logotype) × 5 colourways (primary / dark / one-colour / reversed / deep-tone-alt), each as SVG
-  plus 512/1024/2048px PNG. Note the README undercounts here: it says four colourways and PNG
-  only. Trust the directory listing for inventory, the README for usage rules.
+  plus 512/1024/2048px PNG.
 - `assets/logomarks/marks/` — the mark alone in the same 5 colourways, plus favicons and
   `favicon-primary.ico` / `favicon-dark.ico`.
 - Favicon files use a deliberately different, simplified geometry for 16–48px. Do not regenerate
@@ -99,7 +98,7 @@ Ysabeau 500, outlined. Palette (the brand's own hex values — everything is bui
 
 - `assets/` — `Hero Image.png`, `Lindsey-Hewitt-Headshot.{png,jpeg}` (the bio photo),
   `Lindsey Profile.pdf`, `CHA_Pricing_Sheet.pdf`.
-- `creative/` — the brief plus the two research docs; `Coastal Style Guide.html` is a saved
+- `creative/` — the brief plus the two research docs; `Coastal Brand Guidelines.html` is a saved
   claude.ai artifact export (carries the artifact's own page chrome), so
   `assets/logomarks/README.txt` remains the authoritative brand spec.
 - `inspiration/` — client-supplied reference screenshots and `siteoutline.xlsx`.
@@ -121,7 +120,8 @@ Hard requirements from the brief:
 - Contact is a lightbox popup webform — needs an autoresponder and entries saved to a database.
 - Cookie-consent challenge + analytics; SEO best practices; treat submitted health details as
   PHI (the brief's "HIP" means HIPAA-aware).
-- Icons: Google Material Icons restyled to look hand-drawn (doodle style).
+- Icons: clean line icons (inline SVG sprite, 1.75px round strokes). The brief originally asked for
+  hand-drawn doodle icons; that was tried and dropped (brief updated 2026-09-14) — don't reintroduce it.
 - Bio layout reference the client likes: the employee-bio page on arntzen.no.
 
 The homepage must open with **two entry paths, not one funnel** — person-in-crisis (services /

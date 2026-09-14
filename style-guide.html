@@ -13,7 +13,7 @@
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/svg+xml" href="assets/logomarks/marks/advocate-beacon-favicon-primary.svg">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/css/site.css?v=e07f00ab31">
+  <link rel="stylesheet" href="assets/css/site.css?v=1a0d41af39">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'none'">
 </head>
 <body>
@@ -53,8 +53,9 @@
     <section id="palette" class="section bg-surface border-y border-line-soft" aria-labelledby="palette-h">
       <div class="canvas">
         <h2 id="palette-h">Palette</h2>
-        <p class="lede mt-4">Six colours run the site. Everything else — light/dark surfaces,
-          text, borders — is a semantic token built from these (see <a href="#tokens">Tokens</a>).</p>
+        <p class="lede mt-4">Navy, Sky and Paper carry the site; Midnight grounds dark mode and the
+          footer; Coral and Cyan are small accents. Light/dark surfaces, text and borders are
+          semantic tokens built from these (see <a href="#tokens">Tokens</a>).</p>
 
         <ul class="mt-8 grid gap-gutter grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           <li class="sg-swatch">
@@ -111,27 +112,31 @@
               </tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Navy</th><td>Body ink, headings, primary CTA fill in light mode, footer ground</td></tr>
-              <tr><th scope="row">Sky</th><td>Links, focus ring on dark grounds, primary CTA fill in dark mode</td></tr>
-              <tr><th scope="row">Cyan</th><td>Accent only — icons/fills, and the mark's heart in the Reversed colourway</td></tr>
-              <tr><th scope="row">Coral</th><td>Cyan's counterpart — alerts/urgent states, the mark's heart in Primary and Deep-tone·alt</td></tr>
-              <tr><th scope="row">Midnight</th><td>Deepest ground — dark-mode page background, the Dark mark colourway's ground</td></tr>
-              <tr><th scope="row">Paper</th><td>Light-mode ground and the shield colour in the Reversed and One-colour marks</td></tr>
+              <tr><th scope="row">Navy</th><td>Body ink, headings, primary CTA fill and focus ring in light mode, the navy booking band</td></tr>
+              <tr><th scope="row">Sky</th><td>The one guiding accent — heading rules, line icons, the Get Started tab and path-card buttons; links, focus ring and primary CTA fill in dark mode</td></tr>
+              <tr><th scope="row">Cyan</th><td>The faint hero glow, and the mark's heart in the Reversed colourway — nothing else</td></tr>
+              <tr><th scope="row">Coral</th><td>The mark's heart in Primary and Deep-tone·alt; the fourth How-it-works step, required-field markers and error borders</td></tr>
+              <tr><th scope="row">Midnight</th><td>Dark-mode page ground, the footer ground in both themes, the Dark mark colourway's ground</td></tr>
+              <tr><th scope="row">Paper</th><td>Text and button fill on Navy and Midnight grounds; the shield colour in the Reversed mark. The light-mode page ground is <code class="num">--bg</code>, not Paper</td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="callout mt-8 p-5">
           <p><strong>Contrast, as verified on the live pages:</strong> body/headings run ~16:1,
-            secondary text 7–9:1, the navy-on-sand CTA 10.5:1, and light-on-navy footer/CTA/sticky
-            text ≥9:1 — all clear of WCAG AA. Sky, Cyan, Seagrass, and Coral are used for icons and
-            fills only, never as text-on-light — none of them clear AA at body-text size on Paper.</p>
+            secondary text 7–9:1, and Paper text on the Navy band and Midnight footer ≥9:1 — all
+            clear of WCAG AA. Sky, Cyan, Seagrass, Lantern, Sand and Coral are never text on a light
+            ground — none of them clear AA at body-text size. Where one has to carry text or
+            meaning, use <code class="num">--link</code> or its <code class="num">-ink</code> step
+            (see <a href="#tokens">Tokens</a>).</p>
         </div>
 
-        <p class="mt-8 font-label text-h4">Additional identity inks</p>
-        <p class="mt-2 lede max-w-[70ch]">From <code class="num">assets/logomarks/README.txt</code> —
-          part of the brand's colour set for mark colourways and branded goods, not currently wired
-          into site UI.</p>
+        <p class="mt-8 font-label text-h4">Supporting colours</p>
+        <p class="mt-2 lede max-w-[70ch]">Seagrass, Lantern and Sand never appear in the mark, and are
+          never large fills or text on light. Seagrass and Lantern are the second and third
+          How-it-works step accents; all three warm
+          card cycles as 9–18% washes. Deep-tone·alt is the alternate shield and the line colour
+          inside the dark-theme drawer.</p>
         <ul class="mt-4 grid gap-gutter grid-cols-2 md:grid-cols-4">
           <li class="sg-swatch">
             <div class="sg-swatch-chip sg-chip-seagrass"></div>
@@ -166,9 +171,9 @@
     <section id="type" class="section" aria-labelledby="type-h">
       <div class="canvas">
         <h2 id="type-h">Type system</h2>
-        <p class="lede mt-4">Five typefaces, each with one job. Headlines are Cormorant Garamond
-          <strong>roman</strong>, not italic — earlier concept rounds explored an italic
-          treatment, but only the roman 500/600 weights are what's built and self-hosted here.</p>
+        <p class="lede mt-4">Five typefaces, each with one job. Every heading is Questrial 400 —
+          hierarchy comes from size and space, never weight. Cormorant Garamond is an accent serif
+          only: the italic How-it-works numerals and the pricing row names.</p>
 
         <div class="mt-8 card p-6 md:p-8">
           <div class="sg-specimen">
@@ -180,12 +185,16 @@
             <p class="sg-spec-h1">Understanding benefits.</p>
           </div>
           <div class="sg-specimen">
-            <p class="sg-specimen-label">Cormorant Garamond<br>500 — H2</p>
+            <p class="sg-specimen-label">Questrial<br>400 — H2</p>
             <h2 class="sg-spec-h2">Resolving bills.</h2>
           </div>
           <div class="sg-specimen">
-            <p class="sg-specimen-label">Cormorant Garamond<br>500 — H3 / H4</p>
+            <p class="sg-specimen-label">Questrial<br>400 — H3 / H4</p>
             <p><span class="sg-spec-h3">Advocating for you.</span></p>
+          </div>
+          <div class="sg-specimen">
+            <p class="sg-specimen-label">Cormorant<br>italic — numerals</p>
+            <p class="step-num">1 2 3 4</p>
           </div>
           <div class="sg-specimen">
             <p class="sg-specimen-label">Ysabeau<br>400 — body / lede</p>
@@ -195,11 +204,12 @@
           <div class="sg-specimen">
             <p class="sg-specimen-label">Ysabeau<br>400 — body copy</p>
             <p>Running text sits at 18px/1.6 — a size chosen for older readers, per the brief's
-              accessibility requirement — and stops at a 65-character measure.</p>
+              accessibility requirement — and stops at a 62-character measure (68 for legal pages
+              and FAQ answers).</p>
           </div>
           <div class="sg-specimen">
-            <p class="sg-specimen-label">IBM&nbsp;Plex&nbsp;Mono<br>400/500 — figures only</p>
-            <p class="num">757-574-0771 &middot; $175–$300 &middot; #0F1E4A</p>
+            <p class="sg-specimen-label">IBM&nbsp;Plex&nbsp;Mono<br>400 — figures</p>
+            <p class="num">757-574-0771</p>
           </div>
         </div>
 
@@ -215,10 +225,11 @@
             <tbody>
               <tr><th scope="row">Logo</th><td>Tenor Sans 400</td><td>The wordmark only — never running text</td></tr>
               <tr><th scope="row">H1</th><td>Questrial 400</td><td>Page/hero heading — one per page</td></tr>
-              <tr><th scope="row">H2–H4</th><td>Cormorant Garamond 500</td><td>Section and card headings</td></tr>
-              <tr><th scope="row">Labels</th><td>Questrial 400</td><td>Buttons, table headers, tracked uppercase labels</td></tr>
-              <tr><th scope="row">Body</th><td>Ysabeau 400/500/600</td><td>Reading copy, ledes, meta text — the site's default font</td></tr>
-              <tr><th scope="row">Figures</th><td>IBM Plex Mono 400/500</td><td>Phone numbers, prices, counts — via the <code class="num">.num</code> class only</td></tr>
+              <tr><th scope="row">H2–H4</th><td>Questrial 400</td><td>Section and card headings — never bold</td></tr>
+              <tr><th scope="row">Labels</th><td>Questrial 400</td><td>Buttons, nav, table headers, tracked uppercase labels</td></tr>
+              <tr><th scope="row">Body</th><td>Ysabeau 400–600</td><td>Reading copy, ledes, meta text — the site's default font</td></tr>
+              <tr><th scope="row">Accent serif</th><td>Cormorant Garamond 500</td><td>How-it-works numerals (italic) and pricing row names — never headings</td></tr>
+              <tr><th scope="row">Figures</th><td>IBM Plex Mono 400</td><td>Phone numbers and prices only — via <code class="num">.num</code> / <code class="num">.price-fee</code></td></tr>
             </tbody>
           </table>
         </div>
@@ -255,9 +266,9 @@
 
         <div class="callout mt-6 p-5">
           <p><strong>Two rules that sit alongside the scale.</strong> Measure governs width —
-            running text stops at 65 characters — the scale only governs height. The golden ratio
-            (1.618) is for layout, not type: use it where the page splits into a main column and a
-            sidebar, not in the type scale, where 1.25 is already doing that work.</p>
+            prose stops at 62ch, legal pages and FAQ answers at 68ch, ledes at 60ch — the scale only
+            governs height. And legibility outranks density: body text never drops below 18px, and
+            supporting text never below 14px.</p>
         </div>
       </div>
     </section>
@@ -376,6 +387,11 @@
               <tr><th scope="row">--line-soft</th><td class="num">#EAEFF9</td><td class="num">#1B274A</td></tr>
               <tr><th scope="row">--tag-bg</th><td class="num">#EAF3FF</td><td class="num">#16234A</td></tr>
               <tr><th scope="row">--warn-bg / --warn-line / --warn-ink</th><td class="num">#EDF4FE / #C3D8F2 / #2F4468</td><td class="num">#241C0C / #4A3A14 / #E8C878</td></tr>
+              <tr><th scope="row">--link</th><td class="num">#0B5FA5</td><td class="num">Sky</td></tr>
+              <tr><th scope="row">--sky-ink / --seagrass-ink</th><td class="num">#1F74C4 / #087A58</td><td class="num">Sky / Seagrass</td></tr>
+              <tr><th scope="row">--lantern-ink / --coral-ink</th><td class="num">#A85A00 / #C4140F</td><td class="num">Lantern / #FF6A66</td></tr>
+              <tr><th scope="row">--cta-bg / --cta-ink</th><td class="num">Navy / Paper</td><td class="num">Sky / Navy</td></tr>
+              <tr><th scope="row">--panel-*</th><td class="num">Page tokens</td><td class="num">Sky ground, Navy ink</td></tr>
               <tr><th scope="row">--ring / --focus-on-dark</th><td class="num">Navy</td><td class="num">Sky</td></tr>
             </tbody>
           </table>
@@ -387,8 +403,8 @@
             <tbody>
               <tr><th scope="row">canvas / canvas-wide</th><td>1000px reading column / 1180px header-footer width</td></tr>
               <tr><th scope="row">gutter</th><td>24px grid gap</td></tr>
-              <tr><th scope="row">radius — card / tile</th><td>12px / 10px</td></tr>
-              <tr><th scope="row">grid</th><td>9-column, used by the About section's sticky rail</td></tr>
+              <tr><th scope="row">radius — card / tile / field</th><td>12px / 10px / 8px (step cards: 22px frame, 15px inner)</td></tr>
+              <tr><th scope="row">grid</th><td>9-column <code class="num">.grid-9</code> base; the hero (text + 38% illustration) and About (18–22rem portrait rail + bio) override it with named tracks, and both stack on phones</td></tr>
               <tr><th scope="row">shadow</th><td>Neutral near-black elevation only — no chromatic or navy glow</td></tr>
             </tbody>
           </table>
@@ -422,7 +438,7 @@
   </main>
 
   <div data-partial="footer"></div>
-  <script src="assets/js/partials.js?v=0a877a63ee"></script>
+  <script src="assets/js/partials.js?v=439fbc167b"></script>
   <script type="module" src="assets/js/consent.js?v=d789b0415e"></script>
 </body>
 </html>

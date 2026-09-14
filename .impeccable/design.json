@@ -1,0 +1,518 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-14T06:40:00Z",
+  "title": "Design System: Coastal Healthcare Advocates",
+  "extensions": {
+    "colorMeta": {
+      "harbor-navy": {
+        "role": "primary",
+        "displayName": "Harbor Navy",
+        "canonical": "#0F1E4A",
+        "tonalRamp": [
+          "oklch(15% 0.07 268)",
+          "oklch(24% 0.08 268)",
+          "oklch(34% 0.09 268)",
+          "oklch(45% 0.09 268)",
+          "oklch(57% 0.08 268)",
+          "oklch(69% 0.06 268)",
+          "oklch(82% 0.04 268)",
+          "oklch(95% 0.015 268)"
+        ]
+      },
+      "beacon-sky": {
+        "role": "primary",
+        "displayName": "Beacon Sky",
+        "canonical": "#4FACFE",
+        "tonalRamp": [
+          "oklch(15% 0.05 252)",
+          "oklch(27% 0.08 252)",
+          "oklch(39% 0.11 252)",
+          "oklch(51% 0.13 252)",
+          "oklch(63% 0.14 252)",
+          "oklch(72% 0.13 252)",
+          "oklch(84% 0.08 252)",
+          "oklch(95% 0.025 252)"
+        ]
+      },
+      "beacon-cyan": {
+        "role": "primary",
+        "displayName": "Beacon Cyan",
+        "canonical": "#00F2FE",
+        "tonalRamp": [
+          "oklch(15% 0.04 205)",
+          "oklch(27% 0.07 205)",
+          "oklch(39% 0.09 205)",
+          "oklch(51% 0.11 205)",
+          "oklch(63% 0.13 205)",
+          "oklch(75% 0.14 205)",
+          "oklch(87% 0.15 205)",
+          "oklch(95% 0.06 205)"
+        ]
+      },
+      "link-blue": {
+        "role": "secondary",
+        "displayName": "Link Blue",
+        "canonical": "#0B5FA5"
+      },
+      "sky-ink": {
+        "role": "secondary",
+        "displayName": "Sky Ink",
+        "canonical": "#1F74C4"
+      },
+      "seagrass": {
+        "role": "tertiary",
+        "displayName": "Seagrass",
+        "canonical": "#0BA678",
+        "tonalRamp": [
+          "oklch(15% 0.04 162)",
+          "oklch(27% 0.07 162)",
+          "oklch(39% 0.09 162)",
+          "oklch(51% 0.11 162)",
+          "oklch(63% 0.13 162)",
+          "oklch(74% 0.11 162)",
+          "oklch(85% 0.07 162)",
+          "oklch(95% 0.025 162)"
+        ]
+      },
+      "seagrass-ink": {
+        "role": "tertiary",
+        "displayName": "Seagrass Ink",
+        "canonical": "#087A58"
+      },
+      "lantern": {
+        "role": "tertiary",
+        "displayName": "Lantern",
+        "canonical": "#E07A00",
+        "tonalRamp": [
+          "oklch(15% 0.04 60)",
+          "oklch(27% 0.07 60)",
+          "oklch(39% 0.1 60)",
+          "oklch(51% 0.13 60)",
+          "oklch(63% 0.15 60)",
+          "oklch(74% 0.13 60)",
+          "oklch(85% 0.08 60)",
+          "oklch(95% 0.03 60)"
+        ]
+      },
+      "lantern-ink": {
+        "role": "tertiary",
+        "displayName": "Lantern Ink",
+        "canonical": "#A85A00"
+      },
+      "sand": {
+        "role": "tertiary",
+        "displayName": "Sand",
+        "canonical": "#FFC93C",
+        "tonalRamp": [
+          "oklch(15% 0.03 85)",
+          "oklch(27% 0.06 85)",
+          "oklch(39% 0.08 85)",
+          "oklch(51% 0.1 85)",
+          "oklch(63% 0.13 85)",
+          "oklch(75% 0.15 85)",
+          "oklch(86% 0.16 85)",
+          "oklch(96% 0.05 85)"
+        ]
+      },
+      "coral": {
+        "role": "tertiary",
+        "displayName": "Coral",
+        "canonical": "#FE1E1A",
+        "tonalRamp": [
+          "oklch(15% 0.05 29)",
+          "oklch(27% 0.1 29)",
+          "oklch(39% 0.15 29)",
+          "oklch(51% 0.19 29)",
+          "oklch(62% 0.23 29)",
+          "oklch(72% 0.16 29)",
+          "oklch(84% 0.08 29)",
+          "oklch(95% 0.025 29)"
+        ]
+      },
+      "coral-ink": {
+        "role": "tertiary",
+        "displayName": "Coral Ink",
+        "canonical": "#C4140F"
+      },
+      "deep-tone": {
+        "role": "tertiary",
+        "displayName": "Deep Tone",
+        "canonical": "#2E3F72"
+      },
+      "midnight": {
+        "role": "neutral",
+        "displayName": "Midnight",
+        "canonical": "#0A0F24",
+        "tonalRamp": [
+          "oklch(15% 0.04 272)",
+          "oklch(24% 0.05 272)",
+          "oklch(34% 0.05 272)",
+          "oklch(45% 0.05 272)",
+          "oklch(57% 0.04 272)",
+          "oklch(69% 0.03 272)",
+          "oklch(82% 0.02 272)",
+          "oklch(95% 0.008 272)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#F5FBFF"
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Ground",
+        "canonical": "#FEFEFE"
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "canonical": "#FDFEFF"
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Ink Soft",
+        "canonical": "#3C4A73"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "canonical": "#DDE4F2"
+      },
+      "line-soft": {
+        "role": "neutral",
+        "displayName": "Line Soft",
+        "canonical": "#EAEFF9"
+      },
+      "tint-wash": {
+        "role": "neutral",
+        "displayName": "Tint Wash",
+        "canonical": "#EAF3FF"
+      },
+      "night-surface": {
+        "role": "neutral",
+        "displayName": "Night Surface",
+        "canonical": "#101A3A"
+      },
+      "night-ink": {
+        "role": "neutral",
+        "displayName": "Night Ink",
+        "canonical": "#EAF0FF"
+      },
+      "night-ink-soft": {
+        "role": "neutral",
+        "displayName": "Night Ink Soft",
+        "canonical": "#AEC0EA"
+      },
+      "night-line": {
+        "role": "neutral",
+        "displayName": "Night Line",
+        "canonical": "#25315C"
+      },
+      "night-tint-wash": {
+        "role": "neutral",
+        "displayName": "Night Tint Wash",
+        "canonical": "#16234A"
+      },
+      "night-line-soft": {
+        "role": "neutral",
+        "displayName": "Night Line Soft",
+        "canonical": "#1B274A"
+      },
+      "panel-tint": {
+        "role": "neutral",
+        "displayName": "Panel Tint",
+        "canonical": "#CFE6FF"
+      },
+      "beacon-edge": {
+        "role": "secondary",
+        "displayName": "Beacon Edge",
+        "canonical": "#3F89D1"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The hero headline only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings, with an 8rem Beacon Sky rule beneath."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Path-card headings, FAQ questions, success headings."
+      },
+      "title-sm": {
+        "displayName": "Title Small",
+        "purpose": "Service, audience, step, value-item and callout headings."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Introductory copy under hero and intake headings; Ink Soft, max 60ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All running copy; 62–68ch measure."
+      },
+      "body-sm": {
+        "displayName": "Body Small",
+        "purpose": "Taglines, bylines, meta and captions."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase button text; nav links use the face in sentence case."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Prices and phone numbers only."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Italic How-it-works step numbers in each step's ink accent."
+      }
+    },
+    "shadows": [
+      {
+        "name": "rest",
+        "value": "0 1px 2px rgba(10,15,36,.06), 0 4px 12px rgba(10,15,36,.06)",
+        "purpose": "Cards at rest."
+      },
+      {
+        "name": "lift",
+        "value": "0 2px 8px rgba(10,15,36,.08), 0 12px 28px rgba(10,15,36,.10)",
+        "purpose": "Framed photos, pinned step cards, tile hover."
+      },
+      {
+        "name": "header-scrolled",
+        "value": "0 4px 16px rgba(10,15,36,.07)",
+        "purpose": "Sticky header once the page leaves the top."
+      },
+      {
+        "name": "floating-layer",
+        "value": "0 18px 44px -14px rgba(10,15,36,.32)",
+        "purpose": "Mobile menu panel."
+      },
+      {
+        "name": "edge-tab",
+        "value": "-2px 2px 16px rgba(10,15,36,.22)",
+        "purpose": "Persistent Get Started tab."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-calm",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Buttons, header retreat, drawer tab."
+      },
+      {
+        "name": "ease-settle",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Entrances, reveals, accordion, underline wipes."
+      },
+      {
+        "name": "hero-beacon-settle",
+        "value": "1200ms ease-settle, once per session",
+        "purpose": "The one authored moment: hero glow steadies."
+      },
+      {
+        "name": "rise-in",
+        "value": "640ms ease-settle, 90ms stagger capped at 4",
+        "purpose": "Hero and scroll-reveal entrances."
+      },
+      {
+        "name": "accordion",
+        "value": "300ms grid-template-rows",
+        "purpose": "FAQ open/close."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "120ms colour/opacity only",
+        "purpose": "Spatial motion removed; state feedback kept."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "480px"
+      },
+      {
+        "name": "hero-image",
+        "value": "500px"
+      },
+      {
+        "name": "who-columns",
+        "value": "640px"
+      },
+      {
+        "name": "about-rail",
+        "value": "700px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "faq-split",
+        "value": "900px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1200px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Harbor Navy consultation CTA; flips to Beacon Sky in dark theme.",
+      "html": "<button class=\"ds-btn-primary\">Schedule a Free Consultation</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0.75rem 1.4rem; font-family: Questrial, 'Century Gothic', system-ui, sans-serif; font-size: 0.9375rem; letter-spacing: 0.06em; text-transform: uppercase; background: var(--cta-bg, #0F1E4A); color: var(--cta-ink, #F5FBFF); border: 1px solid var(--cta-bg, #0F1E4A); border-radius: 12px; cursor: pointer; transition: transform 0.18s cubic-bezier(0.22,1,0.36,1), background-color 0.18s ease, border-color 0.18s ease; } .ds-btn-primary:hover { background: var(--cta-hover-bg, #0A0F24); border-color: var(--cta-hover-bg, #0A0F24); transform: translateY(-1px); } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 3px solid var(--ring, #0F1E4A); outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action with a navy hairline; Tint Wash on hover.",
+      "html": "<button class=\"ds-btn-ghost\">Necessary only</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0.75rem 1.4rem; font-family: Questrial, 'Century Gothic', system-ui, sans-serif; font-size: 0.9375rem; letter-spacing: 0.06em; text-transform: uppercase; background: transparent; color: var(--ink, #0F1E4A); border: 1px solid var(--ink, #0F1E4A); border-radius: 12px; cursor: pointer; transition: transform 0.18s cubic-bezier(0.22,1,0.36,1), background-color 0.18s ease; } .ds-btn-ghost:hover { background: var(--tag-bg, #EAF3FF); transform: translateY(-1px); } .ds-btn-ghost:focus-visible { outline: 3px solid var(--ring, #0F1E4A); outline-offset: 2px; }"
+    },
+    {
+      "name": "Beacon Button",
+      "kind": "button",
+      "refersTo": "button-beacon",
+      "description": "Beacon Sky CTA on the entry-path cards; deepens to navy on hover.",
+      "html": "<button class=\"ds-btn-beacon\">Contact about a referral</button>",
+      "css": ".ds-btn-beacon { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0.75rem 1.4rem; font-family: Questrial, 'Century Gothic', system-ui, sans-serif; font-size: 0.9375rem; letter-spacing: 0.06em; text-transform: uppercase; background: #4FACFE; color: #0F1E4A; border: 1px solid #4FACFE; border-radius: 12px; cursor: pointer; transition: transform 0.18s cubic-bezier(0.22,1,0.36,1), background-color 0.18s ease, color 0.18s ease; } .ds-btn-beacon:hover { background: var(--accent-hover-bg, #0F1E4A); color: var(--accent-hover-ink, #F5FBFF); border-color: var(--accent-hover-bg, #0F1E4A); transform: translateY(-1px); } .ds-btn-beacon:focus-visible { outline: 3px solid var(--ring, #0F1E4A); outline-offset: 2px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Persistent label above, Ink Soft border, 48px min height; Coral 2px border on error.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Full name <span class=\"ds-req\" aria-hidden=\"true\">*</span></span><input class=\"ds-input\" type=\"text\" autocomplete=\"name\"></label>",
+      "css": ".ds-field { display: block; } .ds-field-label { display: block; margin-bottom: 0.35rem; font-family: Questrial, 'Century Gothic', system-ui, sans-serif; font-size: 0.9375rem; letter-spacing: 0.01em; color: var(--ink, #0F1E4A); } .ds-req { color: var(--coral-ink, #C4140F); font-weight: 600; } .ds-input { width: 100%; min-height: 48px; padding: 0.7rem 0.8rem; font-family: Ysabeau, system-ui, sans-serif; font-size: 1rem; color: var(--ink, #0F1E4A); background: var(--surface, #FDFEFF); border: 1px solid var(--ink-soft, #3C4A73); border-radius: 8px; } .ds-input:focus { border-color: var(--ink, #0F1E4A); } .ds-input:focus-visible { outline: 3px solid var(--ring, #0F1E4A); outline-offset: 2px; } .ds-input[aria-invalid='true'] { border: 2px solid #FE1E1A; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Sentence-case Questrial link; Beacon Sky underline wipes in on hover/focus and holds for the current section.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#services\">Services</a><a class=\"ds-nav-link\" href=\"#about\" aria-current=\"true\">About</a><a class=\"ds-nav-link\" href=\"#pricing\">Pricing</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 1rem; } .ds-nav-link { position: relative; padding: 0.5rem 0.15rem 0.55rem; font-family: Questrial, 'Century Gothic', system-ui, sans-serif; font-size: 0.875rem; color: var(--ink, #0F1E4A); text-decoration: none; white-space: nowrap; } .ds-nav-link::after { content: ''; position: absolute; left: 0.15rem; right: 0.15rem; bottom: 0.35rem; height: 2px; background: #4FACFE; transform: scaleX(0); transform-origin: left; transition: transform 220ms cubic-bezier(0.16,1,0.3,1); } .ds-nav-link:hover::after, .ds-nav-link:focus-visible::after, .ds-nav-link[aria-current='true']::after { transform: scaleX(1); } .ds-nav-link[aria-current='true'] { color: var(--nav-current, #0F1E4A); } .ds-nav-link:focus-visible { outline: 3px solid var(--ring, #0F1E4A); outline-offset: 2px; border-radius: 3px; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Surface card with hairline border and Rest shadow, 12px corners.",
+      "html": "<article class=\"ds-card\"><h3 class=\"ds-card-title\">I'm helping someone else.</h3><p class=\"ds-card-body\">Researching for a parent or partner, or referring a client as part of your own practice.</p></article>",
+      "css": ".ds-card { padding: 1.75rem; background: var(--surface, #FDFEFF); border: 1px solid var(--line, #DDE4F2); border-radius: 12px; box-shadow: 0 1px 2px rgba(10,15,36,.06), 0 4px 12px rgba(10,15,36,.06); } .ds-card-title { margin: 0; font-family: Questrial, 'Century Gothic', system-ui, sans-serif; font-weight: 400; font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.5rem); line-height: 1.3; color: var(--ink, #0F1E4A); } .ds-card-body { margin: 1rem 0 0; font-family: Ysabeau, system-ui, sans-serif; font-size: 1.125rem; line-height: 1.6; color: var(--ink, #0F1E4A); }"
+    },
+    {
+      "name": "Step Card",
+      "kind": "custom",
+      "refersTo": "step-card",
+      "description": "Signature pinned note card: white frame, tinted inner panel, italic serif numeral in the step's ink accent.",
+      "html": "<article class=\"ds-step\"><span class=\"ds-step-pin\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" width=\"32\" height=\"32\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9.1 3.8h5.8c.5 0 .8.6.5 1l-1 1.5v3.4l1.8 2.3c.4.5 0 1.3-.6 1.3H8.4c-.6 0-1-.8-.6-1.3l1.8-2.3V6.3l-1-1.5c-.3-.4 0-1 .5-1Z\"/><path d=\"M12 13.3v6.9\"/></g></svg></span><div class=\"ds-step-inner\"><span class=\"ds-step-num\">02</span><h3 class=\"ds-step-title\">Document collection</h3><p class=\"ds-step-body\">We gather the bills, Explanation of Benefits statements, denial letters, and plan documents that matter.</p></div></article>",
+      "css": ".ds-step { position: relative; max-width: 21rem; padding: 0.5rem; background: var(--surface, #FDFEFF); border: 1px solid var(--line, #DDE4F2); border-radius: 22px; box-shadow: 0 2px 8px rgba(10,15,36,.08), 0 12px 28px rgba(10,15,36,.10); rotate: 2.5deg; transition: rotate .25s cubic-bezier(0.16,1,0.3,1), scale .25s cubic-bezier(0.16,1,0.3,1); } .ds-step:hover { rotate: 0deg; scale: 1.03; } .ds-step-pin { position: absolute; top: -0.85rem; left: 50%; transform: translateX(-50%); color: #0BA678; filter: drop-shadow(0 2px 3px rgba(15,30,74,.22)); } .ds-step-inner { display: flex; flex-direction: column; gap: 0.4rem; padding: 1.15rem 1.25rem 1.35rem; background: color-mix(in srgb, #0BA678 12%, #FDFEFF); border: 1px solid color-mix(in srgb, #0BA678 30%, #DDE4F2); border-radius: 15px; } .ds-step-num { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: 2.75rem; line-height: 1; color: #087A58; } .ds-step-title { margin: 0.15rem 0 0; font-family: Questrial, 'Century Gothic', system-ui, sans-serif; font-weight: 400; font-size: 1.25rem; line-height: 1.35; color: #0F1E4A; } .ds-step-body { margin: 0; font-family: Ysabeau, system-ui, sans-serif; font-size: 1.125rem; line-height: 1.6; color: #0F1E4A; }"
+    },
+    {
+      "name": "Persistent CTA Tab",
+      "kind": "custom",
+      "refersTo": "drawer-tab",
+      "description": "Beacon Sky edge tab with vertical uppercase label; becomes a bottom bar under 480px.",
+      "html": "<button class=\"ds-tab\" aria-label=\"Get started! Open the consultation form\"><span aria-hidden=\"true\">Get Started</span></button>",
+      "css": ".ds-tab { display: inline-flex; align-items: center; justify-content: center; padding: 1.1rem 0.55rem; writing-mode: vertical-rl; font-family: Questrial, 'Century Gothic', system-ui, sans-serif; font-size: 0.9375rem; letter-spacing: 0.1em; text-transform: uppercase; background: #4FACFE; color: #0F1E4A; border: 1px solid #4FACFE; border-right: 0; border-radius: 12px 0 0 12px; box-shadow: -2px 2px 16px rgba(10,15,36,.22); cursor: pointer; transition: background-color .18s ease, color .18s ease; } .ds-tab:hover { background: var(--accent-hover-bg, #0F1E4A); color: var(--accent-hover-ink, #F5FBFF); border-color: var(--accent-hover-bg, #0F1E4A); } .ds-tab:focus-visible { outline: 3px solid var(--ring, #0F1E4A); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Harbor Light",
+    "overview": "A harbor light doesn't shout. It stands steady on a dark coast so a boat can find its way in. This system does the same for someone holding a denial letter. Harbor Navy is the ground and the voice, and a single Beacon Sky accent marks the way: the rule under a heading, the icons, the Get Started tab. The page moves at an unhurried pace, with large readable type, generous section breathing room and one clear next step at a time. The brand mark, a lighthouse inside a shield, is where the metaphor comes from, and every surface should feel like it belongs under that light.\n\nThe character is warm and plainspoken rather than corporate. Surfaces are pale and quiet, edged with hairline borders, and warmed by soft tints of the supporting palette (Seagrass, Lantern, Sand, Coral) instead of large saturated fills. Depth is used sparingly: most things sit flat, and a soft neutral lift is reserved for photographs, the pinned step cards, and hover feedback. Motion is gentle and continuous rather than a single moment: the hero steadies as the beacon comes up once per session, content rises in as it scrolls into view, the How-it-works thread draws itself and then marches slowly while on screen, the step cards rest at a slight hand-pinned tilt, and the beacon lights once when a message is sent.\n\nThis is explicitly not an insurer or fintech interface: no dashboards, stat tiles, countdown urgency, or aggressive conversion chrome. The visitor is stressed and often older. The design earns trust by being calm, legible and honest.",
+    "keyCharacteristics": [
+      "Harbor Navy ground and ink with one guiding Beacon Sky accent",
+      "Large, readable type: 18px Ysabeau body, Questrial headings, balanced line wrapping",
+      "Pale surfaces, hairline borders, soft supporting tints; saturated colour only in small doses",
+      "Soft lift used sparingly, and only as neutral near-black shadow",
+      "Gentle, continuous motion (scroll rise-ins, a marching thread, pinned tilt); reduced motion keeps colour and opacity feedback",
+      "Full light and dark themes driven by semantic tokens"
+    ],
+    "rules": [
+      {
+        "name": "The Calm Motion Rule",
+        "body": "Motion moves one way and never demands attention: things rise in, draw on, or march slowly, and loops pause when off screen. Nothing flashes, bounces, or blocks reading, and reduced motion keeps only colour and opacity changes.",
+        "section": "components"
+      },
+      {
+        "name": "The One Beacon Rule",
+        "body": "Beacon Sky guides; it never reads. Use it for rules, icons, fills behind Harbor Navy text and dark-ground accents. Any text or meaningful mark on a light ground uses Link Blue or Sky Ink instead.",
+        "section": "colors"
+      },
+      {
+        "name": "The Supporting Tints Rule",
+        "body": "Seagrass, Lantern, Sand and Coral appear only as pale washes (9–18% mixed into Surface), step accents and small marks. They are never large fills, section grounds, or text on light grounds. Where they must carry meaning, use their -ink steps.",
+        "section": "colors"
+      },
+      {
+        "name": "The Semantic Token Rule",
+        "body": "Components never hard-code light or dark values. Every theme difference lives in the root token set (--bg, --surface, --ink, --cta-bg, --panel-* and so on). In dark theme the contact drawer and mobile menu invert to a Beacon Sky ground with a Harbor Navy CTA.",
+        "section": "colors"
+      },
+      {
+        "name": "The Readable-First Rule",
+        "body": "Body text never drops below 1.125rem, and supporting text never below 0.875rem. Headings balance their line breaks and paragraphs wrap to avoid orphans. Older readers are a core audience, so legibility outranks density.",
+        "section": "typography"
+      },
+      {
+        "name": "The Figures-in-Mono Rule",
+        "body": "IBM Plex Mono is reserved for real figures: prices and phone numbers. It is never a stylistic costume for labels or headings.",
+        "section": "typography"
+      },
+      {
+        "name": "The Level Voice Rule",
+        "body": "Every heading is Questrial 400. Hierarchy comes from size and space, never from bold weights. Questrial ships one weight, so never request faux bold.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Column of Attention Rule",
+        "body": "Content never spreads wider than the 1000px reading column, and no decision point shows more than a handful of equal options. The persistent CTA (right-edge tab, a full-width bottom bar under 480px) is the only floating element, and it tucks away once the intake form is on screen.",
+        "section": "layout"
+      },
+      {
+        "name": "The Earned Light Rule",
+        "body": "The beacon's light is reserved for the moment someone reaches out. Don't reuse it as page decoration, a loading spinner or a hover effect, or it stops meaning \"you've been heard\".",
+        "section": "components"
+      },
+      {
+        "name": "The Soft Lift Rule",
+        "body": "Surfaces are flat at rest unless they are a photograph, a pinned card or a floating layer. Everything else gains elevation only as feedback. Lifts are neutral and soft, never coloured glows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep Harbor Navy as ink and the primary CTA, and Beacon Sky as the single guiding accent (The One Beacon Rule).",
+      "Do use the -ink steps (Sky Ink, Seagrass Ink, Lantern Ink, Coral Ink) whenever an accent carries text or meaning on a light ground.",
+      "Do set running copy at 1.125rem Ysabeau with 1.6 line-height, capped at 62–68ch.",
+      "Do keep buttons at least 48px tall and icon buttons at least 44px, and give every control a 3px focus ring (Harbor Navy on light, Beacon Sky on dark).",
+      "Do frame photographs with 12px corners, a hairline and the Lift shadow.",
+      "Do draw new icons into the existing sprite: 24px grid, 1.75px round strokes, currentColor.",
+      "Do define every light/dark difference as a semantic token in the root and dark blocks.",
+      "Do give reduced-motion visitors the same state changes, with colour and opacity only."
+    ],
+    "donts": [
+      "Don't build anything that reads like an insurer or fintech product: no dashboards, hero-metric stat tiles, countdown or scarcity urgency, or aggressive conversion chrome.",
+      "Don't use Beacon Sky, Seagrass, Lantern or Coral as text on light grounds, or as large fills and section grounds (The Supporting Tints Rule).",
+      "Don't use coloured or glowing shadows. Elevation is always neutral near-black and soft.",
+      "Don't reintroduce hand-drawn or doodle icon treatments. That style was tried and dropped.",
+      "Don't bold Questrial headings or request weights the fonts don't ship.",
+      "Don't use IBM Plex Mono for anything except prices and phone numbers.",
+      "Don't add a second floating CTA, or let the persistent tab cover the intake form or the consent banner."
+    ]
+  }
+}
