@@ -15,7 +15,7 @@
 // id prefix from "in-" to "cf-" so the two instances coexist in one document.
 // The PHI note rides along inside the form clone.
 
-import { initContactForm } from './contact-form.js?v=41fe4e7082';
+import { initContactForm } from './contact-form.js?v=ed04f4fc1c';
 
 const dialog = document.getElementById('contact-modal');
 const backdrop = document.getElementById('contact-backdrop');

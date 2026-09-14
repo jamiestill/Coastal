@@ -40,7 +40,7 @@ export function initContactForm(form, opts = {}) {
     input.setAttribute('aria-describedby', ids.join(' '));
   });
 
-  // Message length: a visible "n / 600" count, plus a polite screen-reader note
+  // Message length: a visible "n of 600 characters" count, plus a polite screen-reader note
   // only at 50, 20 and 0 characters left (not on every keystroke).
   const messageField = form.elements.message;
   const countEl = document.getElementById(`${prefix}-message-count`);
@@ -50,7 +50,7 @@ export function initContactForm(form, opts = {}) {
     const max = Number(messageField.getAttribute('maxlength')) || 600;
     const used = messageField.value.length;
     const left = max - used;
-    countEl.textContent = `${used} / ${max}`;
+    countEl.textContent = `${used} of ${max} characters`;
     countEl.classList.toggle('is-near', left <= 50);
     if (countLive && [50, 20, 0].includes(left)) {
       countLive.textContent = left === 0 ? 'Character limit reached.' : `${left} characters left.`;

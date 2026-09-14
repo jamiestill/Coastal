@@ -17,7 +17,6 @@
 
   var ICONS =
     '<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">' +
-      '<symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6.3 3.6c.9-.1 1.7.4 2 1.2l1 2.6c.3.7.1 1.5-.5 2l-1.1.9c1 2.2 2.8 4 5 5l.9-1.1c.5-.6 1.3-.8 2-.5l2.6 1c.8.3 1.3 1.1 1.2 2l-.3 2c-.1 1-1 1.7-2 1.6C10.3 21 3 13.7 2.7 5.9c0-1 .7-1.9 1.7-2l1.9-.3Z"/></g></symbol>' +
       '<symbol id="i-menu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.6h16M4 12h16M4 17.4h16"/></g></symbol>' +
       '<symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5ZM3 9.75h4v11.25H3V9.75Zm6.5 0h3.83v1.54h.05c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.14V21h-4v-4.98c0-1.19-.02-2.71-1.65-2.71-1.65 0-1.9 1.29-1.9 2.62V21h-4V9.75Z"/></symbol>' +
       '<symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M13.5 21v-8.2h2.76l.41-3.2H13.5V7.55c0-.93.26-1.56 1.59-1.56h1.7V3.13c-.3-.04-1.3-.13-2.48-.13-2.46 0-4.15 1.5-4.15 4.26V9.6H7.4v3.2h2.76V21h3.34Z"/></symbol>' +
@@ -40,7 +39,6 @@
             '<a class="nav-link" href="index.html#pricing">Pricing</a>' +
             '<a class="nav-link" href="index.html#faqs">FAQs</a>' +
           '</nav>' +
-          '<a class="header-call" href="tel:+17575740771" aria-label="Call 757-574-0771"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span class="header-call-num num" aria-hidden="true">757-574-0771</span></a>' +
           '<button type="button" class="header-icon-btn md:hidden" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">' +
             '<svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>' +
           '</button>' +
