@@ -23,7 +23,7 @@ function hashFile(filePath) {
 // content change in contact-form.js still busts the cached import URL.
 const modalJsPath = path.join(root, 'assets/js/modal.js');
 const contactFormHash = hashFile(path.join(root, 'assets/js/contact-form.js'));
-const importRef = /(from\s+(['"])\.\/contact-form\.js)(\?v=[0-9a-f]+)?(\2)/;
+const importRef = /(from\s*(['"])\.\/contact-form\.js)(\?v=[0-9a-f]+)?(\2)/;
 const modalSrc = fs.readFileSync(modalJsPath, 'utf8');
 const modalNext = modalSrc.replace(importRef, `$1?v=${contactFormHash}$4`);
 if (modalNext !== modalSrc) fs.writeFileSync(modalJsPath, modalNext);

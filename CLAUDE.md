@@ -18,6 +18,13 @@ reference imagery remain alongside it. `creative/Creative Brief.md` is the origi
   `src/input.css`, or `npm run build` for the minified one-shot. Netlify runs `npm run build`.
 - `assets/css/site.css` is **generated** — git-ignored, never hand-edit it. Change
   `src/input.css` / `tailwind.config.js` and rebuild.
+- `assets/js/*.js` is likewise **generated** — git-ignored, never hand-edit it. The hand-authored
+  source lives in `src/js/*.js`; `scripts/build-js.js` (Terser) minifies it into `assets/js/` as
+  part of `npm run build` (also runs once, unminified-in-shape but still built, under `npm run
+  dev`, so local testing has real files to load). Run `npm run build:js` after editing a file in
+  `src/js/` if you're not running `npm run dev`. `modal.js`'s import of `contact-form.js` gets its
+  cache-busting `?v=` hash patched in by `scripts/version-assets.js` same as the `<script>` tags —
+  that regex has to tolerate Terser's minified output (no space after `from`).
 - No test suite or linter.
 
 ## Forms & spam protection
