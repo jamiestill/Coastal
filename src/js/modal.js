@@ -168,6 +168,10 @@ if (dialog && source) {
     }
     document.dispatchEvent(new CustomEvent('contact:open'));
 
+    // Every open starts at the top, like a fresh form. Done after show(): a
+    // closed <dialog> has no box, so an earlier reset may not stick.
+    scrollToTop();
+
     const first = dialog.querySelector('[data-quickbook]:not([hidden]) a') || dialog.querySelector('#cf-name') || dialog.querySelector(FOCUSABLE);
     first?.focus({ preventScroll: true });
   }
@@ -233,6 +237,12 @@ if (dialog && source) {
   const confirmEl = dialog.querySelector('[data-discard-confirm]');
   const scrollEl = dialog.querySelector('.modal-scroll');
   let confirmReturn = null;
+
+  // .modal-scroll is the dialog's only scroller. 'instant' overrides the page's
+  // global `scroll-behavior: smooth`.
+  function scrollToTop() {
+    scrollEl?.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }
 
   function requestClose() {
     if (closing || !dialog.hasAttribute('open')) return;

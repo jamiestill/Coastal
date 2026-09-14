@@ -133,8 +133,8 @@
           'visitors. No personal or health information is ever collected. Necessary cookies only keep ' +
           'the site working.</p>' +
         '<div class="flex gap-3">' +
-          '<button type="button" class="btn btn-ghost" data-consent="necessary">Necessary only</button>' +
-          '<button type="button" class="btn btn-primary" data-consent="all">Accept analytics</button>' +
+          '<button type="button" class="btn btn-ghost" data-consent="necessary">Necessary Only</button>' +
+          '<button type="button" class="btn btn-primary" data-consent="all">Accept Analytics</button>' +
         '</div>' +
       '</div>' +
     '</div>';

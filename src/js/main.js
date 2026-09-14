@@ -201,29 +201,44 @@ if (howFlow && 'IntersectionObserver' in window && !prefersReducedMotion.matches
 }
 
 /* -------------------------------------------------------------------------
-   Scroll-reveal — a restrained echo of the hero entrance across the page. Each
-   [data-reveal] container plays the rise-in keyframe on its direct children
-   (short stagger) the first time it reaches the fold. `.reveal-pending` arms
-   the hidden start state; it is swapped for `.reveal-in` to play, then both
-   are cleared so the children return to normal styles. A container flung past
-   before it could play (fast fling, anchor jump) is simply shown. A position
-   sweep on a throttled scroll listener is used rather than IntersectionObserver
-   so a section can never be skipped and left hidden. Nothing is armed under
+   Scroll-reveal — "coming into the light". Each [data-reveal] element plays
+   its entrance once, on its own, as its top edge crosses into the lower part
+   of the viewport; the value (heading, list, pair, checks, rows, photo) picks
+   the treatment in the CSS. `.reveal-pending` arms the hidden start state; it
+   is swapped for `.reveal-in` to play, then cleared. Staggered items get their
+   index as --reveal-i (capped, so long lists don't trail). An element flung
+   past before it could play (fast fling, anchor jump) is simply shown, and
+   everything left is shown once the page bottoms out. A position sweep on a
+   throttled scroll listener is used rather than IntersectionObserver so an
+   element can never be skipped and left hidden. Nothing is armed under
    reduced motion or without JS, so nothing is ever hidden.
    ---------------------------------------------------------------------- */
 if (!prefersReducedMotion.matches) {
   const revealEls = Array.from(document.querySelectorAll('[data-reveal]'));
   if (revealEls.length) {
-    const REVEAL_MS = 640 + 4 * 90 + 60; // slowest child: duration + capped stagger + slack
+    const STAGGER_CAP = 8;
+    const REVEAL_MS = 1400 + STAGGER_CAP * 75 + 200; // slowest (photo zoom / last icon) + stagger + slack
+    const STAGGERED = { list: ':scope > *', pair: ':scope > *', checks: ':scope > li', rows: 'tbody tr' };
+
+    revealEls.forEach((el) => {
+      const items = STAGGERED[el.dataset.reveal];
+      if (items) {
+        el.querySelectorAll(items).forEach((item, i) => {
+          item.style.setProperty('--reveal-i', String(Math.min(i, STAGGER_CAP)));
+        });
+      }
+      el.classList.add('reveal-pending');
+    });
     let pending = revealEls;
-    pending.forEach((el) => el.classList.add('reveal-pending'));
 
     const sweep = () => {
       if (!pending.length) return;
       const vh = window.innerHeight;
+      const root = document.documentElement;
+      const atBottom = window.scrollY + vh >= root.scrollHeight - 4;
       pending = pending.filter((el) => {
         const top = el.getBoundingClientRect().top;
-        if (top > vh * 1.1) return true; // still well below the fold — keep waiting
+        if (top > vh * 0.92 && !atBottom) return true; // not yet in view — keep waiting
         el.classList.remove('reveal-pending');
         if (top > 0) {
           el.classList.add('reveal-in'); // entering from below — play the entrance
@@ -244,6 +259,7 @@ if (!prefersReducedMotion.matches) {
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
+    window.addEventListener('load', onScroll); // late images can shift things into view
     sweep(); // whatever is already at or above the fold on load
   }
 }

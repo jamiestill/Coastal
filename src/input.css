@@ -853,26 +853,108 @@
     to   { opacity: 1; transform: none; }
   }
 
-  /* Scroll-in: each [data-reveal] container runs the hero's own rise-in
-     keyframe on its direct children (staggered) the first time it enters view,
-     so the whole page speaks one motion language. main.js adds .reveal-pending
-     to arm the hidden start state, swaps in .reveal-in to play, then clears
-     both — so once revealed the children carry no leftover animation and their
-     hover / focus behave normally. A keyframe (not a transition) is used
-     deliberately: it starts reliably regardless of the child's own transition
-     properties. No JS, a failed script, or reduced motion: no class is added,
-     nothing is hidden. Stagger is capped at the 5th child so long grids do not
-     trail. */
+  /* Scroll-in: "coming into the light". Each [data-reveal] element plays once,
+     on its own, as it crosses into view, so a tall section unfolds as the
+     visitor reads down it rather than all at once at its top edge. Headings
+     clear from a faint haze and their Beacon Sky rule sweeps out like a beam;
+     the content under them follows. The value picks the treatment:
+       (bare)   the element rises in
+       heading  soft focus-in, then the accent rule draws out from its start
+       list     direct children rise in turn; their line icons settle after
+       pair     two side-by-side cards drift in from their own sides
+       checks   list items rise in turn and each tick draws itself left to right
+       rows     table rows fade up in turn
+       photo    fades in while the picture eases back from a slight zoom
+     main.js arms .reveal-pending (the hidden start state), swaps in .reveal-in
+     to play, then clears it; it also writes --reveal-i on staggered items.
+     Fill mode is `backwards`, so once an animation ends the element is back on
+     its own styles and hover lifts work immediately. No JS, a failed script, or
+     reduced motion: nothing is armed, nothing is hidden. Opacity starts at 0.01,
+     not 0 — see rise-in. */
   @media (prefers-reduced-motion: no-preference) {
-    .js [data-reveal].reveal-pending > * { opacity: 0.01; } /* not 0 — see rise-in */
-    .js [data-reveal].reveal-in > * {
-      animation: rise-in 640ms cubic-bezier(0.16, 1, 0.3, 1) both;
-      animation-delay: calc(var(--reveal-i, 0) * 90ms);
+    [data-reveal] { --reveal-ease: cubic-bezier(0.16, 1, 0.3, 1); }
+
+    .js :is([data-reveal=""], [data-reveal="heading"], [data-reveal="photo"]).reveal-pending,
+    .js :is([data-reveal="list"], [data-reveal="pair"]).reveal-pending > *,
+    .js [data-reveal="checks"].reveal-pending > li,
+    .js [data-reveal="rows"].reveal-pending tbody tr { opacity: 0.01; }
+    .js [data-reveal="heading"].reveal-pending::after { transform: scaleX(0); }
+
+    .js [data-reveal=""].reveal-in {
+      animation: reveal-rise 720ms var(--reveal-ease) 60ms backwards;
     }
-    .js [data-reveal].reveal-in > :nth-child(2) { --reveal-i: 1; }
-    .js [data-reveal].reveal-in > :nth-child(3) { --reveal-i: 2; }
-    .js [data-reveal].reveal-in > :nth-child(4) { --reveal-i: 3; }
-    .js [data-reveal].reveal-in > :nth-child(n + 5) { --reveal-i: 4; }
+
+    .js [data-reveal="heading"].reveal-in {
+      animation: reveal-focus 820ms var(--reveal-ease) backwards;
+    }
+    .js [data-reveal="heading"].reveal-in::after {
+      transform-origin: left center;
+      animation: reveal-rule 1000ms var(--reveal-ease) 260ms backwards;
+    }
+    .js .text-center > [data-reveal="heading"].reveal-in::after { transform-origin: center; }
+
+    .js :is([data-reveal="list"], [data-reveal="pair"]).reveal-in > *,
+    .js [data-reveal="checks"].reveal-in > li {
+      animation: reveal-rise 720ms var(--reveal-ease) backwards;
+      animation-delay: calc(var(--reveal-i, 0) * 75ms);
+    }
+    /* Line icons settle a beat after their row arrives. */
+    .js [data-reveal="list"].reveal-in > * > :is(.service-icon, .icon-lg, .icon:first-child) {
+      animation: reveal-settle 640ms var(--reveal-ease) backwards;
+      animation-delay: calc(var(--reveal-i, 0) * 75ms + 180ms);
+    }
+    .js [data-reveal="checks"].reveal-in > li > .icon {
+      animation: reveal-tick 520ms var(--reveal-ease) backwards;
+      animation-delay: calc(var(--reveal-i, 0) * 75ms + 280ms);
+    }
+
+    /* The two entry paths come in from their own sides; stacked, they rise. */
+    @media (min-width: 640px) {
+      .js [data-reveal="pair"].reveal-in > :first-child { --reveal-x: -28px; --reveal-y: 0px; }
+      .js [data-reveal="pair"].reveal-in > :last-child  { --reveal-x: 28px;  --reveal-y: 0px; }
+    }
+
+    .js [data-reveal="rows"].reveal-in tbody tr {
+      animation: reveal-rise 560ms var(--reveal-ease) backwards;
+      animation-delay: calc(var(--reveal-i, 0) * 55ms + 120ms);
+      --reveal-y: 6px;
+    }
+
+    .js [data-reveal="photo"].reveal-in {
+      animation: reveal-fade 900ms ease-out backwards;
+    }
+    .js [data-reveal="photo"].reveal-in img {
+      animation: reveal-zoom 1400ms var(--reveal-ease) backwards;
+    }
+
+    @keyframes reveal-rise {
+      from { opacity: 0.01; transform: translate(var(--reveal-x, 0px), var(--reveal-y, 18px)); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes reveal-focus {
+      from { opacity: 0.01; transform: translateY(8px); filter: blur(5px); }
+      to   { opacity: 1; transform: none; filter: none; }
+    }
+    @keyframes reveal-rule {
+      from { transform: scaleX(0); }
+      to   { transform: none; }
+    }
+    @keyframes reveal-settle {
+      from { opacity: 0.01; transform: scale(0.8); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes reveal-tick {
+      from { clip-path: inset(0 100% 0 0); }
+      to   { clip-path: inset(0); }
+    }
+    @keyframes reveal-fade {
+      from { opacity: 0.01; }
+      to   { opacity: 1; }
+    }
+    @keyframes reveal-zoom {
+      from { transform: scale(1.06); }
+      to   { transform: none; }
+    }
   }
 
   /* Continuity: light↔dark blends like dusk, but only during an explicit
@@ -1792,7 +1874,9 @@
   .modal-quickbook[hidden] { display: none; }
   .modal-quickbook-lede { color: var(--ink-soft); }
   .modal-quickbook-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
-  .modal-quickbook-actions .btn { flex: 1 1 12rem; white-space: normal; text-align: center; }
+  /* Labels stay on one line (so the Calendly mark sits level with the text);
+     when both don't fit side by side, the buttons stack instead. */
+  .modal-quickbook-actions .btn { flex: 1 1 auto; }
   .modal-divider {
     display: flex;
     align-items: center;
@@ -2234,9 +2318,12 @@
     text-shadow: none !important;
   }
   /* Entrance start-states hold content invisible until it scrolls into view. */
-  [data-reveal] > *,
+  .reveal-pending,
+  .reveal-pending > *,
+  .reveal-pending tr,
   [data-rise],
   .how-flow .how-step { opacity: 1 !important; transform: none !important; }
+  .reveal-pending::after { transform: none !important; }
 
   /* Scroll containers don't fragment across pages; let them flow. */
   .table-wrap,

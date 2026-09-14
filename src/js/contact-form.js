@@ -11,7 +11,7 @@ export function initContactForm(form, opts = {}) {
   const successPanel =
     opts.successPanel || form.parentElement?.querySelector('[data-contact-success]');
   const submitBtn = opts.submitBtn || form.querySelector('button[type="submit"]');
-  const submitLabel = submitBtn ? submitBtn.textContent : 'Send message';
+  const submitLabel = submitBtn ? submitBtn.textContent : 'Send Message';
 
   const contextField = form.querySelector('input[name="context"]');
   const pageField = form.querySelector('input[name="page"]');

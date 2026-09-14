@@ -207,8 +207,11 @@ edged with hairline borders, and warmed by soft tints of the supporting palette 
 Lantern, Sand, Coral) instead of large saturated fills. Depth is used sparingly: most
 things sit flat, and a soft neutral lift is reserved for photographs, the pinned step
 cards, and hover feedback. Motion is gentle and continuous rather than a single moment: the
-hero steadies as the beacon comes up once per session, content rises in as it scrolls into
-view, the How-it-works thread draws itself and then marches slowly while on screen, the step
+hero steadies as the beacon comes up once per session, content comes into the light as it
+scrolls into view (section headings clear from a faint haze while their Beacon Sky rule
+sweeps out, lists and table rows follow in turn with their line icons settling a beat
+later, the "why a person" ticks draw on, the two entry cards drift in from their own sides,
+and photographs ease back from a slight zoom), the How-it-works thread draws itself and then marches slowly while on screen, the step
 cards rest at a slight hand-pinned tilt, and the beacon lights once when a message is sent.
 
 This is explicitly **not** an insurer or fintech interface: no dashboards, stat tiles,

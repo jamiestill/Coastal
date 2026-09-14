@@ -47,7 +47,7 @@
   <link rel="preload" href="assets/fonts/ysabeau-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/questrial-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/hero-1024.avif" as="image" type="image/avif" media="(min-width: 1024px)">
-  <link rel="stylesheet" href="assets/css/site.css?v=66c8d05724">
+  <link rel="stylesheet" href="assets/css/site.css?v=4488a20ccc">
 
   <script type="application/ld+json">
   {
@@ -528,7 +528,7 @@
              by Vitaly Gariev (unsplash.com/@vitgar, photo 8WYkI3cEZm8).
              "I'm helping someone else." — carer guiding seniors through paperwork,
              by Age Cymru (unsplash.com/@agecymru). -->
-        <div class="grid gap-gutter sm:grid-cols-2" data-reveal>
+        <div class="grid gap-gutter sm:grid-cols-2" data-reveal="pair">
           <article class="card path-card path-card--crisis">
             <h2 class="text-h3">I need help right now.</h2>
             <p>A denied claim, a confusing bill, or medical debt: start here.</p>
@@ -536,7 +536,7 @@
             <p class="mt-auto pt-2">
               <button type="button" class="btn btn-ghost w-full sm:w-auto" data-open-contact data-context="crisis"
                 data-variant="lightbox">
-                Let us help you
+                Let Us Help You
               </button>
             </p>
           </article>
@@ -547,7 +547,7 @@
             <p class="mt-auto pt-2">
               <button type="button" class="btn btn-ghost w-full sm:w-auto" data-open-contact data-context="referrer"
                 data-variant="lightbox">
-                Contact us about your referral
+                Contact Us about Your Referral
               </button>
             </p>
           </article>
@@ -557,10 +557,10 @@
 
     <!-- ================= WHAT IS AN ADVOCATE / WHY A HUMAN ============= -->
     <section id="what" class="section" aria-labelledby="what-h">
-      <div class="canvas" data-reveal>
-        <h2 id="what-h">What is a patient advocate?</h2>
+      <div class="canvas">
+        <h2 id="what-h" data-reveal="heading">What is a patient advocate?</h2>
         <div class="what-intro mt-6">
-          <figure class="vignette-figure">
+          <figure class="vignette-figure" data-reveal="photo">
             <picture>
               <source type="image/avif"
                 srcset="assets/img/advocate-hand-640.avif 640w, assets/img/advocate-hand-1024.avif 1024w"
@@ -575,8 +575,8 @@
                 class="block w-full">
             </picture>
           </figure>
-          <p>A patient advocate works only for you, not for the hospital or the insurance company.</p>
-          <ul class="value-list mt-6">
+          <p data-reveal>A patient advocate works only for you, not for the hospital or the insurance company.</p>
+          <ul class="value-list mt-6" data-reveal="list">
             <li>
               <svg class="icon" aria-hidden="true">
                 <use href="#i-compass" />
@@ -614,12 +614,12 @@
               </div>
             </li>
           </ul>
-          <p class="mt-4">You keep every decision. We handle the paperwork, phone calls, and follow-up.</p>
+          <p class="mt-4" data-reveal>You keep every decision. We handle the paperwork, phone calls, and follow-up.</p>
         </div>
 
-        <div class="callout mt-10 p-7 lg:p-8">
+        <div class="callout mt-10 p-7 lg:p-8" data-reveal>
           <h3 class="text-h4">Why a person, not a free <abbr title="artificial intelligence">AI</abbr> appeal tool?</h3>
-          <ul class="mt-5 grid gap-x-gutter gap-y-4 sm:grid-cols-2">
+          <ul class="mt-5 grid gap-x-gutter gap-y-4 sm:grid-cols-2" data-reveal="checks">
             <li class="flex gap-3"><svg class="icon text-sky shrink-0 w-[1.2rem]" aria-hidden="true">
                 <use href="#i-check" />
               </svg><span>A person can call your insurer and negotiate for you. An <abbr
@@ -655,12 +655,12 @@
     <!-- ================= SERVICES ===================================== -->
     <section id="services" class="section bg-surface border-y border-line-soft" aria-labelledby="services-h">
       <div class="canvas">
-        <div data-reveal>
-          <h2 id="services-h">Services</h2>
+        <div>
+          <h2 id="services-h" data-reveal="heading">Services</h2>
 
         </div>
 
-        <ul class="service-rows mt-10" data-reveal>
+        <ul class="service-rows mt-10" data-reveal="list">
           <li class="service-row">
             <span class="service-icon"><svg class="icon-lg" aria-hidden="true">
                 <use href="#i-shield-check" />
@@ -720,11 +720,11 @@
     <!-- ================= WHO WE HELP ================================== -->
     <section id="who" class="section" aria-labelledby="who-h">
       <div class="canvas">
-        <div data-reveal>
-          <h2 id="who-h">Who we help</h2>
+        <div>
+          <h2 id="who-h" data-reveal="heading">Who we help</h2>
         </div>
 
-        <ul class="who-list mt-10" data-reveal>
+        <ul class="who-list mt-10" data-reveal="list">
           <li class="who-item">
             <svg class="icon-lg text-sky" aria-hidden="true">
               <use href="#i-hands-heart" />
@@ -764,11 +764,11 @@
     <!-- ================= ABOUT LINDSEY =============================== -->
     <section id="about" class="section" aria-labelledby="about-h">
       <div class="h-card canvas grid-9">
-        <div class="about-rail" data-reveal>
-          <h2 id="about-h" class="p-name">Lindsey Hewitt</h2>
-          <p class="p-job-title meta mt-1">Patient Advocate</p>
+        <div class="about-rail">
+          <h2 id="about-h" class="p-name" data-reveal="heading">Lindsey Hewitt</h2>
+          <p class="p-job-title meta mt-1" data-reveal>Patient Advocate</p>
 
-          <figure class="framed about-portrait mt-6 sm:mt-8">
+          <figure class="framed about-portrait mt-6 sm:mt-8" data-reveal="photo">
             <picture>
               <source type="image/avif" srcset="assets/img/lindsey-512.avif 512w, assets/img/lindsey-768.avif 768w"
                 sizes="(min-width: 1024px) 22rem, (min-width: 700px) 18rem, 45vw">
@@ -782,8 +782,8 @@
           </figure>
         </div>
 
-        <div class="about-bio" data-reveal>
-          <div class="p-note prose-measure">
+        <div class="about-bio">
+          <div class="p-note prose-measure" data-reveal>
             <p>Lindsey Hewitt brings 18 years of experience in medical billing, insurance claims,
               and accounts receivable to her work as a patient advocate. She learned the job from
               inside the same system her clients are trying to navigate.</p>
@@ -808,14 +808,14 @@
               billing process: how claims are supposed to work, and where they tend to break down.</p>
           </div>
           <div class="mt-12">
-            <h3 id="credentials">Lindsey's credentials</h3>
-            <dl class="dl-rows mt-8">
+            <h3 id="credentials" data-reveal="heading">Lindsey's credentials</h3>
+            <dl class="dl-rows mt-8" data-reveal="list">
               <div>
                 <dt>Experience</dt>
                 <dd>18 years in medical billing, insurance claims &amp; accounts receivable</dd>
               </div>
               <div>
-                <dt>Health systems</dt>
+                <dt>Health Systems</dt>
                 <dd>Sentara · Medical College of Virginia · University of Virginia &amp; affiliates · Chesapeake
                   Regional · Bon Secours Maryview</dd>
               </div>
@@ -826,17 +826,17 @@
                   · Notary Public</dd>
               </div>
               <div>
-                <dt>Prior role</dt>
+                <dt>Prior Role</dt>
                 <dd>Deputy Clerk of Court, nearly five years</dd>
               </div>
               <div>
-                <dt>Based in</dt>
+                <dt>Based In</dt>
                 <dd><span class="p-locality">Virginia Beach</span>, <span class="p-region">Virginia</span></dd>
               </div>
             </dl>
           </div>
 
-          <p class="mt-7">
+          <p class="mt-7" data-reveal>
             <a class="link-quiet" href="assets/docs/Lindsey%20Profile.pdf" target="_blank" rel="noopener">
               <svg class="icon" aria-hidden="true">
                 <use href="#i-file-pdf" />
@@ -844,7 +844,7 @@
               Lindsey's full professional profile (PDF)
             </a>
           </p>
-          <p class="about-referral">Referring a client?
+          <p class="about-referral" data-reveal>Referring a client?
             <button type="button" class="link-quiet" data-open-contact data-context="referrer"
               data-variant="lightbox">Contact about a referral</button>
           </p>
@@ -855,7 +855,7 @@
     <!-- ================= HOW IT WORKS =============================== -->
     <section id="how" class="section bg-surface border-y border-line-soft" aria-labelledby="how-h">
       <div class="canvas">
-        <h2 id="how-h">Four steps, at your pace</h2>
+        <h2 id="how-h" data-reveal="heading">Four steps, at your pace</h2>
 
         <div class="how-flow">
           <svg class="how-spine" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -920,7 +920,7 @@
           </ol>
         </div>
 
-        <p class="how-cta">
+        <p class="how-cta" data-reveal>
           <button type="button" class="btn btn-primary" data-open-contact data-context="crisis"
             data-variant="lightbox">Schedule a Free Consultation</button>
         </p>
@@ -929,15 +929,15 @@
 
     <!-- ================= PRICING (verbatim §8) ===================== -->
     <section id="pricing" class="section" aria-labelledby="pricing-h">
-      <div class="canvas" data-reveal>
-        <h2 id="pricing-h">Straightforward pricing</h2>
-        <div class="prose-measure mt-4">
+      <div class="canvas">
+        <h2 id="pricing-h" data-reveal="heading">Straightforward pricing</h2>
+        <div class="prose-measure mt-4" data-reveal>
           <p>Coastal Healthcare Advocates helps you understand medical bills, resolve insurance
             issues, and get the most out of your benefits.</p>
           <p>We are happy to discuss the best option for your situation during your initial consultation.</p>
         </div>
 
-        <div class="table-wrap mt-10">
+        <div class="table-wrap mt-10" data-reveal="rows">
           <table class="price-table" role="table">
             <caption class="sr-only">Coastal Healthcare Advocates services and fees</caption>
             <colgroup>
@@ -948,14 +948,14 @@
             <thead role="rowgroup">
               <tr role="row">
                 <th scope="col" role="columnheader">Service</th>
-                <th scope="col" role="columnheader">What it covers</th>
+                <th scope="col" role="columnheader">What It Covers</th>
                 <th scope="col" role="columnheader">Fee</th>
               </tr>
             </thead>
 
             <tbody role="rowgroup">
               <tr role="row">
-                <th scope="rowgroup" colspan="3" class="price-group" role="rowheader">Getting started</th>
+                <th scope="rowgroup" colspan="3" class="price-group" role="rowheader">Getting Started</th>
               </tr>
               <tr role="row">
                 <th scope="row" role="rowheader">Initial Consultation</th>
@@ -972,7 +972,7 @@
 
             <tbody role="rowgroup">
               <tr role="row">
-                <th scope="rowgroup" colspan="3" class="price-group" role="rowheader">Flat-fee services</th>
+                <th scope="rowgroup" colspan="3" class="price-group" role="rowheader">Flat-Fee Services</th>
               </tr>
               <tr role="row">
                 <th scope="row" role="rowheader">Medical Bill Review / Audit</th>
@@ -1003,7 +1003,7 @@
 
             <tbody role="rowgroup">
               <tr role="row">
-                <th scope="rowgroup" colspan="3" class="price-group" role="rowheader">Ongoing support packages</th>
+                <th scope="rowgroup" colspan="3" class="price-group" role="rowheader">Ongoing Support Packages</th>
               </tr>
               <tr role="row">
                 <th scope="row" role="rowheader">Single-Issue Package</th>
@@ -1021,14 +1021,14 @@
           </table>
         </div>
 
-        <p class="fee-promise">
+        <p class="fee-promise" data-reveal>
           <svg class="icon" aria-hidden="true">
             <use href="#i-clipboard-check" />
           </svg>
           <span>You'll get a written agreement outlining fees before any paid work begins.</span>
         </p>
 
-        <p class="mt-4">
+        <p class="mt-4" data-reveal>
           <a class="link-quiet" href="assets/docs/CHA_Pricing_Sheet.pdf" target="_blank" rel="noopener">
             <svg class="icon" aria-hidden="true">
               <use href="#i-file-pdf" />
@@ -1043,15 +1043,15 @@
     <section id="faqs" class="section bg-surface border-y border-line-soft" aria-labelledby="faqs-h">
       <div class="canvas">
         <div class="faq-layout">
-          <div class="faq-aside" data-reveal>
-            <h2 id="faqs-h"><abbr title="Frequently asked questions">FAQs</abbr></h2>
-            <p class="faq-more">Have more questions? Email
+          <div class="faq-aside">
+            <h2 id="faqs-h" data-reveal="heading"><abbr title="Frequently asked questions">FAQs</abbr></h2>
+            <p class="faq-more" data-reveal>Have more questions? Email
               <a href="mailto:coastalhealthcareadvocates@gmail.com">coastalhealthcareadvocates<wbr>@gmail.com</a>
               or call <a href="tel:+17575740771">757-574-0771</a>.
             </p>
           </div>
 
-          <div class="faq-list" data-reveal>
+          <div class="faq-list" data-reveal="list">
             <div class="faq-item">
               <h3 class="m-0">
                 <button type="button" class="faq-trigger" id="faq-1-b" aria-expanded="false" aria-controls="faq-1">
@@ -1182,13 +1182,13 @@
     <!-- ================= INTAKE ==================================== -->
     <section id="intake" class="section bg-surface border-t border-line-soft" aria-labelledby="intake-h">
       <div class="canvas">
-        <div class="mx-auto max-w-measure text-center" data-reveal>
-          <h2 id="intake-h">Start with a free consultation</h2>
-          <p class="lede mx-auto mt-4">Send a short message, and Lindsey will respond within two
+        <div class="mx-auto max-w-measure text-center">
+          <h2 id="intake-h" data-reveal="heading">Start with a free consultation</h2>
+          <p class="lede mx-auto mt-4" data-reveal>Send a short message, and Lindsey will respond within two
             business days. We won't ask for any health details yet.</p>
         </div>
 
-        <ul class="mx-auto mt-8 flex max-w-measure flex-col gap-3">
+        <ul class="mx-auto mt-8 flex max-w-measure flex-col gap-3" data-reveal="list">
           <li class="flex gap-2.5"><svg class="icon shrink-0 text-sky w-[1.3rem]" aria-hidden="true">
               <use href="#i-clock" />
             </svg><span>A 20–30 minute call, by phone or video, at a time that suits you.</span></li>
@@ -1331,15 +1331,15 @@
           <p class="mt-5">
             <a class="btn btn-primary" href="https://calendly.com/coastalhealthcareadvocates/30min" target="_blank"
               rel="noopener">
+              Book Time with Us<span class="sr-only"> on Calendly (opens in a new tab)</span>
               <svg class="icon w-[1.2rem] h-[1.2rem]" aria-hidden="true">
                 <use href="#i-calendly" />
               </svg>
-              Book a time on Calendly<span class="sr-only"> (opens in a new tab)</span>
             </a>
           </p>
         </div>
 
-        <div class="mx-auto mt-8 max-w-measure">
+        <div class="mx-auto mt-8 max-w-measure" data-reveal>
           <div class="card p-6">
             <h3 class="text-h4">Prefer to contact directly?</h3>
             <address class="mt-4 not-italic flex flex-col gap-3">
@@ -1370,12 +1370,12 @@
 
     <!-- ================= SCHEDULE ================================= -->
     <section id="schedule" class="section bg-navy text-paper on-dark border-y border-line" aria-labelledby="schedule-h">
-      <div class="canvas text-center" data-reveal>
-        <h2 id="schedule-h" class="text-paper">Book a free 20–30 minute call</h2>
-        <p class="mx-auto mt-4 max-w-measure on-dark-soft">Talk through your
+      <div class="canvas text-center">
+        <h2 id="schedule-h" class="text-paper" data-reveal="heading">Book a free 20–30 minute call</h2>
+        <p class="mx-auto mt-4 max-w-measure on-dark-soft" data-reveal>Talk through your
           situation with someone who has worked in claims and billing for 18 years.
           There is no charge and no obligation.</p>
-        <p class="mt-7 flex flex-wrap justify-center gap-4">
+        <p class="mt-7 flex flex-wrap justify-center gap-4" data-reveal>
           <a class="btn btn-on-dark" href="https://calendly.com/coastalhealthcareadvocates/30min" target="_blank"
             rel="noopener">
             <svg class="icon w-[1.2rem] h-[1.2rem]" aria-hidden="true">
@@ -1501,8 +1501,8 @@
         visitors. We never collect personal or health information. The only cookies we set are the
         ones the site needs to work.</p>
       <div class="flex gap-3">
-        <button type="button" class="btn btn-ghost" data-consent="necessary">Necessary only</button>
-        <button type="button" class="btn btn-primary" data-consent="all">Accept analytics</button>
+        <button type="button" class="btn btn-ghost" data-consent="necessary">Necessary Only</button>
+        <button type="button" class="btn btn-primary" data-consent="all">Accept Analytics</button>
       </div>
     </div>
   </div>
@@ -1528,10 +1528,10 @@
         <div class="modal-quickbook-actions">
           <a class="btn btn-primary" href="https://calendly.com/coastalhealthcareadvocates/30min" target="_blank"
             rel="noopener">
+            Book Time with Us<span class="sr-only"> on Calendly (opens in a new tab)</span>
             <svg class="icon w-[1.2rem] h-[1.2rem]" aria-hidden="true">
               <use href="#i-calendly" />
             </svg>
-            Book a time on Calendly<span class="sr-only"> (opens in a new tab)</span>
           </a>
           <a class="btn btn-ghost" href="tel:+17575740771">Call 757-574-0771</a>
         </div>
@@ -1552,15 +1552,15 @@
         <h3 id="cm-discard-title" class="text-h4">Close without sending?</h3>
         <p id="cm-discard-desc" class="mt-2">Anything you’ve entered in the form will be cleared.</p>
         <div class="modal-confirm-actions">
-          <button type="button" class="btn btn-primary" data-discard-cancel>Keep editing</button>
-          <button type="button" class="btn btn-ghost" data-discard-ok>Close and clear</button>
+          <button type="button" class="btn btn-primary" data-discard-cancel>Keep Editing</button>
+          <button type="button" class="btn btn-ghost" data-discard-ok>Close and Clear</button>
         </div>
       </div>
     </div>
   </dialog>
 
-  <script type="module" src="assets/js/main.js?v=755d6ac25c"></script>
-  <script type="module" src="assets/js/modal.js?v=5328ac4088"></script>
+  <script type="module" src="assets/js/main.js?v=932bef426f"></script>
+  <script type="module" src="assets/js/modal.js?v=0c5d4e5f82"></script>
   <script type="module" src="assets/js/consent.js?v=54c1b16e4b"></script>
 </body>
 
