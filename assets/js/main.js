@@ -315,24 +315,28 @@ if (navLinks.length && 'IntersectionObserver' in window) {
 }
 
 /* -------------------------------------------------------------------------
-   "Get Started" drawer tab — tuck it off-screen once the in-page intake form
-   (or the closing schedule / footer region) is visible, where a second
-   consultation CTA only repeats what's already on screen. It slides back in
-   on any upward scroll that leaves that region. No JS: the tab just stays,
-   which is harmless.
+   "Get Started" drawer tab — hidden until "What is a patient advocate?"
+   comes into view (the hero carries its own CTA above that), then tucked
+   off-screen again once the in-page intake form (or the closing schedule /
+   footer region) is visible, where a second consultation CTA only repeats
+   what's already on screen. No JS: the tab just stays, which is harmless.
    ---------------------------------------------------------------------- */
 const drawerTab = document.querySelector('.drawer-tab');
+const tabShowAt = document.getElementById('what');
 const tabTuckAt = document.getElementById('intake');
 
 if (drawerTab && tabTuckAt) {
   let tabTicking = false;
   const syncDrawerTab = () => {
     tabTicking = false;
+    // Not yet: the top of "What is a patient advocate?" is still below the fold.
+    const early = tabShowAt ? tabShowAt.getBoundingClientRect().top > window.innerHeight : false;
     // Tuck the tab away once the top of the intake section has scrolled up
     // into the lower part of the viewport — from here down (form, schedule,
     // footer) the page carries its own consultation CTAs.
-    const tuck = tabTuckAt.getBoundingClientRect().top < window.innerHeight * 0.75;
-    drawerTab.classList.toggle('is-tucked', tuck);
+    const late = tabTuckAt.getBoundingClientRect().top < window.innerHeight * 0.75;
+    drawerTab.classList.toggle('is-tucked', early || late);
+    drawerTab.classList.remove('tab-wait');
   };
   syncDrawerTab();
   window.addEventListener(

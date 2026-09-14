@@ -1272,9 +1272,11 @@
   }
   /* --ring is Navy on light / Sky on dark: ≥3:1 against the page either way. */
   .drawer-tab:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; }
-  /* Tucked away once the in-page intake form (or the closing region) is on
-     screen — a second CTA there just repeats what the visitor can already see. */
-  .drawer-tab.is-tucked {
+  /* Tucked away above "What is a patient advocate?" and once the in-page intake
+     form (or the closing region) is on screen. `.tab-wait` holds it tucked from
+     first paint until main.js has measured the page (JS only, so no-JS keeps it). */
+  .drawer-tab.is-tucked,
+  .js .drawer-tab.tab-wait {
     transform: translateY(-50%) translateX(110%);
     opacity: 0;
     visibility: hidden;
@@ -1298,7 +1300,8 @@
       font-size: 0.9375rem;
       box-shadow: 0 -4px 16px rgba(10, 15, 36, 0.14);
     }
-    .drawer-tab.is-tucked { transform: translateY(110%); }
+    .drawer-tab.is-tucked,
+    .js .drawer-tab.tab-wait { transform: translateY(110%); }
     .drawer-tab:focus-visible { outline-offset: -5px; }
     /* keep the footer's last lines clear of the bar when it is showing */
     .site-footer { padding-bottom: 3.25rem; }
