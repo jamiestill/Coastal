@@ -82,8 +82,6 @@
     --nav-current: var(--navy);
     --path-photo-opacity: 1;
     --choice-accent: var(--sky);
-    --switch-knob-left: 0.22rem;
-    --switch-track-bg: color-mix(in srgb, var(--paper) 14%, transparent);
     --theme-icon-light: block;
     --theme-icon-dark: none;
 
@@ -137,8 +135,6 @@
       --accent-hover-ink: var(--navy);
       --nav-current: var(--sky);
       --path-photo-opacity: 0.5;
-      --switch-knob-left: calc(100% - 1.5rem - 0.22rem);
-      --switch-track-bg: color-mix(in srgb, var(--sky) 26%, transparent);
       --theme-icon-light: none;
       --theme-icon-dark: block;
       --panel-bg: var(--sky);
@@ -187,8 +183,6 @@
     --accent-hover-ink: var(--navy);
     --nav-current: var(--sky);
     --path-photo-opacity: 0.5;
-    --switch-knob-left: calc(100% - 1.5rem - 0.22rem);
-    --switch-track-bg: color-mix(in srgb, var(--sky) 26%, transparent);
     --theme-icon-light: none;
     --theme-icon-dark: block;
     --panel-bg: var(--sky);
@@ -993,9 +987,16 @@
       transition: background-color 280ms ease, border-color 280ms ease,
                   color 280ms ease !important;
     }
-    #theme-toggle svg { transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1); }
+    .theme-switch-ico { transition: color 0.2s ease, transform 260ms cubic-bezier(0.16, 1, 0.3, 1); }
+    /* The crossfade above flattens every transition to colour-only while it
+       runs, which would snap the switch knob and the header orb's swipe. */
+    .theme-transition :is(.theme-switch-knob, .theme-orb-ico) {
+      transition: left 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 280ms ease, color 280ms ease !important;
+    }
   }
-  #theme-toggle:active svg { transform: rotate(-20deg); }
+  .theme-switch:active .theme-switch-ico { transform: rotate(-20deg); }
 
   .framed {
     border-radius: theme('borderRadius.card');
@@ -1714,8 +1715,19 @@
   }
   .footer-linkish:hover { text-decoration: underline; }
 
-  /* Light/dark switch in the footer — pill track + sliding knob. */
+  /* Light/dark switch — pill track + sliding knob, in the footer and the mobile
+     menu. Sun (left) and moon (right) both stay on the track; the knob slides
+     under the active one. State is the button's aria-pressed (set by theme.js),
+     so the switch stays hidden until JS is on. Colours are local --sw-* props:
+     the footer's (on Midnight) here, the menu panel's in .theme-switch--menu. */
   .theme-switch {
+    --sw-track: color-mix(in srgb, var(--paper) 14%, transparent);
+    --sw-track-on: color-mix(in srgb, var(--sky) 26%, transparent);
+    --sw-border: color-mix(in srgb, var(--paper) 22%, transparent);
+    --sw-border-hover: color-mix(in srgb, var(--paper) 45%, transparent);
+    --sw-knob: var(--sky);
+    --sw-on: var(--navy);
+    --sw-off: color-mix(in srgb, var(--paper) 62%, transparent);
     display: inline-flex;
     align-items: center;
     padding: 0;
@@ -1724,37 +1736,107 @@
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
+  html:not(.js) :is(.theme-switch, .mobile-nav-theme, .theme-orb) { display: none; }
   .theme-switch-track {
     position: relative;
     display: block;
+    flex-shrink: 0;
     width: 3.5rem;
     height: 1.95rem;
     border-radius: 999px;
-    background: var(--switch-track-bg);
-    border: 1px solid color-mix(in srgb, var(--paper) 22%, transparent);
+    background: var(--sw-track);
+    border: 1px solid var(--sw-border);
     transition: background-color 0.2s ease, border-color 0.2s ease;
   }
-  .theme-switch:hover .theme-switch-track {
-    border-color: color-mix(in srgb, var(--paper) 45%, transparent);
-  }
+  .theme-switch[aria-pressed="true"] .theme-switch-track { background: var(--sw-track-on); }
+  .theme-switch:hover .theme-switch-track { border-color: var(--sw-border-hover); }
   .theme-switch-knob {
     position: absolute;
     top: 50%;
-    left: var(--switch-knob-left);
+    left: 0.22rem;
     transform: translateY(-50%);
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 999px;
-    display: grid;
-    place-items: center;
-    color: var(--navy);
-    background: var(--sky);
+    background: var(--sw-knob);
     box-shadow: 0 1px 4px rgba(10, 15, 36, 0.45);
     transition: left 0.24s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
   }
-  .theme-switch-ico { width: 0.95rem; height: 0.95rem; }
+  .theme-switch[aria-pressed="true"] .theme-switch-knob { left: calc(100% - 1.5rem - 0.22rem); }
+  .theme-switch-ico {
+    position: absolute;
+    top: 50%;
+    width: 0.95rem;
+    height: 0.95rem;
+    margin-top: -0.475rem;
+    pointer-events: none;
+    transition: color 0.2s ease;
+  }
+  /* Centred on the knob's two resting spots (0.22rem inset, 1.5rem knob). */
+  .theme-switch-ico--sun { left: calc(0.22rem + 0.275rem); color: var(--sw-on); }
+  .theme-switch-ico--moon { right: calc(0.22rem + 0.275rem); color: var(--sw-off); }
+  .theme-switch[aria-pressed="true"] .theme-switch-ico--sun { color: var(--sw-off); }
+  .theme-switch[aria-pressed="true"] .theme-switch-ico--moon { color: var(--sw-on); }
   @media (prefers-reduced-motion: reduce) {
     .theme-switch-knob { transition-duration: 120ms; }
+  }
+
+  /* In the mobile menu: a full-width row under the links, "Theme" on the left and
+     the switch on the right, the whole row one target. Built from the panel's
+     own tokens, so it reads on both panel grounds (page ground in light, Sky in
+     dark). */
+  .mobile-nav-theme {
+    margin-top: 0.4rem;
+    padding-top: 0.4rem;
+    border-top: 1px solid var(--line-soft);
+  }
+  .theme-switch--menu {
+    --sw-track: color-mix(in srgb, var(--ink) 8%, transparent);
+    --sw-track-on: var(--sw-track);
+    --sw-border: var(--line);
+    --sw-border-hover: color-mix(in srgb, var(--ink) 45%, transparent);
+    --sw-knob: var(--ink);
+    --sw-on: var(--bg);
+    --sw-off: var(--ink-soft);
+    width: 100%;
+    justify-content: space-between;
+    gap: 1.25rem;
+    padding: 0.4rem 0.45rem 0.4rem 0.85rem;
+    border-radius: 8px; /* rounded.field */
+    font-family: theme('fontFamily.label');
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+  .theme-switch--menu:hover,
+  .theme-switch--menu:focus-visible { background: var(--tag-bg); }
+
+  /* Desktop header: the same toggle as a single circle (36px, a notch under the
+     44px header buttons, so the six links still clear the logo at md). Sun and
+     moon share the circle; on toggle the sun swipes out left as the moon comes in
+     from the right, and back. Mobile gets the menu row instead. */
+  .theme-orb {
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .theme-orb .theme-orb-ico {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.15rem;
+    height: 1.15rem;
+    margin: -0.575rem 0 0 -0.575rem;
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .theme-orb .theme-orb-ico--moon { transform: translateX(170%); }
+  .theme-orb[aria-pressed="true"] .theme-orb-ico--sun { transform: translateX(-170%); }
+  .theme-orb[aria-pressed="true"] .theme-orb-ico--moon { transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .theme-orb .theme-orb-ico { transition: none; }
   }
 
   /* --- Hero actions: one primary button + the phone number, on the first screen --- */
@@ -2395,6 +2477,7 @@
   .how-pin,
   .faq-sign,
   .theme-switch,
+  .theme-orb,
   .site-footer nav,
   .site-footer img[src*="logo-horizontal"],
   .site-footer div:has(> a > .icon) { display: none !important; }

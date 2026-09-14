@@ -4,7 +4,8 @@
 
    Not an ES module and meant to be loaded with a plain <script> tag near the
    end of <body>: it injects synchronously, before DOMContentLoaded, so
-   theme.js can wire #theme-toggle and there is no flash of missing chrome.
+   theme.js can wire the [data-theme-toggle] switches (header, menu, footer) and there
+   is no flash of missing chrome.
 
    Each page provides the mount points:
      <div data-partial="header"></div>   ... after the skip link
@@ -41,6 +42,10 @@
             '<a class="nav-link" href="index.html#pricing">Pricing</a>' +
             '<a class="nav-link" href="index.html#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a>' +
           '</nav>' +
+          '<button type="button" class="header-icon-btn theme-orb hidden md:inline-flex" data-theme-toggle aria-label="Switch to dark theme">' +
+            '<svg class="theme-orb-ico theme-orb-ico--sun" aria-hidden="true"><use href="#i-sun"/></svg>' +
+            '<svg class="theme-orb-ico theme-orb-ico--moon" aria-hidden="true"><use href="#i-moon"/></svg>' +
+          '</button>' +
           '<button type="button" class="header-icon-btn md:hidden" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">' +
             '<svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>' +
           '</button>' +
@@ -53,6 +58,17 @@
               '<li><a class="nav-link" href="index.html#pricing">Pricing</a></li>' +
               '<li><a class="nav-link" href="index.html#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a></li>' +
             '</ul>' +
+            '<div class="mobile-nav-theme">' +
+              '<button type="button" class="theme-switch theme-switch--menu" data-theme-toggle aria-label="Switch to dark theme">' +
+                '<span>Theme</span>' +
+                '<span class="theme-switch-track">' +
+                  '<span class="theme-switch-knob"></span>' +
+                  '<svg class="theme-switch-ico theme-switch-ico--sun" aria-hidden="true"><use href="#i-sun"/></svg>' +
+                  '<svg class="theme-switch-ico theme-switch-ico--moon" aria-hidden="true"><use href="#i-moon"/></svg>' +
+                '</span>' +
+                '<span class="sr-only theme-toggle-label">Dark theme</span>' +
+              '</button>' +
+            '</div>' +
           '</nav>' +
         '</div>' +
       '</div>' +
@@ -115,12 +131,11 @@
             '<a href="https://www.gnanow.org/" rel="noopener" class="gna-badge shrink-0" aria-label="Greater National Advocates (verified member)">' +
               '<img src="assets/img/gna-logo-white.svg" alt="Greater National Advocates (verified member)" width="361" height="49" class="block h-9 w-auto">' +
             '</a>' +
-            '<button type="button" id="theme-toggle" class="theme-switch" aria-label="Switch to dark theme">' +
+            '<button type="button" class="theme-switch" data-theme-toggle aria-label="Switch to dark theme">' +
               '<span class="theme-switch-track">' +
-                '<span class="theme-switch-knob">' +
-                  '<svg class="theme-switch-ico theme-icon-light" aria-hidden="true"><use href="#i-sun"/></svg>' +
-                  '<svg class="theme-switch-ico theme-icon-dark" aria-hidden="true"><use href="#i-moon"/></svg>' +
-                '</span>' +
+                '<span class="theme-switch-knob"></span>' +
+                '<svg class="theme-switch-ico theme-switch-ico--sun" aria-hidden="true"><use href="#i-sun"/></svg>' +
+                '<svg class="theme-switch-ico theme-switch-ico--moon" aria-hidden="true"><use href="#i-moon"/></svg>' +
               '</span>' +
               '<span class="sr-only theme-toggle-label">Dark theme</span>' +
             '</button>' +

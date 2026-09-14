@@ -1,14 +1,19 @@
 /* Coastal Healthcare Advocates — light/dark theme.
    Loaded blocking in <head> so the stored choice applies before first paint
    (CSS custom properties + the CSS-swapped logo follow the [data-theme] attr).
-   Not an ES module: it must run synchronously. */
+   The choice lasts for the browsing session only (sessionStorage); a new
+   session follows the OS preference again. Not an ES module: it must run
+   synchronously. */
 (function () {
   var KEY = 'cha-theme';
   var root = document.documentElement;
   var mq = window.matchMedia('(prefers-color-scheme: dark)');
 
+  // Earlier builds kept the choice in localStorage; drop it so it can't linger.
+  try { localStorage.removeItem(KEY); } catch (e) {}
+
   function stored() {
-    try { return localStorage.getItem(KEY); } catch (e) { return null; }
+    try { return sessionStorage.getItem(KEY); } catch (e) { return null; }
   }
   function effective() {
     var s = stored();
@@ -43,28 +48,33 @@
     }, 320);
   }
 
-  // 2. Wire the toggle once the header exists.
+  // 2. Wire the toggles (mobile menu + footer) once the header and footer exist.
+  //    Every switch mirrors the one state; its look follows aria-pressed.
   function ready(fn) {
     if (document.readyState !== 'loading') fn();
     else document.addEventListener('DOMContentLoaded', fn);
   }
   ready(function () {
-    var btn = document.getElementById('theme-toggle');
-    if (!btn) return;
-    var label = btn.querySelector('.theme-toggle-label');
+    var btns = document.querySelectorAll('[data-theme-toggle]');
+    if (!btns.length) return;
     function sync() {
       var isDark = effective() === 'dark';
-      btn.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
-      btn.setAttribute('aria-pressed', String(isDark));
-      if (label) label.textContent = isDark ? 'Light theme' : 'Dark theme';
+      btns.forEach(function (btn) {
+        btn.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+        btn.setAttribute('aria-pressed', String(isDark));
+        var label = btn.querySelector('.theme-toggle-label');
+        if (label) label.textContent = isDark ? 'Light theme' : 'Dark theme';
+      });
     }
     sync();
-    btn.addEventListener('click', function () {
-      var next = effective() === 'dark' ? 'light' : 'dark';
-      try { localStorage.setItem(KEY, next); } catch (e) {}
-      crossfade();
-      apply(next);
-      sync();
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var next = effective() === 'dark' ? 'light' : 'dark';
+        try { sessionStorage.setItem(KEY, next); } catch (e) {}
+        crossfade();
+        apply(next);
+        sync();
+      });
     });
     // Track OS changes only while the visitor hasn't made an explicit choice.
     mq.addEventListener('change', function () {

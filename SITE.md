@@ -13,7 +13,7 @@ Serene / calm / elegant light theme; WCAG 2.1 AA; hand-drawn SVG icons; Tailwind
 | `404.html` | Branded not-found page. |
 | `src/input.css` → `assets/css/site.css` | Source + **committed** build output. `site.css` is the only stylesheet the pages load. |
 | `tailwind.config.js` | Brand palette, 5 font families, 9-col grid, type scale. |
-| `assets/js/*.js` | `theme.js` (light/dark toggle in footer, loaded blocking in `<head>` — no flash), `main.js` (nav + FAQ + anchor focus + header retreat near footer), `contact-form.js` (shared validation + Netlify submit), `modal.js` (contact dialog, uses `contact-form.js`), `intake-form.js` (inline intake form, uses `contact-form.js`), `sticky-cta.js`, `consent.js`. No framework. |
+| `assets/js/*.js` | `theme.js` (light/dark toggle in the desktop header, mobile menu and footer, loaded blocking in `<head>` — no flash; the choice lasts for the browsing session via `sessionStorage`), `main.js` (nav + FAQ + anchor focus + header retreat near footer), `contact-form.js` (shared validation + Netlify submit), `modal.js` (contact dialog, uses `contact-form.js`), `intake-form.js` (inline intake form, uses `contact-form.js`), `sticky-cta.js`, `consent.js`. No framework. |
 | `assets/fonts/*.woff2` | Self-hosted latin subsets (Tenor Sans, Cormorant Garamond, Questrial, Ysabeau, IBM Plex Mono). |
 | `assets/img/*.jpg` | Derivatives of `Hero Image.png` and the headshot (sips; EXIF stripped). |
 | `assets/*.pdf` | Client-facing PDFs in the Coastal house style: `Lindsey Profile.pdf`, `CHA_Pricing_Sheet.pdf`, and `Coastal-Financial-Responsibility-Agreement-DRAFT.pdf` (rebuilt from `src/input.css` tokens via a print HTML + Brave headless `--print-to-pdf`; still a draft). |

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="assets/js/theme.js?v=deb4950b66"></script>
+  <script src="assets/js/theme.js?v=209b9b00da"></script>
   <script src="assets/js/email.js?v=5a9c501b1a" defer></script>
   <script src="assets/js/sound.js?v=fa205bfd79" defer></script>
   <title>Patient Advocate in South Virginia | Coastal Healthcare Advocates</title>
@@ -49,7 +49,7 @@
   <link rel="preload" href="assets/fonts/ysabeau-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/questrial-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/hero-1024.avif" as="image" type="image/avif" media="(min-width: 1024px)">
-  <link rel="stylesheet" href="assets/css/site.css?v=bff7a73ebc">
+  <link rel="stylesheet" href="assets/css/site.css?v=73d8fd4cbc">
 
   <script type="application/ld+json">
   {
@@ -439,6 +439,16 @@
           <a class="nav-link" href="#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a>
         </nav>
 
+        <button type="button" class="header-icon-btn theme-orb hidden md:inline-flex" data-theme-toggle
+          aria-label="Switch to dark theme">
+          <svg class="theme-orb-ico theme-orb-ico--sun" aria-hidden="true">
+            <use href="#i-sun" />
+          </svg>
+          <svg class="theme-orb-ico theme-orb-ico--moon" aria-hidden="true">
+            <use href="#i-moon" />
+          </svg>
+        </button>
+
         <button type="button" class="header-icon-btn md:hidden" id="nav-toggle" aria-expanded="false"
           aria-controls="mobile-nav" aria-label="Open menu">
           <svg class="icon" aria-hidden="true">
@@ -455,6 +465,22 @@
             <li><a class="nav-link" href="#pricing">Pricing</a></li>
             <li><a class="nav-link" href="#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a></li>
           </ul>
+          <div class="mobile-nav-theme">
+            <button type="button" class="theme-switch theme-switch--menu" data-theme-toggle
+              aria-label="Switch to dark theme">
+              <span>Theme</span>
+              <span class="theme-switch-track">
+                <span class="theme-switch-knob"></span>
+                <svg class="theme-switch-ico theme-switch-ico--sun" aria-hidden="true">
+                  <use href="#i-sun" />
+                </svg>
+                <svg class="theme-switch-ico theme-switch-ico--moon" aria-hidden="true">
+                  <use href="#i-moon" />
+                </svg>
+              </span>
+              <span class="sr-only theme-toggle-label">Dark theme</span>
+            </button>
+          </div>
         </nav>
       </div>
     </div>
@@ -1470,16 +1496,15 @@
             <img src="assets/img/gna-logo-white.svg" alt="Greater National Advocates (verified member)" width="361"
               height="49" class="block h-9 w-auto">
           </a>
-          <button type="button" id="theme-toggle" class="theme-switch" aria-label="Switch to dark theme">
+          <button type="button" class="theme-switch" data-theme-toggle aria-label="Switch to dark theme">
             <span class="theme-switch-track">
-              <span class="theme-switch-knob">
-                <svg class="theme-switch-ico theme-icon-light" aria-hidden="true">
-                  <use href="#i-sun" />
-                </svg>
-                <svg class="theme-switch-ico theme-icon-dark" aria-hidden="true">
-                  <use href="#i-moon" />
-                </svg>
-              </span>
+              <span class="theme-switch-knob"></span>
+              <svg class="theme-switch-ico theme-switch-ico--sun" aria-hidden="true">
+                <use href="#i-sun" />
+              </svg>
+              <svg class="theme-switch-ico theme-switch-ico--moon" aria-hidden="true">
+                <use href="#i-moon" />
+              </svg>
             </span>
             <span class="sr-only theme-toggle-label">Dark theme</span>
           </button>
