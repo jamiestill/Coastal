@@ -91,6 +91,9 @@ rotated, update both this value and the Netlify env var together.
   href/text are the no-JS fallback; put `data-email-text` on a child to keep an icon beside it. JS
   that injects a link later calls `window.chaEmailLinks(root)`. The JSON-LD omits `email` on
   purpose. The PDFs (`src/pdf/`) still print the address.
+- `src/js/sound.js` (also `defer` in every page's `<head>`) plays a Web Audio click on every
+  trusted click of a `button`, `.btn`, `[role="button"]`, submit input or `summary`. No audio file.
+  It is silent under `prefers-reduced-motion` or when `localStorage.sound === 'off'`.
 - The impeccable design hook (`.claude/settings.local.json`) runs
   `.claude/skills/impeccable/scripts/impeccable hook` after every Edit/Write and again on Stop.
   It is a design-QA pass over UI files; expect it to fire whenever you edit HTML/CSS.

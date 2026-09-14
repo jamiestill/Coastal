@@ -228,6 +228,8 @@ The design earns trust by being calm, legible and honest.
 
 **The Calm Motion Rule.** Motion moves one way and never demands attention: things rise in, draw on, or march slowly, and loops pause when off screen. Nothing flashes, bounces, or blocks reading, and reduced motion keeps only colour and opacity changes.
 
+**Sound.** Pressing any button (a `<button>`, a `.btn` link, a `<summary>`) plays one soft, synthesised click: a short wooden "tick" over a falling sine, a few percent different each time, at low volume. It is the only sound on the site. It never plays on hover, scroll or page load, and it is silent when the visitor prefers reduced motion (`src/js/sound.js`).
+
 ## Colors
 
 A calm coastal palette: deep navy and a clear sky blue carry the system, while four warmer
