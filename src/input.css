@@ -403,7 +403,8 @@
     color: var(--ink-soft);
   }
 
-  /* Figures: phone numbers, prices, counts. The only place IBM Plex Mono runs. */
+  /* Figures: phone numbers, prices, counts. IBM Plex Mono otherwise runs only in
+     form error messages (.field-error, .error-summary). */
   .num {
     font-family: theme('fontFamily.mono');
     font-feature-settings: 'tnum' 1;
@@ -1587,7 +1588,7 @@
   .textarea[aria-invalid="true"],
   .select[aria-invalid="true"] { border-color: var(--coral); border-width: 2px; }
   /* Error text stays --ink for AA; the coral border + icon + role=alert carry the "error" signal. */
-  .field-error { display: none; color: var(--ink); font-size: 0.875rem; margin-top: 0.3rem; font-weight: 600; }
+  .field-error { display: none; color: var(--ink); font-family: theme('fontFamily.mono'); font-size: 0.875rem; margin-top: 0.3rem; font-weight: 500; }
   .field-error:not([hidden]) { display: block; }
   .field-error:not([hidden])::before { content: "\25B2\00A0"; color: var(--coral); }
   .choice {
@@ -1625,12 +1626,15 @@
     border: 2px solid var(--coral);
     background: color-mix(in srgb, var(--coral) 10%, var(--surface));
     color: var(--ink);
+    font-family: theme('fontFamily.mono');
+    font-size: 0.875rem; /* Caption size, same as .field-error — the Readable-First floor */
     border-radius: 0.5rem;
     padding: 0.9rem 1rem;
     margin-top: 1.25rem;
     margin-bottom: 1rem;
   }
   .error-summary a { color: var(--ink); }
+  .error-summary strong { font-weight: 500; } /* Plex Mono ships 400/500 — no faux bold */
 
   /* --- Consent banner --- */
   .consent {

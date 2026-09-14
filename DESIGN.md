@@ -304,7 +304,7 @@ with a Harbor Navy CTA.
 
 **Display Font:** Questrial (with Century Gothic, Avenir Next, system-ui)
 **Body Font:** Ysabeau (with ui-sans-serif, system-ui, Segoe UI, Roboto)
-**Label/Mono Font:** IBM Plex Mono for figures only. Cormorant Garamond appears as an accent
+**Label/Mono Font:** IBM Plex Mono for figures and form error messages only. Cormorant Garamond appears as an accent
 serif for numerals and pricing row names.
 
 **Character:** Questrial's open, round geometry gives headings a friendly, level voice with
@@ -333,8 +333,9 @@ numbers.
   tinted with its step's ink colour.
 - **Row Title** (1.0625rem): pricing row names (set in Cormorant Garamond 500), the hero phone
   link and the crisis-card reassurance line (Questrial).
-- **Caption** (Ysabeau, 0.875rem): field hints, the privacy note, price units and error text.
-  This is the smallest running text.
+- **Caption** (Ysabeau, 0.875rem): field hints, the privacy note and price units. This is
+  the smallest running text.
+- **Error** (IBM Plex Mono 500, 0.875rem): inline field errors and the error summary.
 - **Label Small** (Questrial, 0.8125rem, 0.08em, uppercase): pricing and credential column
   headers, footer column titles.
 - **Overline** (Questrial, 0.75rem, 0.1–0.14em, uppercase): pricing group rows, legal table
@@ -348,8 +349,8 @@ numbers.
 below 0.875rem. Headings balance their line breaks and paragraphs wrap to avoid orphans. Older
 readers are a core audience, so legibility outranks density.
 
-**The Figures-in-Mono Rule.** IBM Plex Mono is reserved for real figures: prices and phone
-numbers. It is never a stylistic costume for labels or headings.
+**The Figures-in-Mono Rule.** IBM Plex Mono is reserved for real figures (prices and phone
+numbers) and form validation errors. It is never a stylistic costume for labels or headings.
 
 **The Level Voice Rule.** Every heading is Questrial 400. Hierarchy comes from size and space,
 never from bold weights. Questrial ships one weight, so never request faux bold.
@@ -456,8 +457,8 @@ Warm and plainspoken: large, calm targets that clearly say what happens next.
 - **Style:** Surface fill, 1px Ink Soft border, 8px corners, 48px minimum height, 1rem text.
   Labels are persistent Questrial 0.9375rem above the field, with hints in Ink Soft below.
 - **Focus:** the border darkens to Ink, plus the global 3px focus ring.
-- **Error / Disabled:** a 2px Coral border, an error message in Ink with a Coral ▲ marker,
-  and a Coral-bordered error summary that links to each field. Required fields carry an
+- **Error / Disabled:** a 2px Coral border, an error message in Ink IBM Plex Mono with a
+  Coral ▲ marker, and a Coral-bordered error summary (also Plex Mono) that links to each field. Required fields carry an
   Ink asterisk. The message box shows a character count that darkens in the last 50. The privacy note sits in a Tint Wash box above the fields.
 
 ### Navigation
@@ -538,6 +539,6 @@ when the intake form comes into view, and while the consent banner is showing on
 - **Don't** use coloured or glowing shadows. Elevation is always neutral near-black and soft.
 - **Don't** reintroduce hand-drawn or doodle icon treatments. That style was tried and dropped.
 - **Don't** bold Questrial headings or request weights the fonts don't ship.
-- **Don't** use IBM Plex Mono for anything except prices and phone numbers.
+- **Don't** use IBM Plex Mono for anything except prices, phone numbers and form errors.
 - **Don't** add a second floating CTA, or let the persistent tab cover the intake form or
   the consent banner.
