@@ -82,7 +82,11 @@ if (dialog && source) {
   // in the title; a fresh open (contact.reset) restores both.
   const quickbook = dialog.querySelector('[data-quickbook]');
   const titleEl = dialog.querySelector('#cm-title');
-  const titleText = titleEl?.textContent;
+  // The title echoes the label of whichever button opened the dialog (see
+  // openContact), so the visitor lands on the words they just clicked. The
+  // authored title is the fallback for programmatic opens.
+  const defaultTitle = titleEl?.textContent.trim();
+  let titleText = defaultTitle;
 
   const contact = initContactForm(form, {
     errorSummary: form.querySelector('[data-contact-errors]'),
@@ -125,7 +129,15 @@ if (dialog && source) {
     // Re-opened mid-exit: end that close now so the entrance replays cleanly.
     if (closing) finishClose();
     lastFocused = trigger || document.activeElement;
-    // A previous send left the success panel up — start fresh.
+    // Match the title to the trigger's visible label. `data-contact-title`
+    // overrides it; textContent skips icons, and whitespace is collapsed.
+    titleText =
+      trigger?.dataset.contactTitle ||
+      trigger?.textContent.replace(/\s+/g, ' ').trim() ||
+      defaultTitle;
+    if (titleEl) titleEl.textContent = titleText;
+    // A previous send left the success panel up — start fresh (onReset
+    // restores the title set just above).
     if (contact?.submitted) contact.reset();
     // Most triggers open the right-anchored drawer; a `data-variant="lightbox"`
     // trigger presents the same dialog as a centered lightbox instead.
