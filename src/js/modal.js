@@ -113,9 +113,17 @@ if (dialog && source) {
 
   let lastFocused = null;
   let scrollY = 0;
+  // A close whose exit animation is still playing (the dialog stays [open]
+  // until it ends). closeGen lets a stale animation settle without ending a
+  // later close; closeTimer is the fallback if an animation never reports back.
+  let closing = false;
+  let closeGen = 0;
+  let closeTimer = 0;
 
   /* ---- open / close ------------------------------------------------- */
   function openContact(trigger) {
+    // Re-opened mid-exit: end that close now so the entrance replays cleanly.
+    if (closing) finishClose();
     lastFocused = trigger || document.activeElement;
     // A previous send left the success panel up — start fresh.
     if (contact?.submitted) contact.reset();
@@ -153,11 +161,16 @@ if (dialog && source) {
   }
 
   function closeContact() {
-    if (typeof dialog.close === 'function' && dialog.open) dialog.close();
-    else dialog.removeAttribute('open');
+    if (closing || !dialog.hasAttribute('open')) return;
+    closing = true;
 
-    backdrop?.setAttribute('hidden', '');
+    // Hand the page back at once -- interactivity, scroll position, focus --
+    // while the dialog plays its exit on top (.is-closing, src/input.css).
+    // The page is parked exactly where it was, so releasing the lock under the
+    // backdrop doesn't visibly move it. The dialog goes inert so nothing inside
+    // it can take focus or clicks on the way out.
     setBackgroundInert(false);
+    dialog.setAttribute('inert', '');
 
     // Release the scroll lock and jump straight back to where the visitor was.
     // 'instant' overrides the page's global `scroll-behavior: smooth`, which
@@ -167,9 +180,34 @@ if (dialog && source) {
     document.body.style.width = '';
     window.scrollTo({ top: scrollY, left: 0, behavior: 'instant' });
 
-    dialog.classList.remove('is-lightbox');
-    document.dispatchEvent(new CustomEvent('contact:close'));
     lastFocused?.focus?.({ preventScroll: true });
+
+    dialog.classList.add('is-closing');
+    backdrop?.classList.add('is-closing');
+    const gen = ++closeGen;
+    const done = () => { if (gen === closeGen) finishClose(); };
+    // No getAnimations() (old browsers) resolves immediately: an instant close.
+    const exits = typeof dialog.getAnimations === 'function'
+      ? [...dialog.getAnimations(), ...(backdrop?.getAnimations() ?? [])]
+      : [];
+    Promise.all(exits.map((a) => a.finished)).then(done, done);
+    closeTimer = setTimeout(done, 500);
+  }
+
+  function finishClose() {
+    if (!closing) return;
+    closing = false;
+    closeGen++;
+    clearTimeout(closeTimer);
+
+    if (typeof dialog.close === 'function' && dialog.open) dialog.close();
+    else dialog.removeAttribute('open');
+    backdrop?.setAttribute('hidden', '');
+
+    dialog.removeAttribute('inert');
+    dialog.classList.remove('is-closing', 'is-lightbox');
+    backdrop?.classList.remove('is-closing');
+    document.dispatchEvent(new CustomEvent('contact:close'));
   }
 
   /* ---- wiring ----------------------------------------------------- */

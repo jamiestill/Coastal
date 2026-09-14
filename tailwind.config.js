@@ -2,7 +2,10 @@
 // Coastal Healthcare Advocates — brand-locked config.
 // Palette + type system: assets/logomarks/README.txt and creative/Coastal Brand Guidelines.html.
 module.exports = {
-  content: ['./*.html', './assets/js/**/*.js'],
+  // Scan the JS *sources*: assets/js is git-ignored build output that doesn't exist
+  // yet when `npm run build` runs Tailwind, so classes set only from JS (is-closing,
+  // is-lightbox…) would otherwise be purged on a clean Netlify checkout.
+  content: ['./*.html', './src/js/**/*.js'],
   // `dark:` matches the same two states the CSS tokens do: an explicit
   // :root[data-theme="dark"] toggle, or the OS preference when no choice is stored.
   darkMode: ['variant', [

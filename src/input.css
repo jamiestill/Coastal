@@ -1369,6 +1369,23 @@
     #contact-modal[open] { animation: backdrop-in 180ms ease both; }
     #contact-backdrop:not([hidden]) { animation-name: backdrop-in; }
   }
+  /* Closing: modal.js adds .is-closing and only closes the dialog once this
+     finishes. The drawer slides back out the edge it came from, quicker than it
+     arrived and accelerating away; the backdrop fades with it and stops catching
+     clicks, since the page behind is already live again. */
+  #contact-modal.is-closing[open] { animation: drawer-out 220ms cubic-bezier(0.7, 0, 0.84, 0) both; }
+  #contact-backdrop.is-closing:not([hidden]) {
+    animation: backdrop-out 220ms ease both;
+    pointer-events: none;
+  }
+  @keyframes drawer-out {
+    from { opacity: 1; transform: none; }
+    to   { opacity: 0; transform: translateX(100%); }
+  }
+  @keyframes backdrop-out { from { opacity: 1; } to { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    #contact-modal.is-closing[open] { animation: backdrop-out 150ms ease both; }
+  }
   /* --- Lightbox variant: the same dialog, centered instead of edge-anchored.
      A `data-variant="lightbox"` open button adds `.is-lightbox` (see modal.js). --- */
   #contact-modal.is-lightbox {
@@ -1391,8 +1408,16 @@
     from { opacity: 0; transform: translateY(8px) scale(0.98); }
     to   { opacity: 1; transform: none; }
   }
+  #contact-modal.is-lightbox.is-closing[open] {
+    animation: lightbox-out 180ms cubic-bezier(0.7, 0, 0.84, 0) both;
+  }
+  @keyframes lightbox-out {
+    from { opacity: 1; transform: none; }
+    to   { opacity: 0; transform: translateY(8px) scale(0.98); }
+  }
   @media (prefers-reduced-motion: reduce) {
     #contact-modal.is-lightbox[open] { animation: backdrop-in 180ms ease both; }
+    #contact-modal.is-lightbox.is-closing[open] { animation: backdrop-out 150ms ease both; }
   }
 
   .modal-scroll { overflow-y: auto; height: 100dvh; max-height: 100dvh; padding: 1.75rem; }
