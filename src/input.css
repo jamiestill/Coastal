@@ -282,6 +282,18 @@
      light-on-dark link colour instead of the darkened Sky. */
   .on-dark a:not([class]) { color: var(--sky); }
 
+  /* Abbreviations: a quiet dotted underline in running text signals the title
+     expansion. Inside links and headings it would stack on the link underline or
+     clutter the type, so it's dropped there. */
+  abbr[title] {
+    text-decoration: underline dotted;
+    text-decoration-color: color-mix(in srgb, currentColor 55%, transparent);
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: from-font;
+    cursor: help;
+  }
+  :where(a, button, h1, h2, h3, h4) abbr[title] { text-decoration: none; cursor: inherit; }
+
   ::selection { background: rgba(79, 172, 254, 0.28); }
 
   :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {

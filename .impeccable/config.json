@@ -161,6 +161,49 @@
         ],
         "createdAt": "2026-09-14T07:31:37.219Z",
         "reason": "Claude verified: uppercase only on short labels (location line, signature-card labels, <=40 chars), matching the original PDF label style"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-14T16:08:16.860Z",
+        "reason": "Claude verified in headless Edge (1280px + 390px): static scan divides unitless line-height by rem font-size (h4 1.35/1.25rem=1.08x, .price-table th[scope=row] 1.3/1.0625rem=1.22x); rendered body, h3, h4 and table text are all >=1.3x; only display type sits lower (h1 1.12x, h2 1.25x, 44px .step-num 1.0x), intentional for headings"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-14T16:08:16.888Z",
+        "reason": "Claude verified in headless Edge: static scan applies the @media print rule #schedule :is(h2,p){color:var(--ink)} over the screen .bg-navy fill; on screen #schedule text is #F5FBFF on #0F1E4A (15.4:1), and in print the section background is transparent over body #FFFFFF (navy on white, ~16:1)"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "accessibility.html",
+          "financial-responsibility-agreement.html",
+          "privacy.html",
+          "t&c.html"
+        ],
+        "createdAt": "2026-09-14T16:40:36.193Z",
+        "reason": "Claude verified: static scan divides unitless line-height by rem font-size (same artifact as index.html: legal h2 1.25 and h3 1.35 read as 1.04-1.27x); real-browser URL scan of all four legal pages reports zero tight-leading. Rendered leading: h1 1.12, h2 1.25, h3 1.3, h4 1.35, body 1.6"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "404.html",
+          "accessibility.html",
+          "financial-responsibility-agreement.html",
+          "privacy.html",
+          "t&c.html"
+        ],
+        "createdAt": "2026-09-14T16:45:57.217Z",
+        "reason": "Claude verified in headless Edge (1280px): the only browser-scan hit is the partial header's 'FAQs' nav link, flagged by pixel sampling over .site-header's backdrop-filter; rendered it is --ink #0F1E4A on --bg #FEFEFE (~16:1), identical to index.html's header, which scans clean. Static scan's '#0f1e4a on #0f1e4a' has no on-screen counterpart (browser scan does not report it)"
       }
     ]
   }

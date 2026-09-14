@@ -47,7 +47,7 @@
   <link rel="preload" href="assets/fonts/ysabeau-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/questrial-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/hero-1024.avif" as="image" type="image/avif" media="(min-width: 1024px)">
-  <link rel="stylesheet" href="assets/css/site.css?v=3c96d5b187">
+  <link rel="stylesheet" href="assets/css/site.css?v=7f0ea3716d">
 
   <script type="application/ld+json">
   {
@@ -437,7 +437,7 @@
           <a class="nav-link" href="#about">About</a>
           <a class="nav-link" href="#how">How it works</a>
           <a class="nav-link" href="#pricing">Pricing</a>
-          <a class="nav-link" href="#faqs">FAQs</a>
+          <a class="nav-link" href="#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a>
         </nav>
 
         <button type="button" class="header-icon-btn md:hidden" id="nav-toggle" aria-expanded="false"
@@ -454,7 +454,7 @@
             <li><a class="nav-link" href="#about">About Lindsey</a></li>
             <li><a class="nav-link" href="#how">How it works</a></li>
             <li><a class="nav-link" href="#pricing">Pricing</a></li>
-            <li><a class="nav-link" href="#faqs">FAQs</a></li>
+            <li><a class="nav-link" href="#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a></li>
           </ul>
         </nav>
       </div>
@@ -493,7 +493,7 @@
               </picture>
               <span class="hero-byline-text">
                 <span class="hero-byline-name">Lindsey Hewitt, your advocate</span>
-                <span class="hero-byline-meta">18 years inside Sentara, UVA &amp; MCV billing · Virginia Certified
+                <span class="hero-byline-meta">18 years inside Sentara, <abbr title="University of Virginia">UVA</abbr> &amp; <abbr title="Medical College of Virginia">MCV</abbr> billing · Virginia Certified
                   Mediator</span>
               </span>
             </a>
@@ -531,17 +531,12 @@
         <div class="grid gap-gutter sm:grid-cols-2" data-reveal>
           <article class="card path-card path-card--crisis">
             <h2 class="text-h3">I need help right now.</h2>
-            <p>A denied claim, a confusing bill, or medical debt, for yourself or someone you love: start here.</p>
+            <p>A denied claim, a confusing bill, or medical debt: start here.</p>
             <p class="path-note">A denial is the start of the process, not the end.</p>
-            <ul class="flex flex-wrap gap-x-5 gap-y-2">
-              <li><a class="link-quiet" href="#services">What we do</a></li>
-              <li><a class="link-quiet" href="#how">How it works</a></li>
-              <li><a class="link-quiet" href="#pricing">What it costs</a></li>
-            </ul>
             <p class="mt-auto pt-2">
               <button type="button" class="btn btn-ghost w-full sm:w-auto" data-open-contact data-context="crisis"
                 data-variant="lightbox">
-                Schedule a Free Consultation
+                Let us help you
               </button>
             </p>
           </article>
@@ -549,14 +544,10 @@
           <article class="card path-card path-card--referrer">
             <h2 class="text-h3">I'm helping someone else.</h2>
             <p>Researching for a parent or partner, or referring a client as part of your own practice.</p>
-            <ul class="flex flex-wrap gap-x-5 gap-y-2">
-              <li><a class="link-quiet" href="#about">About Lindsey &amp; credentials</a></li>
-              <li><a class="link-quiet" href="#who">Who we help</a></li>
-            </ul>
             <p class="mt-auto pt-2">
               <button type="button" class="btn btn-ghost w-full sm:w-auto" data-open-contact data-context="referrer"
                 data-variant="lightbox">
-                Contact about a referral
+                Contact us about your referral
               </button>
             </p>
           </article>
@@ -627,13 +618,17 @@
         </div>
 
         <div class="callout mt-10 p-7 lg:p-8">
-          <h3 class="text-h4">Why a person, not a free AI appeal tool?</h3>
+          <h3 class="text-h4">Why a person, not a free <abbr title="artificial intelligence">AI</abbr> appeal tool?</h3>
           <ul class="mt-5 grid gap-x-gutter gap-y-4 sm:grid-cols-2">
             <li class="flex gap-3"><svg class="icon text-sky shrink-0 w-[1.2rem]" aria-hidden="true">
                 <use href="#i-check" />
-              </svg><span>A person can call your insurer and negotiate for you. An AI tool can only draft a
+              </svg><span>A person can call your insurer and negotiate for you. An <abbr title="artificial intelligence">AI</abbr> tool can only draft a
                 letter.</span>
             </li>
+            <li class="flex gap-3"><svg class="icon text-sky shrink-0 w-[1.2rem]" aria-hidden="true">
+                <use href="#i-check" />
+              </svg><span>Insurers use <abbr title="artificial intelligence">AI</abbr> too, and their systems can
+                flag appeal letters that were written by <abbr title="artificial intelligence">AI</abbr>.</span></li>
             <li class="flex gap-3"><svg class="icon text-sky shrink-0 w-[1.2rem]" aria-hidden="true">
                 <use href="#i-check" />
               </svg><span>Cases with several providers or a lot of money at stake need judgment a template can't
@@ -784,27 +779,25 @@
         <div class="about-bio" data-reveal>
           <div class="p-note prose-measure">
             <p>Lindsey Hewitt brings 18 years of experience in medical billing, insurance claims,
-              and accounts receivable to her work as a patient advocate, with expertise from
-              inside the system her clients are working to navigate.</p>
+              and accounts receivable to her work as a patient advocate. She learned the job from
+              inside the same system her clients are trying to navigate.</p>
             <p>Lindsey worked directly with insurance claims and medical
               collections for major healthcare systems, including Sentara Health Systems, the
               Medical College of Virginia, the University of Virginia and affiliates, Chesapeake
               Regional Medical Center, and Bon Secours Maryview Medical Center. Her daily work
               included verifying patient eligibility, tracking denials and payment delays,
               correcting billing and coding errors, and writing detailed, evidence-backed
-              appeals that get rejected claims paid. This is exactly the work most patients face
-              for the first time, and alone, after a diagnosis or a denial letter.</p>
+              appeals that get rejected claims paid. Most patients meet that same work for the
+              first time, on their own, after a diagnosis or a denial letter.</p>
             <p>Before entering healthcare, Lindsey spent nearly five years as a Deputy Clerk of
-              Court, filing and managing civil, criminal, and family court cases. That background
-              sharpened the skills she brings to advocacy today: meticulous case management,
-              procedural precision, and the persistence to move complicated files through a
-              slow system.</p>
-            <p>Lindsey is a Certified Professional Collection Specialist — a credential covering
-              Fair Debt Collection Practices Act (FDCPA) compliance — as well as a Virginia
-              Certified Mediator and a Notary Public. She has also trained, coached, and quality-assured teams of
-              collection
-              specialists, experience that gives her a practiced eye for spotting exactly where a
-              claim or a bill has gone wrong and how to fix it.</p>
+              Court, filing and managing civil, criminal, and family court cases. The job sharpened
+              her case management, her precision with procedure, and her persistence in moving a
+              complicated file through a slow system. She brings the same skills to advocacy.</p>
+            <p>Lindsey is a Certified Professional Collection Specialist, a credential that covers
+              Fair Debt Collection Practices Act (FDCPA) compliance. She is also a Virginia
+              Certified Mediator and a Notary Public, and she has trained, coached, and
+              quality-assured teams of collection specialists. That work gave her a practiced eye
+              for where a claim or a bill has gone wrong and how to fix it.</p>
             <p>Lindsey is based in Virginia Beach. She understands both sides of the insurance and
               billing process: how claims are supposed to work, and where they tend to break down.</p>
           </div>
@@ -822,7 +815,7 @@
               </div>
               <div>
                 <dt>Certifications</dt>
-                <dd>Certified Professional Collection Specialist (FDCPA) · Virginia Certified Mediator
+                <dd>Certified Professional Collection Specialist (<abbr title="Fair Debt Collection Practices Act">FDCPA</abbr>) · Virginia Certified Mediator
                   · Notary Public</dd>
               </div>
               <div>
@@ -976,7 +969,7 @@
               </tr>
               <tr role="row">
                 <th scope="row" role="rowheader">Medical Bill Review / Audit</th>
-                <td role="cell">Line-by-line review of an itemized bill and EOB to identify errors, duplicate charges,
+                <td role="cell">Line-by-line review of an itemized bill and <abbr title="Explanation of Benefits">EOB</abbr> to identify errors, duplicate charges,
                   or
                   overbilling.</td>
                 <td class="price-fee" role="cell"><span class="price-fee-label">Fee: </span>$125–$200</td>
@@ -1043,7 +1036,7 @@
       <div class="canvas">
         <div class="faq-layout">
           <div class="faq-aside" data-reveal>
-            <h2 id="faqs-h">FAQs</h2>
+            <h2 id="faqs-h"><abbr title="Frequently asked questions">FAQs</abbr></h2>
             <p class="faq-more">Have more questions? Email
               <a href="mailto:coastalhealthcareadvocates@gmail.com">coastalhealthcareadvocates<wbr>@gmail.com</a>
               or call <a href="tel:+17575740771">757-574-0771</a>.
@@ -1244,7 +1237,7 @@
           <p class="field">
             <label class="field-label" for="in-service">How can we help?</label>
             <select class="select" id="in-service" name="service">
-              <option value="">— Select a service —</option>
+              <option value="">Select a service</option>
               <option>Insurance Claim Denial Appeals</option>
               <option>Medical Bill Negotiation</option>
               <option>EOB Analysis / Bill Review</option>
@@ -1258,7 +1251,7 @@
           <p class="field">
             <label class="field-label" for="in-urgency">How soon do you need help?</label>
             <select class="select" id="in-urgency" name="urgency">
-              <option value="">— Please choose —</option>
+              <option value="">Please choose</option>
               <option>Right away</option>
               <option>Within a week</option>
               <option>This month</option>
@@ -1402,7 +1395,7 @@
             <li><a href="#about">About Lindsey</a></li>
             <li><a href="#how">How it works</a></li>
             <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#faqs">FAQs</a></li>
+            <li><a href="#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a></li>
           </ul>
         </nav>
 

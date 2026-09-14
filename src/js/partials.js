@@ -38,7 +38,7 @@
             '<a class="nav-link" href="index.html#about">About</a>' +
             '<a class="nav-link" href="index.html#how">How it works</a>' +
             '<a class="nav-link" href="index.html#pricing">Pricing</a>' +
-            '<a class="nav-link" href="index.html#faqs">FAQs</a>' +
+            '<a class="nav-link" href="index.html#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a>' +
           '</nav>' +
           '<button type="button" class="header-icon-btn md:hidden" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">' +
             '<svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>' +
@@ -50,7 +50,7 @@
               '<li><a class="nav-link" href="index.html#about">About Lindsey</a></li>' +
               '<li><a class="nav-link" href="index.html#how">How it works</a></li>' +
               '<li><a class="nav-link" href="index.html#pricing">Pricing</a></li>' +
-              '<li><a class="nav-link" href="index.html#faqs">FAQs</a></li>' +
+              '<li><a class="nav-link" href="index.html#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a></li>' +
             '</ul>' +
           '</nav>' +
         '</div>' +
@@ -73,7 +73,7 @@
               '<li><a href="index.html#about">About Lindsey</a></li>' +
               '<li><a href="index.html#how">How it works</a></li>' +
               '<li><a href="index.html#pricing">Pricing</a></li>' +
-              '<li><a href="index.html#faqs">FAQs</a></li>' +
+              '<li><a href="index.html#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a></li>' +
               '<li><a href="style-guide.html">Style guide</a></li>' +
             '</ul>' +
           '</nav>' +
