@@ -1272,7 +1272,7 @@
   }
   /* --ring is Navy on light / Sky on dark: ≥3:1 against the page either way. */
   .drawer-tab:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; }
-  /* Tucked away above "What is a patient advocate?" and once the in-page intake
+  /* Tucked away above the Services section and once the in-page intake
      form (or the closing region) is on screen. `.tab-wait` holds it tucked from
      first paint until main.js has measured the page (JS only, so no-JS keeps it). */
   .drawer-tab.is-tucked,

@@ -315,21 +315,21 @@ if (navLinks.length && 'IntersectionObserver' in window) {
 }
 
 /* -------------------------------------------------------------------------
-   "Get Started" drawer tab — hidden until "What is a patient advocate?"
-   comes into view (the hero carries its own CTA above that), then tucked
+   "Get Started" drawer tab — hidden until the Services section comes into
+   view (the hero and "What is a patient advocate?" come first), then tucked
    off-screen again once the in-page intake form (or the closing schedule /
    footer region) is visible, where a second consultation CTA only repeats
    what's already on screen. No JS: the tab just stays, which is harmless.
    ---------------------------------------------------------------------- */
 const drawerTab = document.querySelector('.drawer-tab');
-const tabShowAt = document.getElementById('what');
+const tabShowAt = document.getElementById('services');
 const tabTuckAt = document.getElementById('intake');
 
 if (drawerTab && tabTuckAt) {
   let tabTicking = false;
   const syncDrawerTab = () => {
     tabTicking = false;
-    // Not yet: the top of "What is a patient advocate?" is still below the fold.
+    // Not yet: the top of the Services section is still below the fold.
     const early = tabShowAt ? tabShowAt.getBoundingClientRect().top > window.innerHeight : false;
     // Tuck the tab away once the top of the intake section has scrolled up
     // into the lower part of the viewport — from here down (form, schedule,
