@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="assets/js/theme.js?v=deb4950b66"></script>
+  <script src="assets/js/email.js?v=c3ea680bba" defer></script>
   <title>Patient Advocate in South Virginia | Coastal Healthcare Advocates</title>
   <meta name="description"
     content="Independent patient advocacy in Southern Virginia. We appeal denied insurance claims, negotiate medical bills, and explain your EOBs. First consultation is free.">
@@ -47,7 +48,7 @@
   <link rel="preload" href="assets/fonts/ysabeau-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/questrial-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/hero-1024.avif" as="image" type="image/avif" media="(min-width: 1024px)">
-  <link rel="stylesheet" href="assets/css/site.css?v=4488a20ccc">
+  <link rel="stylesheet" href="assets/css/site.css?v=9bb672d123">
 
   <script type="application/ld+json">
   {
@@ -62,7 +63,6 @@
         "image": "https://coastalhealthcareadvocates.org/assets/img/og-image.png",
         "logo": "https://coastalhealthcareadvocates.org/assets/logomarks/logos/logo-horizontal-primary.svg",
         "telephone": "+1-757-574-0771",
-        "email": "coastalhealthcareadvocates@gmail.com",
         "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",
@@ -480,7 +480,7 @@
                 <svg class="icon" aria-hidden="true">
                   <use href="#i-phone" />
                 </svg>
-                <span>or call <span class="num">757-574-0771</span></span>
+                <span>or call <span class="num">(757) 574-0771</span></span>
               </a>
             </div>
 
@@ -493,8 +493,7 @@
               </picture>
               <span class="hero-byline-text">
                 <span class="hero-byline-name">Lindsey Hewitt, your advocate</span>
-                <span class="hero-byline-meta">18 years of experience · Virginia Certified
-                  Mediator</span>
+                <span class="hero-byline-meta">18 years of medical insurance experience</span>
               </span>
             </a>
           </div>
@@ -1046,8 +1045,8 @@
           <div class="faq-aside">
             <h2 id="faqs-h" data-reveal="heading"><abbr title="Frequently asked questions">FAQs</abbr></h2>
             <p class="faq-more" data-reveal>Have more questions? Email
-              <a href="mailto:coastalhealthcareadvocates@gmail.com">coastalhealthcareadvocates<wbr>@gmail.com</a>
-              or call <a href="tel:+17575740771">757-574-0771</a>.
+              <a href="#intake" data-email-user="coastalhealthcareadvocates" data-email-domain="gmail.com">us</a>
+              or call <a href="tel:+17575740771">(757) 574-0771</a>.
             </p>
           </div>
 
@@ -1325,7 +1324,7 @@
           </div>
           <h3 class="text-h3">Thanks! Your message is on its way.</h3>
           <p class="mt-3">Lindsey will reply within two business days. If it's urgent, call
-            <a href="tel:+17575740771">757-574-0771</a>. You'll also get an automatic email
+            <a href="tel:+17575740771">(757) 574-0771</a>. You'll also get an automatic email
             confirming we received this.
           </p>
           <p class="mt-5">
@@ -1347,13 +1346,14 @@
                 <svg class="icon shrink-0 text-sky w-[1.2rem]" aria-hidden="true">
                   <use href="#i-phone" />
                 </svg>
-                <span class="num text-ink">757-574-0771</span>
+                <span class="num text-ink">(757) 574-0771</span>
               </a>
-              <a class="flex items-center gap-2.5" href="mailto:coastalhealthcareadvocates@gmail.com">
+              <a class="flex items-center gap-2.5" href="#intake-form" data-email-user="coastalhealthcareadvocates"
+                data-email-domain="gmail.com">
                 <svg class="icon shrink-0 text-sky w-[1.2rem]" aria-hidden="true">
                   <use href="#i-mail" />
                 </svg>
-                <span class="break-all">coastalhealthcareadvocates@gmail.com</span>
+                <span class="break-all" data-email-text>Email us using the form above</span>
               </a>
               <span class="flex items-center gap-2.5">
                 <svg class="icon shrink-0 text-sky w-[1.2rem]" aria-hidden="true">
@@ -1383,7 +1383,7 @@
             </svg>
             Schedule a Free Consultation<span class="sr-only"> on Calendly (opens in a new tab)</span>
           </a>
-          <a class="btn btn-ghost-on-dark" href="tel:+17575740771">Call 757-574-0771</a>
+          <a class="btn btn-ghost-on-dark" href="tel:+17575740771">Call (757) 574-0771</a>
         </p>
       </div>
     </section>
@@ -1425,9 +1425,9 @@
         <div>
           <p class="footer-col-title">Contact</p>
           <address class="not-italic flex flex-col gap-2">
-            <a href="tel:+17575740771" class="p-tel num">757-574-0771</a>
-            <a href="mailto:coastalhealthcareadvocates@gmail.com"
-              class="u-email break-words">coastalhealthcareadvocates@gmail.com</a>
+            <a href="tel:+17575740771" class="p-tel num">(757) 574-0771</a>
+            <a href="#intake" data-email-user="coastalhealthcareadvocates" data-email-domain="gmail.com"
+              class="break-words">Email us</a>
             <span class="on-dark-muted">Serving Hampton Roads and Southern Virginia</span>
           </address>
           <div class="mt-4 flex items-center gap-3">
@@ -1454,6 +1454,13 @@
             </a>
           </div>
         </div>
+
+        <!-- Print only: hidden on screen, shown beside the contact line on paper. -->
+        <figure class="footer-qr">
+          <img src="assets/img/qr-site.svg" alt="QR code linking to coastalhealthcareadvocates.org" width="29"
+            height="29">
+          <figcaption class="meta">Scan to visit online</figcaption>
+        </figure>
       </div>
 
       <div
@@ -1533,7 +1540,7 @@
               <use href="#i-calendly" />
             </svg>
           </a>
-          <a class="btn btn-ghost" href="tel:+17575740771">Call 757-574-0771</a>
+          <a class="btn btn-ghost" href="tel:+17575740771">Call (757) 574-0771</a>
         </div>
         <p class="modal-divider"><span>or send a short message</span></p>
       </div>
@@ -1560,7 +1567,7 @@
   </dialog>
 
   <script type="module" src="assets/js/main.js?v=932bef426f"></script>
-  <script type="module" src="assets/js/modal.js?v=0c5d4e5f82"></script>
+  <script type="module" src="assets/js/modal.js?v=ef09e2097b"></script>
   <script type="module" src="assets/js/consent.js?v=54c1b16e4b"></script>
 </body>
 

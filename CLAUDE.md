@@ -14,6 +14,10 @@ reference imagery remain alongside it. `creative/Creative Brief.md` is the origi
 - **Stack:** hand-authored static HTML + TailwindCSS, deployed on **Netlify** — Netlify Forms
   backs the intake form, `netlify.toml` redirects proxy Plausible analytics, and `netlify.toml`
   carries the security + cache headers. Netlify is the only host (no GitHub Pages).
+- `netlify.toml` publishes the repo root (`publish = "."`), so it also 404s the working files
+  that would otherwise be public: the `.md` docs, `creative/`, `Inspiration/`, `swag/`, `src/`,
+  `scripts/`, `tools/`, the dot-folders and the package/lock/config files. Add a rule there
+  whenever you add a new top-level file or folder that isn't part of the site.
 - Run `npm install` once (Node ≥ 20). Then `npm run dev` for Tailwind `--watch` while editing
   `src/input.css`, or `npm run build` for the minified one-shot. Netlify runs `npm run build`.
 - `assets/css/site.css` is **generated** — git-ignored, never hand-edit it. Change
@@ -80,6 +84,13 @@ rotated, update both this value and the Netlify env var together.
   dashed `.todo-flag` blocks. The agreement page is a draft with `[confirm: …]` markers.
 - `npm run build` rewrites the `?v=` hashes in every HTML page (`scripts/version-assets.js`), so a
   build alone shows those pages as modified in `git status`.
+- **Never write the email address literally in a site page or `src/js/`.** Author
+  `<a href="#intake" data-email-user="coastalhealthcareadvocates" data-email-domain="gmail.com">Email us</a>`
+  (`index.html#intake` on secondary pages); `src/js/email.js` — loaded with `defer` in every page's
+  `<head>` — turns it into the `mailto:` link at runtime so address-harvesting crawlers miss it. The
+  href/text are the no-JS fallback; put `data-email-text` on a child to keep an icon beside it. JS
+  that injects a link later calls `window.chaEmailLinks(root)`. The JSON-LD omits `email` on
+  purpose. The PDFs (`src/pdf/`) still print the address.
 - The impeccable design hook (`.claude/settings.local.json`) runs
   `.claude/skills/impeccable/scripts/impeccable hook` after every Edit/Write and again on Stop.
   It is a design-QA pass over UI files; expect it to fire whenever you edit HTML/CSS.
@@ -156,7 +167,7 @@ verbatim rather than rewriting. `creative/audience-personas.md` and
 hero copy says "licensed advocate," but patient advocacy is an unregulated field and Lindsey
 holds certifications, not a license — confirm wording before shipping.
 
-Contact: Coastal Healthcare Advocates · coastalhealthcareadvocates@gmail.com · 757-574-0771 ·
+Contact: Coastal Healthcare Advocates · coastalhealthcareadvocates@gmail.com · (757) 574-0771 ·
 coastalhealthcareadvocates.org.
 
 ## Design skills and config

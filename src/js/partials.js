@@ -90,8 +90,8 @@
           '<div>' +
             '<p class="footer-col-title">Contact</p>' +
             '<address class="not-italic flex flex-col gap-2">' +
-              '<a href="tel:+17575740771" class="num">757-574-0771</a>' +
-              '<a href="mailto:coastalhealthcareadvocates@gmail.com" class="break-words">coastalhealthcareadvocates@gmail.com</a>' +
+              '<a href="tel:+17575740771" class="num">(757) 574-0771</a>' +
+              '<a href="index.html#intake" data-email-user="coastalhealthcareadvocates" data-email-domain="gmail.com" class="break-words">Email us</a>' +
               '<span style="color:rgba(245,251,255,.72)">Serving Hampton Roads and Southern Virginia</span>' +
             '</address>' +
             '<div class="mt-4 flex items-center gap-3">' +
@@ -103,6 +103,10 @@
               '</a>' +
             '</div>' +
           '</div>' +
+          '<figure class="footer-qr">' +
+            '<img src="assets/img/qr-site.svg" alt="QR code linking to coastalhealthcareadvocates.org" width="29" height="29">' +
+            '<figcaption class="meta">Scan to visit online</figcaption>' +
+          '</figure>' +
         '</div>' +
         '<div class="mt-12 flex flex-col gap-x-10 gap-y-6 border-t border-white/15 pt-8 md:flex-row md:flex-wrap md:items-center md:justify-between">' +
           '<div class="flex flex-wrap items-center gap-x-8 gap-y-4">' +

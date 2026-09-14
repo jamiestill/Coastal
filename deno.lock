@@ -11,7 +11,8 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
-        "npm:tailwindcss@3.4.17"
+        "npm:tailwindcss@3.4.17",
+        "npm:terser@^5.51.2"
       ]
     }
   }
