@@ -252,9 +252,12 @@ Supporting tints, used as pale washes, step accents and small marks:
 - **Seagrass** (`seagrass`), ink step **Seagrass Ink** (`seagrass-ink`): the second
   How-it-works step and the fee-agreement check mark.
 - **Lantern** (`lantern`), ink step **Lantern Ink** (`lantern-ink`): the third step accent.
-- **Sand** (`sand`): the warmest wash (18% mix) in tinted card cycles.
-- **Coral** (`coral`), ink step **Coral Ink** (`coral-ink`): the fourth step accent and error
-  borders on form fields. The required-field marker is Ink, so Coral means "error" in forms.
+- **Sand** (`sand`): the highlight behind the message character count once it nears the
+  600-character limit, with Midnight text (12.3:1). It has no other job on the site.
+- **Coral** (`coral`), ink step **Coral Ink** (`coral-ink`): the fourth step accent (Coral Ink
+  sets its numeral), error borders, the ▲ error marker, the error-summary border, and the
+  highlight behind the character count when a keystroke or paste runs past the limit
+  (Midnight text, 4.9:1). The required-field marker is Ink, so Coral means "error" in forms.
 - **Deep Tone** (`deep-tone`): the alternate muted shield and the line colour inside the
   dark-theme drawer.
 

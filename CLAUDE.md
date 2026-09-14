@@ -70,16 +70,21 @@ rotated, update both this value and the Netlify env var together.
 ## Working in the shell
 
 - `t&c.html` contains an ampersand — always quote the path: `"t&c.html"`.
-- `accessibility.html`, `privacy.html`, `t&c.html` are standalone, unstyled files that open
-  directly in a browser. `t&c.html` is **complete** — real company name, phone, mailing address,
-  the domain `coastalhealthcareadvocates.org`, dated 2026-09-01 (it does contain a "Virgina
-  Beach" typo). `accessibility.html` and `privacy.html` are still boilerplate with `__________`
-  placeholders, including the company name.
+- The secondary pages (`accessibility.html`, `privacy.html`, `t&c.html`,
+  `financial-responsibility-agreement.html`, `style-guide.html`, `404.html`) load `site.css` and
+  get their header and footer from `src/js/partials.js` (`<div data-partial="header|footer">`).
+  `index.html` keeps its own inline header/footer, which `partials.js` says is canonical — keep
+  the two in step. `t&c.html` is **complete** (real company name, phone, mailing address, the
+  domain `coastalhealthcareadvocates.org`, last updated 2026-09-01). `accessibility.html` and
+  `privacy.html` have the known details filled in; what still needs an audit or counsel sits in
+  dashed `.todo-flag` blocks. The agreement page is a draft with `[confirm: …]` markers.
+- `npm run build` rewrites the `?v=` hashes in every HTML page (`scripts/version-assets.js`), so a
+  build alone shows those pages as modified in `git status`.
 - The impeccable design hook (`.claude/settings.local.json`) runs
   `.claude/skills/impeccable/scripts/impeccable hook` after every Edit/Write and again on Stop.
   It is a design-QA pass over UI files; expect it to fire whenever you edit HTML/CSS.
-- `.gitignore` covers `node_modules/` and the generated `assets/css/site.css`. Six `.DS_Store`
-  files were tracked before it existed and still are — don't add more.
+- `.gitignore` covers `node_modules/`, the generated `assets/css/site.css` and `assets/js/*.js`,
+  `.DS_Store` and `.netlify`. No `.DS_Store` files are tracked — keep it that way.
 
 ## Brand identity — source of truth: `assets/logomarks/README.txt`
 

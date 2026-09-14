@@ -139,11 +139,16 @@ the hospital or the insurer.
 
   | Where | Label |
   |---|---|
-  | Consultation buttons | "Schedule a Free Consultation" |
-  | Referrer path | "Contact about a referral" |
+  | Consultation buttons (hero, How it works, closing band) | "Schedule a Free Consultation" |
+  | Crisis entry-path card | "Let us help you" |
+  | Referrer entry-path card | "Contact us about your referral" |
+  | About section referral link | "Contact about a referral" |
   | Services referral link | "Talk about referrals" |
   | Form submit | "Start Your Consultation" |
+  | Calendly buttons (contact dialog, success panel) | "Book a time on Calendly" |
   | Persistent tab | "Get Started" |
+
+  The contact dialog's title repeats the label of whichever button opened it.
 
   Don't rename these without asking.
 - **Bio layout reference** the client likes: arntzen.no employee bio pages.

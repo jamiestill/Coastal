@@ -50,13 +50,24 @@ export function initContactForm(form, opts = {}) {
     const max = Number(messageField.getAttribute('maxlength')) || 600;
     const used = messageField.value.length;
     const left = max - used;
-    countEl.textContent = `${used} of ${max} characters`;
+    countEl.textContent = `(${used} of ${max} characters)`;
     countEl.classList.toggle('is-near', left <= 50);
+    if (left > 0) countEl.classList.remove('is-over');
     if (countLive && [50, 20, 0].includes(left)) {
       countLive.textContent = left === 0 ? 'Character limit reached.' : `${left} characters left.`;
     }
   }
   messageField?.addEventListener('input', updateCount);
+  // maxlength silently swallows the overflow (and fires no input event when it blocks a
+  // keystroke outright), so catch the attempt here: a typed character, line break or paste
+  // that would take the message past the limit turns the count Coral until it's trimmed.
+  messageField?.addEventListener('beforeinput', (e) => {
+    if (!countEl || !e.inputType.startsWith('insert')) return;
+    const max = Number(messageField.getAttribute('maxlength')) || 600;
+    const selected = messageField.selectionEnd - messageField.selectionStart;
+    const added = (e.data ?? e.dataTransfer?.getData('text/plain') ?? '\n').length;
+    if (messageField.value.length - selected + added > max) countEl.classList.add('is-over');
+  });
   updateCount();
 
   // Preferred contact method: a ticked method needs its matching detail.

@@ -388,16 +388,16 @@
       "kind": "button",
       "refersTo": "button-beacon",
       "description": "Beacon Sky CTA on the entry-path cards; deepens to navy on hover.",
-      "html": "<button class=\"ds-btn-beacon\">Contact about a referral</button>",
+      "html": "<button class=\"ds-btn-beacon\">Contact us about your referral</button>",
       "css": ".ds-btn-beacon { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0.75rem 1.4rem; font-family: Questrial, 'Century Gothic', system-ui, sans-serif; font-size: 0.9375rem; letter-spacing: 0.06em; text-transform: uppercase; background: #4FACFE; color: #0F1E4A; border: 1px solid #4FACFE; border-radius: 12px; cursor: pointer; transition: transform 0.18s cubic-bezier(0.22,1,0.36,1), background-color 0.18s ease, color 0.18s ease; } .ds-btn-beacon:hover { background: var(--accent-hover-bg, #0F1E4A); color: var(--accent-hover-ink, #F5FBFF); border-color: var(--accent-hover-bg, #0F1E4A); transform: translateY(-1px); } .ds-btn-beacon:focus-visible { outline: 3px solid var(--ring, #0F1E4A); outline-offset: 2px; }"
     },
     {
       "name": "Text Field",
       "kind": "input",
       "refersTo": "input",
-      "description": "Persistent label above, Ink Soft border, 48px min height; Coral 2px border on error.",
+      "description": "Persistent label above, Ink Soft border, 48px min height; Ink required asterisk; Coral 2px border on error.",
       "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Full name <span class=\"ds-req\" aria-hidden=\"true\">*</span></span><input class=\"ds-input\" type=\"text\" autocomplete=\"name\"></label>",
-      "css": ".ds-field { display: block; } .ds-field-label { display: block; margin-bottom: 0.35rem; font-family: Questrial, 'Century Gothic', system-ui, sans-serif; font-size: 0.9375rem; letter-spacing: 0.01em; color: var(--ink, #0F1E4A); } .ds-req { color: var(--coral-ink, #C4140F); font-weight: 600; } .ds-input { width: 100%; min-height: 48px; padding: 0.7rem 0.8rem; font-family: Ysabeau, system-ui, sans-serif; font-size: 1rem; color: var(--ink, #0F1E4A); background: var(--surface, #FDFEFF); border: 1px solid var(--ink-soft, #3C4A73); border-radius: 8px; } .ds-input:focus { border-color: var(--ink, #0F1E4A); } .ds-input:focus-visible { outline: 3px solid var(--ring, #0F1E4A); outline-offset: 2px; } .ds-input[aria-invalid='true'] { border: 2px solid #FE1E1A; }"
+      "css": ".ds-field { display: block; } .ds-field-label { display: block; margin-bottom: 0.35rem; font-family: Questrial, 'Century Gothic', system-ui, sans-serif; font-size: 0.9375rem; letter-spacing: 0.01em; color: var(--ink, #0F1E4A); } .ds-req { color: var(--ink, #0F1E4A); font-weight: 600; } .ds-input { width: 100%; min-height: 48px; padding: 0.7rem 0.8rem; font-family: Ysabeau, system-ui, sans-serif; font-size: 1rem; color: var(--ink, #0F1E4A); background: var(--surface, #FDFEFF); border: 1px solid var(--ink-soft, #3C4A73); border-radius: 8px; } .ds-input:focus { border-color: var(--ink, #0F1E4A); } .ds-input:focus-visible { outline: 3px solid var(--ring, #0F1E4A); outline-offset: 2px; } .ds-input[aria-invalid='true'] { border: 2px solid #FE1E1A; }"
     },
     {
       "name": "Nav Link",
@@ -456,7 +456,7 @@
       },
       {
         "name": "The Supporting Tints Rule",
-        "body": "Seagrass, Lantern, Sand and Coral appear only as pale washes (9–18% mixed into Surface), step accents and small marks. They are never large fills, section grounds, or text on light grounds. Where they must carry meaning, use their -ink steps.",
+        "body": "Seagrass, Lantern, Sand and Coral appear only as pale washes (9–12% mixed into Surface inside the step cards), step accents and small marks. They are never large fills, section grounds, or text on light grounds. Where they must carry meaning, use their -ink steps. The one solid use is a small highlight chip behind Midnight text on the message character count: Sand as it nears the limit, Coral when a keystroke runs past it.",
         "section": "colors"
       },
       {
@@ -481,7 +481,7 @@
       },
       {
         "name": "The One Column of Attention Rule",
-        "body": "Content never spreads wider than the 1000px reading column, and no decision point shows more than a handful of equal options. The persistent CTA (right-edge tab, a full-width bottom bar under 480px) is the only floating element, and it tucks away once the intake form is on screen.",
+        "body": "Content never spreads wider than the 1000px reading column, and no decision point shows more than a handful of equal options. The persistent CTA (right-edge tab, a full-width bottom bar under 480px) is the only floating element: it waits until the Services section is in view and tucks away once the intake form is on screen.",
         "section": "layout"
       },
       {

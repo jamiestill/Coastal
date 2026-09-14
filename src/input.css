@@ -1775,8 +1775,17 @@
   .how-cta { position: relative; z-index: 1; margin-top: 2.5rem; text-align: center; }
 
   /* Message field character count */
-  .field-count { display: block; margin-top: 0.3rem; font-size: 0.875rem; color: var(--ink-soft); text-align: right; }
-  .field-count.is-near { color: var(--ink); font-weight: 600; }
+  /* Sand from 550 characters; once a keystroke or paste runs past the limit it takes
+     the .error-summary treatment (Coral edge, 10% Coral wash, ink text). Sand sits
+     behind the count as a highlight because it can't carry text; Midnight on Sand ≈12:1.
+     The edge is an inset shadow so the 2px doesn't nudge the surrounding text. */
+  .field-count { white-space: nowrap; padding-inline: 0.3em; border-radius: 0.25rem; }
+  .field-count.is-near { background: var(--sand); color: var(--midnight); font-weight: 600; }
+  .field-count.is-over {
+    background: color-mix(in srgb, var(--coral) 10%, var(--surface));
+    color: var(--ink);
+    box-shadow: inset 0 0 0 2px var(--coral);
+  }
 
   /* Contact dialog: book or call first, message form as the alternative */
   .modal-quickbook { margin-top: 1rem; }
