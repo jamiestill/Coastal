@@ -282,6 +282,33 @@
      light-on-dark link colour instead of the darkened Sky. */
   .on-dark a:not([class]) { color: var(--sky); }
 
+  /* Plain text links that leave the site get a trailing "↗" (e.g. ada.gov).
+     Classed links — buttons, icon circles, the GNA badge — carry their own
+     icon, and absolute links to our own domain aren't external. Drawn as a
+     mask so it takes the link colour, in the sprite's 1.75px round stroke.
+     Screen only: print swaps ::after for the URL in brackets. */
+  @media screen {
+    a[href^="http"]:not([class]):not([href*="coastalhealthcareadvocates.org"])::after {
+      content: "";
+      display: inline-block;
+      width: 0.7em;
+      height: 0.7em;
+      margin-left: 0.2em;
+      vertical-align: 0.05em;
+      background-color: currentColor;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 18 18 6M8.5 6H18v9.5'/%3E%3C/svg%3E") center / contain no-repeat;
+              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 18 18 6M8.5 6H18v9.5'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+  }
+  @media screen and (prefers-reduced-motion: no-preference) {
+    a[href^="http"]:not([class]):not([href*="coastalhealthcareadvocates.org"])::after {
+      transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    a[href^="http"]:not([class]):not([href*="coastalhealthcareadvocates.org"]):hover::after {
+      transform: translate(1px, -1px);
+    }
+  }
+
   /* Abbreviations: a quiet dotted underline in running text signals the title
      expansion. Inside links and headings it would stack on the link underline or
      clutter the type, so it's dropped there. */
