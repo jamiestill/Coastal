@@ -1275,11 +1275,11 @@
             <label>Company <input name="company" tabindex="-1" autocomplete="off"></label>
           </p>
 
-          <!-- reCAPTCHA temporarily disabled -- honeypot + time-trap (contact-form.js)
+          <!-- reCAPTCHA temporarily disabled; honeypot + time-trap (contact-form.js)
                  are carrying spam protection alone for now. contact-form.js / modal.js
                  already treat the widget as optional (captchaActive() just checks
                  whether .g-recaptcha exists), so re-enabling is just uncommenting this
-                 block -- no JS changes needed. See CLAUDE.md "Forms & spam protection".
+                 block; no JS changes needed. See CLAUDE.md "Forms & spam protection".
             <div class="field" id="in-recaptcha" data-recaptcha-field tabindex="-1">
               <div data-netlify-recaptcha="true"></div>
               <span class="field-error" id="in-recaptcha-err" hidden></span>
@@ -1486,7 +1486,7 @@
   </div>
 
   <!-- ================= CONTACT MODAL ========================== -->
-  <!-- Manual backdrop (not dialog::backdrop) -- see modal.js / the comment on
+  <!-- Manual backdrop (not dialog::backdrop); see modal.js / the comment on
        #contact-modal in src/input.css for why. -->
   <div id="contact-backdrop" hidden></div>
   <dialog id="contact-modal" aria-labelledby="cm-title" aria-modal="true">
