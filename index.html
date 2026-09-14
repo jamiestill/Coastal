@@ -41,13 +41,13 @@
     content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-src https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/; frame-ancestors 'none'">
 
   <!-- Above-the-fold faces. Without a preload these are only discovered after
-       site.css downloads and parses (critical-path depth 2): Cormorant Garamond
-       sets the H2s, Ysabeau the body/lede, Questrial the H1 + nav + buttons. -->
-  <link rel="preload" href="assets/fonts/cormorant-garamond-500.woff2" as="font" type="font/woff2" crossorigin>
+       site.css downloads and parses (critical-path depth 2): Ysabeau sets the
+       body/lede, Questrial every heading + nav + buttons. Cormorant Garamond only
+       appears below the fold (pricing rows, step numerals), so it isn't preloaded. -->
   <link rel="preload" href="assets/fonts/ysabeau-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/questrial-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/hero-1024.avif" as="image" type="image/avif" media="(min-width: 1024px)">
-  <link rel="stylesheet" href="assets/css/site.css?v=e07f00ab31">
+  <link rel="stylesheet" href="assets/css/site.css?v=7ccfe79bfe">
 
   <script type="application/ld+json">
   {
@@ -103,11 +103,10 @@
         "jobTitle": "Patient Advocate",
         "worksFor": { "@id": "https://coastalhealthcareadvocates.org/#business" },
         "image": "https://coastalhealthcareadvocates.org/assets/img/lindsey-1024.jpg",
-        "description": "Lindsey Hewitt brings 27 years of experience in medical billing, insurance claims, and accounts receivable to her work as a patient advocate, built from inside the same system her clients are trying to navigate.",
+        "description": "Lindsey Hewitt brings 18 years of experience in medical billing, insurance claims, and accounts receivable to her work as a patient advocate, built from inside the same system her clients are trying to navigate.",
         "knowsLanguage": "en",
         "hasCredential": [
-          { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Certified Professional Collection Specialist" },
-          { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Fair Debt Collection Practices Act (FDCPA) certification" },
+          { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Certified Professional Collection Specialist (FDCPA)" },
           { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Virginia Certified Mediator" },
           { "@type": "EducationalOccupationalCredential", "credentialCategory": "license", "name": "Notary Public" }
         ]
@@ -129,7 +128,7 @@
             "name": "What is the cost?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "The first consultation is free and includes a 20- to 30-minute phone call to review your case. After that, most work is charged at $85 per hour in 15-minute increments or a flat rate for certain tasks: bill review costs $125 to $200, written insurance appeals $175 to $300, benefits explanation sessions $75, and provider negotiation $125 to $250. Ongoing support packages start at $225. We provide a written agreement outlining fees before any paid work begins."
+              "text": "The first consultation is free and includes a 20- to 30-minute phone or video call to review your case. After that, most work is charged at $85 per hour in 15-minute increments or a flat rate for certain tasks: bill review costs $125 to $200, written insurance appeals $175 to $300, benefits explanation sessions $75, and provider negotiation $125 to $250. Ongoing support packages start at $225. We provide a written agreement outlining fees before any paid work begins."
             }
           },
           {
@@ -145,7 +144,7 @@
             "name": "Is my information confidential?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Coastal Healthcare Advocates is an independent practice, and your health and financial information stays confidential — we never sell it or share it for marketing. Please don't include diagnoses or treatment details in this form; we'll collect what we need through a secure channel once we've spoken. Our <a href=\"https://coastalhealthcareadvocates.org/privacy.html\">Privacy Notice</a> explains how we store, transmit, and dispose of your records, and who we share them with when you authorize us to act on your behalf."
+              "text": "Yes. Coastal Healthcare Advocates is an independent practice, and your health and financial information stays confidential — we never sell it or share it for marketing. Please don't include diagnoses or treatment details in the contact form; we'll collect what we need through a secure channel once we've spoken. Our <a href=\"https://coastalhealthcareadvocates.org/privacy.html\">Privacy Notice</a> explains how we store, transmit, and dispose of your records, and who we share them with when you authorize us to act on your behalf."
             }
           }
         ]
@@ -389,12 +388,9 @@
         d="M13.5 21v-8.2h2.76l.41-3.2H13.5V7.55c0-.93.26-1.56 1.59-1.56h1.7V3.13c-.3-.04-1.3-.13-2.48-.13-2.46 0-4.15 1.5-4.15 4.26V9.6H7.4v3.2h2.76V21h3.34Z" />
     </symbol>
 
-    <!-- Calendly: simplified single-colour mark (open "C" ring around a core). -->
+    <!-- Calendly: Simple Icons mark (single colour, follows currentColor). -->
     <symbol id="i-calendly" viewBox="0 0 24 24">
-      <g fill="none" stroke="currentColor" stroke-linecap="round">
-        <path stroke-width="2.6" d="M18.4 7.3A8 8 0 1 0 18.4 16.7" />
-        <path stroke-width="2.2" d="M15.3 9.6A4 4 0 1 0 15.3 14.4" />
-      </g>
+      <path fill="currentColor" stroke="none" d="M19.655 14.262q.421.001.828.064c0 .005-.005.01-.005.014a6 6 0 0 1-.381.786l-1.219 2.106a6.24 6.24 0 0 1-5.411 3.127h-2.432a6.25 6.25 0 0 1-5.412-3.127l-1.218-2.106a6.25 6.25 0 0 1 0-6.252l1.218-2.106a6.24 6.24 0 0 1 5.412-3.127h2.432a6.25 6.25 0 0 1 5.411 3.127l1.219 2.106c.147.252.271.519.381.786c0 .004.005.009.005.014a5.5 5.5 0 0 1-.828.064c-1.816 0-2.501-.607-3.291-1.306c-.764-.676-1.711-1.517-3.44-1.517h-1.029c-1.251 0-2.387.455-3.2 1.278c-.796.805-1.233 1.904-1.233 3.099v1.411c0 1.196.437 2.295 1.233 3.099c.813.823 1.949 1.278 3.2 1.278h1.034c1.729 0 2.676-.841 3.439-1.517c.791-.703 1.471-1.306 3.287-1.301m.005-3.237q.6 0 1.179-.11q-.003-.007-.002-.014a6.3 6.3 0 0 0-.349-1.218a4.6 4.6 0 0 0 1.986-.819c0-.004-.005-.013-.005-.018a10.6 10.6 0 0 0-1.489-3.03a10.9 10.9 0 0 0-2.331-2.395a10.64 10.64 0 0 0-6.428-2.138c-1.448 0-2.855.28-4.175.841c-1.273.543-2.423 1.315-3.407 2.299S2.878 6.552 2.341 7.83a10.7 10.7 0 0 0-.842 4.175c0 1.448.281 2.855.842 4.174c.542 1.274 1.314 2.423 2.298 3.407s2.129 1.761 3.407 2.299c1.324.556 2.727.841 4.175.841c2.34 0 4.561-.74 6.428-2.137a10.8 10.8 0 0 0 2.331-2.396a10.8 10.8 0 0 0 1.489-3.03c0-.004.005-.014.005-.018a4.6 4.6 0 0 0-1.986-.819c.161-.395.276-.804.349-1.218c.005-.009.005-.014.005-.023a5.85 5.85 0 0 1 2.404 1.035c.685.505.552 1.075.446 1.416C22.184 20.437 17.619 24 12.221 24c-6.625 0-12-5.375-12-12s5.37-12 12-12c5.398 0 9.963 3.563 11.471 8.464c.106.341.239.915-.446 1.421a5.8 5.8 0 0 1-2.404 1.034c.128.716.128 1.45 0 2.166a6.3 6.3 0 0 0-1.182-.11c-4.184 0-3.968 2.823-6.736 2.823h-1.029c-1.899 0-3.15-1.357-3.15-3.095v-1.411c0-1.738 1.251-3.094 3.15-3.094h1.034c2.768 0 2.552 2.823 6.731 2.827" />
     </symbol>
 
     <symbol id="i-sun" viewBox="0 0 24 24">
@@ -464,13 +460,15 @@
           <div class="hidden min-[500px]:block mt-8 lg:col-span-4 lg:mt-0">
             <figure class="framed rise-1" data-rise>
               <picture>
+                <!-- Below 500px the figure is hidden; a 1px placeholder stops the photo downloading anyway. -->
+                <source media="(max-width: 499px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACw=">
                 <source type="image/avif" srcset="assets/img/hero-640.avif 640w, assets/img/hero-1024.avif 1024w"
-                  sizes="(min-width: 1024px) 40vw, 100vw">
+                  sizes="(min-width: 1024px) 400px, 38vw">
                 <source type="image/webp" srcset="assets/img/hero-640.webp 640w, assets/img/hero-1024.webp 1024w"
-                  sizes="(min-width: 1024px) 40vw, 100vw">
+                  sizes="(min-width: 1024px) 400px, 38vw">
                 <img src="assets/img/hero-1024.jpg"
                   srcset="assets/img/hero-640.jpg 640w, assets/img/hero-1024.jpg 1024w"
-                  sizes="(min-width: 1024px) 40vw, 100vw" width="1024" height="768" alt="" fetchpriority="high"
+                  sizes="(min-width: 1024px) 400px, 38vw" width="1024" height="768" alt="" fetchpriority="high"
                   decoding="async" class="block h-auto w-full">
               </picture>
             </figure>
@@ -579,13 +577,13 @@
             <picture>
               <source type="image/avif"
                 srcset="assets/img/advocate-hand-640.avif 640w, assets/img/advocate-hand-1024.avif 1024w"
-                sizes="(min-width: 1024px) 40vw, 100vw">
+                sizes="(min-width: 1024px) 340px, (min-width: 768px) 288px, 44vw">
               <source type="image/webp"
                 srcset="assets/img/advocate-hand-640.webp 640w, assets/img/advocate-hand-1024.webp 1024w"
-                sizes="(min-width: 1024px) 40vw, 100vw">
+                sizes="(min-width: 1024px) 340px, (min-width: 768px) 288px, 44vw">
               <img src="assets/img/advocate-hand-1024.jpg"
                 srcset="assets/img/advocate-hand-640.jpg 640w, assets/img/advocate-hand-1024.jpg 1024w"
-                sizes="(min-width: 1024px) 40vw, 100vw" width="1024" height="1280"
+                sizes="(min-width: 1024px) 340px, (min-width: 768px) 288px, 44vw" width="1024" height="1280"
                 alt="An advocate holds the hand of a patient resting in a hospital bed" loading="lazy" decoding="async"
                 class="block h-auto w-full">
             </picture>
@@ -836,78 +834,78 @@
         </div>
 
         <div class="table-wrap mt-10">
-          <table class="price-table">
+          <table class="price-table" role="table">
             <caption class="sr-only">Coastal Healthcare Advocates services and fees</caption>
             <colgroup>
               <col class="price-col-name">
               <col class="price-col-desc">
               <col class="price-col-fee">
             </colgroup>
-            <thead>
-              <tr>
-                <th scope="col">Service</th>
-                <th scope="col">What it covers</th>
-                <th scope="col">Fee</th>
+            <thead role="rowgroup">
+              <tr role="row">
+                <th scope="col" role="columnheader">Service</th>
+                <th scope="col" role="columnheader">What it covers</th>
+                <th scope="col" role="columnheader">Fee</th>
               </tr>
             </thead>
 
-            <tbody>
-              <tr>
-                <th scope="rowgroup" colspan="3" class="price-group">Getting started</th>
+            <tbody role="rowgroup">
+              <tr role="row">
+                <th scope="rowgroup" colspan="3" class="price-group" role="rowheader">Getting started</th>
               </tr>
-              <tr>
-                <th scope="row">Initial Consultation</th>
-                <td>20–30 minute phone or video call to discuss your situation and how we can help.</td>
-                <td class="price-fee price-fee--free">Free</td>
+              <tr role="row">
+                <th scope="row" role="rowheader">Initial Consultation</th>
+                <td role="cell">20–30 minute phone or video call to discuss your situation and how we can help.</td>
+                <td class="price-fee price-fee--free" role="cell"><span class="price-fee-label">Fee: </span>Free</td>
               </tr>
-              <tr>
-                <th scope="row">Standard Hourly Rate</th>
-                <td>Ongoing advocacy work billed in 15-minute increments.</td>
-                <td class="price-fee">$85<span class="price-unit"> / hour</span></td>
+              <tr role="row">
+                <th scope="row" role="rowheader">Standard Hourly Rate</th>
+                <td role="cell">Ongoing advocacy work billed in 15-minute increments.</td>
+                <td class="price-fee" role="cell"><span class="price-fee-label">Fee: </span>$85<span class="price-unit"> / hour</span></td>
               </tr>
             </tbody>
 
-            <tbody>
-              <tr>
-                <th scope="rowgroup" colspan="3" class="price-group">Flat-fee services</th>
+            <tbody role="rowgroup">
+              <tr role="row">
+                <th scope="rowgroup" colspan="3" class="price-group" role="rowheader">Flat-fee services</th>
               </tr>
-              <tr>
-                <th scope="row">Medical Bill Review / Audit</th>
-                <td>Line-by-line review of an itemized bill and EOB to identify errors, duplicate charges, or
+              <tr role="row">
+                <th scope="row" role="rowheader">Medical Bill Review / Audit</th>
+                <td role="cell">Line-by-line review of an itemized bill and EOB to identify errors, duplicate charges, or
                   overbilling.</td>
-                <td class="price-fee">$125–$200</td>
+                <td class="price-fee" role="cell"><span class="price-fee-label">Fee: </span>$125–$200</td>
               </tr>
-              <tr>
-                <th scope="row">Insurance Claim Appeal</th>
-                <td>Research, drafting, and submission of a written appeal for a denied claim.</td>
-                <td class="price-fee">$175–$300</td>
+              <tr role="row">
+                <th scope="row" role="rowheader">Insurance Claim Appeal</th>
+                <td role="cell">Research, drafting, and submission of a written appeal for a denied claim.</td>
+                <td class="price-fee" role="cell"><span class="price-fee-label">Fee: </span>$175–$300</td>
               </tr>
-              <tr>
-                <th scope="row">Benefits Explanation Session</th>
-                <td>One-on-one session to explain your plan, coverage, and out-of-pocket costs.</td>
-                <td class="price-fee">$75</td>
+              <tr role="row">
+                <th scope="row" role="rowheader">Benefits Explanation Session</th>
+                <td role="cell">One-on-one session to explain your plan, coverage, and out-of-pocket costs.</td>
+                <td class="price-fee" role="cell"><span class="price-fee-label">Fee: </span>$75</td>
               </tr>
-              <tr>
-                <th scope="row">Provider Negotiation</th>
-                <td>Direct negotiation with a provider or billing office to reduce a balance or set up a payment plan.
+              <tr role="row">
+                <th scope="row" role="rowheader">Provider Negotiation</th>
+                <td role="cell">Direct negotiation with a provider or billing office to reduce a balance or set up a payment plan.
                 </td>
-                <td class="price-fee">$125–$250</td>
+                <td class="price-fee" role="cell"><span class="price-fee-label">Fee: </span>$125–$250</td>
               </tr>
             </tbody>
 
-            <tbody>
-              <tr>
-                <th scope="rowgroup" colspan="3" class="price-group">Ongoing support packages</th>
+            <tbody role="rowgroup">
+              <tr role="row">
+                <th scope="rowgroup" colspan="3" class="price-group" role="rowheader">Ongoing support packages</th>
               </tr>
-              <tr>
-                <th scope="row">Single-Issue Package</th>
-                <td>Up to 3 hours of advocacy on one specific bill, claim, or denial.</td>
-                <td class="price-fee">$225</td>
+              <tr role="row">
+                <th scope="row" role="rowheader">Single-Issue Package</th>
+                <td role="cell">Up to 3 hours of advocacy on one specific bill, claim, or denial.</td>
+                <td class="price-fee" role="cell"><span class="price-fee-label">Fee: </span>$225</td>
               </tr>
-              <tr>
-                <th scope="row">Monthly Support Plan</th>
-                <td>Up to 5 hours per month of ongoing advocacy for clients managing multiple bills or claims.</td>
-                <td class="price-fee">$375<span class="price-unit"> / month</span></td>
+              <tr role="row">
+                <th scope="row" role="rowheader">Monthly Support Plan</th>
+                <td role="cell">Up to 5 hours per month of ongoing advocacy for clients managing multiple bills or claims.</td>
+                <td class="price-fee" role="cell"><span class="price-fee-label">Fee: </span>$375<span class="price-unit"> / month</span></td>
               </tr>
             </tbody>
           </table>
@@ -967,7 +965,7 @@
               </h3>
               <div id="faq-2" class="faq-panel" role="region" aria-labelledby="faq-2-b" hidden>
                 <div class="faq-panel-inner">
-                  <p>The first consultation is free and includes a 20- to 30-minute phone call to
+                  <p>The first consultation is free and includes a 20- to 30-minute phone or video call to
                     review your case. After that, most work is charged at $85 per hour in 15-minute
                     increments or a flat rate for certain tasks: bill review costs $125 to $200,
                     written insurance appeals $175 to $300, benefits explanation sessions $75, and
@@ -1013,7 +1011,7 @@
                   <p>Yes. Coastal Healthcare Advocates is an independent practice, and your
                     health and financial information stays confidential — we never sell it or
                     share it for marketing. Please don't include diagnoses or treatment details
-                    in this form; we'll collect what we need through a secure channel once we've
+                    in the contact form; we'll collect what we need through a secure channel once we've
                     spoken. Our <a href="privacy.html">Privacy Notice</a> explains how we store,
                     transmit, and dispose of your records, and who we share them with when you
                     authorize us to act on your behalf.
@@ -1079,7 +1077,7 @@
             <dl class="dl-rows mt-8">
               <div>
                 <dt>Experience</dt>
-                <dd>27 years in medical billing, insurance claims &amp; accounts receivable</dd>
+                <dd>18 years in medical billing, insurance claims &amp; accounts receivable</dd>
               </div>
               <div>
                 <dt>Health systems</dt>
@@ -1141,11 +1139,14 @@
           <input type="hidden" name="context" value="crisis">
           <input type="hidden" name="page" value="/">
 
-          <p class="form-note" data-phi-note>Please do not enter Social Security numbers, diagnoses, or other
+          <p class="form-note" id="in-phi" data-phi-note>Please do not enter Social Security numbers, diagnoses, or
+            other
             sensitive health details here. We'll collect what we need through a secure channel
             after we connect. Not for emergencies (call 911).</p>
 
-          <div data-contact-errors class="error-summary" role="alert" hidden></div>
+          <div data-contact-errors class="error-summary" hidden></div>
+
+          <p class="field-hint mt-4"><span class="req" aria-hidden="true">*</span> Required field</p>
 
           <p class="field">
             <label class="field-label" for="in-name">Full name <span class="req" aria-hidden="true">*</span></label>
@@ -1178,7 +1179,7 @@
           <p class="field">
             <label class="field-label" for="in-service">How can we help?</label>
             <select class="select" id="in-service" name="service">
-              <option>— Select a service —</option>
+              <option value="">— Select a service —</option>
               <option>Medical Bill Review</option>
               <option>Insurance Appeal</option>
               <option>Benefits Explanation</option>
@@ -1210,7 +1211,7 @@
             <label class="choice">
               <input type="checkbox" name="consent" id="in-consent" required>
               <span>I've read the
-                <a href="privacy.html" target="_blank" rel="noopener">Privacy Notice</a> and agree
+                <a href="privacy.html" target="_blank" rel="noopener">Privacy Notice<span class="sr-only"> (opens in a new tab)</span></a> and agree
                 to be contacted.</span>
             </label>
             <span class="field-error" id="in-consent-err" hidden></span>
@@ -1288,11 +1289,16 @@
       <div class="canvas text-center" data-reveal>
         <h2 id="schedule-h" class="text-paper">Book a free 20–30 minute call</h2>
         <p class="mx-auto mt-4 max-w-measure on-dark-soft">Talk through your
-          situation with someone who has worked in claims and billing for 27 years.
+          situation with someone who has worked in claims and billing for 18 years.
           There is no charge and no obligation.</p>
         <p class="mt-7 flex flex-wrap justify-center gap-4">
-          <button type="button" class="btn btn-on-dark" data-open-contact data-variant="lightbox">Schedule a Free
-            Consultation</button>
+          <a class="btn btn-on-dark" href="https://calendly.com/coastalhealthcareadvocates/30min" target="_blank"
+            rel="noopener">
+            <svg class="icon w-[1.2rem] h-[1.2rem]" aria-hidden="true">
+              <use href="#i-calendly" />
+            </svg>
+            Schedule a Free Consultation<span class="sr-only"> on Calendly (opens in a new tab)</span>
+          </a>
           <a class="btn btn-ghost-on-dark" href="tel:+17575740771">Call 757-574-0771</a>
         </p>
       </div>
@@ -1421,7 +1427,7 @@
   <!-- Manual backdrop (not dialog::backdrop) -- see modal.js / the comment on
        #contact-modal in src/input.css for why. -->
   <div id="contact-backdrop" hidden></div>
-  <dialog id="contact-modal" aria-labelledby="cm-title">
+  <dialog id="contact-modal" aria-labelledby="cm-title" aria-modal="true">
     <div class="modal-scroll">
       <button type="button" class="modal-close" data-close-contact aria-label="Close contact form">
         <svg class="icon w-[1.1rem] h-[1.1rem]" aria-hidden="true">
@@ -1439,8 +1445,8 @@
     </div>
   </dialog>
 
-  <script type="module" src="assets/js/main.js?v=087557dd07"></script>
-  <script type="module" src="assets/js/modal.js?v=26fcd8ba8c"></script>
+  <script type="module" src="assets/js/main.js?v=89d7f0be91"></script>
+  <script type="module" src="assets/js/modal.js?v=d7a631e770"></script>
   <script type="module" src="assets/js/consent.js?v=d789b0415e"></script>
 </body>
 
