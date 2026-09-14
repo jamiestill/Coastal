@@ -1795,6 +1795,31 @@
   .modal-divider::before,
   .modal-divider::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
+  /* Discard check: dims the dialog's own content (made inert by modal.js) and
+     centres a small card over it while the visitor decides. */
+  .modal-confirm {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    padding: 1.25rem;
+    background: rgba(10, 15, 36, 0.45);
+  }
+  .modal-confirm[hidden] { display: none; }
+  .modal-confirm-card {
+    width: 100%;
+    max-width: 24rem;
+    padding: 1.5rem;
+    background: var(--bg);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: theme('borderRadius.card');
+    animation: backdrop-in 160ms ease both;
+  }
+  .modal-confirm-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
+  .modal-confirm-actions .btn { flex: 1 1 10rem; white-space: normal; text-align: center; }
+
   /* --- "The light comes on": the one delight moment ---
      When a message reaches Lindsey, the Advocate Beacon mark appears in the
      success panel and its light comes up behind it: a soft Beacon Sky glow

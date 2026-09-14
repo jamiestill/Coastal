@@ -64,16 +64,32 @@ export function initContactForm(form, opts = {}) {
 
   // Filling in an email or phone ticks its matching method; clearing it unticks,
   // so an emptied field can't leave a stale preference that fails validation.
-  // `change` (not `input`) fires once per edit, so a visitor who unticks a box
-  // isn't overruled on every keystroke.
-  [['email', 'Email'], ['phone', 'Phone']].forEach(([field, method]) => {
-    const input = form.elements[field];
-    const box = form.querySelector(`input[name="preferred"][value="${method}"]`);
-    if (!input || !box) return;
-    input.addEventListener('change', () => {
-      box.checked = !!input.value.trim();
-    });
+  // Only an empty ↔ filled transition touches the box, so a visitor who unticks
+  // one isn't overruled on every keystroke. Autofill is why this listens so
+  // widely: Safari and some password managers fire `input` but not `change`, and
+  // some extensions set the value with no event at all — so it also re-syncs
+  // when focus moves within the form and just before validation.
+  const contactPairs = [['email', 'Email'], ['phone', 'Phone']]
+    .map(([field, method]) => ({
+      input: form.elements[field],
+      box: form.querySelector(`input[name="preferred"][value="${method}"]`),
+    }))
+    .filter((p) => p.input && p.box);
+  contactPairs.forEach((p) => {
+    p.filled = !!p.input.value.trim();
   });
+  function syncPreferred() {
+    contactPairs.forEach((p) => {
+      const filled = !!p.input.value.trim();
+      if (filled !== p.filled) p.box.checked = filled;
+      p.filled = filled;
+    });
+  }
+  contactPairs.forEach((p) => {
+    p.input.addEventListener('input', syncPreferred);
+    p.input.addEventListener('change', syncPreferred);
+  });
+  form.addEventListener('focusin', syncPreferred);
 
   /* ---- reCAPTCHA v2 (Netlify) ----------------------------------- */
   // Netlify's post-processing swaps <div data-netlify-recaptcha> for a real
@@ -140,6 +156,7 @@ export function initContactForm(form, opts = {}) {
 
   function validate() {
     const errors = [];
+    syncPreferred(); // catch an autofill that fired no events
     errIds.forEach(clearError);
 
     const name = form.elements.name.value.trim();
@@ -304,13 +321,38 @@ export function initContactForm(form, opts = {}) {
     get submitted() {
       return form.hidden && !!successPanel && !successPanel.hidden;
     },
-    /** Return to a blank, visible form (e.g. reopening the modal after a send). */
+    /** Whether the visitor has typed or chosen anything (the privacy tick aside). */
+    get dirty() {
+      return [...form.elements].some((el) => {
+        if (['consent', 'company', 'g-recaptcha-response'].includes(el.name)) return false;
+        if (el.type === 'checkbox' || el.type === 'radio') return el.checked !== el.defaultChecked;
+        if (el.tagName === 'SELECT') {
+          const def = [...el.options].findIndex((o) => o.defaultSelected);
+          return el.selectedIndex !== (def === -1 ? 0 : def);
+        }
+        if (el.tagName !== 'TEXTAREA' && el.tagName !== 'INPUT') return false;
+        if (['hidden', 'submit', 'button'].includes(el.type)) return false;
+        return el.value.trim() !== el.defaultValue.trim();
+      });
+    },
+    /** Return to a blank, visible form, errors cleared (the modal calls this on open and close). */
     reset() {
-      clearTimeout(deferredSubmit);
-      deferredSubmit = null;
+      if (deferredSubmit) {
+        // A held (time-trapped) send never went out — hand back a live button.
+        clearTimeout(deferredSubmit);
+        deferredSubmit = null;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = submitLabel;
+        }
+      }
       form.reset();
+      contactPairs.forEach((p) => {
+        p.filled = false;
+      });
       updateCount();
       errIds.forEach(clearError);
+      resetCaptcha();
       if (errorSummary) errorSummary.hidden = true;
       if (successPanel) successPanel.hidden = true;
       form.hidden = false;

@@ -136,9 +136,9 @@ if (dialog && source) {
       trigger?.textContent.replace(/\s+/g, ' ').trim() ||
       defaultTitle;
     if (titleEl) titleEl.textContent = titleText;
-    // A previous send left the success panel up — start fresh (onReset
-    // restores the title set just above).
-    if (contact?.submitted) contact.reset();
+    // Always start from a blank form with no errors, whatever the last visit
+    // left (onReset restores the title set just above).
+    contact?.reset();
     // Most triggers open the right-anchored drawer; a `data-variant="lightbox"`
     // trigger presents the same dialog as a centered lightbox instead.
     dialog.classList.toggle('is-lightbox', trigger?.dataset.variant === 'lightbox');
@@ -219,35 +219,77 @@ if (dialog && source) {
     dialog.removeAttribute('inert');
     dialog.classList.remove('is-closing', 'is-lightbox');
     backdrop?.classList.remove('is-closing');
+    // Leave nothing behind once it's out of sight: blank fields, no errors.
+    hideDiscard();
+    contact?.reset();
     document.dispatchEvent(new CustomEvent('contact:close'));
   }
+
+  /* ---- discard check ---------------------------------------------- */
+  // Closing clears the form, so closing a half-filled one (close button,
+  // Escape, backdrop click) asks first. An in-dialog panel rather than
+  // window.confirm(): it matches the site, is announced as an alertdialog, and
+  // keeps focus inside the modal. The success panel's Close skips the check.
+  const confirmEl = dialog.querySelector('[data-discard-confirm]');
+  const scrollEl = dialog.querySelector('.modal-scroll');
+  let confirmReturn = null;
+
+  function requestClose() {
+    if (closing || !dialog.hasAttribute('open')) return;
+    if (confirmEl && !confirmEl.hidden) return; // already asking
+    if (confirmEl && contact && !contact.submitted && contact.dirty) showDiscard();
+    else closeContact();
+  }
+  function showDiscard() {
+    confirmReturn = dialog.contains(document.activeElement)
+      ? document.activeElement
+      : dialog.querySelector('.modal-close');
+    scrollEl?.setAttribute('inert', '');
+    confirmEl.hidden = false;
+    confirmEl.querySelector('[data-discard-cancel]')?.focus({ preventScroll: true });
+  }
+  function hideDiscard() {
+    if (!confirmEl || confirmEl.hidden) return;
+    confirmEl.hidden = true;
+    scrollEl?.removeAttribute('inert');
+  }
+  confirmEl?.querySelector('[data-discard-cancel]')?.addEventListener('click', () => {
+    hideDiscard();
+    confirmReturn?.focus?.({ preventScroll: true });
+  });
+  confirmEl?.querySelector('[data-discard-ok]')?.addEventListener('click', () => {
+    hideDiscard();
+    closeContact();
+  });
 
   /* ---- wiring ----------------------------------------------------- */
   document.querySelectorAll('[data-open-contact]').forEach((btn) => {
     btn.addEventListener('click', () => openContact(btn));
   });
   dialog.querySelectorAll('[data-close-contact]').forEach((btn) => {
-    btn.addEventListener('click', closeContact);
+    btn.addEventListener('click', requestClose);
   });
 
   // ESC: showModal() fired a native 'cancel' event for this; show() doesn't,
-  // so listen for the key directly.
+  // so listen for the key directly. With the discard check up, Escape backs
+  // out of the check (keep editing) rather than closing.
   dialog.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && dialog.open) {
       e.preventDefault();
-      closeContact();
+      if (confirmEl && !confirmEl.hidden) confirmEl.querySelector('[data-discard-cancel]')?.click();
+      else requestClose();
     }
   });
 
   // Outside click: with showModal() this was e.target === dialog (the
   // ::backdrop click target); with a real backdrop element, just listen on it.
-  backdrop?.addEventListener('click', closeContact);
+  backdrop?.addEventListener('click', requestClose);
 
   // Focus trap
   dialog.addEventListener('keydown', (e) => {
     if (e.key !== 'Tab') return;
     const items = [...dialog.querySelectorAll(FOCUSABLE)].filter(
-      (el) => el.offsetParent !== null || el === document.activeElement
+      (el) => (el.offsetParent !== null || el === document.activeElement) && !el.closest('[inert]')
     );
     if (!items.length) return;
     const firstEl = items[0];
