@@ -96,8 +96,15 @@ Ysabeau 500, outlined. Palette (the brand's own hex values — everything is bui
 
 ## Where the other content lives
 
-- `assets/` — `Hero Image.png`, `Lindsey-Hewitt-Headshot.{png,jpeg}` (the bio photo),
-  `Lindsey Profile.pdf`, `CHA_Pricing_Sheet.pdf`.
+- `assets/` — `Hero Image.png`, `Lindsey-Hewitt-Headshot.{png,jpeg}` (the bio photo).
+- `assets/docs/` — the three linked PDFs (`Lindsey Profile.pdf`, `CHA_Pricing_Sheet.pdf`,
+  `Coastal-Financial-Responsibility-Agreement-DRAFT.pdf`). They are **generated** tagged PDF/UA-1
+  files — edit the HTML in `src/pdf/` and run `npm run build:pdfs` (needs WeasyPrint ≥ 66, e.g.
+  `brew install weasyprint`; not part of the Netlify build, so commit the regenerated PDF). Validate
+  with veraPDF `-f ua1`. Keep real semantics in the sources (scoped `<th>`, lists, alt text) and
+  decoration in CSS so it becomes artifacts. `src/pdf/fonts/` holds static Ysabeau instances — the
+  site's Ysabeau is a variable font and fails PDF/UA's glyph-width check. The agreement PDF's text
+  mirrors `financial-responsibility-agreement.html`; change both together.
 - `creative/` — the brief plus the two research docs; `Coastal Brand Guidelines.html` is a saved
   claude.ai artifact export (carries the artifact's own page chrome), so
   `assets/logomarks/README.txt` remains the authoritative brand spec.

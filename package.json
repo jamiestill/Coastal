@@ -9,7 +9,8 @@
   },
   "scripts": {
     "dev": "tailwindcss -i src/input.css -o assets/css/site.css --watch",
-    "build": "tailwindcss -i src/input.css -o assets/css/site.css --minify && node scripts/version-assets.js"
+    "build": "tailwindcss -i src/input.css -o assets/css/site.css --minify && node scripts/version-assets.js",
+    "build:pdfs": "node scripts/build-pdfs.js"
   },
   "devDependencies": {
     "tailwindcss": "3.4.17"

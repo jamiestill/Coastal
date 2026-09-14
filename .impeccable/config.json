@@ -107,6 +107,60 @@
         ],
         "createdAt": "2026-09-14T07:08:02.232Z",
         "reason": "Claude triage: .legal-prose .table-wrap is a zero-padding bordered scroll wrapper so the thead background runs edge to edge; th/td carry 0.7rem 0.95rem padding (src/input.css:1863), so no text is flush"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "src/pdf/lindsey-profile.html"
+        ],
+        "createdAt": "2026-09-14T07:29:36.249Z",
+        "reason": "Claude verified in rendered PDF: sidebar text sits on a navy (#0F1E4A) position:fixed band the static scan can't see; measured 9.2:1 (#8fcaff) and 16:1 (#ffffff) on navy"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "src/pdf/pricing-sheet.html"
+        ],
+        "createdAt": "2026-09-14T07:31:37.144Z",
+        "reason": "Claude verified: detector misparses pt sizes in font shorthand (reports 0.15x leading / all roles 16px); actual line-height 1.45 (1.3 in table rows), h1 24pt vs 10pt body"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "src/pdf/pricing-sheet.html"
+        ],
+        "createdAt": "2026-09-14T07:31:37.165Z",
+        "reason": "Claude verified: detector misparses pt sizes in font shorthand (reports 0.15x leading / all roles 16px); actual line-height 1.45 (1.3 in table rows), h1 24pt vs 10pt body"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "src/pdf/financial-responsibility-agreement.html"
+        ],
+        "createdAt": "2026-09-14T07:31:37.183Z",
+        "reason": "Claude verified: detector misparses pt sizes in font shorthand (reports 0.15x leading / all roles 16px); actual line-height 1.45 (1.3 in table rows), h1 24pt vs 10pt body"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "src/pdf/lindsey-profile.html"
+        ],
+        "createdAt": "2026-09-14T07:31:37.201Z",
+        "reason": "Claude verified: uppercase only on short labels (location line, signature-card labels, <=40 chars), matching the original PDF label style"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "src/pdf/financial-responsibility-agreement.html"
+        ],
+        "createdAt": "2026-09-14T07:31:37.219Z",
+        "reason": "Claude verified: uppercase only on short labels (location line, signature-card labels, <=40 chars), matching the original PDF label style"
       }
     ]
   }
