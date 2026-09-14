@@ -62,6 +62,19 @@ export function initContactForm(form, opts = {}) {
   // Preferred contact method: a ticked method needs its matching detail.
   const prefers = (method) => !!form.querySelector(`input[name="preferred"][value="${method}"]:checked`);
 
+  // Filling in an email or phone ticks its matching method; clearing it unticks,
+  // so an emptied field can't leave a stale preference that fails validation.
+  // `change` (not `input`) fires once per edit, so a visitor who unticks a box
+  // isn't overruled on every keystroke.
+  [['email', 'Email'], ['phone', 'Phone']].forEach(([field, method]) => {
+    const input = form.elements[field];
+    const box = form.querySelector(`input[name="preferred"][value="${method}"]`);
+    if (!input || !box) return;
+    input.addEventListener('change', () => {
+      box.checked = !!input.value.trim();
+    });
+  });
+
   /* ---- reCAPTCHA v2 (Netlify) ----------------------------------- */
   // Netlify's post-processing swaps <div data-netlify-recaptcha> for a real
   // .g-recaptcha widget and injects Google's api.js at deploy time. None of that
