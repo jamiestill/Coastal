@@ -47,7 +47,7 @@
   <link rel="preload" href="assets/fonts/ysabeau-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/questrial-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/hero-1024.avif" as="image" type="image/avif" media="(min-width: 1024px)">
-  <link rel="stylesheet" href="assets/css/site.css?v=94f48bab0e">
+  <link rel="stylesheet" href="assets/css/site.css?v=e07f00ab31">
 
   <script type="application/ld+json">
   {
@@ -100,7 +100,7 @@
         "@type": "Person",
         "@id": "https://coastalhealthcareadvocates.org/#lindsey",
         "name": "Lindsey Hewitt",
-        "jobTitle": "Insurance & Billing Advocate",
+        "jobTitle": "Patient Advocate",
         "worksFor": { "@id": "https://coastalhealthcareadvocates.org/#business" },
         "image": "https://coastalhealthcareadvocates.org/assets/img/lindsey-1024.jpg",
         "description": "Lindsey Hewitt brings 27 years of experience in medical billing, insurance claims, and accounts receivable to her work as a patient advocate, built from inside the same system her clients are trying to navigate.",
@@ -162,7 +162,7 @@
        Line-icon sprite. Even 1.75px strokes, round caps and joins, upright.
        Decorative icons are aria-hidden; meaningful ones carry role="img" + <title>.
        ===================================================================== -->
-  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <svg class="absolute" width="0" height="0" aria-hidden="true" focusable="false">
 
     <symbol id="i-compass" viewBox="0 0 24 24">
       <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
@@ -389,6 +389,14 @@
         d="M13.5 21v-8.2h2.76l.41-3.2H13.5V7.55c0-.93.26-1.56 1.59-1.56h1.7V3.13c-.3-.04-1.3-.13-2.48-.13-2.46 0-4.15 1.5-4.15 4.26V9.6H7.4v3.2h2.76V21h3.34Z" />
     </symbol>
 
+    <!-- Calendly: simplified single-colour mark (open "C" ring around a core). -->
+    <symbol id="i-calendly" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-linecap="round">
+        <path stroke-width="2.6" d="M18.4 7.3A8 8 0 1 0 18.4 16.7" />
+        <path stroke-width="2.2" d="M15.3 9.6A4 4 0 1 0 15.3 14.4" />
+      </g>
+    </symbol>
+
     <symbol id="i-sun" viewBox="0 0 24 24">
       <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 7.6c2.5 0 4.5 2 4.4 4.5 0 2.4-2 4.4-4.5 4.3-2.4 0-4.4-2-4.3-4.5 0-2.4 2-4.3 4.4-4.3Z" />
@@ -413,10 +421,10 @@
         <nav class="hidden items-center gap-4 md:flex" aria-label="Primary">
           <a class="nav-link" href="#services">Services</a>
           <a class="nav-link" href="#who">Who we help</a>
-          <a class="nav-link" href="#about">About</a>
           <a class="nav-link" href="#how">Process</a>
           <a class="nav-link" href="#pricing">Pricing</a>
           <a class="nav-link" href="#faqs">FAQs</a>
+          <a class="nav-link" href="#about">About</a>
         </nav>
 
         <button type="button" class="header-icon-btn md:hidden" id="nav-toggle" aria-expanded="false"
@@ -430,10 +438,10 @@
           <ul class="flex flex-col gap-1">
             <li><a class="nav-link" href="#services">Services</a></li>
             <li><a class="nav-link" href="#who">Who we help</a></li>
-            <li><a class="nav-link" href="#about">About us</a></li>
             <li><a class="nav-link" href="#how">How it works</a></li>
             <li><a class="nav-link" href="#pricing">Pricing</a></li>
             <li><a class="nav-link" href="#faqs">FAQs</a></li>
+            <li><a class="nav-link" href="#about">About us</a></li>
           </ul>
         </nav>
       </div>
@@ -446,15 +454,15 @@
       <div class="canvas section">
         <div class="grid-9 items-start">
           <div class="lg:col-span-5">
-            <h1 data-rise style="--i:0">Don't navigate the maze alone.</h1>
-            <p class="lede mt-5" data-rise style="--i:1">An experienced insurance and billing advocate for people
+            <h1 class="rise-0" data-rise>Don't navigate the maze alone.</h1>
+            <p class="lede mt-5 rise-1" data-rise>An experienced insurance and billing advocate for people
               facing diagnoses, denied claims, and medical bills across Hampton Roads.</p>
-            <p class="meta mt-6" data-rise style="--i:2">Understanding Benefits. Resolving Bills.
+            <p class="meta mt-6 rise-2" data-rise>Understanding Benefits. Resolving Bills.
               Advocating&nbsp;for&nbsp;You.</p>
           </div>
 
           <div class="hidden min-[500px]:block mt-8 lg:col-span-4 lg:mt-0">
-            <figure class="framed" data-rise style="--i:1">
+            <figure class="framed rise-1" data-rise>
               <picture>
                 <source type="image/avif" srcset="assets/img/hero-640.avif 640w, assets/img/hero-1024.avif 1024w"
                   sizes="(min-width: 1024px) 40vw, 100vw">
@@ -584,22 +592,22 @@
           <p>A patient advocate works only for you. Not the hospital, not the insurance company. <em>You.</em> </p>
           <p class="mt-4">Your advocate will:</p>
           <ul class="mt-3 flex flex-col gap-2">
-            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true">
+            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0 w-[1.2rem]" aria-hidden="true">
                 <use href="#i-check" />
               </svg><span>read the fine print in your plan</span></li>
-            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true">
+            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0 w-[1.2rem]" aria-hidden="true">
                 <use href="#i-check" />
               </svg><span>challenge denied claims with written appeals</span></li>
-            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true">
+            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0 w-[1.2rem]" aria-hidden="true">
                 <use href="#i-check" />
               </svg><span>find and correct billing errors</span></li>
-            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true">
+            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0 w-[1.2rem]" aria-hidden="true">
                 <use href="#i-check" />
               </svg><span>negotiate balances with providers</span></li>
-            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true">
+            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0 w-[1.2rem]" aria-hidden="true">
                 <use href="#i-check" />
               </svg><span>help with Medicare and Medicaid paperwork</span></li>
-            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true">
+            <li class="flex gap-2.5"><svg class="icon text-sky shrink-0 w-[1.2rem]" aria-hidden="true">
                 <use href="#i-check" />
               </svg><span>translate what the system is telling you into plain language</span></li>
           </ul>
@@ -609,20 +617,20 @@
         <div class="callout mt-10 p-7 lg:p-8">
           <h3 class="text-h4">Why a person, not a free AI appeal tool?</h3>
           <ul class="mt-5 grid gap-x-gutter gap-y-4 sm:grid-cols-2">
-            <li class="flex gap-3"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true">
+            <li class="flex gap-3"><svg class="icon text-sky shrink-0 w-[1.2rem]" aria-hidden="true">
                 <use href="#i-check" />
               </svg><span>A human can call your insurer and negotiate on your behalf, not just write a letter.</span>
             </li>
-            <li class="flex gap-3"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true">
+            <li class="flex gap-3"><svg class="icon text-sky shrink-0 w-[1.2rem]" aria-hidden="true">
                 <use href="#i-check" />
               </svg><span>Complex, high-stakes, or multi-provider cases need judgment a template can't give.</span></li>
-            <li class="flex gap-3"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true">
+            <li class="flex gap-3"><svg class="icon text-sky shrink-0 w-[1.2rem]" aria-hidden="true">
                 <use href="#i-check" />
               </svg><span>We manage the case over weeks, through every reply and appeal level.</span></li>
-            <li class="flex gap-3"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true">
+            <li class="flex gap-3"><svg class="icon text-sky shrink-0 w-[1.2rem]" aria-hidden="true">
                 <use href="#i-check" />
               </svg><span>We're local and accountable, with experience inside the system.</span></li>
-            <li class="flex gap-3"><svg class="icon text-sky shrink-0" style="width:1.2rem" aria-hidden="true">
+            <li class="flex gap-3"><svg class="icon text-sky shrink-0 w-[1.2rem]" aria-hidden="true">
                 <use href="#i-check" />
               </svg><span>AI software employed by major insurers frequently rejects AI appeals.</span></li>
           </ul>
@@ -694,7 +702,7 @@
               planners, and clinicians: reliable claims and billing support for referred clients,
               with clear communication back to your office.</p>
             <p class="mt-3"><button type="button" class="link-quiet" data-open-contact data-context="referrer">Talk
-                about referrals <svg class="icon" style="width:1rem" aria-hidden="true">
+                about referrals <svg class="icon w-4" aria-hidden="true">
                   <use href="#i-arrow" />
                 </svg></button></p>
           </li>
@@ -746,95 +754,8 @@
       </div>
     </section>
 
-    <!-- ================= ABOUT LINDSEY =============================== -->
-    <section id="about" class="section bg-surface border-y border-line-soft" aria-labelledby="about-h">
-      <div class="canvas grid-9">
-        <div class="about-rail" data-reveal>
-          <h2 id="about-h">Lindsey Hewitt</h2>
-          <p class="meta mt-1">Insurance &amp; Billing Advocate</p>
-
-          <figure class="framed w-fit max-w-full mt-6 sm:mt-8">
-            <picture>
-              <source type="image/avif" srcset="assets/img/lindsey-512.avif 512w, assets/img/lindsey-768.avif 768w"
-                sizes="200px">
-              <source type="image/webp" srcset="assets/img/lindsey-512.webp 512w, assets/img/lindsey-768.webp 768w"
-                sizes="200px">
-              <img src="assets/img/lindsey-512.jpg"
-                srcset="assets/img/lindsey-512.jpg 512w, assets/img/lindsey-768.jpg 768w" sizes="200px" width="768"
-                height="960" alt="Lindsey Hewitt, patient advocate" loading="lazy" decoding="async"
-                class="block h-auto w-auto max-h-[200px] max-w-[200px]">
-            </picture>
-          </figure>
-        </div>
-
-        <div class="about-bio" data-reveal>
-          <div class="prose-measure">
-            <p>Lindsey Hewitt brings 18 years of experience in medical billing, insurance claims,
-              and accounts receivable to her work as a patient advocate, with expertise from
-              inside the system her clients are working to navigate.</p>
-            <p>For more than 18 years, Lindsey worked directly with insurance claims and medical
-              collections for major healthcare systems, including Sentara Health Systems, the
-              Medical College of Virginia, the University of Virginia and affiliates, Chesapeake
-              Regional Medical Center, and Bon Secours Maryview Medical Center. Her daily work
-              included verifying patient eligibility, tracking denials and payment delays,
-              correcting billing and coding errors, and writing detailed, evidence-backed
-              appeals that get rejected claims paid. This is exactly the work most patients face
-              for the first time, and alone, after a diagnosis or a denial letter.</p>
-            <p>Before entering healthcare, Lindsey spent nearly five years as a Deputy Clerk of
-              Court, filing and managing civil, criminal, and family court cases. That background
-              sharpened the skills she brings to advocacy today: meticulous case management,
-              procedural precision, and the persistence to move complicated files through a
-              slow system.</p>
-            <p>Lindsey is a Certified Professional Collection Specialist — a credential covering
-              Fair Debt Collection Practices Act (FDCPA) compliance — as well as a Virginia
-              Certified Mediator and a Notary Public. She has also trained, coached, and quality-assured teams of collection
-              specialists, experience that gives her a practiced eye for spotting exactly where a
-              claim or a bill has gone wrong and how to fix it.</p>
-            <p>Lindsey is based in Virginia Beach. She understands both sides of the insurance and
-              billing process: how claims are supposed to work, and where they tend to break down.</p>
-          </div>
-          <div class="mt-12">
-            <h3 id="credentials">Lindsey's credentials</h3>
-            <dl class="dl-rows mt-8">
-              <div>
-                <dt>Experience</dt>
-                <dd>27 years in medical billing, insurance claims &amp; accounts receivable</dd>
-              </div>
-              <div>
-                <dt>Health systems</dt>
-                <dd>Sentara · Medical College of Virginia · University of Virginia &amp; affiliates · Chesapeake
-                  Regional · Bon Secours Maryview</dd>
-              </div>
-              <div>
-                <dt>Certifications</dt>
-                <dd>Certified Professional Collection Specialist (FDCPA) · Virginia Certified Mediator
-                  · Notary Public</dd>
-              </div>
-              <div>
-                <dt>Prior role</dt>
-                <dd>Deputy Clerk of Court, nearly five years</dd>
-              </div>
-              <div>
-                <dt>Based in</dt>
-                <dd>Virginia Beach, Virginia</dd>
-              </div>
-            </dl>
-          </div>
-
-          <p class="mt-7">
-            <a class="link-quiet" href="assets/docs/Lindsey%20Profile.pdf" target="_blank" rel="noopener">
-              <svg class="icon" aria-hidden="true">
-                <use href="#i-file-pdf" />
-              </svg>
-              Lindsey's full professional profile (PDF)
-            </a>
-          </p>
-        </div>
-      </div>
-    </section>
-
     <!-- ================= HOW IT WORKS =============================== -->
-    <section id="how" class="section" aria-labelledby="how-h">
+    <section id="how" class="section bg-surface border-y border-line-soft" aria-labelledby="how-h">
       <div class="canvas">
         <h2 id="how-h">Four steps, at your pace</h2>
 
@@ -904,7 +825,7 @@
     </section>
 
     <!-- ================= PRICING (verbatim §8) ===================== -->
-    <section id="pricing" class="section bg-surface border-y border-line-soft" aria-labelledby="pricing-h">
+    <section id="pricing" class="section" aria-labelledby="pricing-h">
       <div class="canvas" data-reveal>
         <h2 id="pricing-h">Straightforward pricing</h2>
         <div class="prose-measure mt-4">
@@ -1003,7 +924,7 @@
     </section>
 
     <!-- ================= FAQs ====================================== -->
-    <section id="faqs" class="section" aria-labelledby="faqs-h">
+    <section id="faqs" class="section bg-surface border-y border-line-soft" aria-labelledby="faqs-h">
       <div class="canvas">
         <div class="faq-layout">
           <div class="faq-aside" data-reveal>
@@ -1104,6 +1025,93 @@
       </div>
     </section>
 
+    <!-- ================= ABOUT LINDSEY =============================== -->
+    <section id="about" class="section" aria-labelledby="about-h">
+      <div class="canvas grid-9">
+        <div class="about-rail" data-reveal>
+          <h2 id="about-h">Lindsey Hewitt</h2>
+          <p class="meta mt-1">Patient Advocate</p>
+
+          <figure class="framed w-fit max-w-full mt-6 sm:mt-8">
+            <picture>
+              <source type="image/avif" srcset="assets/img/lindsey-512.avif 512w, assets/img/lindsey-768.avif 768w"
+                sizes="200px">
+              <source type="image/webp" srcset="assets/img/lindsey-512.webp 512w, assets/img/lindsey-768.webp 768w"
+                sizes="200px">
+              <img src="assets/img/lindsey-512.jpg"
+                srcset="assets/img/lindsey-512.jpg 512w, assets/img/lindsey-768.jpg 768w" sizes="200px" width="768"
+                height="960" alt="Lindsey Hewitt, patient advocate" loading="lazy" decoding="async"
+                class="block h-auto w-auto max-h-[200px] max-w-[200px]">
+            </picture>
+          </figure>
+        </div>
+
+        <div class="about-bio" data-reveal>
+          <div class="prose-measure">
+            <p>Lindsey Hewitt brings 18 years of experience in medical billing, insurance claims,
+              and accounts receivable to her work as a patient advocate, with expertise from
+              inside the system her clients are working to navigate.</p>
+            <p>For more than 18 years, Lindsey worked directly with insurance claims and medical
+              collections for major healthcare systems, including Sentara Health Systems, the
+              Medical College of Virginia, the University of Virginia and affiliates, Chesapeake
+              Regional Medical Center, and Bon Secours Maryview Medical Center. Her daily work
+              included verifying patient eligibility, tracking denials and payment delays,
+              correcting billing and coding errors, and writing detailed, evidence-backed
+              appeals that get rejected claims paid. This is exactly the work most patients face
+              for the first time, and alone, after a diagnosis or a denial letter.</p>
+            <p>Before entering healthcare, Lindsey spent nearly five years as a Deputy Clerk of
+              Court, filing and managing civil, criminal, and family court cases. That background
+              sharpened the skills she brings to advocacy today: meticulous case management,
+              procedural precision, and the persistence to move complicated files through a
+              slow system.</p>
+            <p>Lindsey is a Certified Professional Collection Specialist — a credential covering
+              Fair Debt Collection Practices Act (FDCPA) compliance — as well as a Virginia
+              Certified Mediator and a Notary Public. She has also trained, coached, and quality-assured teams of collection
+              specialists, experience that gives her a practiced eye for spotting exactly where a
+              claim or a bill has gone wrong and how to fix it.</p>
+            <p>Lindsey is based in Virginia Beach. She understands both sides of the insurance and
+              billing process: how claims are supposed to work, and where they tend to break down.</p>
+          </div>
+          <div class="mt-12">
+            <h3 id="credentials">Lindsey's credentials</h3>
+            <dl class="dl-rows mt-8">
+              <div>
+                <dt>Experience</dt>
+                <dd>27 years in medical billing, insurance claims &amp; accounts receivable</dd>
+              </div>
+              <div>
+                <dt>Health systems</dt>
+                <dd>Sentara · Medical College of Virginia · University of Virginia &amp; affiliates · Chesapeake
+                  Regional · Bon Secours Maryview</dd>
+              </div>
+              <div>
+                <dt>Certifications</dt>
+                <dd>Certified Professional Collection Specialist (FDCPA) · Virginia Certified Mediator
+                  · Notary Public</dd>
+              </div>
+              <div>
+                <dt>Prior role</dt>
+                <dd>Deputy Clerk of Court, nearly five years</dd>
+              </div>
+              <div>
+                <dt>Based in</dt>
+                <dd>Virginia Beach, Virginia</dd>
+              </div>
+            </dl>
+          </div>
+
+          <p class="mt-7">
+            <a class="link-quiet" href="assets/docs/Lindsey%20Profile.pdf" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-file-pdf" />
+              </svg>
+              Lindsey's full professional profile (PDF)
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= INTAKE ==================================== -->
     <section id="intake" class="section bg-surface border-t border-line-soft" aria-labelledby="intake-h">
       <div class="canvas">
@@ -1114,13 +1122,13 @@
         </div>
 
         <ul class="mx-auto mt-8 flex max-w-measure flex-col gap-3">
-          <li class="flex gap-2.5"><svg class="icon shrink-0 text-sky" style="width:1.3rem" aria-hidden="true">
+          <li class="flex gap-2.5"><svg class="icon shrink-0 text-sky w-[1.3rem]" aria-hidden="true">
               <use href="#i-clock" />
             </svg><span>A 20–30 minute call, by phone or video, at a time that is convenient for you.</span></li>
-          <li class="flex gap-2.5"><svg class="icon shrink-0 text-sky" style="width:1.3rem" aria-hidden="true">
+          <li class="flex gap-2.5"><svg class="icon shrink-0 text-sky w-[1.3rem]" aria-hidden="true">
               <use href="#i-chat" />
             </svg><span>A plain-language answer on whether and how an advocate can help.</span></li>
-          <li class="flex gap-2.5"><svg class="icon shrink-0 text-sky" style="width:1.3rem" aria-hidden="true">
+          <li class="flex gap-2.5"><svg class="icon shrink-0 text-sky w-[1.3rem]" aria-hidden="true">
               <use href="#i-lock" />
             </svg><span>If we continue, we'll share documents securely and never through this form.</span></li>
         </ul>
@@ -1232,6 +1240,13 @@
             <a href="tel:+17575740771">757-574-0771</a>. You'll also get an automatic email
             confirming we received this.
           </p>
+          <p class="mt-5">
+            <a class="btn btn-primary" href="https://calendly.com/coastalhealthcareadvocates/30min"
+              target="_blank" rel="noopener">
+              <svg class="icon w-[1.2rem] h-[1.2rem]" aria-hidden="true"><use href="#i-calendly" /></svg>
+              Book a time on Calendly<span class="sr-only"> (opens in a new tab)</span>
+            </a>
+          </p>
         </div>
 
         <div class="mx-auto mt-8 max-w-measure">
@@ -1239,19 +1254,19 @@
             <h3 class="text-h4">Prefer to contact directly?</h3>
             <address class="mt-4 not-italic flex flex-col gap-3">
               <a class="flex items-center gap-2.5" href="tel:+17575740771">
-                <svg class="icon shrink-0 text-sky" style="width:1.2rem" aria-hidden="true">
+                <svg class="icon shrink-0 text-sky w-[1.2rem]" aria-hidden="true">
                   <use href="#i-phone" />
                 </svg>
                 <span class="num text-ink">757-574-0771</span>
               </a>
               <a class="flex items-center gap-2.5" href="mailto:coastalhealthcareadvocates@gmail.com">
-                <svg class="icon shrink-0 text-sky" style="width:1.2rem" aria-hidden="true">
+                <svg class="icon shrink-0 text-sky w-[1.2rem]" aria-hidden="true">
                   <use href="#i-mail" />
                 </svg>
                 <span class="break-all">coastalhealthcareadvocates@gmail.com</span>
               </a>
               <span class="flex items-center gap-2.5">
-                <svg class="icon shrink-0 text-sky" style="width:1.2rem" aria-hidden="true">
+                <svg class="icon shrink-0 text-sky w-[1.2rem]" aria-hidden="true">
                   <use href="#i-pin" />
                 </svg>
                 <span>Serving Hampton Roads and Southern Virginia</span>
@@ -1267,7 +1282,7 @@
     <section id="schedule" class="section bg-navy text-paper on-dark border-y border-line" aria-labelledby="schedule-h">
       <div class="canvas text-center" data-reveal>
         <h2 id="schedule-h" class="text-paper">Book a free 20–30 minute call</h2>
-        <p class="mx-auto mt-4 max-w-measure" style="color:rgba(245,251,255,.82)">Talk through your
+        <p class="mx-auto mt-4 max-w-measure on-dark-soft">Talk through your
           situation with someone who has worked in claims and billing for 27 years.
           There is no charge and no obligation.</p>
         <p class="mt-7 flex flex-wrap justify-center gap-4">
@@ -1286,7 +1301,7 @@
         <div class="lg:col-span-1">
           <img src="assets/logomarks/logos/logo-horizontal-reversed.svg" alt="Coastal Healthcare Advocates" width="265"
             height="80" class="h-20 w-auto">
-          <p class="meta mt-4" style="color:rgba(245,251,255,.7)">Understanding Benefits. Resolving
+          <p class="meta mt-4 on-dark-faint">Understanding Benefits. Resolving
             Bills. Advocating for You.</p>
         </div>
 
@@ -1295,10 +1310,10 @@
           <ul class="flex flex-col gap-2">
             <li><a href="#services">Services</a></li>
             <li><a href="#who">Who we help</a></li>
-            <li><a href="#about">About us</a></li>
             <li><a href="#how">How it works</a></li>
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#faqs">FAQs</a></li>
+            <li><a href="#about">About us</a></li>
           </ul>
         </nav>
 
@@ -1318,7 +1333,7 @@
             <a href="tel:+17575740771" class="num">757-574-0771</a>
             <a href="mailto:coastalhealthcareadvocates@gmail.com"
               class="break-words">coastalhealthcareadvocates@gmail.com</a>
-            <span style="color:rgba(245,251,255,.72)">Serving Hampton Roads and Southern Virginia</span>
+            <span class="on-dark-muted">Serving Hampton Roads and Southern Virginia</span>
           </address>
           <div class="mt-4 flex items-center gap-3">
             <a href="https://www.linkedin.com/in/lindsey-hewitt-1856b5136/" rel="noopener"
@@ -1333,6 +1348,13 @@
               class="grid h-11 w-11 place-items-center rounded-full border border-white/20 hover:border-white/60">
               <svg class="icon" aria-hidden="true">
                 <use href="#i-facebook" />
+              </svg>
+            </a>
+            <a href="https://calendly.com/coastalhealthcareadvocates/30min" rel="noopener"
+              aria-label="Book a consultation on Calendly"
+              class="grid h-11 w-11 place-items-center rounded-full border border-white/20 hover:border-white/60">
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-calendly" />
               </svg>
             </a>
           </div>
@@ -1361,7 +1383,7 @@
             <span class="sr-only theme-toggle-label">Dark theme</span>
           </button>
         </div>
-        <div class="meta flex flex-col gap-1" style="color:rgba(245,251,255,.72)">
+        <div class="meta flex flex-col gap-1 on-dark-muted">
           <span>Not for medical emergencies; call 911.</span>
           <span>General information, not legal or medical advice.</span>
           <span>© 2026 Coastal Healthcare Advocates. All rights reserved.</span>
@@ -1397,7 +1419,7 @@
   <dialog id="contact-modal" aria-labelledby="cm-title">
     <div class="modal-scroll">
       <button type="button" class="modal-close" data-close-contact aria-label="Close contact form">
-        <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true">
+        <svg class="icon w-[1.1rem] h-[1.1rem]" aria-hidden="true">
           <use href="#i-close" />
         </svg>
       </button>
@@ -1413,7 +1435,7 @@
   </dialog>
 
   <script type="module" src="assets/js/main.js?v=087557dd07"></script>
-  <script type="module" src="assets/js/modal.js?v=303e23ca77"></script>
+  <script type="module" src="assets/js/modal.js?v=26fcd8ba8c"></script>
   <script type="module" src="assets/js/consent.js?v=d789b0415e"></script>
 </body>
 
