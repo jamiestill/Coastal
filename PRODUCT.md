@@ -111,7 +111,7 @@ the hospital or the insurer.
   a phone number, and Calendly. Analytics require consent: Plausible, cookieless.
 - **Stack** (existing): hand-authored static HTML + TailwindCSS, hosted on Netlify. See
   `CLAUDE.md`.
-- **Legal pages:** `t&c.html` is complete. `privacy.html` and `accessibility.html` are still
+- **Legal pages:** `t&c.html` and `accessibility.html` are complete. `privacy.html` is still
   boilerplate with placeholders.
 
 ## Brand Commitments

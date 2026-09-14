@@ -8,8 +8,8 @@ Serene / calm / elegant light theme; WCAG 2.1 AA; hand-drawn SVG icons; Tailwind
 | Path | What |
 |---|---|
 | `index.html` | The one-page site: header, two-path hero, value cards (§8 verbatim), "what is an advocate" + "why a human not an AI tool", Services (6), Who we help, About Lindsey (bio verbatim, + profile-PDF link), How it works (4), Pricing (§8 rates, as a 3-group table + pricing-sheet PDF link), FAQs (4), Intake (contact form embedded inline), Schedule, Footer (light/dark toggle lives here). Inline SVG icon sprite, 3× JSON-LD blocks. |
-| `accessibility.html`, `privacy.html`, `t&c.html` | Legal pages, restyled to match. `t&c.html` content is complete (typo `Virgina`→`Virginia` fixed). `accessibility` + `privacy` have known data filled and lawyer-only content in dashed **TODO** blocks. |
-| `financial-responsibility-agreement.html` | Client fee/payment agreement, restyled to match the other legal pages (`legal-prose`, shared header/footer). **Draft** — Schedule A prices are placeholders and `[confirm: …]` markers need Lindsey/Jamie decisions or an attorney; `noindex`. Links the printable PDF. Linked from the Pricing-section note and the footer Legal list on `index.html`. |
+| `accessibility.html`, `privacy.html`, `t&c.html` | Legal pages, restyled to match. `t&c.html` content is complete (typo `Virgina`→`Virginia` fixed). `accessibility` is complete (status: partially conformant, WCAG 2.1 AA). `privacy` has known data filled and lawyer-only content in dashed **TODO** blocks. |
+| `financial-responsibility-agreement.html` | Client fee/payment agreement, restyled to match the other legal pages (`legal-prose`, shared header/footer). **Draft** — Schedule A prices are placeholders and `[confirm: …]` markers need Lindsey/Jamie decisions or an attorney; `noindex`. Links the printable PDF. Not linked from any page — reachable by direct URL only. |
 | `404.html` | Branded not-found page. |
 | `src/input.css` → `assets/css/site.css` | Source + **committed** build output. `site.css` is the only stylesheet the pages load. |
 | `tailwind.config.js` | Brand palette, 5 font families, 9-col grid, type scale. |
@@ -73,8 +73,8 @@ re-builds the CSS and applies the security headers + Plausible proxy).
    (or self-host Plausible/Umami and adjust the proxy).
 3. **`privacy.html`** — the dashed TODO blocks (HIPAA / Business Associate status, retention
    periods, sub-processor list, Virginia CDPA process) need real legal content.
-4. **`accessibility.html`** — set the conformance status (start "Partially conformant" until an
-   independent audit passes), fill any known limitations.
+4. **`accessibility.html`** — status is "Partially conformant with WCAG 2.1 Level AA". Change it to
+   "Conformant" only after an independent audit passes, and list any limitations the audit finds.
 5. **Real URLs** — footer + JSON-LD `sameAs` currently point at bare `linkedin.com` / `facebook.com`
    / `gnanow.org`. Replace with the real LinkedIn, Facebook, and GNA member-profile links, and add
    a Google Business Profile.
@@ -86,8 +86,8 @@ re-builds the CSS and applies the security headers + Plausible proxy).
 12. **Dark mode** — full theme via `:root[data-theme]` using the style guide's dark tokens, with a
     toggle in the footer; defaults to the visitor's OS setting. The logo swaps by CSS (`--brand-logo`),
     so `logo-horizontal-dark.svg` must stay alongside `logo-horizontal-primary.svg`.
-6. **Street address** — the public site + JSON-LD show city/region only; the full street address
-   lives in `t&c.html` where it's contractually needed. Confirm that's acceptable.
+6. **Street address** — deliberately not published anywhere. The site, the legal pages and the
+   JSON-LD show city/region only (Virginia Beach, VA) — no street address or ZIP.
 7. **OG image** — `assets/img/og-image.png` (1200×630, logo on Navy) is the social share card,
    referenced by `og:image`, `twitter:image` and the JSON-LD `image` in `index.html`. It is not
    fingerprinted, so replace it at the same path and re-scrape the link in each platform's debugger.

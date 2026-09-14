@@ -78,10 +78,11 @@ rotated, update both this value and the Netlify env var together.
   `financial-responsibility-agreement.html`, `style-guide.html`, `404.html`) load `site.css` and
   get their header and footer from `src/js/partials.js` (`<div data-partial="header|footer">`).
   `index.html` keeps its own inline header/footer, which `partials.js` says is canonical — keep
-  the two in step. `t&c.html` is **complete** (real company name, phone, mailing address, the
-  domain `coastalhealthcareadvocates.org`, last updated 2026-09-01). `accessibility.html` and
-  `privacy.html` have the known details filled in; what still needs an audit or counsel sits in
-  dashed `.todo-flag` blocks. The agreement page is a draft with `[confirm: …]` markers.
+  the two in step. `t&c.html` is **complete** (real company name, phone, city/region only — no street address, the
+  domain `coastalhealthcareadvocates.org`, last updated 2026-09-01). `accessibility.html` is
+  **complete** (status: partially conformant with WCAG 2.1 AA; move to "Conformant" only after an
+  independent audit). `privacy.html` has the known details filled in; what still needs counsel
+  sits in dashed `.todo-flag` blocks. The agreement page is a draft with `[confirm: …]` markers.
 - `npm run build` rewrites the `?v=` hashes in every HTML page (`scripts/version-assets.js`), so a
   build alone shows those pages as modified in `git status`.
 - **Never write the email address literally in a site page or `src/js/`.** Author
