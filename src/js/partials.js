@@ -90,7 +90,7 @@
           '<div>' +
             '<p class="footer-col-title">Contact</p>' +
             '<address class="not-italic flex flex-col gap-2">' +
-              '<a href="tel:+17575740771" class="num">(757) 574-0771</a>' +
+              '<a href="index.html#intake" data-tel-area="757" data-tel-line="5740771" class="num">Call us</a>' +
               '<a href="index.html#intake" data-email-user="coastalhealthcareadvocates" data-email-domain="gmail.com" class="break-words">Email us</a>' +
               '<span style="color:rgba(245,251,255,.72)">Serving Hampton Roads and Southern Virginia</span>' +
             '</address>' +

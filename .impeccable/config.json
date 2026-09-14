@@ -204,6 +204,15 @@
         ],
         "createdAt": "2026-09-14T16:45:57.217Z",
         "reason": "Claude verified in headless Edge (1280px): the only browser-scan hit is the partial header's 'FAQs' nav link, flagged by pixel sampling over .site-header's backdrop-filter; rendered it is --ink #0F1E4A on --bg #FEFEFE (~16:1), identical to index.html's header, which scans clean. Static scan's '#0f1e4a on #0f1e4a' has no on-screen counterpart (browser scan does not report it)"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "style-guide.html"
+        ],
+        "createdAt": "2026-09-14T22:33:40.130Z",
+        "reason": "Claude: style-guide.html H1/H2 type specimens (.sg-spec-h1 line-height 1.12, .sg-spec-h2 1.25) deliberately mirror the heading scale in tailwind.config.js; body copy is 1.6"
       }
     ]
   }

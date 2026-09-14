@@ -91,6 +91,12 @@ rotated, update both this value and the Netlify env var together.
   href/text are the no-JS fallback; put `data-email-text` on a child to keep an icon beside it. JS
   that injects a link later calls `window.chaEmailLinks(root)`. The JSON-LD omits `email` on
   purpose. The PDFs (`src/pdf/`) still print the address.
+- **The phone number gets the same treatment** — never write it literally (or as a `tel:` href) in a
+  site page or `src/js/`. Author `<a href="#intake" data-tel-area="757" data-tel-line="5740771">Call us</a>`;
+  `email.js` builds the `tel:` link and the "(757) 574-0771" text (on a `data-tel-text` child if
+  there is one, so "Call " survives). The JSON-LD omits `telephone` on purpose (a local-SEO trade
+  the client chose); the print footer in `src/input.css` splits the number across CSS strings; the
+  PDFs still print it.
 - `src/js/sound.js` (also `defer` in every page's `<head>`) plays a Web Audio click on every
   trusted click of a `button`, `.btn`, `[role="button"]`, submit input or `summary`. No audio file.
   It is silent under `prefers-reduced-motion` or when `localStorage.sound === 'off'`.
