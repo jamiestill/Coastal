@@ -38,7 +38,7 @@
   <link rel="manifest" href="site.webmanifest">
 
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-src https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/; frame-ancestors 'none'">
+    content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-src https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/">
 
   <!-- Above-the-fold faces. Without a preload these are only discovered after
        site.css downloads and parses (critical-path depth 2): Ysabeau sets the
@@ -1538,6 +1538,19 @@
            in exactly one place. -->
       <div data-contact-form-mount></div>
       <div data-contact-success-mount></div>
+    </div>
+
+    <!-- Discard check: modal.js shows this when the visitor closes a half-filled form. -->
+    <div class="modal-confirm" data-discard-confirm role="alertdialog" aria-modal="true"
+      aria-labelledby="cm-discard-title" aria-describedby="cm-discard-desc" hidden>
+      <div class="modal-confirm-card">
+        <h3 id="cm-discard-title" class="text-h4">Close without sending?</h3>
+        <p id="cm-discard-desc" class="mt-2">Anything you’ve entered in the form will be cleared.</p>
+        <div class="modal-confirm-actions">
+          <button type="button" class="btn btn-primary" data-discard-cancel>Keep editing</button>
+          <button type="button" class="btn btn-ghost" data-discard-ok>Close and clear</button>
+        </div>
+      </div>
     </div>
   </dialog>
 
