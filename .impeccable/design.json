@@ -267,6 +267,10 @@
         "displayName": "Figure",
         "purpose": "Prices and phone numbers only."
       },
+      "error": {
+        "displayName": "Error",
+        "purpose": "IBM Plex Mono 500 at 0.875rem: inline field errors and the error summary."
+      },
       "numeral": {
         "displayName": "Numeral",
         "purpose": "Italic How-it-works step numbers in each step's ink accent."
@@ -395,7 +399,7 @@
       "name": "Text Field",
       "kind": "input",
       "refersTo": "input",
-      "description": "Persistent label above, Ink Soft border, 48px min height; Ink required asterisk; Coral 2px border on error.",
+      "description": "Persistent label above, Ink Soft border, 48px min height; Ink required asterisk; Coral 2px border on error, with the message in Ink IBM Plex Mono 500 behind a Coral ▲.",
       "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Full name <span class=\"ds-req\" aria-hidden=\"true\">*</span></span><input class=\"ds-input\" type=\"text\" autocomplete=\"name\"></label>",
       "css": ".ds-field { display: block; } .ds-field-label { display: block; margin-bottom: 0.35rem; font-family: Questrial, 'Century Gothic', system-ui, sans-serif; font-size: 0.9375rem; letter-spacing: 0.01em; color: var(--ink, #0F1E4A); } .ds-req { color: var(--ink, #0F1E4A); font-weight: 600; } .ds-input { width: 100%; min-height: 48px; padding: 0.7rem 0.8rem; font-family: Ysabeau, system-ui, sans-serif; font-size: 1rem; color: var(--ink, #0F1E4A); background: var(--surface, #FDFEFF); border: 1px solid var(--ink-soft, #3C4A73); border-radius: 8px; } .ds-input:focus { border-color: var(--ink, #0F1E4A); } .ds-input:focus-visible { outline: 3px solid var(--ring, #0F1E4A); outline-offset: 2px; } .ds-input[aria-invalid='true'] { border: 2px solid #FE1E1A; }"
     },
@@ -471,7 +475,7 @@
       },
       {
         "name": "The Figures-in-Mono Rule",
-        "body": "IBM Plex Mono is reserved for real figures: prices and phone numbers. It is never a stylistic costume for labels or headings.",
+        "body": "IBM Plex Mono is reserved for real figures (prices and phone numbers) and form validation errors. It is never a stylistic costume for labels or headings.",
         "section": "typography"
       },
       {
@@ -511,7 +515,7 @@
       "Don't use coloured or glowing shadows. Elevation is always neutral near-black and soft.",
       "Don't reintroduce hand-drawn or doodle icon treatments. That style was tried and dropped.",
       "Don't bold Questrial headings or request weights the fonts don't ship.",
-      "Don't use IBM Plex Mono for anything except prices and phone numbers.",
+      "Don't use IBM Plex Mono for anything except prices, phone numbers and form errors.",
       "Don't add a second floating CTA, or let the persistent tab cover the intake form or the consent banner."
     ]
   }

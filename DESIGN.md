@@ -304,8 +304,8 @@ with a Harbor Navy CTA.
 
 **Display Font:** Questrial (with Century Gothic, Avenir Next, system-ui)
 **Body Font:** Ysabeau (with ui-sans-serif, system-ui, Segoe UI, Roboto)
-**Label/Mono Font:** IBM Plex Mono for figures and form error messages only. Cormorant Garamond appears as an accent
-serif for numerals and pricing row names.
+**Label/Mono Font:** IBM Plex Mono for figures and form error messages only. Cormorant
+Garamond appears as an accent serif for numerals and pricing row names.
 
 **Character:** Questrial's open, round geometry gives headings a friendly, level voice with
 no weight shouting. Ysabeau's humanist warmth keeps long passages easy on older eyes. The
@@ -458,8 +458,8 @@ Warm and plainspoken: large, calm targets that clearly say what happens next.
   Labels are persistent Questrial 0.9375rem above the field, with hints in Ink Soft below.
 - **Focus:** the border darkens to Ink, plus the global 3px focus ring.
 - **Error / Disabled:** a 2px Coral border, an error message in Ink IBM Plex Mono with a
-  Coral ▲ marker, and a Coral-bordered error summary (also Plex Mono) that links to each field. Required fields carry an
-  Ink asterisk. The message box shows a character count that darkens in the last 50. The privacy note sits in a Tint Wash box above the fields.
+  Coral ▲ marker, and a Coral-bordered error summary (also Plex Mono, 0.875rem) that links to
+  each field. Required fields carry an Ink asterisk. The message box shows a character count that darkens in the last 50. The privacy note sits in a Tint Wash box above the fields.
 
 ### Navigation
 - **Desktop (from 768px):** six sentence-case Questrial links (0.9375rem) in the sticky,
