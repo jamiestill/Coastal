@@ -20,12 +20,12 @@
   <meta property="og:title" content="Don't navigate the healthcare maze alone">
   <meta property="og:description"
     content="An experienced insurance and billing advocate to navigate diagnoses, claims, and denials on your behalf across Hampton Roads and Southern Virginia.">
-  <meta property="og:image" content="https://coastalhealthcareadvocates.org/og-image.png">
+  <meta property="og:image" content="https://coastalhealthcareadvocates.org/assets/img/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Coastal Healthcare Advocates: patient advocacy in Virginia Beach">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://coastalhealthcareadvocates.org/og-image.png">
+  <meta name="twitter:image" content="https://coastalhealthcareadvocates.org/assets/img/og-image.png">
   <meta name="twitter:image:alt" content="Coastal Healthcare Advocates: patient advocacy in Virginia Beach">
 
   <link rel="icon" href="favicon.ico" sizes="any">
@@ -47,7 +47,7 @@
   <link rel="preload" href="assets/fonts/ysabeau-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/questrial-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/hero-1024.avif" as="image" type="image/avif" media="(min-width: 1024px)">
-  <link rel="stylesheet" href="assets/css/site.css?v=6b2641f137">
+  <link rel="stylesheet" href="assets/css/site.css?v=41c5b0866e">
 
   <script type="application/ld+json">
   {
@@ -59,7 +59,7 @@
         "name": "Coastal Healthcare Advocates",
         "description": "Independent patient advocacy: insurance claim denial appeals, medical bill negotiation, EOB analysis, Medicare and Medicaid claims support, and medical debt resolution for individuals, families, and caregivers across Hampton Roads and Southern Virginia.",
         "url": "https://coastalhealthcareadvocates.org/",
-        "image": "https://coastalhealthcareadvocates.org/og-image.png",
+        "image": "https://coastalhealthcareadvocates.org/assets/img/og-image.png",
         "logo": "https://coastalhealthcareadvocates.org/assets/logomarks/logos/logo-horizontal-primary.svg",
         "telephone": "+1-757-574-0771",
         "email": "coastalhealthcareadvocates@gmail.com",
@@ -502,7 +502,7 @@
             <figure class="framed rise-1" data-rise>
               <picture>
                 <!-- Below 500px the figure is hidden; a 1px placeholder stops the photo downloading anyway. -->
-                <source media="(max-width: 499px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACw=">
+                <source media="(max-width: 499px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACw= 1w" sizes="1px">
                 <source type="image/avif" srcset="assets/img/hero-640.avif 640w, assets/img/hero-1024.avif 1024w"
                   sizes="(min-width: 1024px) 400px, 38vw">
                 <source type="image/webp" srcset="assets/img/hero-640.webp 640w, assets/img/hero-1024.webp 1024w"
@@ -510,7 +510,7 @@
                 <img src="assets/img/hero-1024.jpg"
                   srcset="assets/img/hero-640.jpg 640w, assets/img/hero-1024.jpg 1024w"
                   sizes="(min-width: 1024px) 400px, 38vw" width="1024" height="768" alt="" fetchpriority="high"
-                  decoding="async" class="block h-auto w-full">
+                  decoding="async" class="block w-full">
               </picture>
             </figure>
           </div>
@@ -579,7 +579,7 @@
                 srcset="assets/img/advocate-hand-640.jpg 640w, assets/img/advocate-hand-1024.jpg 1024w"
                 sizes="(min-width: 1024px) 340px, (min-width: 768px) 288px, 44vw" width="1024" height="1280"
                 alt="An advocate holds the hand of a patient resting in a hospital bed" loading="lazy" decoding="async"
-                class="block h-auto w-full">
+                class="block w-full">
             </picture>
           </figure>
           <p>A patient advocate works only for you, not for the hospital or the insurance company.</p>
@@ -675,7 +675,7 @@
             <span class="service-icon"><svg class="icon-lg" aria-hidden="true">
                 <use href="#i-doc-search" />
               </svg></span>
-            <h3 class="text-h4">EOB Analysis <span class="h-gloss">Explanation of Benefits</span></h3>
+            <h3 class="text-h4">EOB Analysis <span class="term-gloss">Explanation of Benefits</span></h3>
             <p class="mt-2">We compare your Explanation of Benefits line by line against the
               itemized statement to catch duplicate charges, coding mistakes, and services you never received.</p>
           </li>
@@ -757,10 +757,10 @@
 
     <!-- ================= ABOUT LINDSEY =============================== -->
     <section id="about" class="section" aria-labelledby="about-h">
-      <div class="canvas grid-9">
+      <div class="h-card canvas grid-9">
         <div class="about-rail" data-reveal>
-          <h2 id="about-h">Lindsey Hewitt</h2>
-          <p class="meta mt-1">Patient Advocate</p>
+          <h2 id="about-h" class="p-name">Lindsey Hewitt</h2>
+          <p class="p-job-title meta mt-1">Patient Advocate</p>
 
           <figure class="framed about-portrait mt-6 sm:mt-8">
             <picture>
@@ -772,13 +772,13 @@
                 srcset="assets/img/lindsey-512.jpg 512w, assets/img/lindsey-768.jpg 768w"
                 sizes="(min-width: 1024px) 22rem, (min-width: 700px) 18rem, 45vw" width="768"
                 height="960" alt="Lindsey Hewitt, patient advocate" loading="lazy" decoding="async"
-                class="block h-auto w-full">
+                class="u-photo block w-full">
             </picture>
           </figure>
         </div>
 
         <div class="about-bio" data-reveal>
-          <div class="prose-measure">
+          <div class="p-note prose-measure">
             <p>Lindsey Hewitt brings 18 years of experience in medical billing, insurance claims,
               and accounts receivable to her work as a patient advocate, with expertise from
               inside the system her clients are working to navigate.</p>
@@ -827,7 +827,7 @@
               </div>
               <div>
                 <dt>Based in</dt>
-                <dd>Virginia Beach, Virginia</dd>
+                <dd><span class="p-locality">Virginia Beach</span>, <span class="p-region">Virginia</span></dd>
               </div>
             </dl>
           </div>
@@ -1370,11 +1370,11 @@
   <!-- ================= FOOTER ==================================== -->
   <footer class="site-footer on-dark">
     <div class="canvas-wide py-14">
-      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <div class="h-card grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div class="lg:col-span-1">
           <img src="assets/logomarks/logos/logo-horizontal-reversed.svg" alt="Coastal Healthcare Advocates" width="265"
-            height="80" class="h-20 w-auto">
-          <p class="meta mt-4 on-dark-faint">Understanding Benefits. Resolving
+            height="80" class="p-name u-logo h-20 w-auto">
+          <p class="p-note meta mt-4 on-dark-faint">Understanding Benefits. Resolving
             Bills. Advocating for You.</p>
         </div>
 
@@ -1403,9 +1403,9 @@
         <div>
           <p class="footer-col-title">Contact</p>
           <address class="not-italic flex flex-col gap-2">
-            <a href="tel:+17575740771" class="num">757-574-0771</a>
+            <a href="tel:+17575740771" class="p-tel num">757-574-0771</a>
             <a href="mailto:coastalhealthcareadvocates@gmail.com"
-              class="break-words">coastalhealthcareadvocates@gmail.com</a>
+              class="u-email break-words">coastalhealthcareadvocates@gmail.com</a>
             <span class="on-dark-muted">Serving Hampton Roads and Southern Virginia</span>
           </address>
           <div class="mt-4 flex items-center gap-3">
@@ -1418,14 +1418,14 @@
             </a>
             <a href="https://www.facebook.com/profile.php?id=61590633634414" rel="noopener"
               aria-label="Coastal Healthcare Advocates on Facebook"
-              class="grid h-11 w-11 place-items-center rounded-full border border-white/20 hover:border-white/60">
+              class="u-url grid h-11 w-11 place-items-center rounded-full border border-white/20 hover:border-white/60">
               <svg class="icon" aria-hidden="true">
                 <use href="#i-facebook" />
               </svg>
             </a>
             <a href="https://calendly.com/coastalhealthcareadvocates/30min" rel="noopener"
               aria-label="Book a consultation on Calendly"
-              class="grid h-11 w-11 place-items-center rounded-full border border-white/20 hover:border-white/60">
+              class="u-url grid h-11 w-11 place-items-center rounded-full border border-white/20 hover:border-white/60">
               <svg class="icon" aria-hidden="true">
                 <use href="#i-calendly" />
               </svg>

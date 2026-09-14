@@ -22,6 +22,7 @@
       '<symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M13.5 21v-8.2h2.76l.41-3.2H13.5V7.55c0-.93.26-1.56 1.59-1.56h1.7V3.13c-.3-.04-1.3-.13-2.48-.13-2.46 0-4.15 1.5-4.15 4.26V9.6H7.4v3.2h2.76V21h3.34Z"/></symbol>' +
       '<symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7.6c2.5 0 4.5 2 4.4 4.5 0 2.4-2 4.4-4.5 4.3-2.4 0-4.4-2-4.3-4.5 0-2.4 2-4.3 4.4-4.3Z"/><path d="M12 2.6v2.4M12 19v2.4M4.6 4.7l1.7 1.7M17.7 17.7l1.7 1.7M2.6 12H5M19 12h2.4M4.6 19.4l1.7-1.7M17.7 6.4l1.7-1.7"/></g></symbol>' +
       '<symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" d="M20 14.2A8.3 8.3 0 0 1 9.7 4a8.4 8.4 0 1 0 10.3 10.2Z"/></symbol>' +
+      '<symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12h14.4M13 6.2l6 5.8-6 5.8"/></g></symbol>' +
     '</svg>';
 
   var HEADER_HTML =

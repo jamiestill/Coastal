@@ -88,8 +88,9 @@ re-builds the CSS and applies the security headers + Plausible proxy).
     so `logo-horizontal-dark.svg` must stay alongside `logo-horizontal-primary.svg`.
 6. **Street address** — the public site + JSON-LD show city/region only; the full street address
    lives in `t&c.html` where it's contractually needed. Confirm that's acceptable.
-7. **OG image** — `og-image.png` (1200×630) referenced in `<head>` is **not yet generated**.
-   Create one (logo + slogan on Paper) with a real browser/resvg/Inkscape and drop it at the root.
+7. **OG image** — `assets/img/og-image.png` (1200×630, logo on Navy) is the social share card,
+   referenced by `og:image`, `twitter:image` and the JSON-LD `image` in `index.html`. It is not
+   fingerprinted, so replace it at the same path and re-scrape the link in each platform's debugger.
 8. **Photography** — the provided hero illustration and headshot, plus two full-bleed photos
    behind the hero entry-path cards, both by Age Cymru (unsplash.com/@agecymru):
    `assets/img/path-crisis-1280.jpg` (conversation over coffee) and

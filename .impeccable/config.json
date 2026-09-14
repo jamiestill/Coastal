@@ -98,6 +98,15 @@
         ],
         "createdAt": "2026-09-14T06:13:15.360Z",
         "reason": "Claude triage: every flagged box is padded on its content, not itself — .canvas padding-inline inside section bands, .sg-table cells 0.7rem/0.95rem inside .table-wrap, .sg-specimen padding-block 1.1rem, .todo-flag 0.9rem/1rem (src/input.css)"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "financial-responsibility-agreement.html"
+        ],
+        "createdAt": "2026-09-14T07:08:02.232Z",
+        "reason": "Claude triage: .legal-prose .table-wrap is a zero-padding bordered scroll wrapper so the thead background runs edge to edge; th/td carry 0.7rem 0.95rem padding (src/input.css:1863), so no text is flush"
       }
     ]
   }

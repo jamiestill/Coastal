@@ -1663,7 +1663,7 @@
   .service-row > .service-icon .icon-lg { width: 3.25rem; height: 3.25rem; }
   .service-row > :not(.service-icon) { grid-column: 2; }
   .service-row p { margin-top: 0.4rem; }
-  .h-gloss {
+  .term-gloss {
     display: block;
     margin-top: 0.1rem;
     font-family: theme('fontFamily.body');

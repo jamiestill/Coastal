@@ -77,7 +77,7 @@
 
 # Social share card — not fingerprinted, so keep the window modest.
 [[headers]]
-  for = "/og-image.png"
+  for = "/assets/img/og-image.png"
   [headers.values]
     Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
 
