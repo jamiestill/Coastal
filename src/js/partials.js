@@ -34,7 +34,7 @@
           '<span class="brand-logo" role="img" aria-label="Coastal Healthcare Advocates"></span>' +
         '</a>' +
         '<div class="ml-auto flex items-center gap-4 relative">' +
-          '<nav class="hidden items-center gap-4 md:flex" aria-label="Primary">' +
+          '<nav class="hidden items-center gap-4 nav:flex" aria-label="Primary">' +
             '<a class="nav-link" href="index.html#services">Services</a>' +
             '<a class="nav-link" href="index.html#who">Who we help</a>' +
             '<a class="nav-link" href="index.html#about">About</a>' +
@@ -42,14 +42,14 @@
             '<a class="nav-link" href="index.html#pricing">Pricing</a>' +
             '<a class="nav-link" href="index.html#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a>' +
           '</nav>' +
-          '<button type="button" class="header-icon-btn theme-orb hidden md:inline-flex" data-theme-toggle aria-label="Switch to dark theme">' +
+          '<button type="button" class="header-icon-btn theme-orb hidden nav:inline-flex" data-theme-toggle aria-label="Switch to dark theme">' +
             '<svg class="theme-orb-ico theme-orb-ico--sun" aria-hidden="true"><use href="#i-sun"/></svg>' +
             '<svg class="theme-orb-ico theme-orb-ico--moon" aria-hidden="true"><use href="#i-moon"/></svg>' +
           '</button>' +
-          '<button type="button" class="header-icon-btn md:hidden" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">' +
+          '<button type="button" class="header-icon-btn nav:hidden" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">' +
             '<svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>' +
           '</button>' +
-          '<nav id="mobile-nav" class="hidden md:hidden" aria-label="Primary (mobile)" hidden>' +
+          '<nav id="mobile-nav" class="hidden nav:hidden" aria-label="Primary (mobile)" hidden>' +
             '<ul class="flex flex-col gap-1">' +
               '<li><a class="nav-link" href="index.html#services">Services</a></li>' +
               '<li><a class="nav-link" href="index.html#who">Who we help</a></li>' +
@@ -206,7 +206,7 @@
         navToggle.focus();
       }
     });
-    window.matchMedia('(min-width: 768px)').addEventListener('change', function (e) {
+    window.matchMedia('(min-width: 884px)').addEventListener('change', function (e) {
       if (e.matches) setNav(false);
     });
   }

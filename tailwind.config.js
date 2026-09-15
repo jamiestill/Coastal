@@ -18,7 +18,9 @@ module.exports = {
       padding: { DEFAULT: '1.5rem', lg: '1.5rem' },
       screens: { lg: '1000px' },
     },
-    screens: { sm: '480px', md: '768px', lg: '1024px', xl: '1200px' },
+    // nav: where the desktop links replace the hamburger — 48px left between logo and
+    // links (the sum is in src/input.css above the Primary nav rule).
+    screens: { sm: '480px', md: '768px', nav: '884px', lg: '1024px', xl: '1200px' },
     extend: {
       colors: {
         // The only colours are the style guide's. Palette (identity, fixed):

@@ -718,6 +718,14 @@
   }
   .header-icon-btn:hover { background: var(--tag-bg); }
   .header-icon-btn svg { transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1); }
+  /* The hamburger wears the menu panel's tokens so it matches the panel it opens:
+     page colours in light mode, a Sky fill with Navy lines in dark mode. */
+  #nav-toggle {
+    background: var(--panel-bg);
+    border-color: var(--panel-line);
+    color: var(--panel-ink);
+  }
+  #nav-toggle:hover { background: var(--panel-tag-bg); }
   #nav-toggle[aria-expanded="true"] svg { transform: rotate(90deg); }
 
   /* Mobile menu — a compact panel hung off the toggle button, not a full-width
@@ -777,8 +785,12 @@
     #mobile-nav.is-open { transform: none; }
   }
 
-  /* Primary desktop nav — tighter type and gaps so the six links clear the logo
-     down at the md (768px) breakpoint, where the hamburger now takes over. */
+  /* Primary desktop nav — tighter type and gaps so the six links clear the logo.
+     It appears at the `nav` screen (884px, tailwind.config.js); below that the
+     hamburger takes over. 884px is where 48px of space is left between the logo
+     box and the first link: 64px padding + 289.5px logo + 482px nav group
+     (350px of Questrial 15px links, 5×16px gaps, 16px gap, 36px theme orb).
+     Change the links, their size or the logo and that sum changes with it. */
   nav[aria-label="Primary"] .nav-link {
     font-size: 0.9375rem;
     letter-spacing: 0;
@@ -1813,7 +1825,7 @@
   .theme-switch--menu:focus-visible { background: var(--tag-bg); }
 
   /* Desktop header: the same toggle as a single circle (36px, a notch under the
-     44px header buttons, so the six links still clear the logo at md). Sun and
+     44px header buttons, so the six links still clear the logo at the nav screen). Sun and
      moon share the circle; on toggle the sun swipes out left as the moon comes in
      from the right, and back. Mobile gets the menu row instead. */
   .theme-orb {

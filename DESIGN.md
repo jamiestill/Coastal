@@ -297,8 +297,8 @@ grounds, or text on light grounds. Where they must carry meaning, use their `-in
 
 **The Semantic Token Rule.** Components never hard-code light or dark values. Every theme
 difference lives in the root token set (`--bg`, `--surface`, `--ink`, `--cta-bg`, `--panel-*`
-and so on). In dark theme the contact drawer and mobile menu invert to a Beacon Sky ground
-with a Harbor Navy CTA.
+and so on). In dark theme the contact drawer, mobile menu and its menu button invert to a Beacon
+Sky ground with a Harbor Navy CTA.
 
 ## Typography
 
@@ -376,7 +376,7 @@ Grids are simple and collapse early:
 
 The sticky header's height (logo height + 2rem + 1px) is one token, `--header-h`. Scroll
 padding and every sticky offset derive from it. The logo is 3.25rem tall on phones, about 5.5rem
-from 480px and 6.25rem from 1024px. Breakpoints are 480 / 768 / 1024 / 1200px, with
+from 480px and 6.25rem from 1024px. Breakpoints are 480 / 768 / 884 (header nav only) / 1024 / 1200px, with
 purpose-specific steps at 500, 640, 700 and 900px.
 
 **The One Column of Attention Rule.** Content never spreads wider than the 1000px reading
@@ -463,14 +463,15 @@ Warm and plainspoken: large, calm targets that clearly say what happens next.
   each field. Required fields carry an Ink asterisk. The message box shows a character count that darkens in the last 50. The privacy note sits in a Tint Wash box above the fields.
 
 ### Navigation
-- **Desktop (from 768px):** six sentence-case Questrial links (0.9375rem) in the sticky,
+- **Desktop (from 884px, the `nav` screen — where 48px of space is left between logo and links):** six sentence-case Questrial links (0.9375rem) in the sticky,
   translucent header (92% ground with a light blur). Hover and keyboard focus wipe a 2px
   Beacon Sky underline in from the left, and the current section holds it.
 - **Call button:** a 44px circular phone button beside the nav (Sky Ink icon), showing the
   number as text from 1024px. The phone number is always one tap away.
-- **Mobile:** a 44px circular menu button opens a compact panel under it, scaling in from
-  the top right: a 15px-rounded panel with 8px-rounded link rows and a Tint Wash hover. The panel uses the
-  `--panel-*` tokens (a Beacon Sky ground in dark theme).
+- **Mobile and tablet (below 884px):** a 44px circular menu button opens a compact panel under it, scaling in from
+  the top right: a 15px-rounded panel with 8px-rounded link rows and a Tint Wash hover. The panel and the
+  menu button both use the `--panel-*` tokens (a Beacon Sky ground in dark theme, so the
+  button matches the panel it opens).
 - **Header behaviour:** gains the scrolled shadow once the page leaves the top. It slides
   away near the closing booking band and returns on any upward scroll or keyboard focus.
 
