@@ -222,6 +222,15 @@
         ],
         "createdAt": "2026-09-15T03:11:16.853Z",
         "reason": "Claude triage: .sg-chip-navy is an empty colour chip; the #0F1E4A hex label sits on .sg-swatch-body (page surface), so the Navy-on-Navy pairing is a scanner misread"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "404.html"
+        ],
+        "createdAt": "2026-09-15T04:03:41.061Z",
+        "reason": "Claude verified: only sub-1.3x text on 404.html is the H1 at the site heading scale (tailwind.config.js h1 lineHeight 1.12, intentional for display type); body copy uses the body line-height — same finding already suppressed for the legal pages and index.html"
       }
     ]
   }

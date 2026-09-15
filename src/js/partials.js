@@ -11,8 +11,10 @@
      <div data-partial="header"></div>   ... after the skip link
      <div data-partial="footer"></div>   ... before the scripts
 
-   All in-page links point at index.html#section, since the sections live
-   there, not on the page doing the including. */
+   All in-page links point at /index.html#section, since the sections live
+   there, not on the page doing the including. Every URL here is
+   root-relative (/assets/…, /index.html…) because 404.html also loads this
+   file, and Netlify serves it at whatever nested path was requested. */
 (function () {
   'use strict';
 
@@ -30,17 +32,17 @@
   var HEADER_HTML =
     '<header class="site-header">' +
       '<div class="canvas-wide flex items-center gap-4 py-4">' +
-        '<a href="index.html#top" class="flex items-center" aria-label="Coastal Healthcare Advocates home">' +
+        '<a href="/index.html#top" class="flex items-center" aria-label="Coastal Healthcare Advocates home">' +
           '<span class="brand-logo" role="img" aria-label="Coastal Healthcare Advocates"></span>' +
         '</a>' +
         '<div class="ml-auto flex items-center gap-4 relative">' +
           '<nav class="hidden items-center gap-4 nav:flex" aria-label="Primary">' +
-            '<a class="nav-link" href="index.html#services">Services</a>' +
-            '<a class="nav-link" href="index.html#who">Who we help</a>' +
-            '<a class="nav-link" href="index.html#about">About</a>' +
-            '<a class="nav-link" href="index.html#how">How it works</a>' +
-            '<a class="nav-link" href="index.html#pricing">Pricing</a>' +
-            '<a class="nav-link" href="index.html#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a>' +
+            '<a class="nav-link" href="/index.html#services">Services</a>' +
+            '<a class="nav-link" href="/index.html#who">Who we help</a>' +
+            '<a class="nav-link" href="/index.html#about">About</a>' +
+            '<a class="nav-link" href="/index.html#how">How it works</a>' +
+            '<a class="nav-link" href="/index.html#pricing">Pricing</a>' +
+            '<a class="nav-link" href="/index.html#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a>' +
           '</nav>' +
           '<button type="button" class="header-icon-btn theme-orb hidden nav:inline-flex" data-theme-toggle aria-label="Switch to dark theme">' +
             '<svg class="theme-orb-ico theme-orb-ico--sun" aria-hidden="true"><use href="#i-sun"/></svg>' +
@@ -51,12 +53,12 @@
           '</button>' +
           '<nav id="mobile-nav" class="hidden nav:hidden" aria-label="Primary (mobile)" hidden>' +
             '<ul class="flex flex-col gap-1">' +
-              '<li><a class="nav-link" href="index.html#services">Services</a></li>' +
-              '<li><a class="nav-link" href="index.html#who">Who we help</a></li>' +
-              '<li><a class="nav-link" href="index.html#about">About Lindsey</a></li>' +
-              '<li><a class="nav-link" href="index.html#how">How it works</a></li>' +
-              '<li><a class="nav-link" href="index.html#pricing">Pricing</a></li>' +
-              '<li><a class="nav-link" href="index.html#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a></li>' +
+              '<li><a class="nav-link" href="/index.html#services">Services</a></li>' +
+              '<li><a class="nav-link" href="/index.html#who">Who we help</a></li>' +
+              '<li><a class="nav-link" href="/index.html#about">About Lindsey</a></li>' +
+              '<li><a class="nav-link" href="/index.html#how">How it works</a></li>' +
+              '<li><a class="nav-link" href="/index.html#pricing">Pricing</a></li>' +
+              '<li><a class="nav-link" href="/index.html#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a></li>' +
             '</ul>' +
             '<div class="mobile-nav-theme">' +
               '<button type="button" class="theme-switch theme-switch--menu" data-theme-toggle aria-label="Switch to dark theme">' +
@@ -79,36 +81,36 @@
       '<div class="canvas-wide py-14">' +
         '<div class="h-card grid gap-10 md:grid-cols-2 lg:grid-cols-[repeat(4,auto)] lg:justify-between">' +
           '<div class="lg:col-span-1">' +
-            '<img src="assets/logomarks/logos/logo-horizontal-deep-tone-alt.svg" alt="Coastal Healthcare Advocates" width="265" height="80" class="p-name u-logo theme-icon-light h-20 w-auto">' +
-            '<img src="assets/logomarks/logos/logo-horizontal-reversed.svg" alt="Coastal Healthcare Advocates" width="265" height="80" class="theme-icon-dark h-20 w-auto">' +
+            '<img src="/assets/logomarks/logos/logo-horizontal-deep-tone-alt.svg" alt="Coastal Healthcare Advocates" width="265" height="80" class="p-name u-logo theme-icon-light h-20 w-auto">' +
+            '<img src="/assets/logomarks/logos/logo-horizontal-reversed.svg" alt="Coastal Healthcare Advocates" width="265" height="80" class="theme-icon-dark h-20 w-auto">' +
             '<p class="p-note meta mt-4 max-w-[17rem] footer-dim">Understanding Benefits. Resolving Bills. Advocating for You.</p>' +
           '</div>' +
           '<nav aria-label="Site sections">' +
             '<p class="footer-col-title">Explore</p>' +
             '<ul class="flex flex-col gap-2">' +
-              '<li><a href="index.html#services">Services</a></li>' +
-              '<li><a href="index.html#who">Who we help</a></li>' +
-              '<li><a href="index.html#about">About Lindsey</a></li>' +
-              '<li><a href="index.html#how">How it works</a></li>' +
-              '<li><a href="index.html#pricing">Pricing</a></li>' +
-              '<li><a href="index.html#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a></li>' +
+              '<li><a href="/index.html#services">Services</a></li>' +
+              '<li><a href="/index.html#who">Who we help</a></li>' +
+              '<li><a href="/index.html#about">About Lindsey</a></li>' +
+              '<li><a href="/index.html#how">How it works</a></li>' +
+              '<li><a href="/index.html#pricing">Pricing</a></li>' +
+              '<li><a href="/index.html#faqs"><abbr title="Frequently asked questions">FAQs</abbr></a></li>' +
             '</ul>' +
           '</nav>' +
           '<nav aria-label="Legal">' +
             '<p class="footer-col-title">Legal</p>' +
             '<ul class="flex flex-col gap-2">' +
-              '<li><a href="accessibility.html">Accessibility statement</a></li>' +
-              '<li><a href="privacy.html">Privacy Notice</a></li>' +
-              '<li><a href="t&amp;c.html">Terms &amp; Conditions</a></li>' +
+              '<li><a href="/accessibility.html">Accessibility statement</a></li>' +
+              '<li><a href="/privacy.html">Privacy Notice</a></li>' +
+              '<li><a href="/t&amp;c.html">Terms &amp; Conditions</a></li>' +
               '<li><button type="button" id="cookie-prefs" class="footer-linkish">Site preferences</button></li>' +
             '</ul>' +
           '</nav>' +
           '<div>' +
             '<p class="footer-col-title">Contact</p>' +
             '<address class="not-italic flex flex-col gap-2">' +
-              '<span><a href="index.html#intake" data-tel-area="757" data-tel-line="5740771" class="p-tel">Call us</a><br>' +
+              '<span><a href="/index.html#intake" data-tel-area="757" data-tel-line="5740771" class="p-tel">Call us</a><br>' +
                 '<span class="footer-dim">M–F 8am–5pm ET</span></span>' +
-              '<a href="index.html#intake" data-email-user="coastalhealthcareadvocates" data-email-domain="gmail.com" class="break-words">Email us</a>' +
+              '<a href="/index.html#intake" data-email-user="coastalhealthcareadvocates" data-email-domain="gmail.com" class="break-words">Email us</a>' +
               '<span class="footer-dim">Serving Hampton Roads and Southern Virginia</span>' +
             '</address>' +
             '<div class="mt-4 flex items-center gap-3">' +
@@ -132,15 +134,15 @@
             '</div>' +
           '</div>' +
           '<figure class="footer-qr">' +
-            '<img src="assets/img/qr-site.svg" alt="QR code linking to coastalhealthcareadvocates.org" width="29" height="29">' +
+            '<img src="/assets/img/qr-site.svg" alt="QR code linking to coastalhealthcareadvocates.org" width="29" height="29">' +
             '<figcaption class="meta">Scan to visit online</figcaption>' +
           '</figure>' +
         '</div>' +
         '<div class="mt-12 flex flex-col gap-x-10 gap-y-6 border-t footer-rule pt-8 md:flex-row md:flex-wrap md:items-center md:justify-between">' +
           '<div class="flex flex-wrap items-center gap-x-8 gap-y-4">' +
             '<a href="https://www.gnanow.org/" rel="noopener" class="gna-badge shrink-0" aria-label="Greater National Advocates (verified member)">' +
-              '<img src="assets/img/gna-logo-navy.svg" alt="Greater National Advocates (verified member)" width="361" height="49" class="theme-icon-light h-9 w-auto">' +
-              '<img src="assets/img/gna-logo-white.svg" alt="Greater National Advocates (verified member)" width="361" height="49" class="theme-icon-dark h-9 w-auto">' +
+              '<img src="/assets/img/gna-logo-navy.svg" alt="Greater National Advocates (verified member)" width="361" height="49" class="theme-icon-light h-9 w-auto">' +
+              '<img src="/assets/img/gna-logo-white.svg" alt="Greater National Advocates (verified member)" width="361" height="49" class="theme-icon-dark h-9 w-auto">' +
             '</a>' +
           '</div>' +
           '<div class="meta flex flex-col gap-1 footer-dim">' +
@@ -175,10 +177,17 @@
   mount('header', HEADER_HTML);
   mount('footer', FOOTER_HTML);
 
-  // Flag the current page in the footer's Legal list.
-  var here = location.pathname.split('/').pop() || 'index.html';
+  // Flag the current page in the footer's Legal list. Compare resolved paths
+  // by file name, minus ".html", so the root-relative hrefs and Netlify's
+  // pretty URLs (/privacy for /privacy.html) both match. Decoded first, so the
+  // canonical /t%26c.html matches the /t&c.html link.
+  var pageName = function (path) {
+    try { path = decodeURIComponent(path); } catch (e) { /* malformed: compare as-is */ }
+    return (path.split('/').pop() || 'index.html').replace(/\.html$/, '');
+  };
+  var here = pageName(location.pathname);
   document.querySelectorAll('.site-footer nav[aria-label="Legal"] a').forEach(function (a) {
-    if (a.getAttribute('href') === here) a.setAttribute('aria-current', 'page');
+    if (pageName(a.pathname) === here) a.setAttribute('aria-current', 'page');
   });
 
   /* Mobile navigation disclosure — a trimmed copy of the handler in main.js,
