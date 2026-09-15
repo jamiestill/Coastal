@@ -18,7 +18,7 @@ Serene / calm / elegant light theme; WCAG 2.1 AA; hand-drawn SVG icons; Tailwind
 | `assets/img/*.jpg` | Derivatives of `Hero Image.png` and the headshot (sips; EXIF stripped). |
 | `assets/*.pdf` | Client-facing PDFs in the Coastal house style: `Lindsey Profile.pdf`, `CHA_Pricing_Sheet.pdf`, and `Coastal-Financial-Responsibility-Agreement-DRAFT.pdf` (rebuilt from `src/input.css` tokens via a print HTML + Brave headless `--print-to-pdf`; still a draft). |
 | `robots.txt`, `sitemap.xml`, `site.webmanifest`, `favicon.ico`, `apple-touch-icon.png` | SEO / PWA basics. |
-| `netlify.toml` | `publish = "."`, security headers/CSP, Plausible proxy redirects, safety-net CSS rebuild. |
+| `netlify.toml` | `publish = "dist"` (allowlist copied by `scripts/build-site.js`), security headers/CSP, Plausible proxy redirects. |
 | `tools/tailwindcss` | Standalone Tailwind v3.4.17 binary (gitignored). |
 
 ## Build
@@ -41,8 +41,8 @@ python3 -m http.server 8000        # then open http://localhost:8000/
 
 ## Deploy
 
-Push to GitHub Pages (serves `assets/css/site.css` as committed — no CI) or Netlify (`netlify.toml`
-re-builds the CSS and applies the security headers + Plausible proxy).
+Netlify only (no GitHub Pages). `npm run build` rebuilds the CSS/JS and copies the public files into
+`dist/`, which is all Netlify serves; `netlify.toml` applies the security headers + Plausible proxy.
 
 ## Verified
 

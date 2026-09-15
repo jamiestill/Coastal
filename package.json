@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "node scripts/build-js.js && tailwindcss -i src/input.css -o assets/css/site.css --watch",
     "build:js": "node scripts/build-js.js",
-    "build": "tailwindcss -i src/input.css -o assets/css/site.css --minify && node scripts/build-js.js && node scripts/version-assets.js",
+    "build": "tailwindcss -i src/input.css -o assets/css/site.css --minify && node scripts/build-js.js && node scripts/version-assets.js && node scripts/build-site.js",
     "build:pdfs": "node scripts/build-pdfs.js"
   },
   "devDependencies": {

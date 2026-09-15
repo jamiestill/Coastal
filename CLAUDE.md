@@ -14,10 +14,12 @@ reference imagery remain alongside it. `creative/Creative Brief.md` is the origi
 - **Stack:** hand-authored static HTML + TailwindCSS, deployed on **Netlify** — Netlify Forms
   backs the intake form, `netlify.toml` redirects proxy Plausible analytics, and `netlify.toml`
   carries the security + cache headers. Netlify is the only host (no GitHub Pages).
-- `netlify.toml` publishes the repo root (`publish = "."`), so it also 404s the working files
-  that would otherwise be public: the `.md` docs, `creative/`, `Inspiration/`, `swag/`, `src/`,
-  `scripts/`, `tools/`, the dot-folders and the package/lock/config files. Add a rule there
-  whenever you add a new top-level file or folder that isn't part of the site.
+- `netlify.toml` publishes **`dist/`** (git-ignored), not the repo root. The last step of `npm run
+  build`, `scripts/build-site.js`, copies an **allowlist** into it: the site's HTML pages, the
+  root icons / manifest / `robots.txt` / `sitemap.xml`, and `assets/` (minus dotfiles). Docs, `creative/`, `src/`, tooling and config never deploy, so
+  new working files are private by default. When you add a new **public** root-level file or page,
+  add it to `ROOT_FILES` in `build-site.js`, or it will 404 in production. Anything under
+  `assets/` is public.
 - Run `npm install` once (Node ≥ 20). Then `npm run dev` for Tailwind `--watch` while editing
   `src/input.css`, or `npm run build` for the minified one-shot. Netlify runs `npm run build`.
 - `assets/css/site.css` is **generated** — git-ignored, never hand-edit it. Change

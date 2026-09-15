@@ -1,10 +1,12 @@
 # Coastal Healthcare Advocates — Netlify config.
-# Static files at the repo root. `npm run build` compiles src/input.css into
-# assets/css/site.css (git-ignored); Netlify installs from package-lock.json and
-# caches node_modules between deploys.
+# `npm run build` compiles src/input.css into assets/css/site.css and src/js into
+# assets/js (both git-ignored), stamps ?v= hashes, then scripts/build-site.js copies
+# an allowlist of public files into dist/. Only dist/ is published, so the repo's
+# docs, sources, tooling and config never reach the live site. Netlify installs
+# from package-lock.json and caches node_modules between deploys.
 
 [build]
-  publish = "."
+  publish = "dist"
   command = "npm run build"
 
 [build.environment]
@@ -113,148 +115,3 @@
   from = "/thanks"
   to = "/index.html"
   status = 200
-
-# --- Keep the repo's working files off the public site ---
-# publish = "." deploys the whole repo root, so the brief, research, project docs,
-# sources and tooling would otherwise be downloadable from the live domain (and
-# several carry the contact email that the pages now assemble at runtime; see
-# src/js/email.js). Serve the 404 page for them instead. force = true is needed
-# because the files do exist. Only the site pages, assets/, and the root icons,
-# manifest, robots.txt and sitemap.xml stay reachable.
-[[redirects]]
-  from = "/CLAUDE.md"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/PRODUCT.md"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/DESIGN.md"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/README.md"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/SITE.md"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/creative/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/Inspiration/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/swag/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/src/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/scripts/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/tools/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/node_modules/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/.claude/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/.agents/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/.codex/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/.github/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/.impeccable/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/package.json"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/package-lock.json"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/deno.lock"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/skills-lock.json"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/tailwind.config.js"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/netlify.toml"
-  to = "/404.html"
-  status = 404
-  force = true
