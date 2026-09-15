@@ -510,7 +510,7 @@
     text-decoration-color: var(--ink-soft);
   }
   .link-quiet:hover { text-decoration-color: currentColor; }
-  /* A trailing icon (the "→" on "Talk about referrals", "See credentials")
+  /* A trailing icon (the "→" on "Talk about referrals")
      nudges in its direction of travel on hover. Leading icons — the PDF marks —
      are :first-child, so :last-child leaves them alone. */
   .link-quiet svg { transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1); }
