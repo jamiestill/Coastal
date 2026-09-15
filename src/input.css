@@ -1931,6 +1931,19 @@
   .service-row > .service-icon .icon-lg { width: 3.25rem; height: 3.25rem; }
   .service-row > :not(.service-icon) { grid-column: 2; }
   .service-row p { margin-top: 0.4rem; }
+  .service-points {
+    display: grid;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+    list-style: decimal;
+  }
+  .service-points > li { padding-left: 0.15rem; }
+  .service-points > li::marker {
+    color: var(--link);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
   .term-gloss {
     display: block;
     margin-top: 0.1rem;
@@ -2568,6 +2581,7 @@
     break-inside: avoid;
   }
   .service-row > .service-icon .icon-lg { width: 2.25rem; height: 2.25rem; }
+  .service-points { gap: 0.1rem; margin-top: 0.25rem; }
 
   /* --- Who we help --- */
   .who-list { grid-template-columns: 1fr 1fr; gap: 1.1rem 2rem; }
