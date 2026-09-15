@@ -772,6 +772,12 @@
     --surface: var(--panel-surface);
     --ink: var(--panel-ink);
     --ink-soft: var(--panel-ink-soft);
+    /* Scrollspy's "current" colour (--nav-current) is a page-level token that
+       tracks --bg's contrast pair, not this panel's inverted one — in dark
+       theme it resolves to Sky, same as --panel-bg, so the current link's
+       text matched its own background and vanished. Re-point it at the ink
+       colour already proven readable on --panel-bg. */
+    --nav-current: var(--panel-ink);
     --line: var(--panel-line);
     --line-soft: var(--panel-line-soft);
     --tag-bg: var(--panel-tag-bg);
