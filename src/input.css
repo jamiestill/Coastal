@@ -2226,9 +2226,8 @@
 
   /* --- Hero maze: a generated maze (#maze-hero) behind the whole hero, anchored to
      its bottom-right corner. It fades in toward the right, so the copy column stays
-     clean and the maze runs around and under the illustration. On phones, where the
-     copy is full width, it becomes a band under the content that fades in toward the
-     right. Walls only, static; non-scaling strokes hold 1.75px. --- */
+     clean and the maze runs around and under the illustration. Phones get the same
+     right-hand fade. Walls only, static; non-scaling strokes hold 1.75px. --- */
   .maze-hero {
     position: absolute;
     inset: 0;
@@ -2246,19 +2245,6 @@
   }
   .maze-hero use { opacity: 0.16; }
   #top > .canvas.section { padding-bottom: clamp(4rem, 2rem + 5vw, 7rem); }
-  @media (max-width: 499px) {
-    #top > .canvas.section { padding-bottom: 7.5rem; }
-    .maze-hero {
-      top: auto;
-      height: 9rem;
-      -webkit-mask-image: linear-gradient(to right, transparent 10%, #000 85%),
-                          linear-gradient(to bottom, transparent, #000 65%);
-      -webkit-mask-composite: source-in;
-              mask-image: linear-gradient(to right, transparent 10%, #000 85%),
-                          linear-gradient(to bottom, transparent, #000 65%);
-              mask-composite: intersect;
-    }
-  }
 
   /* --- Fine print, read: a sample statement beside three plain notes. The
      statement is a paper document (Surface, hairline, Lift); flagged lines take

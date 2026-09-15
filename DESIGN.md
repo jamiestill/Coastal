@@ -539,8 +539,8 @@ Two generated mazes, walls only, drawn once each in the sprite and placed with `
 
 - **Hero** (`#maze-hero`, 36×18, no border): behind the whole hero, anchored bottom-right, in Ink
   at 16%. It fades in toward the right (transparent to 34% of the width, full by 88%), so the
-  copy column stays clean and the maze runs around and under the illustration. On phones, where
-  the copy is full width, it is a 9rem band under the content that fades in toward the right.
+  copy column stays clean and the maze runs around and under the illustration. Phones get the
+  same full-hero placement and right-hand fade.
   Static.
 - **Booking band** (`#maze-cross`, 44×8; `#maze-cross-sm`, 16×6 at 640px and below): full width
   behind the band's copy as a background, anchored to its bottom edge and fading out upward so
