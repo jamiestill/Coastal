@@ -1,19 +1,34 @@
 /* Coastal Healthcare Advocates — light/dark theme.
    Loaded blocking in <head> so the stored choice applies before first paint
    (CSS custom properties + the CSS-swapped logo follow the [data-theme] attr).
-   The choice lasts for the browsing session only (sessionStorage); a new
-   session follows the OS preference again. Not an ES module: it must run
-   synchronously. */
+   The page follows the device's light/dark setting unless the visitor picks
+   one with the toggle. That pick is kept (localStorage, with the time it was
+   made) for 8 hours; after that the device setting applies again. Not an ES
+   module: it must run synchronously. */
 (function () {
   var KEY = 'cha-theme';
+  var TTL = 8 * 60 * 60 * 1000; // how long a toggled pick lasts
   var root = document.documentElement;
   var mq = window.matchMedia('(prefers-color-scheme: dark)');
 
-  // Earlier builds kept the choice in localStorage; drop it so it can't linger.
-  try { localStorage.removeItem(KEY); } catch (e) {}
-
+  // The pick from the last 8 hours, or null. An older pick (or an unreadable
+  // value, such as the bare 'light'/'dark' earlier builds stored) is removed.
   function stored() {
-    try { return sessionStorage.getItem(KEY); } catch (e) { return null; }
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (!raw) return null;
+      var saved = null;
+      try { saved = JSON.parse(raw); } catch (e) {}
+      var age = saved ? Date.now() - saved.at : NaN;
+      if (age >= 0 && age < TTL && (saved.theme === 'light' || saved.theme === 'dark')) {
+        return saved.theme;
+      }
+      localStorage.removeItem(KEY);
+    } catch (e) {}
+    return null;
+  }
+  function save(theme) {
+    try { localStorage.setItem(KEY, JSON.stringify({ theme: theme, at: Date.now() })); } catch (e) {}
   }
   function effective() {
     var s = stored();
@@ -70,7 +85,7 @@
     btns.forEach(function (btn) {
       btn.addEventListener('click', function () {
         var next = effective() === 'dark' ? 'light' : 'dark';
-        try { sessionStorage.setItem(KEY, next); } catch (e) {}
+        save(next);
         crossfade();
         apply(next);
         sync();
