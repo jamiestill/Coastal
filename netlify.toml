@@ -12,6 +12,17 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Netlify Emails integration (Mailgun). The plugin generates the `emails` function
+# from the templates in emails/ (e.g. emails/base/index.html) at build and dev time.
+# netlify/functions/submission-created.mjs sends the intake emails through it.
+# Provider config lives only in Netlify env vars (scopes Builds + Functions), NOT here:
+# NETLIFY_EMAILS_PROVIDER, NETLIFY_EMAILS_PROVIDER_API_KEY, NETLIFY_EMAILS_SECRET,
+# NETLIFY_EMAILS_MAILGUN_DOMAIN, NETLIFY_EMAILS_MAILGUN_HOST_REGION, NETLIFY_EMAILS_DIRECTORY.
+# Email previews: `netlify dev`, then /.netlify/functions/emails (dev, deploy-preview
+# and branch-deploy contexts only). Docs: docs.netlify.com/extend/install-and-use/setup-guides/email-integration/
+[[plugins]]
+  package = "@netlify/plugin-emails"
+
 # `netlify dev` serves the repo root, not dist/ — dist/ only exists after a full
 # build, and serving the root means edits show up without re-running build-site.js.
 # Run `npm run dev` alongside it to keep site.css and assets/js regenerating.

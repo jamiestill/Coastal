@@ -1,0 +1,144 @@
+<!doctype html>
+<!--
+  Coastal Healthcare Advocates — base email template (Netlify Emails integration).
+
+  One branded shell for every email the site sends. Netlify renders it with Handlebars,
+  so everything below is driven by the `parameters` object in the send request:
+
+    siteUrl     origin for the logo and links, e.g. "https://coastalhealthcareadvocates.org"
+    preheader   inbox preview line (hidden in the body)
+    heading     the one headline
+    paragraphs  array of plain-text paragraphs (escaped — never pass HTML)
+    rows        optional array of { label, value } shown as a two-column table
+    cta         optional { label, url } button
+    footnote    optional small print under the content
+
+  Email-client rules: tables for layout, inline styles, no web fonts (the site's Questrial /
+  Ysabeau fall back to similar system faces), no CSS gradients or background images.
+  Colours are the brand palette (assets/logomarks/README.txt): Navy #0F1E4A, Sky #4FACFE,
+  Paper #F5FBFF, plus the site's ink-soft #3C4A73, line #DDE4F2 and sky-ink #1F74C4 for links.
+-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+  <title>{{heading}}</title>
+  <style>
+    body { margin: 0; padding: 0; }
+    a { color: #1F74C4; }
+    @media (max-width: 620px) {
+      .container { width: 100% !important; }
+      .pad { padding-left: 24px !important; padding-right: 24px !important; }
+      .row-label, .row-value { display: block !important; width: auto !important; }
+      .row-label { padding-bottom: 0 !important; border-bottom: 0 !important; }
+    }
+  </style>
+</head>
+<body style="margin:0; padding:0; background-color:#F5FBFF; color:#0F1E4A;">
+  <div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">{{preheader}}&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;</div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F5FBFF;">
+    <tr>
+      <td align="center" style="padding:32px 12px;">
+        <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px;">
+
+          <!-- Logo -->
+          <tr>
+            <td class="pad" style="padding:0 40px 24px;">
+              <a href="{{siteUrl}}/" style="text-decoration:none;">
+                <img src="{{siteUrl}}/assets/logomarks/logos/logo-horizontal-primary-512px.png" width="240" height="73"
+                  alt="Coastal Healthcare Advocates" style="display:block; border:0; width:240px; height:auto; color:#0F1E4A; font-family:'Century Gothic','Avenir Next',Arial,sans-serif; font-size:18px;">
+              </a>
+            </td>
+          </tr>
+
+          <!-- Card -->
+          <tr>
+            <td style="background-color:#FFFFFF; border:1px solid #DDE4F2; border-radius:12px; overflow:hidden;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td height="6" style="height:6px; line-height:6px; font-size:0; background-color:#4FACFE; border-radius:12px 12px 0 0;">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td class="pad" style="padding:36px 40px 12px; font-family:'Century Gothic','Avenir Next',Arial,sans-serif; font-size:26px; line-height:1.3; font-weight:400; color:#0F1E4A;">
+                    <h1 style="margin:0; font-size:26px; line-height:1.3; font-weight:400; color:#0F1E4A;">{{heading}}</h1>
+                  </td>
+                </tr>
+
+                {{#each paragraphs}}
+                <tr>
+                  <td class="pad" style="padding:8px 40px; font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:17px; line-height:1.6; color:#0F1E4A;">
+                    <p style="margin:0;">{{this}}</p>
+                  </td>
+                </tr>
+                {{/each}}
+
+                {{#if rows}}
+                <tr>
+                  <td class="pad" style="padding:16px 40px 8px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #DDE4F2;">
+                      {{#each rows}}
+                      <tr>
+                        <td class="row-label" width="38%" valign="top" style="width:38%; padding:12px 12px 12px 0; border-bottom:1px solid #EAEFF9; font-family:'Century Gothic','Avenir Next',Arial,sans-serif; font-size:14px; line-height:1.5; color:#3C4A73;">{{label}}</td>
+                        <td class="row-value" valign="top" style="padding:12px 0; border-bottom:1px solid #EAEFF9; font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:16px; line-height:1.5; color:#0F1E4A; white-space:pre-line;">{{value}}</td>
+                      </tr>
+                      {{/each}}
+                    </table>
+                  </td>
+                </tr>
+                {{/if}}
+
+                {{#if cta}}
+                <tr>
+                  <td class="pad" style="padding:24px 40px 8px;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="background-color:#0F1E4A; border-radius:8px;">
+                          <a href="{{cta.url}}" style="display:inline-block; padding:14px 26px; font-family:'Century Gothic','Avenir Next',Arial,sans-serif; font-size:17px; line-height:1.2; color:#F5FBFF; text-decoration:none; border-radius:8px;">{{cta.label}}</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                {{/if}}
+
+                {{#if footnote}}
+                <tr>
+                  <td class="pad" style="padding:20px 40px 0; font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:14px; line-height:1.6; color:#3C4A73;">
+                    <p style="margin:0;">{{footnote}}</p>
+                  </td>
+                </tr>
+                {{/if}}
+
+                <tr>
+                  <td class="pad" style="padding:28px 40px 36px; font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:17px; line-height:1.6; color:#0F1E4A;">
+                    <p style="margin:0;">Warmly,<br>Lindsey Hewitt<br><span style="color:#3C4A73; font-size:15px;">Healthcare Advocate, Coastal Healthcare Advocates</span></p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td class="pad" style="padding:24px 40px 0; font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:13px; line-height:1.7; color:#3C4A73;">
+              <p style="margin:0 0 8px;"><strong style="color:#0F1E4A; font-weight:600;">Coastal Healthcare Advocates</strong><br>
+                Virginia Beach, VA &middot; Serving Hampton Roads and Southern Virginia<br>
+                (757) 574-0771 &middot; Monday&ndash;Friday, 8am&ndash;5pm ET</p>
+              <p style="margin:0 0 8px;">Not for emergencies. If you need urgent medical help, call 911.</p>
+              <p style="margin:0;">
+                <a href="{{siteUrl}}/" style="color:#1F74C4;">coastalhealthcareadvocates.org</a> &middot;
+                <a href="{{siteUrl}}/privacy.html" style="color:#1F74C4;">Privacy Notice</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
