@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 // Coastal Healthcare Advocates — brand-locked config.
-// Palette + type system: assets/logomarks/README.txt and creative/Coastal Brand Guidelines.html.
+// Palette + type system: assets/logomarks/README.txt and the Coastal Brand Guidelines artifact
+// (https://claude.ai/artifact/6UGBaxeF4zeew8dvx8pDpK).
 module.exports = {
   // Scan the JS *sources*: assets/js is git-ignored build output that doesn't exist
   // yet when `npm run build` runs Tailwind, so classes set only from JS (is-closing,

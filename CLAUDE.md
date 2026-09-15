@@ -138,9 +138,11 @@ Ysabeau 500, outlined. Palette (the brand's own hex values — everything is bui
   decoration in CSS so it becomes artifacts. `src/pdf/fonts/` holds static Ysabeau instances — the
   site's Ysabeau is a variable font and fails PDF/UA's glyph-width check. The agreement PDF's text
   mirrors `financial-responsibility-agreement.html`; change both together.
-- `creative/` — the brief plus the two research docs; `Coastal Brand Guidelines.html` is a saved
-  claude.ai artifact export (carries the artifact's own page chrome), so
-  `assets/logomarks/README.txt` remains the authoritative brand spec.
+- `creative/` — the brief plus the two research docs.
+- The brand guidelines live only as a claude.ai artifact —
+  `https://claude.ai/artifact/6UGBaxeF4zeew8dvx8pDpK` (linked from `style-guide.html`), not in the
+  repo. Update it with the Artifact tool; `assets/logomarks/README.txt` remains the authoritative
+  brand spec, and the artifact should match it, `style-guide.html` and the shipped CSS.
 - `inspiration/` — client-supplied reference screenshots and `siteoutline.xlsx`.
 - `swag/` — merch photos. Not site assets.
 

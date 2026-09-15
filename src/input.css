@@ -23,7 +23,7 @@
    BASE
    ========================================================================== */
 @layer base {
-  /* ---- Tokens: verbatim from creative/Coastal Brand Guidelines.html (§01, §07) ---- */
+  /* ---- Tokens: verbatim from the Coastal Brand Guidelines artifact (§01, §07) ---- */
   :root {
     /* Palette — identity, never changes */
     --navy: #0F1E4A;
