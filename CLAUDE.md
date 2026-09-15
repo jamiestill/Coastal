@@ -177,7 +177,7 @@ verbatim rather than rewriting. `creative/audience-personas.md` and
 hero copy says "licensed advocate," but patient advocacy is an unregulated field and Lindsey
 holds certifications, not a license — confirm wording before shipping.
 
-Contact: Coastal Healthcare Advocates · coastalhealthcareadvocates@gmail.com · (757) 574-0771 ·
+Contact: Coastal Healthcare Advocates · coastalhealthcareadvocates@gmail.com · (757) 574-0771 (M–F 8am–5pm ET) ·
 coastalhealthcareadvocates.org.
 
 ## Design skills and config

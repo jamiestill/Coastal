@@ -302,7 +302,7 @@ export function initContactForm(form, opts = {}) {
       if (errorSummary) {
         errorSummary.innerHTML =
           'Something went wrong sending your message. Please call ' +
-          '<a href="#intake" data-tel-area="757" data-tel-line="5740771">us</a> or email ' +
+          '<a href="#intake" data-tel-area="757" data-tel-line="5740771">us</a> (M–F 8am–5pm ET) or email ' +
           '<a href="#intake" data-email-user="coastalhealthcareadvocates" data-email-domain="gmail.com">us</a>.';
         window.chaEmailLinks?.(errorSummary); // email.js turns the placeholders into the number and address
         errorSummary.hidden = false;
