@@ -105,7 +105,7 @@
           '<div>' +
             '<p class="footer-col-title">Contact</p>' +
             '<address class="not-italic flex flex-col gap-2">' +
-              '<a href="index.html#intake" data-tel-area="757" data-tel-line="5740771" class="p-tel num">Call us</a>' +
+              '<a href="index.html#intake" data-tel-area="757" data-tel-line="5740771" class="p-tel">Call us</a>' +
               '<a href="index.html#intake" data-email-user="coastalhealthcareadvocates" data-email-domain="gmail.com" class="break-words">Email us</a>' +
               '<span class="on-dark-muted">Serving Hampton Roads and Southern Virginia</span>' +
             '</address>' +

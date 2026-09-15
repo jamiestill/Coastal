@@ -328,7 +328,8 @@ numbers.
 - **Label** (400, 0.9375rem, 0.06em, uppercase): button text. Nav links use the same face at
   0.875–1rem in sentence case. Table and credential column headers go smaller (0.75–0.8125rem)
   with wider tracking.
-- **Figure** (IBM Plex Mono 400, tabular): prices and phone numbers.
+- **Figure** (IBM Plex Mono 400, tabular): prices. Phone numbers stay in Ysabeau: Mono's
+  full-width space and brackets open visible gaps in "(757) 574-0771".
 - **Numeral** (Cormorant Garamond 500 italic, 2.75rem): the How-it-works step numbers, each
   tinted with its step's ink colour.
 - **Row Title** (1.0625rem): pricing row names (set in Cormorant Garamond 500), the hero phone
@@ -349,8 +350,8 @@ numbers.
 below 0.875rem. Headings balance their line breaks and paragraphs wrap to avoid orphans. Older
 readers are a core audience, so legibility outranks density.
 
-**The Figures-in-Mono Rule.** IBM Plex Mono is reserved for real figures (prices and phone
-numbers) and form validation errors. It is never a stylistic costume for labels or headings.
+**The Figures-in-Mono Rule.** IBM Plex Mono is reserved for real figures (prices) and form
+validation errors. It is never a stylistic costume for labels or headings.
 
 **The Level Voice Rule.** Every heading is Questrial 400. Hierarchy comes from size and space,
 never from bold weights. Questrial ships one weight, so never request faux bold.
@@ -539,6 +540,6 @@ when the intake form comes into view, and while the consent banner is showing on
 - **Don't** use coloured or glowing shadows. Elevation is always neutral near-black and soft.
 - **Don't** reintroduce hand-drawn or doodle icon treatments. That style was tried and dropped.
 - **Don't** bold Questrial headings or request weights the fonts don't ship.
-- **Don't** use IBM Plex Mono for anything except prices, phone numbers and form errors.
+- **Don't** use IBM Plex Mono for anything except prices and form errors, and not for phone numbers.
 - **Don't** add a second floating CTA, or let the persistent tab cover the intake form or
   the consent banner.

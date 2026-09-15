@@ -397,8 +397,9 @@
     color: var(--ink-soft);
   }
 
-  /* Figures: phone numbers, prices, counts. IBM Plex Mono otherwise runs only in
-     form error messages (.field-error, .error-summary). */
+  /* Figures: prices, counts, code values. IBM Plex Mono otherwise runs only in
+     form error messages (.field-error, .error-summary). Phone numbers stay in
+     the body face — Mono's full-width space and brackets read as gaps there. */
   .num {
     font-family: theme('fontFamily.mono');
     font-feature-settings: 'tnum' 1;
@@ -1860,7 +1861,6 @@
   }
   .hero-phone:hover { text-decoration-color: currentColor; }
   .hero-phone .icon { width: 1.25rem; height: 1.25rem; color: var(--sky-ink); }
-  .hero-phone .num { color: var(--ink); }
 
   /* Byline: Lindsey's face on the first screen, linking to her full bio. At
      every width, so the text-only phone hero still has a person in it. */
