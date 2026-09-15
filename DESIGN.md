@@ -184,8 +184,8 @@ components:
     textColor: "{colors.harbor-navy}"
     typography: "{typography.label}"
   site-footer:
-    backgroundColor: "{colors.midnight}"
-    textColor: "{colors.paper}"
+    backgroundColor: "{colors.beacon-sky}"
+    textColor: "{colors.harbor-navy}"
 ---
 
 # Design System: Coastal Healthcare Advocates
@@ -280,7 +280,7 @@ sections (Services and Who we help):
   separates table rows and quieter section edges.
 - **Tint Wash** (`tint-wash`): tiles, the callout, the pricing group rows and
   ghost-button hover.
-- **Midnight** (`midnight`): the footer ground in both themes, and the dark-theme page ground.
+- **Midnight** (`midnight`): the footer ground in the dark theme (light uses Sky with Navy ink), and the dark-theme page ground.
 - **Night Surface / Night Ink / Night Ink Soft / Night Line**: dark-theme equivalents of
   Surface, Ink, Ink Soft and Line.
 - **Night Tint Wash** (`night-tint-wash`) / **Night Line Soft** (`night-line-soft`): dark-theme

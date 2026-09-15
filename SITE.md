@@ -80,9 +80,10 @@ re-builds the CSS and applies the security headers + Plausible proxy).
    a Google Business Profile.
 11. **GNA logo asset** — `assets/gna-logo.svg` is an incomplete export: only the mark plus the
     letters "Grea…" are drawn (there's a literal `<!-- continue… -->` placeholder in the file).
-    The footer uses `assets/gna-logo-white.svg` — the complete `assets/gna-logo-w-tagline.svg`
-    lockup recoloured all-white — placed directly on the Midnight footer (no light chip).
-    If GNA supplies an official single-colour white lockup, swap it in.
+    The footer uses the complete `assets/gna-logo-w-tagline.svg` lockup recoloured to one colour:
+    `assets/img/gna-logo-navy.svg` on the light-theme Sky footer, `assets/img/gna-logo-white.svg`
+    on the dark-theme Midnight footer (no chip on either). If GNA supplies official single-colour
+    lockups, swap them in.
 12. **Dark mode** — full theme via `:root[data-theme]` using the style guide's dark tokens, with a
     toggle in the footer; defaults to the visitor's OS setting. The logo swaps by CSS (`--brand-logo`),
     so `logo-horizontal-dark.svg` must stay alongside `logo-horizontal-primary.svg`.

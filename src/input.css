@@ -85,6 +85,18 @@
     --theme-icon-light: block;
     --theme-icon-dark: none;
 
+    /* Site footer: a Sky ground with Navy ink in light (Navy 6.6:1, #20305C 5.3:1
+       on Sky); Midnight with Paper in dark. */
+    --footer-bg: var(--sky);
+    --footer-ink: var(--navy);
+    --footer-dim: #20305C;
+    --footer-title: #20305C;
+    --footer-link: var(--navy);
+    --footer-accent: var(--navy);
+    --footer-accent-ink: var(--paper);
+    --footer-sw-off: #20305C;
+    --footer-edge: transparent;
+
     /* Contact drawer + mobile nav ground. In light these resolve to the page's own
        tokens (computed here at :root, so re-pointing them in scope is not circular);
        dark inverts both panels to a Sky ground (Navy on Sky ≈ 6.6:1). */
@@ -137,6 +149,15 @@
       --path-photo-opacity: 0.5;
       --theme-icon-light: none;
       --theme-icon-dark: block;
+      --footer-bg: var(--midnight);
+      --footer-ink: var(--paper);
+      --footer-dim: color-mix(in srgb, var(--paper) 74%, transparent);
+      --footer-title: color-mix(in srgb, var(--paper) 80%, transparent);
+      --footer-link: var(--sky);
+      --footer-accent: var(--sky);
+      --footer-accent-ink: var(--navy);
+      --footer-sw-off: color-mix(in srgb, var(--paper) 62%, transparent);
+      --footer-edge: var(--line);
       --panel-bg: var(--sky);
       --panel-surface: #EAF3FF;
       --panel-ink: var(--navy);
@@ -185,6 +206,15 @@
     --path-photo-opacity: 0.5;
     --theme-icon-light: none;
     --theme-icon-dark: block;
+    --footer-bg: var(--midnight);
+    --footer-ink: var(--paper);
+    --footer-dim: color-mix(in srgb, var(--paper) 74%, transparent);
+    --footer-title: color-mix(in srgb, var(--paper) 80%, transparent);
+    --footer-link: var(--sky);
+    --footer-accent: var(--sky);
+    --footer-accent-ink: var(--navy);
+    --footer-sw-off: color-mix(in srgb, var(--paper) 62%, transparent);
+    --footer-edge: var(--line);
     --panel-bg: var(--sky);
     --panel-surface: #EAF3FF;
     --panel-ink: var(--navy);
@@ -1672,27 +1702,40 @@
   .consent .btn { min-height: 44px; }
   .consent[hidden] { display: none; }
 
-  /* --- Footer — always dark (Midnight ground). In dark theme add a divider so
-     it separates from the near-identical page background. --- */
-  .site-footer { background: var(--midnight); color: var(--paper); }
-  .site-footer { border-top: 1px solid var(--line); }
-  .site-footer a { color: var(--paper); text-decoration: none; }
+  /* --- Footer — Sky ground with Navy ink in light, Midnight with Paper in dark
+     (the --footer-* tokens). Dark adds a divider so it separates from the
+     near-identical page background. Logo and GNA badge ship in both colourways,
+     toggled with .theme-icon-light / .theme-icon-dark. --- */
+  .site-footer { background: var(--footer-bg); color: var(--footer-ink); }
+  .site-footer { border-top: 1px solid var(--footer-edge); }
+  .site-footer a { color: var(--footer-ink); text-decoration: none; }
+  .site-footer a:not([class]) { color: var(--footer-link); }
   .site-footer a:hover { text-decoration: underline; }
+  /* The builder credit is the one footer link underlined at rest. */
+  .site-footer .footer-credit a {
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+    text-underline-offset: 0.18em;
+  }
+  .site-footer .footer-credit a:hover { text-decoration-color: currentColor; }
   .footer-col-title {
     font-family: theme('fontFamily.label');
     font-size: 0.8125rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: color-mix(in srgb, var(--paper) 80%, transparent);
+    color: var(--footer-title);
     margin-bottom: 0.75rem;
   }
-  .footer-dim { color: color-mix(in srgb, var(--paper) 74%, transparent); }
+  .footer-dim { color: var(--footer-dim); }
+  .footer-rule { border-color: color-mix(in srgb, var(--footer-ink) 15%, transparent); }
+  .footer-social { border-color: color-mix(in srgb, var(--footer-ink) 20%, transparent); }
+  .footer-social:hover { border-color: color-mix(in srgb, var(--footer-ink) 60%, transparent); }
   /* QR code to the site — paper only (see @media print). A display:none <img>
      still downloads, so it's ready when the print dialog opens. */
   .footer-qr { display: none; }
-  /* GNA member badge. Uses the all-white lockup (assets/gna-logo-white.svg,
-     derived from assets/gna-logo-w-tagline.svg) so it reads directly on the
-     Midnight footer with no light chip. (assets/gna-logo.svg is an incomplete
+  /* GNA member badge. Uses single-colour lockups derived from
+     assets/gna-logo-w-tagline.svg — gna-logo-navy.svg on the light Sky footer,
+     gna-logo-white.svg on the dark Midnight one. (assets/gna-logo.svg is an incomplete
      stub — only "Grea…" is drawn — so the tagline lockup is the base to use.) */
   .gna-badge {
     display: inline-flex;
@@ -1713,12 +1756,11 @@
   }
 
   /* "Site preferences" is a <button>; make it read exactly like the sibling
-     legal links. Those are classless <a>s on the Midnight footer, so they
-     pick up `.on-dark a:not([class]) { color: var(--sky) }` instead of the
-     footer's default `var(--paper)` — match that here. */
+     legal links. Those are classless <a>s, so they pick up
+     `.site-footer a:not([class]) { color: var(--footer-link) }` — match that here. */
   .footer-linkish {
     font: inherit;
-    color: var(--sky);
+    color: var(--footer-link);
     background: none;
     border: 0;
     padding: 0;
@@ -1732,15 +1774,15 @@
      menu. Sun (left) and moon (right) both stay on the track; the knob slides
      under the active one. State is the button's aria-pressed (set by theme.js),
      so the switch stays hidden until JS is on. Colours are local --sw-* props:
-     the footer's (on Midnight) here, the menu panel's in .theme-switch--menu. */
+     the footer's (--footer-* tokens) here, the menu panel's in .theme-switch--menu. */
   .theme-switch {
-    --sw-track: color-mix(in srgb, var(--paper) 14%, transparent);
-    --sw-track-on: color-mix(in srgb, var(--sky) 26%, transparent);
-    --sw-border: color-mix(in srgb, var(--paper) 22%, transparent);
-    --sw-border-hover: color-mix(in srgb, var(--paper) 45%, transparent);
-    --sw-knob: var(--sky);
-    --sw-on: var(--navy);
-    --sw-off: color-mix(in srgb, var(--paper) 62%, transparent);
+    --sw-track: color-mix(in srgb, var(--footer-ink) 14%, transparent);
+    --sw-track-on: color-mix(in srgb, var(--footer-accent) 26%, transparent);
+    --sw-border: color-mix(in srgb, var(--footer-ink) 22%, transparent);
+    --sw-border-hover: color-mix(in srgb, var(--footer-ink) 45%, transparent);
+    --sw-knob: var(--footer-accent);
+    --sw-on: var(--footer-accent-ink);
+    --sw-off: var(--footer-sw-off);
     display: inline-flex;
     align-items: center;
     padding: 0;

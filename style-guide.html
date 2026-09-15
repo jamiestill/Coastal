@@ -15,7 +15,7 @@
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/svg+xml" href="assets/logomarks/marks/advocate-beacon-favicon-primary.svg">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/css/site.css?v=6d728e291b">
+  <link rel="stylesheet" href="assets/css/site.css?v=e12f43b137">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'">
 </head>
 <body>
@@ -36,6 +36,9 @@
         actually ship. If anything here ever disagrees with
         <code class="num">assets/logomarks/README.txt</code>, the README wins — it's the source
         these tokens are built from.</p>
+      <p class="meta mt-3">For the wider identity — voice, usage rules, and the mark in context —
+        see the <a href="https://claude.ai/code/artifact/2c4c21b3-6188-4dd7-aacf-301b7833cad0">Coastal
+        Brand Guidelines</a>.</p>
 
       <nav aria-label="Sections of this guide" class="legal-toc mt-6">
         <p class="footer-col-title">Contents</p>
@@ -115,10 +118,10 @@
             </thead>
             <tbody>
               <tr><th scope="row">Navy</th><td>Body ink, headings, primary CTA fill and focus ring in light mode, the navy booking band</td></tr>
-              <tr><th scope="row">Sky</th><td>The one guiding accent — heading rules, line icons, the Get Started tab and path-card buttons; links, focus ring and primary CTA fill in dark mode</td></tr>
+              <tr><th scope="row">Sky</th><td>The one guiding accent — heading rules, line icons, the Get Started tab and path-card buttons, the footer ground in light mode; links, focus ring and primary CTA fill in dark mode</td></tr>
               <tr><th scope="row">Cyan</th><td>The faint hero glow, and the mark's heart in the Reversed colourway — nothing else</td></tr>
               <tr><th scope="row">Coral</th><td>The mark's heart in Primary and Deep-tone·alt; the fourth How-it-works step, error borders and markers, and the over-limit character count. Required-field asterisks are Ink, so Coral only ever means "error" in a form</td></tr>
-              <tr><th scope="row">Midnight</th><td>Dark-mode page ground, the footer ground in both themes, the Dark mark colourway's ground</td></tr>
+              <tr><th scope="row">Midnight</th><td>Dark-mode page ground and footer ground, the Dark mark colourway's ground</td></tr>
               <tr><th scope="row">Paper</th><td>Text and button fill on Navy and Midnight grounds; the shield colour in the Reversed mark. The light-mode page ground is <code class="num">--bg</code>, not Paper</td></tr>
             </tbody>
           </table>
@@ -126,7 +129,8 @@
 
         <div class="callout mt-8 p-5">
           <p><strong>Contrast, as verified on the live pages:</strong> body/headings run ~16:1,
-            secondary text 7–9:1, and Paper text on the Navy band and Midnight footer ≥9:1 — all
+            secondary text 7–9:1, Paper text on the Navy band and dark-mode Midnight footer ≥9:1, and
+            Navy text on the light-mode Sky footer 6.6:1 — all
             clear of WCAG AA. Sky, Cyan, Seagrass, Lantern, Sand and Coral are never text on a light
             ground — none of them clear AA at body-text size. Where one has to carry text or
             meaning, use <code class="num">--link</code> or its <code class="num">-ink</code> step
@@ -446,7 +450,7 @@
   </main>
 
   <div data-partial="footer"></div>
-  <script src="assets/js/partials.js?v=32e938b89a"></script>
+  <script src="assets/js/partials.js?v=04f0f8beda"></script>
   <script type="module" src="assets/js/consent.js?v=54c1b16e4b"></script>
 </body>
 </html>

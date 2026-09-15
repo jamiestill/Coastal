@@ -75,12 +75,13 @@
     '</header>';
 
   var FOOTER_HTML =
-    '<footer class="site-footer on-dark">' +
+    '<footer class="site-footer">' +
       '<div class="canvas-wide py-14">' +
-        '<div class="h-card grid gap-10 md:grid-cols-2 lg:grid-cols-4">' +
+        '<div class="h-card grid gap-10 md:grid-cols-2 lg:grid-cols-[repeat(4,auto)] lg:justify-between">' +
           '<div class="lg:col-span-1">' +
-            '<img src="assets/logomarks/logos/logo-horizontal-reversed.svg" alt="Coastal Healthcare Advocates" width="265" height="80" class="p-name u-logo h-20 w-auto">' +
-            '<p class="p-note meta mt-4 on-dark-faint">Understanding Benefits. Resolving Bills. Advocating for You.</p>' +
+            '<img src="assets/logomarks/logos/logo-horizontal-deep-tone-alt.svg" alt="Coastal Healthcare Advocates" width="265" height="80" class="p-name u-logo theme-icon-light h-20 w-auto">' +
+            '<img src="assets/logomarks/logos/logo-horizontal-reversed.svg" alt="Coastal Healthcare Advocates" width="265" height="80" class="theme-icon-dark h-20 w-auto">' +
+            '<p class="p-note meta mt-4 max-w-[17rem] footer-dim">Understanding Benefits. Resolving Bills. Advocating for You.</p>' +
           '</div>' +
           '<nav aria-label="Site sections">' +
             '<p class="footer-col-title">Explore</p>' +
@@ -106,20 +107,28 @@
             '<p class="footer-col-title">Contact</p>' +
             '<address class="not-italic flex flex-col gap-2">' +
               '<span><a href="index.html#intake" data-tel-area="757" data-tel-line="5740771" class="p-tel">Call us</a><br>' +
-                '<span class="on-dark-muted">M–F 8am–5pm ET</span></span>' +
+                '<span class="footer-dim">M–F 8am–5pm ET</span></span>' +
               '<a href="index.html#intake" data-email-user="coastalhealthcareadvocates" data-email-domain="gmail.com" class="break-words">Email us</a>' +
-              '<span class="on-dark-muted">Serving Hampton Roads and Southern Virginia</span>' +
+              '<span class="footer-dim">Serving Hampton Roads and Southern Virginia</span>' +
             '</address>' +
             '<div class="mt-4 flex items-center gap-3">' +
-              '<a href="https://www.linkedin.com/in/lindsey-hewitt-1856b5136/" rel="noopener" aria-label="Lindsey Hewitt on LinkedIn" class="grid h-11 w-11 place-items-center rounded-full border border-white/20 hover:border-white/60">' +
+              '<a href="https://www.linkedin.com/in/lindsey-hewitt-1856b5136/" rel="noopener" aria-label="Lindsey Hewitt on LinkedIn" class="grid h-11 w-11 place-items-center rounded-full border footer-social">' +
                 '<svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>' +
               '</a>' +
-              '<a href="https://www.facebook.com/profile.php?id=61590633634414" rel="noopener" aria-label="Coastal Healthcare Advocates on Facebook" class="u-url grid h-11 w-11 place-items-center rounded-full border border-white/20 hover:border-white/60">' +
+              '<a href="https://www.facebook.com/profile.php?id=61590633634414" rel="noopener" aria-label="Coastal Healthcare Advocates on Facebook" class="u-url grid h-11 w-11 place-items-center rounded-full border footer-social">' +
                 '<svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg>' +
               '</a>' +
-              '<a href="https://calendly.com/coastalhealthcareadvocates/30min" rel="noopener" aria-label="Book a consultation on Calendly" class="u-url grid h-11 w-11 place-items-center rounded-full border border-white/20 hover:border-white/60">' +
+              '<a href="https://calendly.com/coastalhealthcareadvocates/30min" rel="noopener" aria-label="Book a consultation on Calendly" class="u-url grid h-11 w-11 place-items-center rounded-full border footer-social">' +
                 '<svg class="icon" aria-hidden="true"><use href="#i-calendly"/></svg>' +
               '</a>' +
+              '<button type="button" class="theme-switch ml-2" data-theme-toggle aria-label="Switch to dark theme">' +
+                '<span class="theme-switch-track">' +
+                  '<span class="theme-switch-knob"></span>' +
+                  '<svg class="theme-switch-ico theme-switch-ico--sun" aria-hidden="true"><use href="#i-sun"/></svg>' +
+                  '<svg class="theme-switch-ico theme-switch-ico--moon" aria-hidden="true"><use href="#i-moon"/></svg>' +
+                '</span>' +
+                '<span class="sr-only theme-toggle-label">Dark theme</span>' +
+              '</button>' +
             '</div>' +
           '</div>' +
           '<figure class="footer-qr">' +
@@ -127,24 +136,19 @@
             '<figcaption class="meta">Scan to visit online</figcaption>' +
           '</figure>' +
         '</div>' +
-        '<div class="mt-12 flex flex-col gap-x-10 gap-y-6 border-t border-white/15 pt-8 md:flex-row md:flex-wrap md:items-center md:justify-between">' +
+        '<div class="mt-12 flex flex-col gap-x-10 gap-y-6 border-t footer-rule pt-8 md:flex-row md:flex-wrap md:items-center md:justify-between">' +
           '<div class="flex flex-wrap items-center gap-x-8 gap-y-4">' +
             '<a href="https://www.gnanow.org/" rel="noopener" class="gna-badge shrink-0" aria-label="Greater National Advocates (verified member)">' +
-              '<img src="assets/img/gna-logo-white.svg" alt="Greater National Advocates (verified member)" width="361" height="49" class="block h-9 w-auto">' +
+              '<img src="assets/img/gna-logo-navy.svg" alt="Greater National Advocates (verified member)" width="361" height="49" class="theme-icon-light h-9 w-auto">' +
+              '<img src="assets/img/gna-logo-white.svg" alt="Greater National Advocates (verified member)" width="361" height="49" class="theme-icon-dark h-9 w-auto">' +
             '</a>' +
-            '<button type="button" class="theme-switch" data-theme-toggle aria-label="Switch to dark theme">' +
-              '<span class="theme-switch-track">' +
-                '<span class="theme-switch-knob"></span>' +
-                '<svg class="theme-switch-ico theme-switch-ico--sun" aria-hidden="true"><use href="#i-sun"/></svg>' +
-                '<svg class="theme-switch-ico theme-switch-ico--moon" aria-hidden="true"><use href="#i-moon"/></svg>' +
-              '</span>' +
-              '<span class="sr-only theme-toggle-label">Dark theme</span>' +
-            '</button>' +
           '</div>' +
-          '<div class="meta flex flex-col gap-1 on-dark-muted">' +
+          '<div class="meta flex flex-col gap-1 footer-dim">' +
             '<span>Not for medical emergencies; call 911.</span>' +
             '<span>General information, not legal or medical advice.</span>' +
             '<span>© 2026 Coastal Healthcare Advocates. All rights reserved.</span>' +
+            '<span class="footer-credit">Built with <span aria-hidden="true">❤︎</span><span class="sr-only">love</span> by ' +
+              '<a href="https://www.linkedin.com/in/jamiestill/" target="_blank" rel="noopener">Jamie Still<span class="sr-only"> on LinkedIn (opens in a new tab)</span></a></span>' +
           '</div>' +
         '</div>' +
       '</div>' +
