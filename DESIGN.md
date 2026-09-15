@@ -443,7 +443,7 @@ clean and upright; the hand-drawn doodle style was tried and rejected. Social ma
 only filled icons.
 
 Photographs sit in 12px frames with a hairline and the Lift shadow. The one exception is
-the "What is a patient advocate?" figure, which is feathered with a soft radial mask. Path
+the "What is a healthcare advocate?" figure, which is feathered with a soft radial mask. Path
 cards use a photo under a heavy Surface wash (68–90%) so body copy keeps its contrast.
 
 ## Components

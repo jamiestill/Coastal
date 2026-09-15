@@ -2072,7 +2072,7 @@
     }
   }
 
-  /* --- What is a patient advocate: the four value items as a quiet list --- */
+  /* --- What is a healthcare advocate: the four value items as a quiet list --- */
   .value-list { display: flex; flex-direction: column; gap: 1.5rem; }
   .value-list > li { display: flex; align-items: flex-start; gap: 1rem; }
   .value-list > li > .icon { width: 2.28rem; height: 2.28rem; margin-top: 0.1rem; color: var(--sky); }

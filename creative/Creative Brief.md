@@ -1,5 +1,7 @@
 # Website brief
 
+> **Terminology (updated 2026-09-15):** Call Lindsey a **healthcare advocate** and the practice **healthcare advocacy**, not "patient advocate" / "patient advocacy". Her work is mostly insurance and billing (denials, appeals, bills, EOBs), not patients' medical care. "Patient advocate" stays only where it names something else: the Board Certified Patient Advocate credential, other organisations, or the phrases people type into search.
+
 # 1. Summary
 
 Trying to close the gap: the person who understands your body and the entity that decides whether your care gets paid for are almost never the same, and neither is fully on your side. A doctor treats you but doesn't own your bill. An insurer processes your claim but doesn't examine you. Somewhere in that gap sits a mountain of paperwork, jargon, deadlines, and adversarial incentives that the average patient — especially one who is sick, scared, elderly, or newly bankrupt from a diagnosis — has no training and no time to navigate. Advocates fill that gap on the patient's behalf: reading the fine print, fighting denials, coordinating specialists, negotiating bills, or simply explaining what's happening in plain language.
@@ -14,7 +16,7 @@ The U.S. healthcare and insurance system is too fragmented, too adversarial, and
 
 **Who:** An adult facing a new diagnosis, a denied insurance claim, mounting medical debt, or a chronic/complex condition they can no longer manage alone.
 
-**State of mind on arrival:** Stressed, time-pressured, often searching reactively right after a bad appointment or a denial letter. Low trust in "the system." They often don't know this job (independent patient advocate) exists—the site may be their first exposure to the category.
+**State of mind on arrival:** Stressed, time-pressured, often searching reactively right after a bad appointment or a denial letter. Low trust in "the system." They often don't know this job (independent healthcare advocate) exists—the site may be their first exposure to the category.
 
 **What they want from the site, in order:**
 
@@ -64,7 +66,7 @@ Homepage needs at least two clear entry paths in the first screen — one for th
 
 # 3. Core Objectives
 
-**Convert an anxious, skeptical stranger into a paying or referred client, in an unregulated category most visitors have never heard of.** Unlike most service industries, the site has to do category education (what is a "patient advocate" and why would I pay one) before it can do persuasion — so a meaningful share of every homepage's job is legitimizing the _category_, not just the company.
+**Convert an anxious, skeptical stranger into a paying or referred client, in an unregulated category most visitors have never heard of.** Unlike most service industries, the site has to do category education (what is a "healthcare advocate" and why would I pay one) before it can do persuasion — so a meaningful share of every homepage's job is legitimizing the _category_, not just the company.
 
 ## User Objectives
 
@@ -147,7 +149,7 @@ How it works
 
 FAQs
 
-- What does a patient advocate do?
+- What does a healthcare advocate do?
 - How much does it cost?
 - My claim was denied. Can you still help?
 - Is my information confidential?
@@ -232,7 +234,7 @@ Good example of a bio to emulate for Lindsey; also like the simple footer and ic
 
 ### Lindsey Hewitt, Insurance & Billing Advocate
 
-Lindsey Hewitt brings 18 years of experience in medical billing, insurance claims, and accounts receivable to her work as a patient advocate — expertise built from inside the very system her clients are trying to navigate.
+Lindsey Hewitt brings 18 years of experience in medical billing, insurance claims, and accounts receivable to her work as a healthcare advocate — expertise built from inside the very system her clients are trying to navigate.
 
 For more than 18 years, Lindsey worked directly with insurance claims and medical collections for major healthcare systems, including Sentara Health Systems, the Medical College of Virginia, the University of Virginia and affiliates, Chesapeake Regional Medical Center, and Bon Secours Maryview Medical Center. Her day-to-day work has included verifying patient eligibility, tracking down denials and payment delays, correcting billing and coding errors, and writing the detailed, evidence-backed appeals that get rejected claims paid — the exact work most patients find themselves facing for the first time, alone, after a diagnosis or a denial letter.
 
@@ -316,7 +318,7 @@ Up to 5 hours per month of ongoing advocacy for clients managing multiple bills 
 
 - All clients receive a Service Agreement and Financial Responsibility Agreement outlining fees before work begins.
 
-- Most patient advocacy services are not covered by insurance and are paid directly by the client.
+- Most healthcare advocacy services are not covered by insurance and are paid directly by the client.
 
 - Payment plans may be available—ask us about options.
 

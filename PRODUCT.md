@@ -11,7 +11,7 @@ web
 **Primary: the person in crisis.** An adult facing a denied insurance claim, a confusing or
 inflated medical bill, medical debt, or a new diagnosis with coverage questions. They usually
 arrive stressed and short on time, often searching right after a denial letter or a bad
-appointment. They distrust "the system" and often don't know independent patient advocacy
+appointment. They distrust "the system" and often don't know independent healthcare advocacy
 exists. Their job: find out, fast, whether a real, qualified person can take this off their
 plate, what it costs, and how to start.
 
@@ -35,13 +35,13 @@ Sources: `creative/audience-personas.md`, `creative/Creative Brief.md` §2.
 
 ## Product Purpose
 
-Coastal Healthcare Advocates is a solo, independent patient-advocacy practice run by Lindsey
+Coastal Healthcare Advocates is a solo, independent healthcare-advocacy practice run by Lindsey
 Hewitt. It handles the insurance and billing work patients face alone: appealing denied
 claims, auditing bills and EOBs, negotiating balances, explaining benefits, supporting
 Medicare/Medicaid claims, and resolving medical debt.
 
 The website exists to:
-1. Explain the category, since most visitors don't know what a patient advocate is.
+1. Explain the category, since most visitors don't know what a healthcare advocate is.
 2. Turn a crisis visit into a free-consultation booking.
 3. Give professional partners the credential and referral signals they need to send clients.
 
@@ -118,8 +118,8 @@ the hospital or the insurer.
 
 - **Name:** Coastal Healthcare Advocates. **Slogan:** "Understanding Benefits. Resolving
   Bills. Advocating for You."
-- **Advocate title:** Lindsey Hewitt, Patient Advocate / Insurance & Billing Advocate.
-- **Never call Lindsey "licensed".** Patient advocacy is unregulated and her credentials are
+- **Advocate title:** Lindsey Hewitt, Healthcare Advocate / Insurance & Billing Advocate.
+- **Never call Lindsey "licensed".** Healthcare advocacy is unregulated and her credentials are
   certifications. Use "experienced" or "certified", and name the real credentials:
   - Certified Professional Collection Specialist (covering FDCPA compliance)
   - Virginia Certified Mediator
@@ -166,7 +166,7 @@ the hospital or the insurer.
 
 ## Product Principles
 
-1. **Explain before selling.** Say what a patient advocate is, and why a person rather than a
+1. **Explain before selling.** Say what a healthcare advocate is, and why a person rather than a
    free tool, before asking for anything.
 2. **A real person, reachable immediately.** The phone number and a free consultation should
    always be one step away, and Lindsey should be visibly the person doing the work.

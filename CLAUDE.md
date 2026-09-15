@@ -4,10 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repository is
 
-Marketing website for **Coastal Healthcare Advocates** — a solo patient-advocacy practice
+Marketing website for **Coastal Healthcare Advocates** — a solo healthcare-advocacy practice
 (Lindsey Hewitt; based in Virginia Beach, VA, serving Hampton Roads and Southern Virginia). The static site lives at the repo root
 (`index.html` plus the legal / 404 pages); the brief, audience research, brand assets, and
 reference imagery remain alongside it. `creative/Creative Brief.md` is the original spec.
+
+**Terminology:** call Lindsey a **healthcare advocate** and the work **healthcare advocacy**,
+never "patient advocate" / "patient advocacy", in site copy, metadata, JSON-LD and PDFs. Her work
+is mostly insurance and billing, not patients' medical care (changed 2026-09-15). "Patient
+advocate" remains only in proper nouns (the Board Certified Patient Advocate credential, Patient
+Advocate Foundation), in search phrases, and in the research docs in `creative/`.
 
 ## Build & local dev
 
@@ -175,13 +181,13 @@ The homepage must open with **two entry paths, not one funnel** — person-in-cr
 how it works / cost) and caregiver-or-referrer (credentials / who this is for / contact). Both
 research docs land on this as the central IA decision, and it drives most section-level choices.
 A related constant: visitors don't know the category exists, so the page has to explain what a
-patient advocate *is* before it can sell one, and answer "why pay a human instead of a free AI
+healthcare advocate *is* before it can sell one, and answer "why pay a human instead of a free AI
 appeal tool."
 
 Finalized hero / value-card / bio / pricing copy is in `creative/Creative Brief.md` §8 — use it
 verbatim rather than rewriting. `creative/audience-personas.md` and
 `creative/site objectives by segment.md` hold the research behind the two-audience IA. Note: the
-hero copy says "licensed advocate," but patient advocacy is an unregulated field and Lindsey
+hero copy says "licensed advocate," but healthcare advocacy is an unregulated field and Lindsey
 holds certifications, not a license — confirm wording before shipping.
 
 Contact: Coastal Healthcare Advocates · coastalhealthcareadvocates@gmail.com · (757) 574-0771 (M–F 8am–5pm ET) ·
