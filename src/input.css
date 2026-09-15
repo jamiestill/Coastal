@@ -934,7 +934,7 @@
       animation-delay: calc(var(--reveal-i, 0) * 75ms);
     }
     /* Line icons settle a beat after their row arrives. */
-    .js [data-reveal="list"].reveal-in > * > :is(.service-icon, .icon-lg, .icon:first-child) {
+    .js [data-reveal="list"].reveal-in > * > :is(.service-icon, .who-icon, .icon-lg, .icon:first-child) {
       animation: reveal-settle 640ms var(--reveal-ease) backwards;
       animation-delay: calc(var(--reveal-i, 0) * 75ms + 180ms);
     }
@@ -1913,22 +1913,47 @@
   }
 
   /* --- Services as rows, not a tile grid: icon in its own column, hairline
-     dividers, two columns of rows from md up. --- */
+     dividers, two columns of rows from md up. Each row takes a palette accent
+     (Seagrass, Lantern, Sky, repeating): a tinted icon tile, an accent tab on
+     the hairline, a soft glow behind the icon and matching bullet markers.
+     --svc tints marks and washes; --svc-ink is the contrast-safe step. --- */
   .service-rows { display: grid; column-gap: 3rem; }
   @media (min-width: 768px) { .service-rows { grid-template-columns: 1fr 1fr; } }
+  /* Seagrass leads so the first tab doesn't repeat the Sky heading rule above it. */
+  .service-rows > :nth-child(3n+1) { --svc: var(--seagrass); --svc-ink: var(--seagrass-ink); }
+  .service-rows > :nth-child(3n+2) { --svc: var(--lantern);  --svc-ink: var(--lantern-ink); }
+  .service-rows > :nth-child(3n)   { --svc: var(--sky);      --svc-ink: var(--sky-ink); }
   .service-row {
+    position: relative;
     display: grid;
-    grid-template-columns: 3.25rem minmax(0, 1fr);
+    grid-template-columns: 3.5rem minmax(0, 1fr);
     column-gap: 1.1rem;
     align-content: start;
-    padding-block: 1.5rem;
+    padding-block: 1.75rem;
     border-top: 1px solid var(--line);
+    background: radial-gradient(22rem 13rem at 0 0, color-mix(in srgb, var(--svc) 13%, transparent), transparent 70%);
+  }
+  .service-row::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 3.5rem;
+    height: 3px;
+    background: var(--svc);
+    border-radius: 0 0 2px 2px;
   }
   .service-row > .service-icon {
     grid-row: 1 / span 3;
-    color: var(--sky);
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--svc) 17%, var(--surface));
+    color: var(--svc-ink);
   }
-  .service-row > .service-icon .icon-lg { width: 3.25rem; height: 3.25rem; }
+  .service-row > .service-icon .icon-lg { width: 2.25rem; height: 2.25rem; }
   .service-row > :not(.service-icon) { grid-column: 2; }
   .service-row p { margin-top: 0.4rem; }
   .service-points {
@@ -1938,7 +1963,7 @@
     padding-left: 1.25rem;
     list-style: disc;
   }
-  .service-points > li::marker { color: var(--sky); }
+  .service-points > li::marker { color: var(--svc-ink); }
   .term-gloss {
     display: block;
     margin-top: 0.1rem;
@@ -1948,17 +1973,38 @@
     color: var(--ink-soft);
   }
 
-  /* --- Who we help: a light two-column list --- */
-  .who-list { display: grid; gap: 2rem 3rem; }
+  /* --- Who we help: a two-column list on a Sky-tinted band. Each audience
+     gets a solid palette tile (Sky, Sand, Seagrass, Lantern: cool and warm
+     alternate in both the 2×2 and the single column) with a Navy line icon;
+     Navy clears 5.2:1 or better on every fill. --- */
+  .who-band {
+    background: color-mix(in srgb, var(--sky) 11%, var(--bg));
+    border-block: 1px solid color-mix(in srgb, var(--sky) 24%, var(--bg));
+  }
+  .who-list { display: grid; gap: 2.25rem 3rem; }
   @media (min-width: 640px) { .who-list { grid-template-columns: 1fr 1fr; } }
+  .who-list > :nth-child(4n+1) { --who: var(--sky); }
+  .who-list > :nth-child(4n+2) { --who: var(--sand); }
+  .who-list > :nth-child(4n+3) { --who: var(--seagrass); }
+  .who-list > :nth-child(4n)   { --who: var(--lantern); }
   .who-item {
     display: grid;
-    grid-template-columns: 2.75rem minmax(0, 1fr);
-    column-gap: 1rem;
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    column-gap: 1.1rem;
     align-content: start;
   }
-  .who-item > .icon-lg { grid-row: 1 / span 2; width: 2.75rem; height: 2.75rem; color: var(--sky-ink); }
-  .who-item > :not(svg) { grid-column: 2; }
+  .who-icon {
+    grid-row: 1 / span 2;
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 12px;
+    background: var(--who, var(--sky));
+    color: var(--navy);
+  }
+  .who-icon .icon-lg { width: 2.25rem; height: 2.25rem; }
+  .who-item > :not(.who-icon) { grid-column: 2; }
   .who-item p { margin-top: 0.35rem; }
 
   /* --- About: the page's showcase. Large portrait, editorial rail. --- */
@@ -2574,14 +2620,19 @@
     column-gap: 0.8rem;
     padding-block: 0.85rem;
     break-inside: avoid;
+    background: none;
   }
-  .service-row > .service-icon .icon-lg { width: 2.25rem; height: 2.25rem; }
+  .service-row::before { display: none; }
+  .service-row > .service-icon,
+  .who-icon { width: 2.25rem; height: 2.25rem; background: none; }
+  .service-row > .service-icon .icon-lg,
+  .who-icon .icon-lg { width: 2rem; height: 2rem; }
   .service-points { gap: 0.1rem; margin-top: 0.25rem; }
 
   /* --- Who we help --- */
   .who-list { grid-template-columns: 1fr 1fr; gap: 1.1rem 2rem; }
   .who-list.mt-10 { margin-top: 0.5rem; }
-  .who-item { break-inside: avoid; }
+  .who-item { grid-template-columns: 2.25rem minmax(0, 1fr); column-gap: 0.8rem; break-inside: avoid; }
 
   /* --- About: portrait floats right, bio wraps --- */
   #about .grid-9 { display: block; }

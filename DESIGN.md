@@ -253,12 +253,16 @@ brand colours appear only as gentle supporting tints.
   meaning on light grounds.
 
 ### Tertiary
-Supporting tints, used as pale washes, step accents and small marks:
+Supporting tints, used as pale washes, step accents, small marks and the two colour-keyed
+sections (Services and Who we help):
 - **Seagrass** (`seagrass`), ink step **Seagrass Ink** (`seagrass-ink`): the second
-  How-it-works step and the fee-agreement check mark.
-- **Lantern** (`lantern`), ink step **Lantern Ink** (`lantern-ink`): the third step accent.
-- **Sand** (`sand`): the highlight behind the message character count once it nears the
-  600-character limit, with Midnight text (12.3:1). It has no other job on the site.
+  How-it-works step, the fee-agreement check mark, the first of every three service rows and
+  the caregivers tile in Who we help.
+- **Lantern** (`lantern`), ink step **Lantern Ink** (`lantern-ink`): the third step accent,
+  the second of every three service rows and the professional-referrers tile.
+- **Sand** (`sand`): the seniors tile in Who we help (Harbor Navy icon, 10.5:1) and the
+  highlight behind the message character count once it nears the 600-character limit, with
+  Midnight text (12.3:1).
 - **Coral** (`coral`), ink step **Coral Ink** (`coral-ink`): the fourth step accent (Coral Ink
   sets its numeral), error borders, the ▲ error marker, the error-summary border, and the
   highlight behind the character count when a keystroke or paste runs past the limit
@@ -291,9 +295,22 @@ Supporting tints, used as pale washes, step accents and small marks:
 behind Harbor Navy text and dark-ground accents. Any text or meaningful mark on a light ground
 uses Link Blue or Sky Ink instead.
 
-**The Supporting Tints Rule.** Seagrass, Lantern, Sand and Coral appear only as pale washes
-(9–18% mixed into Surface), step accents and small marks. They are never large fills, section
-grounds, or text on light grounds. Where they must carry meaning, use their `-ink` steps.
+**The Supporting Tints Rule.** Seagrass, Lantern, Sand and Coral appear as pale washes
+(9–18% mixed into Surface), step accents and small marks. They are never large fills or text
+on light grounds. Where they must carry meaning, use their `-ink` steps. The one solid use is
+the 3.5rem Who we help icon tiles, which always carry a Harbor Navy icon (5.2:1 or better).
+Coral stays out of both colour-keyed sections, because in forms it means "error".
+
+**The Colour-Keyed Sections Rule.** Services and Who we help give each item its own palette
+accent so the eye can tell items apart at a glance. Colour is never the only cue, since every
+item keeps its icon and heading. Services rows cycle Seagrass, Lantern and Sky (Seagrass leads
+so the first row's tab doesn't repeat the Sky heading rule above it): a tile of the
+accent mixed 17% into Surface with the icon in its `-ink` step, a 3px accent tab on the row's
+hairline, a soft radial glow (13%) behind the icon, and bullet markers in the `-ink` step. Who
+we help sits on the one tinted section ground (Beacon Sky mixed 11% into Ground, 24% for its
+hairlines). Its four solid tiles run Sky, Sand, Seagrass and Lantern, so cool and warm
+alternate in both the 2×2 grid and the single column. Its heading keeps the standard Beacon
+Sky rule.
 
 **The Semantic Token Rule.** Components never hard-code light or dark values. Every theme
 difference lives in the root token set (`--bg`, `--surface`, `--ink`, `--cta-bg`, `--panel-*`
@@ -362,11 +379,11 @@ A single, long page built from full-width section bands. Each band centres a rea
 of **1000px max** with 24px side padding (32px from 480px). The header and footer use a
 wider **1180px** column. Section bands alternate between Ground and Surface, separated by
 Line Soft hairlines, with fluid vertical padding (the `section` / `section-tight` spacing
-tokens).
+tokens). Who we help is the one tinted band (`.who-band`, Beacon Sky 11% into Ground).
 
 Grids are simple and collapse early:
-- **Services:** two columns of hairline-divided rows from 768px, one column below.
-- **Who we help:** a two-column list from 640px.
+- **Services:** two columns of hairline-divided, colour-keyed rows from 768px, one column below.
+- **Who we help:** a two-column list with solid icon tiles from 640px.
 - **Entry paths:** two cards side by side from 480px.
 - **FAQs:** a sticky 16rem aside beside the accordion from 900px.
 - **About:** a sticky portrait rail (18rem, 22rem from 1024px) beside the bio from 700px.
@@ -448,7 +465,9 @@ Warm and plainspoken: large, calm targets that clearly say what happens next.
 ### Cards / Containers
 - **Corner Style:** 12px.
 - **Background:** Surface. Tinted panels (Beacon Sky, Seagrass, Lantern and Coral mixed
-  9–12% into Surface) are reserved for the How-it-works step cards.
+  9–12% into Surface) are reserved for the How-it-works step cards. Services and Who we help
+  stay open lists, not cards; their colour lives in 12px icon tiles (see The Colour-Keyed
+  Sections Rule).
 - **Shadow Strategy:** Rest shadow; see Elevation.
 - **Border:** 1px Line.
 - **Internal Padding:** 1.5–1.75rem (2rem for the intake form from 480px).
