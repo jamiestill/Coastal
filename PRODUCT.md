@@ -77,7 +77,7 @@ the hospital or the insurer.
   Agreement (`financial-responsibility-agreement.html`) before any paid work starts.
 - **Payment:** most advocacy isn't covered by insurance and is paid directly by the client.
   Payment plans may be available.
-- **Contact:** coastalhealthcareadvocates@gmail.com · (757) 574-0771 (M–F 8am–5pm ET) ·
+- **Contact:** info@coastalhealthcareadvocates.org · (757) 574-0771 (M–F 8am–5pm ET) ·
   coastalhealthcareadvocates.org. Calendly booking:
   `calendly.com/coastalhealthcareadvocates/30min`.
 

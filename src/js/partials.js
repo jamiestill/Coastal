@@ -110,7 +110,7 @@
             '<address class="not-italic flex flex-col gap-2">' +
               '<span><a href="/index.html#intake" data-tel-area="757" data-tel-line="5740771" class="p-tel">Call us</a><br>' +
                 '<span class="footer-dim">M–F 8am–5pm ET</span></span>' +
-              '<a href="/index.html#intake" data-email-user="coastalhealthcareadvocates" data-email-domain="gmail.com" class="break-words">Email us</a>' +
+              '<a href="/index.html#intake" data-email-user="info" data-email-domain="coastalhealthcareadvocates.org" class="break-words">Email us</a>' +
               '<span class="footer-dim">Serving Hampton Roads and Southern Virginia</span>' +
             '</address>' +
             '<div class="mt-4 flex items-center gap-3">' +

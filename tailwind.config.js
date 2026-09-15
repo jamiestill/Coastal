@@ -53,13 +53,14 @@ module.exports = {
       // Heading sizes (desktop / mobile, size · line-height). Every heading is
       // Questrial 400 (src/input.css); Cormorant (`head`) is reserved for pricing
       // row headers and the How-it-works numerals.
-      //   H1 48/56 · 28/36   H2 28/36 · 24/32   H3 24/32 · 20/28   H4 20/28
+      //   H1 58 · 36   H2 40 · 30   H3 30 · 23   H4 23   (body 18)
+      // Every step is at least 1.25x the one below it.
       fontSize: {
         lede: ['1.3125rem', { lineHeight: '1.45' }],
-        h4: ['1.25rem', { lineHeight: '1.35' }],
-        h3: ['clamp(1.25rem, 1.05rem + 0.9vw, 1.5rem)', { lineHeight: '1.3' }],
-        h2: ['clamp(1.5rem, 1.3rem + 0.9vw, 1.75rem)', { lineHeight: '1.25' }],
-        h1: ['clamp(1.75rem, 1.15rem + 2.7vw, 3rem)', { lineHeight: '1.12' }],
+        h4: ['1.4375rem', { lineHeight: '1.3' }],
+        h3: ['clamp(1.4375rem, 1.15rem + 1.2vw, 1.875rem)', { lineHeight: '1.25' }],
+        h2: ['clamp(1.875rem, 1.4rem + 1.9vw, 2.5rem)', { lineHeight: '1.18' }],
+        h1: ['clamp(2.25rem, 1.4rem + 3.4vw, 3.625rem)', { lineHeight: '1.08' }],
       },
       maxWidth: { canvas: '1000px', measure: '62ch', prose: '68ch' },
       gridTemplateColumns: { 9: 'repeat(9, minmax(0, 1fr))' },

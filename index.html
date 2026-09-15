@@ -49,7 +49,7 @@
   <link rel="preload" href="assets/fonts/ysabeau-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/questrial-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/hero-1024.avif" as="image" type="image/avif" media="(min-width: 1024px)">
-  <link rel="stylesheet" href="assets/css/site.css?v=de87513e96">
+  <link rel="stylesheet" href="assets/css/site.css?v=1aa842423a">
 
   <script type="application/ld+json">
   {
@@ -357,18 +357,6 @@
       </g>
     </symbol>
 
-    <symbol id="i-plus" viewBox="0 0 24 24">
-      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 4.5v15M4.5 12h15" />
-      </g>
-    </symbol>
-
-    <symbol id="i-minus" viewBox="0 0 24 24">
-      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M4.5 12h15" />
-      </g>
-    </symbol>
-
     <symbol id="i-arrow" viewBox="0 0 24 24">
       <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
         <path d="M4.5 12h14.4M13 6.2l6 5.8-6 5.8" />
@@ -407,6 +395,32 @@
     <symbol id="i-calendly" viewBox="0 0 24 24">
       <path fill="currentColor" stroke="none"
         d="M19.655 14.262q.421.001.828.064c0 .005-.005.01-.005.014a6 6 0 0 1-.381.786l-1.219 2.106a6.24 6.24 0 0 1-5.411 3.127h-2.432a6.25 6.25 0 0 1-5.412-3.127l-1.218-2.106a6.25 6.25 0 0 1 0-6.252l1.218-2.106a6.24 6.24 0 0 1 5.412-3.127h2.432a6.25 6.25 0 0 1 5.411 3.127l1.219 2.106c.147.252.271.519.381.786c0 .004.005.009.005.014a5.5 5.5 0 0 1-.828.064c-1.816 0-2.501-.607-3.291-1.306c-.764-.676-1.711-1.517-3.44-1.517h-1.029c-1.251 0-2.387.455-3.2 1.278c-.796.805-1.233 1.904-1.233 3.099v1.411c0 1.196.437 2.295 1.233 3.099c.813.823 1.949 1.278 3.2 1.278h1.034c1.729 0 2.676-.841 3.439-1.517c.791-.703 1.471-1.306 3.287-1.301m.005-3.237q.6 0 1.179-.11q-.003-.007-.002-.014a6.3 6.3 0 0 0-.349-1.218a4.6 4.6 0 0 0 1.986-.819c0-.004-.005-.013-.005-.018a10.6 10.6 0 0 0-1.489-3.03a10.9 10.9 0 0 0-2.331-2.395a10.64 10.64 0 0 0-6.428-2.138c-1.448 0-2.855.28-4.175.841c-1.273.543-2.423 1.315-3.407 2.299S2.878 6.552 2.341 7.83a10.7 10.7 0 0 0-.842 4.175c0 1.448.281 2.855.842 4.174c.542 1.274 1.314 2.423 2.298 3.407s2.129 1.761 3.407 2.299c1.324.556 2.727.841 4.175.841c2.34 0 4.561-.74 6.428-2.137a10.8 10.8 0 0 0 2.331-2.396a10.8 10.8 0 0 0 1.489-3.03c0-.004.005-.014.005-.018a4.6 4.6 0 0 0-1.986-.819c.161-.395.276-.804.349-1.218c.005-.009.005-.014.005-.023a5.85 5.85 0 0 1 2.404 1.035c.685.505.552 1.075.446 1.416C22.184 20.437 17.619 24 12.221 24c-6.625 0-12-5.375-12-12s5.37-12 12-12c5.398 0 9.963 3.563 11.471 8.464c.106.341.239.915-.446 1.421a5.8 5.8 0 0 1-2.404 1.034c.128.716.128 1.45 0 2.166a6.3 6.3 0 0 0-1.182-.11c-4.184 0-3.968 2.823-6.736 2.823h-1.029c-1.899 0-3.15-1.357-3.15-3.095v-1.411c0-1.738 1.251-3.094 3.15-3.094h1.034c2.768 0 2.552 2.823 6.731 2.827" />
+    </symbol>
+
+    <symbol id="i-plus" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 4.5v15M4.5 12h15" />
+      </g>
+    </symbol>
+
+    <symbol id="i-minus" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4.5 12h15" />
+      </g>
+    </symbol>
+
+    <!-- Generated mazes (walls only), each drawn once and placed with <use>.
+         maze-hero: 36x18, no border, behind the hero. maze-cross / maze-cross-sm:
+         44x8 and 16x6, bordered, with an entrance in the left wall and an exit in the
+         right, along the bottom of the booking band. Non-scaling strokes hold 1.75px. -->
+    <symbol id="maze-hero" viewBox="0 0 1440 720">
+      <path vector-effect="non-scaling-stroke" d="M40 40H80M120 40H200M280 40H320M400 40H600M640 40H760M840 40H880M1000 40H1120M1160 40H1240M1280 40H1400M80 80H200M320 80H400M480 80H520M560 80H640M680 80H920M960 80H1120M1240 80H1360M40 120H80M160 120H360M520 120H560M600 120H680M800 120H920M1000 120H1080M1120 120H1160M1200 120H1280M1360 120H1400M40 160H80M120 160H200M280 160H400M480 160H520M600 160H720M760 160H840M880 160H1000M1160 160H1200M1280 160H1360M1400 160H1440M40 200H200M280 200H320M560 200H600M720 200H800M840 200H920M960 200H1000M1160 200H1200M1240 200H1320M1360 200H1400M80 240H160M320 240H360M600 240H640M680 240H800M880 240H920M1000 240H1040M1080 240H1160M1240 240H1280M1360 240H1440M120 280H200M240 280H320M400 280H440M480 280H600M640 280H760M920 280H1000M1040 280H1080M1200 280H1240M1280 280H1400M160 320H280M360 320H400M520 320H560M640 320H680M720 320H800M840 320H880M920 320H960M1040 320H1080M1120 320H1200M1240 320H1280M1320 320H1400M0 360H40M80 360H160M280 360H400M480 360H520M560 360H640M680 360H720M760 360H960M1000 360H1040M1160 360H1240M1280 360H1320M40 400H80M120 400H200M240 400H320M360 400H440M520 400H640M720 400H840M880 400H920M1040 400H1080M1280 400H1360M80 440H120M160 440H200M280 440H520M560 440H760M800 440H920M1000 440H1040M1080 440H1120M1360 440H1440M120 480H160M200 480H280M360 480H480M520 480H600M680 480H760M840 480H1000M1040 480H1080M1120 480H1160M1320 480H1400M40 520H120M160 520H240M280 520H360M600 520H680M920 520H960M1000 520H1120M1240 520H1280M1360 520H1400M160 560H200M320 560H400M480 560H640M760 560H800M960 560H1000M1080 560H1120M1200 560H1320M1360 560H1440M40 600H80M120 600H160M360 600H520M720 600H1040M1120 600H1240M1320 600H1440M0 640H40M160 640H200M280 640H360M400 640H480M520 640H600M680 640H720M760 640H840M920 640H1080M160 680H200M360 680H520M640 680H680M720 680H760M1000 680H1160M1240 680H1400M40 40V120M40 200V360M40 400V480M40 520V600M40 640V680M80 0V40M80 120V160M80 240V400M80 440V520M80 560V680M120 80V160M120 280V320M120 400V440M120 560V720M160 240V280M160 320V360M160 440V560M160 600V640M200 40V80M200 160V240M200 360V440M200 560V600M200 640V680M240 0V280M240 320V480M240 520V720M280 40V80M280 160V240M280 480V520M280 560V680M320 40V80M320 240V320M320 360V400M320 440V480M320 560V640M320 680V720M360 0V40M360 200V320M360 400V440M360 480V520M360 640V680M400 40V280M400 320V360M400 480V560M400 600V640M440 80V400M440 520V600M480 80V160M480 200V320M480 360V400M480 480V560M520 40V80M520 160V280M520 320V360M520 400V520M520 600V640M560 80V240M560 320V360M560 520V600M560 640V680M600 120V160M600 240V320M600 480V520M600 600V720M640 40V80M640 160V240M640 320V400M640 440V480M640 560V680M680 80V120M680 200V240M680 280V320M680 360V440M680 480V640M720 120V200M720 320V360M720 520V600M720 640V680M760 0V40M760 80V160M760 400V440M760 480V560M760 640V680M800 40V80M800 240V320M800 440V560M800 680V720M840 160V320M840 360V400M840 480V600M840 640V680M880 0V40M880 120V160M880 280V320M880 520V720M920 40V80M920 200V280M920 320V360M920 400V440M920 520V560M920 640V680M960 40V160M960 200V240M960 360V520M960 680V720M1000 0V40M1000 160V200M1000 240V320M1000 360V440M1000 520V560M1000 640V680M1040 120V280M1040 320V360M1040 440V480M1040 520V600M1080 160V240M1080 280V320M1080 360V440M1080 480V520M1080 560V640M1120 80V240M1120 280V480M1120 600V640M1160 40V120M1160 160V200M1160 240V320M1160 360V440M1160 480V680M1200 80V160M1200 200V280M1200 360V560M1200 640V720M1240 40V80M1240 120V200M1240 240V280M1240 320V360M1240 400V520M1240 600V680M1280 0V40M1280 280V320M1280 360V520M1280 560V640M1320 80V160M1320 200V280M1320 320V360M1320 440V600M1320 640V680M1360 80V120M1360 160V240M1360 360V440M1360 520V560M1360 600V640M1400 40V80M1400 320V400M1400 640V680" />
+    </symbol>
+    <symbol id="maze-cross" viewBox="0 0 1760 320">
+      <path vector-effect="non-scaling-stroke" d="M0 0H1760M0 320H1760M0 0V200M0 240V320M1760 0V160M1760 200V320M40 40H120M200 40H320M360 40H400M440 40H560M640 40H680M760 40H1120M1200 40H1240M1320 40H1440M1560 40H1600M1640 40H1680M0 80H40M160 80H240M320 80H360M480 80H640M680 80H720M800 80H840M920 80H1000M1080 80H1120M1240 80H1320M1440 80H1560M1640 80H1680M40 120H200M240 120H320M360 120H480M840 120H920M1040 120H1080M1160 120H1280M1320 120H1360M1400 120H1440M1520 120H1560M1600 120H1640M40 160H160M200 160H400M520 160H560M720 160H840M920 160H960M1080 160H1320M1360 160H1400M1440 160H1520M1560 160H1600M1640 160H1720M0 200H40M120 200H320M400 200H600M640 200H720M760 200H840M880 200H920M1000 200H1040M1080 200H1200M1240 200H1280M1400 200H1440M1520 200H1640M1680 200H1720M80 240H160M200 240H320M400 240H440M520 240H640M720 240H760M800 240H880M1040 240H1080M1160 240H1400M1520 240H1600M1640 240H1760M40 280H80M160 280H280M360 280H520M560 280H600M640 280H1040M1120 280H1160M1200 280H1280M1360 280H1480M1560 280H1680M40 200V240M80 40V120M80 160V280M120 40V80M120 280V320M160 0V80M160 160V200M160 240V280M200 120V160M240 80V120M280 80V120M320 40V80M320 200V320M360 0V40M360 80V280M400 40V80M440 40V120M440 160V200M440 240V280M480 120V240M520 80V160M520 240V280M560 120V160M600 0V80M600 120V200M600 280V320M640 40V200M640 240V280M680 120V240M720 0V160M720 240V280M760 40V120M760 200V240M800 80V160M840 80V120M840 200V240M880 40V80M880 120V200M920 80V120M920 160V240M960 120V280M1000 80V240M1040 80V200M1040 240V280M1080 40V80M1080 160V240M1080 280V320M1120 80V160M1120 240V280M1160 0V120M1160 240V280M1200 40V80M1240 0V40M1240 200V240M1280 40V120M1280 280V320M1320 120V280M1360 40V120M1360 160V200M1400 40V80M1400 120V160M1400 200V240M1440 80V120M1440 160V240M1480 0V80M1480 120V160M1480 200V320M1520 0V40M1520 80V120M1520 160V200M1520 240V280M1560 120V160M1600 40V160M1600 200V240M1640 40V80M1640 160V200M1640 240V280M1680 80V160M1720 0V120M1720 160V200M1720 280V320" />
+    </symbol>
+    <symbol id="maze-cross-sm" viewBox="0 0 640 240">
+      <path vector-effect="non-scaling-stroke" d="M0 0H640M0 240H640M0 0V120M0 160V240M640 0V120M640 160V240M120 40H200M240 40H320M360 40H480M520 40H600M80 80H240M360 80H560M600 80H640M40 120H120M160 120H200M440 120H480M560 120H600M40 160H80M120 160H200M240 160H280M320 160H440M80 200H160M280 200H600M40 0V120M40 160V200M80 40V80M80 160V200M120 120V160M160 80V120M160 200V240M200 0V40M200 160V200M240 40V200M280 80V200M320 40V160M360 80V120M400 80V160M480 0V40M480 120V200M520 80V160M560 40V80M560 120V200M600 80V120M600 160V200" />
     </symbol>
 
     <symbol id="i-sun" viewBox="0 0 24 24">
@@ -489,6 +503,12 @@
   <main id="main">
     <!-- ================= HERO ========================================= -->
     <section id="top" class="hero-atmos">
+      <!-- The maze behind the hero: faint, fading in toward the right and running under
+           the hero content (#maze-hero in the sprite). Decorative. -->
+      <svg class="maze-hero" viewBox="0 0 1440 720" preserveAspectRatio="xMaxYMax slice" aria-hidden="true"
+        focusable="false">
+        <use href="#maze-hero" width="1440" height="720" />
+      </svg>
       <div class="canvas section">
         <div class="grid-9 items-start">
           <div class="lg:col-span-5">
@@ -582,7 +602,7 @@
     <!-- ================= WHAT IS AN ADVOCATE / WHY A HUMAN ============= -->
     <section id="what" class="section" aria-labelledby="what-h">
       <div class="canvas">
-        <h2 id="what-h" data-reveal="heading">What is a healthcare advocate?</h2>
+        <h2 id="what-h" class="text-h1" data-reveal="heading">What is a healthcare advocate?</h2>
         <div class="what-intro mt-6">
           <figure class="vignette-figure" data-reveal="photo">
             <picture>
@@ -640,6 +660,8 @@
           </ul>
           <p class="mt-4" data-reveal>You keep every decision. We handle the paperwork, phone calls, and follow-up.</p>
         </div>
+
+
 
         <div class="callout mt-10 p-7 lg:p-8" data-reveal>
           <h3 class="text-h4">Why a person, not a free artificial intelligence appeal tool?</h3>
@@ -968,8 +990,124 @@
       </div>
     </section>
 
+    <!-- ================= FINE PRINT, READ =========================== -->
+    <section id="review" class="section" aria-labelledby="review-h">
+      <div class="canvas">
+        <!-- Fine print, read: a made-up statement marked the way a real one is
+             reviewed. The three marks are the three checks named under EOB Analysis
+             (coding mistakes, duplicate charges, services never received). Marks draw
+             in on scroll ([data-reveal="marks"]); pointing at a note lights its line
+             (main.js). No savings or outcomes are shown. -->
+        <div class="fineprint" data-fineprint>
+          <div class="fineprint-head">
+            <h2 id="review-h" data-reveal="heading">What a <span class="whitespace-nowrap">line-by-line</span> review looks for</h2>
+            <p data-reveal>A sample hospital statement, marked the way we review a real one. The patient, codes and
+              amounts are made up for illustration.</p>
+          </div>
+
+          <div class="fineprint-body">
+            <div class="fineprint-doc" data-reveal="marks">
+              <div class="fineprint-doc-top">
+                <p class="fineprint-doc-title">Statement of services</p>
+                <p class="fineprint-stamp">Sample</p>
+              </div>
+              <p class="fineprint-doc-meta"><span>Patient: A. Sample</span><span>Date of service: March 4</span></p>
+
+              <table class="fineprint-table">
+                <caption class="sr-only">Sample itemized hospital statement, with three lines marked for review
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Code</th>
+                    <th scope="col">Description</th>
+                    <th scope="col" class="fp-amt">Charge</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="is-flagged" data-note="1">
+                    <td><span class="fp-pin" aria-hidden="true">1</span><span class="fp-mark">99285<svg
+                          class="fp-ink fp-ink--under" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"
+                          focusable="false">
+                          <path pathLength="1" d="M3 5.2C30 3.4 62 6.2 97 3.6" />
+                        </svg></span></td>
+                    <td>Emergency visit, level 5<span class="sr-only"> (marked: see note 1)</span></td>
+                    <td class="fp-amt">$1,960.00</td>
+                  </tr>
+                  <tr>
+                    <td>85025</td>
+                    <td>Blood count (CBC)</td>
+                    <td class="fp-amt">$86.00</td>
+                  </tr>
+                  <tr class="is-flagged" data-note="2">
+                    <td><span class="fp-pin" aria-hidden="true">2</span>85025</td>
+                    <td>Blood count (CBC)<span class="sr-only"> (marked: see note 2)</span></td>
+                    <td class="fp-amt"><span class="fp-mark">$86.00<svg class="fp-ink fp-ink--ring" viewBox="0 0 100 50"
+                          preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                          <path pathLength="1"
+                            d="M84 9C66 2 26 2 11 12 -1 20 4 38 30 44 58 50 92 42 96 26 99 14 86 7 70 6" />
+                        </svg></span></td>
+                  </tr>
+                  <tr>
+                    <td>71046</td>
+                    <td>Chest X-ray, 2 views</td>
+                    <td class="fp-amt">$412.00</td>
+                  </tr>
+                  <tr class="is-flagged" data-note="3">
+                    <td><span class="fp-pin" aria-hidden="true">3</span>96374</td>
+                    <td><span class="fp-mark">IV medication, push<svg class="fp-ink fp-ink--under" viewBox="0 0 100 8"
+                          preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                          <path pathLength="1" d="M2 4.4C28 6 70 3.2 98 5" />
+                        </svg></span><span class="sr-only"> (marked: see note 3)</span></td>
+                    <td class="fp-amt">$318.00</td>
+                  </tr>
+                  <tr>
+                    <td>80053</td>
+                    <td>Metabolic panel</td>
+                    <td class="fp-amt">$148.00</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th scope="row" colspan="2">Total charges</th>
+                    <td class="fp-amt">$3,010.00</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+
+            <ol class="fineprint-notes" data-reveal="list">
+              <li data-note="1">
+                <span class="fp-pin" aria-hidden="true">1</span>
+                <div>
+                  <h3 class="text-h4">Coded at a higher level?</h3>
+                  <p>Emergency visits are billed at one of five levels. We check that the level on the bill matches
+                    the care your visit record describes.</p>
+                </div>
+              </li>
+              <li data-note="2">
+                <span class="fp-pin" aria-hidden="true">2</span>
+                <div>
+                  <h3 class="text-h4">Billed twice?</h3>
+                  <p>The same blood test appears on two lines for the same day. We ask the billing office to confirm
+                    it or take the duplicate off.</p>
+                </div>
+              </li>
+              <li data-note="3">
+                <span class="fp-pin" aria-hidden="true">3</span>
+                <div>
+                  <h3 class="text-h4">Was this given?</h3>
+                  <p>Every line should match care you actually received. If your records show no IV medication, we
+                    ask for the charge to be removed.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= PRICING (verbatim §8) ===================== -->
-    <section id="pricing" class="section" aria-labelledby="pricing-h">
+    <section id="pricing" class="section border-t border-line-soft" aria-labelledby="pricing-h">
       <div class="canvas">
         <h2 id="pricing-h" data-reveal="heading">Straightforward pricing</h2>
         <div class="prose-measure mt-4" data-reveal>
@@ -1087,7 +1225,7 @@
           <div class="faq-aside">
             <h2 id="faqs-h" data-reveal="heading"><abbr title="Frequently asked questions">FAQs</abbr></h2>
             <p class="faq-more" data-reveal>Have more questions? Email
-              <a href="#intake" data-email-user="coastalhealthcareadvocates" data-email-domain="gmail.com">us</a>
+              <a href="#intake" data-email-user="info" data-email-domain="coastalhealthcareadvocates.org">us</a>
               or call <a href="#intake" data-tel-area="757" data-tel-line="5740771">us</a>
               (M–F 8am–5pm ET).
             </p>
@@ -1393,8 +1531,8 @@
                 <span><span class="text-ink" data-tel-text>Call us</span><span class="text-ink-soft">,
                     M–F 8am–5pm ET</span></span>
               </a>
-              <a class="flex items-center gap-2.5" href="#intake-form" data-email-user="coastalhealthcareadvocates"
-                data-email-domain="gmail.com">
+              <a class="flex items-center gap-2.5" href="#intake-form" data-email-user="info"
+                data-email-domain="coastalhealthcareadvocates.org">
                 <svg class="icon shrink-0 text-sky w-[1.2rem]" aria-hidden="true">
                   <use href="#i-mail" />
                 </svg>
@@ -1414,12 +1552,14 @@
     </section>
 
     <!-- ================= SCHEDULE ================================= -->
-    <section id="schedule" class="section bg-navy text-paper on-dark border-y border-line" aria-labelledby="schedule-h">
+    <section id="schedule" class="section schedule-band bg-navy text-paper on-dark border-y border-line"
+      aria-labelledby="schedule-h">
       <div class="canvas text-center">
-        <h2 id="schedule-h" class="text-paper" data-reveal="heading">Book a free 20–30 minute call</h2>
-        <p class="mx-auto mt-4 max-w-measure on-dark-soft" data-reveal>Talk through your
-          situation with someone who has worked in claims and billing for 18 years.
-          There is no charge and no obligation.</p>
+        <h2 id="schedule-h" class="text-h1 text-paper" data-reveal="heading">Book a free <span
+            class="whitespace-nowrap">20–30</span> minute call</h2>
+        <p class="mx-auto mt-4 max-w-measure on-dark-soft" data-reveal>Lost in the health insurance maze?
+          Give us a call, and we'll help you find your way out. You'll talk with someone who has worked
+          in claims and billing for 18 years, and there is no charge and no obligation.</p>
         <p class="mt-7 flex flex-wrap justify-center gap-4" data-reveal>
           <a class="btn btn-on-dark" href="https://calendly.com/coastalhealthcareadvocates/30min" target="_blank"
             rel="noopener">
@@ -1431,8 +1571,24 @@
           <a class="btn btn-ghost-on-dark" href="#intake" data-tel-area="757" data-tel-line="5740771">Call <span
               data-tel-text>us</span></a>
         </p>
-        <p class="mt-3 text-sm on-dark-soft" data-reveal>Phone lines open M–F 8am–5pm ET.</p>
+        <p class="mt-3 text-sm on-dark-soft" data-reveal>Call us M–F 8am–5pm ET.</p>
       </div>
+      <!-- The maze, solved: from a ring outside the entrance in the left wall, the route
+           crosses to the exit in the right wall and ends at a dot. Full width, below the
+           copy; the smaller maze stands in on phones. Draws itself in once the footer
+           comes into view (main.js). Decorative. -->
+      <svg class="maze-cross maze-cross--lg" viewBox="-40 -4 1840 328" aria-hidden="true" focusable="false">
+        <use href="#maze-cross" width="1760" height="320" />
+        <path class="maze-route" pathLength="1" d="M-24 220H20V260H60V180H20V140H180V180H340V300H540V260H620V300H1060V260H1100V300H1180V260H1300V300H1340V260H1460V180H1500V300H1540V260H1620V220H1740V180H1784" />
+        <circle class="maze-route-start" cx="-24" cy="220" r="9" />
+        <circle class="maze-route-end" cx="1784" cy="180" r="7" />
+      </svg>
+      <svg class="maze-cross maze-cross--sm" viewBox="-40 -4 720 248" aria-hidden="true" focusable="false">
+        <use href="#maze-cross-sm" width="640" height="240" />
+        <path class="maze-route" pathLength="1" d="M-24 140H100V180H180V220H620V140H664" />
+        <circle class="maze-route-start" cx="-24" cy="140" r="9" />
+        <circle class="maze-route-end" cx="664" cy="140" r="7" />
+      </svg>
     </section>
   </main>
 
@@ -1476,7 +1632,7 @@
           <address class="not-italic flex flex-col gap-2">
             <span><a href="#intake" data-tel-area="757" data-tel-line="5740771" class="p-tel">Call us</a><br>
               <span class="footer-dim">M–F 8am–5pm ET</span></span>
-            <a href="#intake" data-email-user="coastalhealthcareadvocates" data-email-domain="gmail.com"
+            <a href="#intake" data-email-user="info" data-email-domain="coastalhealthcareadvocates.org"
               class="break-words">Email us</a>
             <span class="footer-dim">Serving Hampton Roads and Southern Virginia</span>
           </address>
@@ -1621,8 +1777,8 @@
     </div>
   </dialog>
 
-  <script type="module" src="assets/js/main.js?v=89f6f4bcea"></script>
-  <script type="module" src="assets/js/modal.js?v=21f009a442"></script>
+  <script type="module" src="assets/js/main.js?v=6521bd0ce5"></script>
+  <script type="module" src="assets/js/modal.js?v=246dce9a45"></script>
   <script type="module" src="assets/js/consent.js?v=54c1b16e4b"></script>
 </body>
 

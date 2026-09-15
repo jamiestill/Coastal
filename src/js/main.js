@@ -343,6 +343,7 @@ const tabTuckAt = document.getElementById('intake');
 
 if (drawerTab && tabTuckAt) {
   let tabTicking = false;
+  let tabArrived = false; // the first appearance leans out and settles (CSS .is-arriving), once
   const syncDrawerTab = () => {
     tabTicking = false;
     // Not yet: the top of the "What is a healthcare advocate?" section is still below the fold.
@@ -351,8 +352,18 @@ if (drawerTab && tabTuckAt) {
     // into the lower part of the viewport — from here down (form, schedule,
     // footer) the page carries its own consultation CTAs.
     const late = tabTuckAt.getBoundingClientRect().top < window.innerHeight * 0.75;
-    drawerTab.classList.toggle('is-tucked', early || late);
+    const tucked = early || late;
+    drawerTab.classList.toggle('is-tucked', tucked);
     drawerTab.classList.remove('tab-wait');
+    if (!tucked && !tabArrived) {
+      tabArrived = true;
+      if (!prefersReducedMotion.matches) {
+        drawerTab.classList.add('is-arriving');
+        drawerTab.addEventListener('animationend', () => drawerTab.classList.remove('is-arriving'), { once: true });
+      }
+    } else if (tucked) {
+      drawerTab.classList.remove('is-arriving');
+    }
   };
   syncDrawerTab();
   window.addEventListener(
@@ -365,4 +376,53 @@ if (drawerTab && tabTuckAt) {
     { passive: true }
   );
   window.addEventListener('resize', syncDrawerTab, { passive: true });
+}
+
+/* -------------------------------------------------------------------------
+   Booking band maze — once the footer comes into view, the route draws itself
+   across the maze, from the entrance in its left wall to the exit in its right.
+   Both mazes (wide, and the phone one) are armed; only one is displayed. Once
+   per page view. No JS: the route is simply shown as drawn. A position check on
+   a throttled scroll listener (like the scroll-reveal above), so a fast fling
+   or an anchor jump to the footer can't skip it.
+   ---------------------------------------------------------------------- */
+const routeMazes = document.querySelectorAll('.maze-cross');
+const siteFooter = document.querySelector('.site-footer');
+
+if (routeMazes.length && siteFooter) {
+  routeMazes.forEach((maze) => maze.classList.add('route-pending'));
+  let routeTicking = false;
+  const checkRoute = () => {
+    routeTicking = false;
+    if (siteFooter.getBoundingClientRect().top > window.innerHeight * 0.92) return;
+    routeMazes.forEach((maze) => maze.classList.add('is-routed'));
+    window.removeEventListener('scroll', onRouteScroll);
+    window.removeEventListener('resize', onRouteScroll);
+  };
+  const onRouteScroll = () => {
+    if (routeTicking) return;
+    routeTicking = true;
+    requestAnimationFrame(checkRoute);
+  };
+  window.addEventListener('scroll', onRouteScroll, { passive: true });
+  window.addEventListener('resize', onRouteScroll, { passive: true });
+  checkRoute();
+}
+
+/* -------------------------------------------------------------------------
+   Fine print, read — pointing at a note lights its marked line on the sample
+   statement (and pointing at a line lights its note). Pointer only and purely
+   additive: the notes, numbers and marks all read without it.
+   ---------------------------------------------------------------------- */
+const finePrint = document.querySelector('[data-fineprint]');
+
+if (finePrint) {
+  finePrint.querySelectorAll('[data-note]').forEach((el) => {
+    el.addEventListener('pointerenter', () => {
+      finePrint.dataset.active = el.dataset.note;
+    });
+    el.addEventListener('pointerleave', () => {
+      if (finePrint.dataset.active === el.dataset.note) delete finePrint.dataset.active;
+    });
+  });
 }

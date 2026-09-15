@@ -34,26 +34,26 @@ colors:
 typography:
   display:
     fontFamily: "Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif"
-    fontSize: "clamp(1.75rem, 1.15rem + 2.7vw, 3rem)"
+    fontSize: "clamp(2.25rem, 1.4rem + 3.4vw, 3.625rem)"
     fontWeight: 400
-    lineHeight: 1.12
-    letterSpacing: "0.005em"
+    lineHeight: 1.08
+    letterSpacing: "-0.005em"
   headline:
     fontFamily: "Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif"
-    fontSize: "clamp(1.5rem, 1.3rem + 0.9vw, 1.75rem)"
+    fontSize: "clamp(1.875rem, 1.4rem + 1.9vw, 2.5rem)"
     fontWeight: 400
-    lineHeight: 1.25
+    lineHeight: 1.18
     letterSpacing: "0.005em"
   title:
     fontFamily: "Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif"
-    fontSize: "clamp(1.25rem, 1.05rem + 0.9vw, 1.5rem)"
+    fontSize: "clamp(1.4375rem, 1.15rem + 1.2vw, 1.875rem)"
     fontWeight: 400
-    lineHeight: 1.3
+    lineHeight: 1.25
   title-sm:
     fontFamily: "Questrial, ui-sans-serif, 'Century Gothic', 'Avenir Next', system-ui, sans-serif"
-    fontSize: "1.25rem"
+    fontSize: "1.4375rem"
     fontWeight: 400
-    lineHeight: 1.35
+    lineHeight: 1.3
   lede:
     fontFamily: "Ysabeau, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
     fontSize: "1.3125rem"
@@ -212,7 +212,10 @@ scrolls into view (section headings clear from a faint haze while their Beacon S
 sweeps out, lists and table rows follow in turn with their line icons settling a beat
 later, the "why a person" ticks draw on, the two entry cards drift in from their own sides,
 and photographs ease back from a slight zoom), the How-it-works thread draws itself and then marches slowly while on screen, the step
-cards rest at a slight hand-pinned tilt, and the beacon lights once when a message is sent.
+cards rest at a slight hand-pinned tilt, the sample statement is marked line by line as it
+arrives, and the beacon lights once when a message is sent. A faint maze sits still under the
+hero and the booking band; as the footer comes into view, one route draws itself through the
+booking band's maze.
 
 This is explicitly **not** an insurer or fintech interface: no dashboards, stat tiles,
 countdown urgency, or aggressive conversion chrome. The visitor is stressed and often older.
@@ -262,7 +265,8 @@ sections (Services and Who we help):
   the second of every three service rows and the professional-referrers tile.
 - **Sand** (`sand`): the seniors tile in Who we help (Harbor Navy icon, 10.5:1) and the
   highlight behind the message character count once it nears the 600-character limit, with
-  Midnight text (12.3:1).
+  Midnight text (12.3:1). A 28% Sand wash is the highlighter behind flagged lines on the sample
+  statement.
 - **Coral** (`coral`), ink step **Coral Ink** (`coral-ink`): the fourth step accent (Coral Ink
   sets its numeral), error borders, the ▲ error marker, the error-summary border, and the
   highlight behind the character count when a keystroke or paste runs past the limit
@@ -330,13 +334,18 @@ two small accents add tactile precision: a mono face for money, and an italic se
 numbers.
 
 ### Hierarchy
-- **Display** (400, clamp 1.75–3rem, 1.12): the hero headline only.
-- **Headline** (400, clamp 1.5–1.75rem, 1.25): section headings. Each carries an 8rem, 2px
+- **Display** (400, clamp 2.25–3.625rem, 1.08, -0.005em): the hero headline, plus the two
+  display headings below.
+- **Headline** (400, clamp 1.875–2.5rem, 1.18): section headings. Each carries an 8rem, 2px
   Beacon Sky rule 1.5rem below it; the navy booking band's heading omits it.
-- **Title** (400, clamp 1.25–1.5rem, 1.3): path-card headings, FAQ questions, success
-  message headings.
-- **Title Small** (400, 1.25rem, 1.35): headings for services, "Who we help" items, steps,
-  value items and the callout. Tracking resets to 0 inside cards.
+- **Title** (400, clamp 1.4375–1.875rem, 1.25): path-card headings, the sample-statement
+  heading, success message headings and the legal pages' section headings.
+- **Title Small** (400, 1.4375rem, 1.3): headings for services, "Who we help" items, steps,
+  value items, the callout, the sample-statement notes and FAQ questions. Tracking resets to 0
+  inside cards.
+
+The scale steps by at least 1.25× at every level: body 18px, Title Small 23px, Title 23–30px,
+Headline 30–40px, Display 36–58px. The tokens live once, in `tailwind.config.js` `fontSize`.
 - **Lede** (400, 1.3125rem, 1.45, Ink Soft, max 60ch): the introduction under the hero and
   intake headings.
 - **Body** (400, 1.125rem, 1.6): all running copy. Prose blocks cap at 62ch, legal and FAQ
@@ -349,6 +358,8 @@ numbers.
   full-width space and brackets open visible gaps in "(757) 574-0771".
 - **Numeral** (Cormorant Garamond 500 italic, 2.75rem): the How-it-works step numbers, each
   tinted with its step's ink colour.
+- **Display headings:** "What is a patient advocate?" and the booking band's heading take the
+  Display size, so the page opens its explanation and closes its ask at the hero's scale.
 - **Row Title** (1.0625rem): pricing row names (set in Cormorant Garamond 500), the hero phone
   link and the crisis-card reassurance line (Questrial).
 - **Caption** (Ysabeau, 0.875rem): field hints, the privacy note and price units. This is
@@ -383,7 +394,10 @@ tokens). Who we help is the one tinted band (`.who-band`, Beacon Sky 11% into Gr
 
 Grids are simple and collapse early:
 - **Services:** two columns of hairline-divided, colour-keyed rows from 768px, one column below.
-- **Who we help:** a two-column list with solid icon tiles from 640px.
+- **Who we help:** a two-column list with solid icon tiles from 640px; from 1024px the four
+  audiences stand in a row with the tile above each heading.
+- **Fine print:** the sample statement beside its three notes from 820px (1.45fr / 1fr),
+  stacked below.
 - **Entry paths:** two cards side by side from 480px.
 - **FAQs:** a sticky 16rem aside beside the accordion from 900px.
 - **About:** a sticky portrait rail (18rem, 22rem from 1024px) beside the bio from 700px.
@@ -515,12 +529,45 @@ Mono. Below 40rem each service stacks into its own block with a visible "Fee:" l
 its table semantics.
 
 ### FAQ accordion
-Hairline-divided rows. Each question is a full-width Title-sized button with a plus that
-turns to a minus with a half turn. Answers open by animating the grid row, in Ink Soft at a
-68ch max width.
+Hairline-divided rows. Each question is a full-width Title Small button with a plus that turns
+to a minus with a half turn. Answers open by animating the grid row, in Ink Soft at a 68ch max
+width.
+
+### Maze band (signature)
+Two generated mazes, walls only, drawn once each in the sprite and placed with `<use>`, in
+1.75px non-scaling round strokes.
+
+- **Hero** (`#maze-hero`, 36×18, no border): behind the whole hero, anchored bottom-right, in Ink
+  at 16%. It fades in toward the right (transparent to 34% of the width, full by 88%), so the
+  copy column stays clean and the maze runs around and under the illustration. On phones, where
+  the copy is full width, it is a 9rem band under the content that fades in toward the right.
+  Static.
+- **Booking band** (`#maze-cross`, 44×8; `#maze-cross-sm`, 16×6 at 640px and below): full width
+  behind the band's copy as a background, anchored to its bottom edge and fading out upward so
+  it adds no height, in Paper at 15%, scaling with the page so both walls always
+  show. The maze has an entrance in its left wall and an exit in its right. Solved: a Beacon Sky
+  ring waits outside the entrance, the route (60%) follows the real solution all the way across
+  and out of the exit, and a Sky dot marks the way out. Once the footer comes into view the ring
+  appears, the route draws over 4.2s and the dot lands, once per page view. No JS shows it all
+  drawn; reduced motion shows it without the draw. The band's copy invites a call to find the
+  way out of the health insurance maze.
+
+The 404 page keeps a small maze of its own, in Ink Soft, with its route drawn through to the exit.
+
+### Fine print, read (signature)
+In its own section, just before Pricing, a sample itemized statement sits beside three numbered
+notes, under a standard section heading.
+It shows the work rather than describing it. The statement is a paper document: Surface,
+hairline, Lift, a tilted outline "Sample" stamp, a Code / Description / Charge table with
+charges in Plex Mono. Three lines are flagged, matching the three checks named under EOB
+Analysis (coding level, duplicate charge, service not received): a Sand highlighter wash, a
+numbered Sky Ink pin in the margin, and one pen mark (an underline or a ring, round caps).
+On scroll the document rises, then each highlight swipes in and its mark draws, one note at a
+time. Pointing at a note or its line fills both pins. The copy says the patient, codes and
+amounts are made up; it never shows savings or outcomes.
 
 ### Message sent: "the light comes on" (signature)
-The site's one delight moment. When a contact form sends successfully, the success panel opens
+The delight moment for reaching out. When a contact form sends successfully, the success panel opens
 with the Advocate Beacon mark (the primary colourway, or the dark one in dark theme, at 3.5rem).
 Its light comes up behind it: a soft Beacon Sky glow blooms, one slow beam of light sweeps
 round, and it settles to a steady glow. It happens once per message, never loops, and never
@@ -534,7 +581,9 @@ Don't reuse it as page decoration, a loading spinner or a hover effect, or it st
 ### Persistent CTA ("Get Started")
 A Beacon Sky tab fixed to the right edge with vertical uppercase text, rounded on its inner
 corners. Below 480px it becomes a full-width bar pinned to the bottom of the screen. It hides
-when the intake form comes into view, and while the consent banner is showing on phones.
+when the intake form comes into view, and while the consent banner is showing on phones. The
+first time it comes out in a page view it leans a little past its resting place and settles
+back (900ms, once); later appearances simply slide.
 
 ## Do's and Don'ts
 

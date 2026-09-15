@@ -97,7 +97,7 @@ rotated, update both this value and the Netlify env var together.
 - `npm run build` rewrites the `?v=` hashes in every HTML page (`scripts/version-assets.js`), so a
   build alone shows those pages as modified in `git status`.
 - **Never write the email address literally in a site page or `src/js/`.** Author
-  `<a href="#intake" data-email-user="coastalhealthcareadvocates" data-email-domain="gmail.com">Email us</a>`
+  `<a href="#intake" data-email-user="info" data-email-domain="coastalhealthcareadvocates.org">Email us</a>`
   (`index.html#intake` on secondary pages); `src/js/email.js` — loaded with `defer` in every page's
   `<head>` — turns it into the `mailto:` link at runtime so address-harvesting crawlers miss it. The
   href/text are the no-JS fallback; put `data-email-text` on a child to keep an icon beside it. JS
@@ -190,7 +190,7 @@ verbatim rather than rewriting. `creative/audience-personas.md` and
 hero copy says "licensed advocate," but healthcare advocacy is an unregulated field and Lindsey
 holds certifications, not a license — confirm wording before shipping.
 
-Contact: Coastal Healthcare Advocates · coastalhealthcareadvocates@gmail.com · (757) 574-0771 (M–F 8am–5pm ET) ·
+Contact: Coastal Healthcare Advocates · info@coastalhealthcareadvocates.org · (757) 574-0771 (M–F 8am–5pm ET) ·
 coastalhealthcareadvocates.org.
 
 ## Design skills and config

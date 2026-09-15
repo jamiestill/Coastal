@@ -17,7 +17,7 @@
   <link rel="apple-touch-icon" sizes="167x167" href="/assets/img/apple-touch-icon-167x167.png">
   <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/apple-touch-icon-152x152.png">
   <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/apple-touch-icon-120x120.png">
-  <link rel="stylesheet" href="/assets/css/site.css?v=de87513e96">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1aa842423a">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'">
 </head>
 <body>
@@ -30,6 +30,15 @@
       <div class="legal-prose">
         <h1>That page isn't here.</h1>
         <p class="meta mt-2">Error 404 &middot; Page not found</p>
+
+        <!-- A small maze with its route traced through to the way out. Decorative. -->
+        <svg class="lost-maze" viewBox="-16 -6 368 166" aria-hidden="true" focusable="false">
+          <path class="lost-maze-walls"
+            d="M0 0H336M0 0V48M0 72V144M0 144H240M264 144H336M336 0V144M24 24H48M72 24H168M216 24H264M288 24H312M0 48H24M144 48H192M216 48H240M264 48H288M24 72H48M96 72H168M192 72H264M288 72H312M24 96H96M168 96H216M312 96H336M24 120H48M72 120H120M144 120H168M216 120H264M288 120H312M24 96V120M48 0V72M72 24V96M72 120V144M96 48V72M120 24V72M120 96V120M144 72V120M168 72V96M192 24V72M192 96V144M216 24V48M240 48V72M240 96V120M264 24V48M264 72V120M288 0V24M288 48V144M312 24V48" />
+          <path class="lost-maze-route" pathLength="1"
+            d="M-12 60H12V84H60V12H180V36H132V60H180V84H228V108H204V132H252V152" />
+          <circle class="lost-maze-end" cx="252" cy="152" r="4" />
+        </svg>
 
         <p class="mt-6">The link may be out of date, or the address has a typo. Everything
           lives on one page. Here are the parts people look for most:</p>
@@ -49,7 +58,7 @@
   </main>
 
   <div data-partial="footer"></div>
-  <script src="/assets/js/partials.js?v=c9a37d9bcb"></script>
+  <script src="/assets/js/partials.js?v=7dd6c97e62"></script>
   <script type="module" src="/assets/js/consent.js?v=54c1b16e4b"></script>
 </body>
 </html>

@@ -328,7 +328,7 @@ Up to 5 hours per month of ongoing advocacy for clients managing multiple bills 
 
 **Coastal Healthcare Advocates**
 
-coastalhealthcareadvocates@gmail.com
+info@coastalhealthcareadvocates.org
 
 757‑574‑0771
 

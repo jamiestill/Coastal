@@ -4,8 +4,8 @@
    JS, so crawlers that scan pages for "@", "mailto:", "tel:" or a ten-digit
    number don't collect them. Authored markup:
 
-     <a href="#intake" data-email-user="coastalhealthcareadvocates"
-        data-email-domain="gmail.com">Email us</a>
+     <a href="#intake" data-email-user="info"
+        data-email-domain="coastalhealthcareadvocates.org">Email us</a>
      <a href="#intake" data-tel-area="757" data-tel-line="5740771">Call us</a>
 
    The href and text are the no-JS fallback (a route to the contact form).

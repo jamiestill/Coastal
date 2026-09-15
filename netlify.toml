@@ -12,6 +12,13 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# `netlify dev` serves the repo root, not dist/ — dist/ only exists after a full
+# build, and serving the root means edits show up without re-running build-site.js.
+# Run `npm run dev` alongside it to keep site.css and assets/js regenerating.
+[dev]
+  framework = "#static"
+  publish = "."
+
 # Security + caching headers. Mirrors the CSP <meta> in the HTML; the header wins where both apply.
 [[headers]]
   for = "/*"
